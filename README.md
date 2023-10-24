@@ -18,17 +18,20 @@ Estandar para la organisacion en el desarrollo del proyecto
   # Sobre Nosotros 
 
   -> HOLA!  Soy Gregorio Navarrete, soy de SGO capital y estudiante de programacion en la UNSE, me gusta la informatica y pasar el tiempo con amigos.
+
   -> BUENAS!  Soy Lourdes Ortega, estudiante de Ing.Civil en la UNSE y fanatica de los libros, principiante en programacion, pero con muchas ganas de aprender.
+  
+  -> QUE TAL! Soy Juarez Exequiel, soy de la Banda, estoy cursando la carrera de programacion en la unse y en mis tiempos libres me gusta tocar la guitarra y el piano.
 
 
   # Nuestras Referencias :
   
-  1. [SBS libreria internacional](https://www.sbs.com.ar/):la elegimos por la tematica y el diseño del home.
-  2. [tienda ohh deer](https://ohhdeer.com/):la elegimos por el estilo, diseño del home y diseño del carrito de compras.
-  3. [tienda Havana](https://tienda.havanna.com.ar/):la elegimos por el diseño del carrito de compras.
-  4. [two chimps coffe](https://twochimpscoffee.com/):la elegimos por el estilo de la pagina, ademas de la idea de unir los formularios de log in y registro.
-  5. [Mercado libre](https://www.mercadolibre.com.ar/):la elegimos por el diseño de los formularios log in y registrar usuario.
-  6. [Goodreads](https://www.goodreads.com/):la tomamos de referencia por su organizacion y su interfaz de comunidad que logra conectar con muchos lectores.
-  7. [Scribd](https://es.scribd.com/):nos inspitamos en el detalle del producto y la caja de comentarios.
+  1. [SBS libreria internacional](https://www.sbs.com.ar/): la elegimos por la tematica y el diseño del home.
+  2. [tienda ohh deer](https://ohhdeer.com/): la elegimos por el estilo, diseño del home y diseño del carrito de compras.
+  3. [tienda Havana](https://tienda.havanna.com.ar/): la elegimos por el diseño del carrito de compras.
+  4. [two chimps coffe](https://twochimpscoffee.com/): la elegimos por el estilo de la pagina, ademas de la idea de unir los formularios de log in y registro.
+  5. [Mercado libre](https://www.mercadolibre.com.ar/): la elegimos por el diseño de los formularios log in y registrar usuario.
+  6. [Goodreads](https://www.goodreads.com/): la tomamos de referencia por su organizacion y su interfaz de comunidad que logra conectar con muchos lectores.
+  7. [Scribd](https://es.scribd.com/): nos inspitamos en el detalle del producto y la caja de comentarios.
 
 
