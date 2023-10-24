@@ -22,9 +22,12 @@ Estandar para la organisacion en el desarrollo del proyecto
 
 
 
-
   # Nuestras Referencias :
   
-  1. [SBS libreria internacional](https://www.sbs.com.ar/):la elegimos por el diseño del home 
+  1. [SBS libreria internacional](https://www.sbs.com.ar/):la elegimos por el diseño del home.
+  2. [tienda ohh deer](https://ohhdeer.com/):la elegimos por la tematica y diseño del home.
+  3. [tienda Havana](https://tienda.havanna.com.ar/):la elegimos por el diseño del carrito de compras.
+  4. [two chimps coffe](https://twochimpscoffee.com/):la elegimos por el estilo de la pagina.
+  5. [Mercado libre](https://www.mercadolibre.com.ar/):la elegimos por el diseño de los formularios log in y registrar usuario.
 
 
