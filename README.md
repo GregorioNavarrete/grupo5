@@ -7,7 +7,7 @@ Estandar para la organisacion en el desarrollo del proyecto
   4. Previo a hacer push a "main" hay que probar todas las funcionalidades en la rama "DEV"
   # Descripcion 
 
-  Nuestra tienda de libros es un universo de historias, conocimientos y aventuras esperando ser descubiertas. Ofrecemos una amplia gama de libros, desde los clásicos atemporales hasta las últimas novedades. Nuestro compromiso es con la calidad y la satisfacción del lector. En "nombreDeLaPagina", cada libro es un viaje, y cada página es una nueva aventura.Está dirigida a un público amplio y diverso:
+  Nuestra tienda de libros es un universo de historias, conocimientos y aventuras esperando ser descubiertas. Ofrecemos una amplia gama de libros, desde los clásicos atemporales hasta las últimas novedades. Nuestro compromiso es con la calidad y la satisfacción del lector. En Prisma, cada libro es un viaje, y cada página es una nueva aventura.Está dirigida a un público amplio y diverso:
 
   1. Lectores ávidos: Personas que aman leer y están constantemente buscando nuevos libros para descubrir.
   2. Estudiantes: Desde la escuela primaria hasta la universidad, los estudiantes necesitan libros para sus estudios.
@@ -18,16 +18,17 @@ Estandar para la organisacion en el desarrollo del proyecto
   # Sobre Nosotros 
 
   -> HOLA!  Soy Gregorio Navarrete, soy de SGO capital y estudiante de programacion en la UNSE, me gusta la informatica y pasar el tiempo con amigos.
-  
-
+  -> BUENAS!  Soy Lourdes Ortega, estudiante de Ing.Civil en la UNSE y fanatica de los libros, principiante en programacion, pero con muchas ganas de aprender.
 
 
   # Nuestras Referencias :
   
-  1. [SBS libreria internacional](https://www.sbs.com.ar/):la elegimos por el diseño del home.
-  2. [tienda ohh deer](https://ohhdeer.com/):la elegimos por la tematica y diseño del home.
+  1. [SBS libreria internacional](https://www.sbs.com.ar/):la elegimos por la tematica y el diseño del home.
+  2. [tienda ohh deer](https://ohhdeer.com/):la elegimos por el estilo, diseño del home y diseño del carrito de compras.
   3. [tienda Havana](https://tienda.havanna.com.ar/):la elegimos por el diseño del carrito de compras.
-  4. [two chimps coffe](https://twochimpscoffee.com/):la elegimos por el estilo de la pagina.
+  4. [two chimps coffe](https://twochimpscoffee.com/):la elegimos por el estilo de la pagina, ademas de la idea de unir los formularios de log in y registro.
   5. [Mercado libre](https://www.mercadolibre.com.ar/):la elegimos por el diseño de los formularios log in y registrar usuario.
+  6. [Goodreads](https://www.goodreads.com/):la tomamos de referencia por su organizacion y su interfaz de comunidad que logra conectar con muchos lectores.
+  7. [Scribd](https://es.scribd.com/):nos inspitamos en el detalle del producto y la caja de comentarios.
 
 
