@@ -17,6 +17,9 @@ Estandar para la organisacion en el desarrollo del proyecto
 
   # Sobre Nosotros 
 
+  -> HOLA!  Soy Gregorio Navarrete, soy de SGO capital y estudiante de programacion en la UNSE, me gusta la informatica y pasar el tiempo con amigos.
+  
+
 
 
 
