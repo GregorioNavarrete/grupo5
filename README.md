@@ -25,6 +25,8 @@ Estandar para la organisacion en el desarrollo del proyecto
 
   -> BUENAS! soy Franco Ledesma, soy de SGO capital y cursante de programacion en la UNSE, tengo 18 años y me gusta mucho aprender sobre programacion y jugar al futbol.
 
+  -> Hola! soy Roman Amado, soy de la Banda, me gusta la programacion y los deportes.
+
 
   # Nuestras Referencias :
   
