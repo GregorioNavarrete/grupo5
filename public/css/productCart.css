@@ -1,14 +1,99 @@
 body{
     background-color: white;
 }
+
+
+
+/*
+    Estilos de todo lo que esta en "main"
+*/
+.producto button{
+    background-color: blue;
+    color: aliceblue;
+    border-radius: 50%;
+}
+.subTitulo{
+    display: flex;
+    justify-content: space-between;
+}
+.subTitulo a{
+    font-size: 20px;
+    padding-left: 100px;
+    padding-right: 30px;
+
+}
+
 .listaProduct{
     border: 1px solid black;
 }
-.ResumenCompra{
-    border: 1px solid black;
-}
+
 .producto{
     display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-top: 15px;
+}
+.producto p{
+    margin-top:0px;
+}
+
+
+/*
+    Estilos de todo lo que esta en "mainInferior"
+*/
+.ResumenCompra{
+
+    border: 1px solid black;
+
+}
+.Product-SubGerido{
+    border: 1px solid red;
+    width: 150px;
+
+}
+.SubGerencias{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+  
+}
+.mainInferior{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 200px;
+    
+}
+.Content-SubGerecias{
+    height: 80%;
+    
+}
+.titulo{
+    text-align: center;
+}
+.Res-total{
+    border-top: 1px solid green;
+}
+.ResumenCompra div{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.Botton-compra {
+    
+
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    
+}
+button{
+    text-align: center;
 }
