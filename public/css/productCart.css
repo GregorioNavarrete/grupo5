@@ -1,0 +1,14 @@
+body{
+    background-color: white;
+}
+.listaProduct{
+    border: 1px solid black;
+}
+.ResumenCompra{
+    border: 1px solid black;
+}
+.producto{
+    display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between
+}

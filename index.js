@@ -28,7 +28,37 @@ app.get('/', (req, res) => {
     //al estar en la ruta "/" me manda a una direccion de archivo html
     res.sendFile(htmlPath);
   });
-
-app.get('/index', (req, res) => {
+  app.get('/index', (req, res) => {
     res.send('estamos en HOME ');
 });
+
+
+  app.get('/login', (req, res) => {
+    //__dirname una constante node.js, que hace referencia al directorio donde estamos
+    let htmlPath = path.resolve(__dirname,'./views/login.html') ;
+    //al estar en la ruta "/" me manda a una direccion de archivo html
+    res.sendFile(htmlPath);
+  });
+
+  app.get('/productCart', (req, res) => {
+    //__dirname una constante node.js, que hace referencia al directorio donde estamos
+    let htmlPath = path.resolve(__dirname,'./views/productCart.html') ;
+    //al estar en la ruta "/" me manda a una direccion de archivo html
+    res.sendFile(htmlPath);
+  });
+
+
+  app.get('/productDetail', (req, res) => {
+    //__dirname una constante node.js, que hace referencia al directorio donde estamos
+    let htmlPath = path.resolve(__dirname,'./views/productDetail.html') ;
+    //al estar en la ruta "/" me manda a una direccion de archivo html
+    res.sendFile(htmlPath);
+  });
+
+  app.get('/register', (req, res) => {
+    //__dirname una constante node.js, que hace referencia al directorio donde estamos
+    let htmlPath = path.resolve(__dirname,'./views/register.html') ;
+    //al estar en la ruta "/" me manda a una direccion de archivo html
+    res.sendFile(htmlPath);
+  });
+ 
