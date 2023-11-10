@@ -1,11 +1,94 @@
 * div{
     display: inline-block;
+    
+    }
+    *{
+        box-sizing: border-box;
+        font-family: 'Quicksand', sans-serif;
+    }
+
+
+
+
+
+    header{
+        background-color:  #7BCCC0;
+        margin: auto;
+        width: 100%;
+       
+    }
+    
+    .conte-header{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        flex-direction: row;
+        align-items: center;
+        
+    }
+    
+    
+    
+    .barra-busqueda{
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        width: 25%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .boton{
+        background-color: #7BCCC0;
+        color: white;
+        width: 15%;
+    }
+    
+    .buscar{
+        font-size: 15px;
+        border: 2px solid white;
+        border-radius: 15px;
+        width: 80%;
+        background-color:  #7BCCC0;
+        color: white;
+    }
+    
+    .conte-logo-prisma {
+        width: 40%;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .logo-prisma{
+        width: 80%;
+    }
+    
+    .nav_list{
+        display: flex;
+        width: 25%;
+        flex-wrap: wrap;
+        align-items: start;
+        justify-content: space-between;
+    }
+    .nav_icon{
+        color: white;
+        font-size: 150%;
+    }
+    
+    .nav__link {
+        text-decoration: none;
+        color: white;
+    }
+
+
+
+    .cont_img1{
+        display: flex;
+        justify-content: center;
     }
     .img_1{
-        width: 30%;
+        width: 65%;
         opacity: 1;
-        position: relative;
-        left: 35%;
     }
     article .articulo_precio {
         display: inline-block;
@@ -16,16 +99,15 @@
     }
     .section1{
         display: flex;
-        width: 100%;
+        width: 95%;
         flex-direction: column;
-    }
-    article{
-        display: inline-block;
     }
     .articulo_precio{
         display: flex;
         width: 100%;
         opacity: 0.8;
+        align-items: center;
+        justify-content: space-evenly;
     }
     .articulo_descripcion{
         width: 100%;
@@ -35,10 +117,17 @@
     .titulo{
         margin-bottom: 0px;
         text-align: left;
+        font-family: 'Merriweather', serif;
     }
     .subtitulo{
         margin-top: 0px;
         
+    }
+    .cont_oculto{
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        flex-direction: column;
     }
     ul{
         list-style-type:none ;
@@ -52,45 +141,27 @@
     .h2_precio{
         margin: 0;
         text-align: center;
-        width: 50%;
-        font-size:30px;
-        margin-bottom: 20px;
+        width: 30%;
+        font-size:25px;
     }
-    .estrellas{
+    .cont_estrellas{
         font-size: 25px;
         align-items: left;
+        padding-bottom: 10px;
+    }
+    .estrella{
+
     }
     body {
         margin: 0px;
         display: flex;
         flex-direction: column;
-        align-items: center
-    
-    }
-    /*----------------------------------------------------------*/
-    .section2{ 
-        display: flex;
-        width: 100%;
-        justify-content:space-around;
-        border: 1px solid black;
-        flex-direction: row;
         align-items: center;
-        flex-wrap: wrap
+        background-color: white;
+    
     }
-    .articulos2{
+    .div_1{
         width: 40%;
-        background-color: #E5E3DF;
-        padding-bottom: 20px;
-    
-    }
-    .img_2{
-        width: 60%;
-        font-size: 30px;
-        padding: 10px 0px 0px 10px;
-    
-    }
-    .div_2{
-        width: 30%;
         display: flex;
         border: 1px solid black;
         text-align: center;
@@ -101,6 +172,58 @@
         background-color: #F94D01;
         color: white;
         border-radius: 20px;
+        justify-content: space-around;
+    }
+    .canasta{
+        font-size: 15px;
+    }
+    /*----------------------------------------------------------*/
+    .section2{ 
+        display: flex;
+        width: 100%;
+        justify-content:space-around;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap
+    }
+    .articulos2{
+        width: 40%;
+        background-color: #E5E3DF;
+        margin-top: 10px;
+    
+    }
+    .cont_img2{
+        display: flex;
+        justify-content: center;
+    }
+    .img_2{
+        padding-top: 20px;
+        width: 60%;
+        font-size: 30px;
+    
+    }
+    .cont_div{
+        display: flex;
+        width: 100%;
+        opacity: 0.8;
+        align-items: center;
+        justify-content: space-between
+    }
+    .div_2{
+        border: 1px solid black;
+        font-size: 12px;
+        margin: 10px;
+        padding: 10px;
+        background-color: #F94D01;
+        color: white;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    .comprar{
+        font-size: 20px;
+        padding: 10px;
+        color: #00C7AA;
     }
     .oculto{
         display: none;
@@ -108,12 +231,34 @@
     /*------------------------------------------------------------*/
     .section3{  
         display: flex;
-        width: 80%;
+        width: 100%;
         justify-content:space-around;
         border: 1px solid black;
     }
+    .autor{
+        display: flex;
+        width: 80%;
+    }
+    .cont_descrip3{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        position: relative;
+        z-index: 1;
+    }
+    .cont_img3{
+        display: flex;
+        width: 30%;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+    }
     .img_3{
-        width: 20%;}
+        width: 100px;
+        height: 100px;
+
+    }
     .articulo_1_3{
         width: 6%;
     
@@ -121,16 +266,311 @@
     h2{
        text-align: center;
     }
-    @media(min-width: 361px){
+   /*---------------------------------------------------*/
+   .section4 {
+        display: flex;
+        width: 100%;
+        justify-content:space-around;
+   }
+
+   .cont_coment1{
+    width: 40%;
+    font-size: 10px;
+    background-color: #E5E3DF;
+    padding:10px;
+   }
+   .cont_coment2{
+    width: 40%;
+    font-size: 10px;
+    background-color: #E5E3DF;
+    padding: 10px;
+   }
+   .cont_estrellas4{
+    font-size: 15px;
+   }
+   .cont_iconos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+   .icono_abajo{
+    font-size: 20px;
+    color: #F94D01;
+   }
+   /*-------------------------------------------*/
+   .section5{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color:  #7BCCC0 ;
+
+   }
+   .cont_1{
+    display: flex;
+    width: 88%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+
+   }
+   .cont2{
+    display: flex;
+    flex-direction: column;
+    width: 88%;
+    background-color: white;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+    .coment{
+        font-size: 12px;
+        margin: 0;
+        padding-left: 10px;
+    }
+    .flechita{
+        display: flex;
+        justify-content: flex-end;
+        color: #F94D01;
+        font-size: 20px;
+        padding-right: 10px;
+    }
+    /*--------------------------------------------------*/
+    .section6{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+    }
+    .contenedor_principal{
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        background-color:  #E5E3DF;
+    }
+    .contenedor_img{
+        width: 80%;
+        background-color: #00C7AA;
+        height: 85px;
+    }
+    .contenedor1{
+        display: flex;
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 10px;
+
+    }
+    .contenedor2{
+        width: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 10px;
+        color: #F94D01;
+    }
+
+   /*--------------footer-----------------*/
+
+   footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    align-content: center;
+    background-color: #7BCCC0;
+    width: 100%;
+}
+
+
+.icon-redes{
+    color: white;
+    font-size: 2em;
+    width: 25%;
+    text-align: center;
+    padding: 5px;
+    margin:5px
+}
+
+.redes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
+    margin-top: 10px;
+}
+
+.nav-footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+
+}
+
+h4{
+    color: white;
+    text-align: center;
+}
+
+.info-footer{
+    border-bottom: 0.5px solid white;
+    width: 70%;
+    padding: 10px;
+}
+
+h5{
+    color: white;
+    text-align: center;
+    width: 70%; 
     
+}
+
+.detalle-footer{
+   display: none;
+}
+.ocultar_2{
+    display: block;
+}
+.div_oculto{
+    display: none;
+}
+.coment_ocult{
+    display: none;
+}
+    @media(min-width: 769px){
+        .buscar{
+            font-size: 20px;
+        }
+        .boton{
+            font-size: 25px;
+        }
+        .nav_icon{
+            font-size: 200%;
+        }
+        .img_1{
+            width: 50%;
+        }
+        .subtitulo{
+            font-size: 30px;
+        }
+        .texto{
+            font-size: 25px;
+        }
+        .h2_precio{
+            font-size: 40px;
+        }
+        .div_1{
+            font-size: 25px;
+        }
+        .canasta{
+            font-size: 28px;
+        }
+        .cont_coment1{
+            width: 45%;
+        }
+        .cont_coment2{
+            width: 45%;
+        }
+        .tamaño{
+            font-size: 20px;
+        }
+        .cont_estrellas4{
+            font-size: 20px;
+        }
+        .coment{
+            font-size: 15px;
+        }
+
     }
     
-    @media(min-width: 769px){
+    @media(min-width: 1024px){
+        .section1{
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .cont_img1{
+            width: 30%;
+        }
+        .articulo_descripcion{
+            width: 30%;
+        }
+        .articulo_precio{
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 30%;
+        }
+        .img_1{
+            width: 100%;
+        }
         .oculto{
             display: inline-block;
         }
-    }
-    
-    @media(min-width: 361px){
+        .ocultar_2{
+            display: none;
+        }
+        .texto{
+            text-align: left;
+        }
+        .div_oculto{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .div_1{
+            width: 100%;
+            margin-top: 30px;
+        }
+        .h2_precio{
+            width: 100%;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .articulos2{
+            width: 30%;
+            flex-wrap: nowrap;
+
+        }
+        .cont_div{
+            justify-content: space-around;
+        }
+        .comprar{
+            font-size: 30px;
+        }
+        .div_2{
+            font-size: 20px;
+        }
+        .coment_ocult{
+            display: block;
+        }
+        .cont_coment2{
+            width: 24%;
+        }
+        .tamaño{
+            font-size: 15px;
+        }
+        .sec_ocult{
+            display: none;
+        }
         
+        .detalle-footer{
+            display: block;
+            color: var(--blanco);
+        }
+    
+        .info-footer{
+            width: 20%;
+            text-align: center;
+            border-bottom: none;
+            width: 20%;
+        }
+    
+        .nav-footer{
+            justify-content: space-around;
+        }
+        .icon-pago{
+            font-size: 2em;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }    
     }
