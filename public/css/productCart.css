@@ -2,11 +2,30 @@ body{
     background-color: white;
 }
 
+/*
+    Damos estilos al heder
+*/
+header{
+    border: 1px solid aqua;
+    height: 30%;
+}
+.Buscador svg{
+    background-color: rgb(0, 0, 0);
+}
+.ContenedorHeader{
+    display: flex;
+    justify-content: space-between;
+}
 
 
 /*
     Estilos de todo lo que esta en "main"
 */
+main{
+    height: 80%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
 .producto button{
     background-color: blue;
     color: aliceblue;
@@ -16,12 +35,7 @@ body{
     display: flex;
     justify-content: space-between;
 }
-.subTitulo a{
-    font-size: 20px;
-    padding-left: 100px;
-    padding-right: 30px;
 
-}
 
 .listaProduct{
     border: 1px solid black;
@@ -33,6 +47,8 @@ body{
     justify-content: space-between;
     margin-top: 15px;
     margin-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .producto p{
     margin-top:0px;
@@ -43,8 +59,9 @@ body{
     Estilos de todo lo que esta en "mainInferior"
 */
 .ResumenCompra{
-
+    
     border: 1px solid black;
+    width: 350px;
 
 }
 .Product-SubGerido{
@@ -56,18 +73,21 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    height: 100%;
+    height: 80%;
   
 }
 .mainInferior{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    height: 200px;
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
     
 }
 .Content-SubGerecias{
     height: 80%;
+
     
 }
 .titulo{
@@ -96,4 +116,17 @@ body{
 }
 button{
     text-align: center;
+}
+
+
+/*
+    Agregando estilo al footer
+
+    se me sale del body
+*/
+
+footer{
+    border: 1px solid aqua;
+    height: 200px;
+
 }
