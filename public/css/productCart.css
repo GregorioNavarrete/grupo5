@@ -1,20 +1,78 @@
-body{
-    background-color: white;
-}
 
+:root{
+    --celeste: #7BCCC0;
+    --blanco: #FAFCFE;
+    --azul-oscuro: #152636;
+    --cian: #00C7AA;
+    --anaranjado: #F94D01;
+    --gris-claro: #E5E3DF;
+    --gris-petroleo: #3E6C6A;
+    }
+
+    body{
+        background-color: var(--gris-claro);
+        background-color: var(--celeste)
+    }
 /*
     Damos estilos al heder
 */
 header{
-    border: 1px solid aqua;
-    height: 30%;
+    background-color: var(--celeste);
+    margin: auto;
+   
 }
-.Buscador svg{
-    background-color: rgb(0, 0, 0);
-}
-.ContenedorHeader{
+.conte-header{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.barra-busqueda{
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.boton{
+    background-color: #7BCCC0;
+    color: var(--blanco);
+    width: 15%;
+}
+.buscar{
+    font-size: 15px;
+    border: 2px solid var(--blanco);
+    border-radius: 15px;
+    width: 80%;
+    background-color: var(--celeste);
+    color: var(--blanco);
+}
+.conte-logo-prisma {
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+}
+.logo-prisma{
+    width: 80%;
+}
+.nav_list{
+    display: flex;
+    width: 25%;
+    flex-wrap: wrap;
+    align-items: start;
     justify-content: space-between;
+}
+.nav_icon{
+    color: var(--blanco);
+    font-size: 200%;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: var(--blanco);
 }
 
 
@@ -22,37 +80,64 @@ header{
     Estilos de todo lo que esta en "main"
 */
 main{
-    height: 80%;
     padding-left: 20px;
     padding-right: 20px;
+    width: 100%;
+    background-color: white;
 }
 .producto button{
-    background-color: blue;
+    background-color: #F94D01;
     color: aliceblue;
     border-radius: 50%;
 }
+.subTitulo a {
+    color:  #F94D01;
+    font-size: 30px;
+    
+}
 .subTitulo{
-    display: flex;
-    justify-content: space-between;
+    text-align: center;
 }
 
 
 .listaProduct{
-    border: 1px solid black;
+    background-color: #E5E3DF;
+    border-radius: 5%;
 }
 
 .producto{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    
+    align-items: flex-end;
+    justify-content: flex-start;
+
+    padding-bottom: 10px;
     margin-top: 15px;
     margin-top: 15px;
     padding-left: 20px;
     padding-right: 20px;
+    border-top: 1px solid black;
 }
-.producto p{
-    margin-top:0px;
+.producto .Banner{
+    padding-left: 35px;
+    padding-right: 30px;
+    padding-top: 15px;
+    width: 20%;
 }
+.producto .CaracteristicasProduct{
+    width: 70%;
+    
+    justify-content: flex-start;
+}
+.producto .DescripcionProduct {
+    display: flex;
+    padding-bottom: 20%
+}
+.producto .botones{
+    display: flex;
+    justify-content: space-evenly;
+}
+
 
 
 /*
@@ -61,8 +146,17 @@ main{
 .ResumenCompra{
     
     border: 1px solid black;
-    width: 350px;
+ 
+    background-color: #a8e2d9;
+    border-radius: 5%;
+    min-width: 250px;
+    max-height: 300px;
 
+}
+.ResumenCompra h2{
+    text-align: center;
+    background-color: #a8e2d9;
+    font-size: 18px;
 }
 .Product-SubGerido{
     border: 1px solid red;
@@ -79,9 +173,8 @@ main{
 .mainInferior{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    height: 100%;
-    padding-left: 20px;
+    justify-content: space-evenly;
+    
     padding-right: 20px;
     
 }
@@ -92,31 +185,101 @@ main{
 }
 .titulo{
     text-align: center;
+    color: #F94D01;
+    font-size: 30px;
+
 }
+.titulo p{
+        margin-bottom: 1px;
+    margin-top: 5px;
+}
+
+
+.Content-subgerencias .btn{
+    color: white;
+    border-radius: 25%;
+
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #F94D01;
+}
+.Content-subgerencias svg{
+    /*de esta forma le puedo dar color a cada "SVG" , si afectar a los otros */
+    font-size: 25px;
+    fill: #00C7AA;
+    
+
+}
+.SubGerencias{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+
+
 .Res-total{
-    border-top: 1px solid green;
+    border-top: 1px solid black;
 }
 .ResumenCompra div{
-    padding-top: 15px;
+    padding-top: 5%;
+    
     padding-bottom: 15px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
+    background-color: #a8e2d9;
+    border-radius: 15%;
 }
 
-.Botton-compra {
+.Botton-compra button {
     
-
+    border-radius: 25%;
+    font-size: 19px;
     text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 50px;
     padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #F94D01;
+    color : white;
     
 }
 button{
     text-align: center;
 }
+.flechas{
+    margin: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 40px;
+}
+
+
+/*probando incorporar el codigo de lou */
+.articulo{
+    width: 42%;
+    padding: 15px;
+    background-color: var(--gris-claro);
+    border-radius: 10px;
+}
+.img-articulo{
+    width: 100%;
+}
+.desc-articulo{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.icon-articulo{
+    color: var(--cian);
+    font-size: 200%;
+}
+
+
+
+
 
 
 /*
@@ -126,7 +289,66 @@ button{
 */
 
 footer{
-    border: 1px solid aqua;
-    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    align-content: center;
+}
+.icon-redes{
+    color: var(--blanco);
+    font-size: 2em;
+    width: 25%;
+    text-align: center;
+    padding: 5px;
+    margin:5px
+}
+.redes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
+    margin-top: 10px;
+}
+.nav-footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
 
+}
+h4{
+    color: var(--blanco);
+    text-align: center;
+}
+.info-footer{
+    border-bottom: 0.5px solid var(--blanco);
+    width: 70%;
+    padding: 10px;
+}
+h5{
+    color: var(--blanco);
+    text-align: center;
+    width: 70%; 
+    
+}
+
+.detalle-footer{
+   display: none;
+} 
+
+
+
+
+
+
+/*las medias querys */
+
+
+
+@media (min-width: 361px) {
+    /*estas modificaciones se hacen desde 361px en adelante ! */
+    .Content-subgerencias{
+        width: 50%;
+    }
 }
