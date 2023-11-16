@@ -1,3 +1,17 @@
+
+
+
+:root{
+    --celeste: #7BCCC0;
+    --blanco: #FAFCFE;
+    --azul-oscuro: #152636;
+    --cian: #00C7AA;
+    --anaranjado: #F94D01;
+    --gris-claro: #E5E3DF;
+    --gris-petroleo: #3E6C6A;
+    }
+
+
 * div{
     display: inline-block;
     
@@ -79,6 +93,10 @@
         text-decoration: none;
         color: white;
     }
+    .agregar_al_carrito{
+        text-decoration: none;
+        color: #E5E3DF;
+    }
 
 
 
@@ -118,10 +136,20 @@
         margin-bottom: 0px;
         text-align: left;
         font-family: 'Merriweather', serif;
+        color :#3E6C6A;
+    }
+    .cont_sub{
+        display:flex;
+        justify-content: center;
+        width: 100%;
     }
     .subtitulo{
         margin-top: 0px;
         
+    }
+    .texto{
+        font-size: 20px;
+        margin-top: 0;
     }
     .cont_oculto{
         display: flex;
@@ -137,12 +165,21 @@
         padding-left: 0px;
         font-size: 20px;
     }
+    ul li a{
+        text-decoration: none;
+        color: #152636;
+        transition: 0.3s;
+    }
+    ul li a:hover{
+       color: #F94D01;
+    }
     
     .h2_precio{
         margin: 0;
         text-align: center;
         width: 30%;
         font-size:25px;
+        color :#3E6C6A;
     }
     .cont_estrellas{
         font-size: 25px;
@@ -173,6 +210,10 @@
         color: white;
         border-radius: 20px;
         justify-content: space-around;
+        transition: 1s;
+    }
+    .div_1:hover{
+        background-color: #00C7AA;;
     }
     .canasta{
         font-size: 15px;
@@ -190,7 +231,12 @@
         width: 40%;
         background-color: #E5E3DF;
         margin-top: 10px;
+        border-radius: 10px;
+        transition: 1s;
     
+    }
+    .articulos2:hover{
+        box-shadow: 0px 0px 10px rgb(100, 100, 100);
     }
     .cont_img2{
         display: flex;
@@ -219,6 +265,13 @@
         border-radius: 20px;
         display: flex;
         justify-content: center;
+        transition: all 1s;
+    }
+    .div_2:hover{
+        background-color: #00C7AA; 
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
     }
     .comprar{
         font-size: 20px;
@@ -233,22 +286,36 @@
         display: flex;
         width: 100%;
         justify-content:space-around;
-        border: 1px solid black;
+        border-radius: 5px;
+        background-color:  #7BCCC0;
+        height: 200px;
     }
     .autor{
         display: flex;
-        width: 80%;
+        width: 95%;
+        align-items: center;
+        
     }
     .cont_descrip3{
         display: flex;
         flex-direction: column;
         width: 80%;
-        position: relative;
-        z-index: 1;
+        background-color: white;
+        height: 70%;
+        border-radius: 15px;
+        justify-content: center;
+        padding: 5px;
+        
+    }
+    .nombre_autor{
+        color: black;
+        margin: 0;
+        text-align: left;
+        color: #F94D01;
+
     }
     .cont_img3{
         display: flex;
-        width: 30%;
         justify-content: center;
         align-items: center;
         position: relative;
@@ -257,14 +324,24 @@
     .img_3{
         width: 100px;
         height: 100px;
+        position: relative;
+        right: 10px;
 
+    }
+    .p_desc_autor{
+        font-size: 9px;
+        text-align: left;
+        padding-right: 10px;
+        margin: 0;
     }
     .articulo_1_3{
         width: 6%;
     
     }
     h2{
-       text-align: center;
+        color: #F94D01;
+        text-align: center;
+        font-family: 'Merriweather', serif;
     }
    /*---------------------------------------------------*/
    .section4 {
@@ -273,17 +350,12 @@
         justify-content:space-around;
    }
 
-   .cont_coment1{
-    width: 40%;
-    font-size: 10px;
-    background-color: #E5E3DF;
-    padding:10px;
-   }
    .cont_coment2{
     width: 40%;
     font-size: 10px;
     background-color: #E5E3DF;
     padding: 10px;
+    border-radius: 10px;
    }
    .cont_estrellas4{
     font-size: 15px;
@@ -321,6 +393,7 @@
     background-color: white;
     padding-bottom: 10px;
     margin-bottom: 10px;
+    border-radius: 10px;
 }
     .coment{
         font-size: 12px;
@@ -436,6 +509,18 @@ h5{
 .coment_ocult{
     display: none;
 }
+.coment{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    text-align: left;
+    border-radius: 10px;
+    outline: none;
+}
+.cont_deja_comentario{
+    width: 90%;
+}
     @media(min-width: 769px){
         .buscar{
             font-size: 20px;
@@ -451,9 +536,11 @@ h5{
         }
         .subtitulo{
             font-size: 30px;
+            text-align: center;
         }
         .texto{
             font-size: 25px;
+            margin-top: 0;
         }
         .h2_precio{
             font-size: 40px;
@@ -478,6 +565,12 @@ h5{
         }
         .coment{
             font-size: 15px;
+        }
+        .p_desc_autor{
+            font-size: 15px;
+            text-align: left;
+            padding-right: 10px;
+            margin: 0;
         }
 
     }
@@ -535,10 +628,15 @@ h5{
         }
         .comprar{
             font-size: 30px;
+            transition: all 0.3s;
+        }
+        .comprar:hover{
+            font-size: 34px;
         }
         .div_2{
             font-size: 20px;
         }
+        
         .coment_ocult{
             display: block;
         }
@@ -572,5 +670,43 @@ h5{
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-        }    
+        }  
+
+        .section3{  
+            display: flex;
+            width: 100%;
+            justify-content:space-around;
+            border-radius: 5px;
+            background-color:  #7BCCC0;
+            height: 250px;
+        }
+        .autor{
+            display: flex;
+            width: 80%;
+            align-items: center;
+    }
+    .cont_descrip3{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        background-color: white;
+        height: 80%;
+        border-radius: 15px;
+        justify-content: center;
+        padding: 5px;
+    }
+    .img_3{
+        width: 170px;
+        height: 170px;
+        position: relative;
+        right: 10px;
+
+    }
+    .p_desc_autor{
+        font-size: 20px;
+        text-align: left;
+        padding-right: 10px;
+        margin: 0;
+    }
+
     }
