@@ -1,0 +1,7 @@
+celeste: #7BCCC0;
+blanco: #FAFCFE;
+azul-oscuro: #152636;
+cian: #00C7AA;
+anaranjado: #F94D01;
+gris-claro: #E5E3DF;
+gris-petroleo: #3E6C6A;
