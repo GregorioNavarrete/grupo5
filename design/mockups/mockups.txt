@@ -1,0 +1,9 @@
+Mockup Home: https://www.figma.com/proto/2wWhKMMrtLHACvOSx55lhF/prisma?type=design&node-id=90-444&t=cOiNm2RSh8tjuyq6-1&scaling=scale-down&page-id=90%3A443&mode=design
+
+Mockup Login: https://www.figma.com/proto/2wWhKMMrtLHACvOSx55lhF/prisma?type=design&node-id=188-7&t=AKEPuxZ4G16YJtuD-1&scaling=scale-down&page-id=188%3A6&mode=design
+
+Mockup Carrito: https://www.figma.com/proto/2wWhKMMrtLHACvOSx55lhF/prisma?type=design&node-id=160-69&t=FsKPnhGqtQYW6Eaq-1&scaling=scale-down&page-id=160%3A68&mode=design
+
+Mockup Detalle: https://www.figma.com/proto/2wWhKMMrtLHACvOSx55lhF/prisma?type=design&node-id=155-6&t=04yCFvyf112PVn34-1&scaling=scale-down&page-id=155%3A5&mode=design
+
+Mockup Register: https://www.figma.com/proto/2wWhKMMrtLHACvOSx55lhF/prisma?type=design&node-id=238-20&t=V7DFFXYezHSapQsX-1&scaling=scale-down&page-id=238%3A19&mode=design
