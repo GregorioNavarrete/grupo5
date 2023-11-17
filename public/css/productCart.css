@@ -13,67 +13,6 @@
         background-color: var(--gris-claro);
         background-color: var(--celeste)
     }
-/*
-    Damos estilos al heder
-*/
-header{
-    background-color: var(--celeste);
-    margin: auto;
-   
-}
-.conte-header{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    flex-direction: row;
-    align-items: center;
-    
-}
-.barra-busqueda{
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    width: 25%;
-    display: flex;
-    flex-wrap: wrap;
-}
-.boton{
-    background-color: #7BCCC0;
-    color: var(--blanco);
-    width: 15%;
-}
-.buscar{
-    font-size: 15px;
-    border: 2px solid var(--blanco);
-    border-radius: 15px;
-    width: 80%;
-    background-color: var(--celeste);
-    color: var(--blanco);
-}
-.conte-logo-prisma {
-    width: 40%;
-    justify-content: center;
-    align-items: center;
-}
-.logo-prisma{
-    width: 80%;
-}
-.nav_list{
-    display: flex;
-    width: 25%;
-    flex-wrap: wrap;
-    align-items: start;
-    justify-content: space-between;
-}
-.nav_icon{
-    color: var(--blanco);
-    font-size: 200%;
-}
-
-.nav__link {
-    text-decoration: none;
-    color: var(--blanco);
-}
 
 
 /*
@@ -287,56 +226,6 @@ button{
 
     se me sale del body
 */
-
-footer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: row;
-    align-content: center;
-}
-.icon-redes{
-    color: var(--blanco);
-    font-size: 2em;
-    width: 25%;
-    text-align: center;
-    padding: 5px;
-    margin:5px
-}
-.redes{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 50%;
-    margin-top: 10px;
-}
-.nav-footer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-
-}
-h4{
-    color: var(--blanco);
-    text-align: center;
-}
-.info-footer{
-    border-bottom: 0.5px solid var(--blanco);
-    width: 70%;
-    padding: 10px;
-}
-h5{
-    color: var(--blanco);
-    text-align: center;
-    width: 70%; 
-    
-}
-
-.detalle-footer{
-   display: none;
-} 
-
 
 
 
