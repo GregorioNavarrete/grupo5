@@ -38,4 +38,8 @@ Estandar para la organisacion en el desarrollo del proyecto
   6. [Goodreads](https://www.goodreads.com/) : la tomamos de referencia por su organizacion y su interfaz de comunidad que logra conectar con muchos lectores.
   7. [Scribd](https://es.scribd.com/) : nos inspitamos en el detalle del producto y la caja de comentarios.
 
+  # Tablero de trabajo : 
+
+  https://trello.com/b/Fv2kAZTz/grupo5-prisma 
+
 
