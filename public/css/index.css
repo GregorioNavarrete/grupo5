@@ -1,0 +1,302 @@
+:root{
+    --celeste: #7BCCC0;
+    --blanco: #FAFCFE;
+    --azul-oscuro: #152636;
+    --cian: #00C7AA;
+    --anaranjado: #F94D01;
+    --gris-claro: #E5E3DF;
+    --gris-petroleo: #3E6C6A;
+    }
+
+*{
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body{
+   margin: 0;
+}
+
+
+
+
+
+
+
+.banner{
+    width: 100%;
+}
+
+
+
+main{
+    background-color: var(--blanco);
+    margin: auto;
+}
+
+.cont-articulos{
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+
+.articulo{
+    width: 42%;
+    padding: 15px;
+    background-color: var(--gris-claro);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 30%;
+    text-align: center;
+    cursor: pointer;
+    transition: all 2s;
+}
+
+
+
+.articulo-oculto-1{
+    width: 42%;
+    padding: 15px;
+    background-color: var(--gris-claro);
+    border-radius: 10px;
+    display: none;
+    height: 30%; 
+    text-align: center;
+    cursor: pointer;
+    transition: all 2s;
+}
+
+.articulo-oculto-1:hover{
+    -webkit-transform:scale(1.1);transform:scale(1.1);
+}
+
+.articulo-oculto-2{
+    width: 42%;
+    padding: 15px;
+    background-color: var(--gris-claro);
+    border-radius: 10px;
+    display: none;
+    height: 30%;
+    text-align: center;
+    cursor: pointer;
+    transition: all 2s;
+}
+
+.articulo-oculto-2:hover{
+    -webkit-transform:scale(1.1);transform:scale(1.1);
+}
+
+.img-articulo{
+    width: 70%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 15px;  
+}
+
+
+
+.desc-articulo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.list-articulos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.icon-articulo{
+    color: var(--cian);
+    font-size: 160%;
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25));
+}
+
+.precio-articulo{
+    display: none;
+    color: #3E6C6A;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.signo-precio-art{
+    display: none;
+    color: var(--cian);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.button-art{
+    border: none;
+    background-color: #F94D01;
+    color: var(--blanco);
+    padding: 8px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.button-art:hover{
+    background-color: var(--cian);
+}
+
+
+
+
+
+
+
+
+
+.img-categoria{
+    width: 90%;
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25));
+    cursor: pointer;
+}
+
+.categoria{
+    width: 30%;
+    background-color: var(--gris-claro);
+    border-radius: 15px;
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 2s;
+}
+
+.list-categoria{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.text-categoria{
+    color: var(--gris-petroleo);
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    margin-top: 7px;
+    
+}
+
+h2{
+    color: #F94D01;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+}
+
+.mas-info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 25px;
+    
+}
+
+.img-mas-info{
+    width: 40%;
+    margin: 5px;
+}
+
+.img-mas-oculto{
+    display: none;
+    width: 30%;
+    margin: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 769px) {
+    .articulo{
+        width: 30%;
+    }
+
+    .articulo-oculto-1{
+        width: 30%;
+        display: block;
+    }
+
+    .categoria{
+        width: 30%;
+    }
+
+    .list-categoria{
+     margin: 20px;
+    }
+
+    .precio-articulo{
+        display: block;
+    }
+
+    .signo-precio-art{
+        display: block;
+    }
+
+    main{
+        font-size: 22px;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .articulo{
+        width: 20%;
+    }
+
+    .articulo-oculto-1{
+        width: 20%;
+    }
+
+    .articulo-oculto-2{
+        width: 20%;
+        display: block;
+    }
+
+    .categoria{
+        width: 15%;
+    }
+
+    .list-categoria{
+        margin: 40px;
+    }
+
+    .img-mas-info{
+        width: 30%;
+    }
+
+    .img-mas-oculto{
+        display: block;
+    }
+
+    .categoria:hover{
+        -webkit-transform:scale(1.1);transform:scale(1.1);
+    }
+
+    .articulo:hover{
+        -webkit-transform:scale(1.1);transform:scale(1.1);
+    }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,347 @@
+:root{
+    --celeste: #7BCCC0;
+    --blanco: #FAFCFE;
+    --azul-oscuro: #152636;
+    --cian: #00C7AA;
+    --anaranjado: #F94D01;
+    --gris-claro: #E5E3DF;
+    --gris-petroleo: #3E6C6A;
+    }
+
+*{
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body{
+   margin: 0;
+}
+
+
+
+
+/*ESTILOS HEADER*/
+
+header{
+    background-color: var(--celeste);
+    margin: auto;
+   padding: 3px;
+}
+
+.conte-header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+
+
+.barra-busqueda-header{
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.input-header{
+    flex: 1;
+    padding: 7px;
+    border: none;
+    outline: none;
+    width: 20%;
+    border-radius: 10px 0px 0px 10px;
+    color: #152636;
+    
+}
+
+.barra-busqueda-header:hover{
+    filter: drop-shadow(0px 4px 8px var(--cian));
+}
+
+.button-header{
+    background-color: white;
+    color: var(--azul-oscuro);
+    border: none;
+    padding: 5px 5px;
+    cursor: pointer;
+    border-radius: 0px 10px 10px 0px;
+}
+
+
+
+.conte-logo-prisma {
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.logo-prisma{
+    width: 100%;
+    padding: 5px;
+}
+
+.nav_list{
+    display: flex;
+    width: 25%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav_icon{
+    color: var(--blanco);
+    font-size: 150%;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.nav_icon:hover{
+    filter: drop-shadow(0px 4px 8px var(--cian));
+}
+
+.nav__link {
+    text-decoration: none;
+    color: var(--blanco);
+}
+
+
+
+
+
+
+/*ESTILOS FOOTER*/
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    align-content: center;
+    background-color: var(--celeste);
+}
+
+
+.icon-redes-footer{
+    color: var(--blanco);
+    font-size: 2em;
+    width: 25%;
+    text-align: center;
+    padding: 5px;
+    margin:5px;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.icon-redes-footer:hover{
+    filter: drop-shadow(0px 4px 10px var(--cian));
+}
+
+
+.redes-footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
+    margin-top: 10px;
+}
+
+.nav-footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.categ-footer{
+    color: var(--blanco);
+    text-align: center;
+}
+
+.info-footer{
+    border-bottom: 0.5px solid var(--blanco);
+    width: 70%;
+    padding: 10px;
+}
+
+.copi-footer{
+    color: var(--blanco);
+    text-align: center;
+    width: 70%; 
+    
+}
+
+.detalle-footer{
+   display: none;
+} 
+
+
+
+
+@media (min-width: 769px) {
+    .nav_icon{
+        font-size: 200%;
+    }
+
+    .input-header{
+        padding: 11px;
+    }
+
+    .button-header{
+        padding: 9px 9px;
+    }
+}
+
+
+
+@media (min-width: 1024px) {
+
+    .nav_icon{
+        font-size: 250%;
+    }
+    .detalle-footer{
+        display: block;
+        color: var(--blanco);
+    }
+
+    .info-footer{
+        width: 20%;
+        text-align: center;
+        border-bottom: none;
+        width: 20%;
+    }
+
+    .nav-footer{
+        justify-content: space-around;
+    }
+
+    .icon-pago-footer{
+        font-size: 2em;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+}
+
+
+
+/*PARA VINCULAR ESTA HOJA CON SU HTML: <link  href="/css/styles.css" rel="stylesheet"> */
+
+
+
+/* HTML DEL HEADER
+
+<header>
+        <div class="conte-header">
+
+           
+            <div class="barra-busqueda-header">
+           
+                <input class="input-header" type="text" placeholder="Buscar">
+                <div class="button-header">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+           
+            </div>
+           
+        
+            <div class="conte-logo-prisma">
+                <a href="/"><img class="logo-prisma" src="/img/Logo-Blanco-P.svg" alf="logo-prisma"></a> 
+            </div>
+            
+
+            <div class="nav_list">
+
+                <div>
+                <a class="nav_icon" href="/login" class="nav_link"><i class="fa-solid fa-bars"></i></a>
+                </div>
+
+                <div>
+                    <a class="nav_icon" href="/productCart" class="nav_link"><i class="fa-solid fa-bag-shopping"></i></a>
+                 </div>
+
+                <div>
+                    <a class="nav_icon" href="login" class="nav_link"><i class="fa-solid fa-circle-user"></i></a>
+                </div>
+            </div>
+            
+        </div>
+    </header> 
+
+    */
+
+
+
+
+
+
+    /* HTML FOOTER
+
+     <footer>
+        <section class="redes-footer"> 
+            <a class="icon-redes-footer" href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+            <a class="icon-redes-footer" href="https://twitter.com"><i class="fa-brands fa-twitter"></i></a>
+            <a class="icon-redes-footer" href="https://ar.pinterest.com"><i class="fa-brands fa-pinterest"></i></a>
+            <a class="icon-redes-footer" href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+            <a class="icon-redes-footer" href="https://www.tiktok.com"><i class="fa-brands fa-tiktok"></i></a>
+            <a class="icon-redes-footer" href="https://www.youtube.com"><i class="fa-brands fa-youtube"></i></a>
+        </section>
+
+        <section class="nav-footer">
+            <div class="info-footer">
+            <h4 class="categ-footer">Información</h4> 
+            <div class="detalle-footer">    
+                <p>Politica de Privacidad</p>
+                <p>terminos y condiciones</p>
+                <p>Envíos de autores</p>
+                <p>Privacidad</p>
+            </div>
+            </div>
+
+            <div class="info-footer">
+            <h4 class="categ-footer">Ayuda</h4>
+            <div class="detalle-footer">    
+                <p>Preguntas frecuentes</p>
+                <p>Envío</p>
+                <p>Devoluciones</p>
+                <p>Contáctenos</p>
+            </div>
+            </div>
+
+            <div class="info-footer">
+           <h4 class="categ-footer">Más de Prisma</h4> 
+           <div class="detalle-footer">
+                <p>Acerca de Prisma</p>
+                <p>Blog</p>
+                <p>Trabajos</p>
+                <p>Prensa</p>
+            </div>
+            </div>
+
+            <div class="info-footer">
+            <h4 class="categ-footer">Metodos de Pagó</h4>
+             <div class="detalle-footer">   
+                <div class="icon-pago-footer">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-amex"></i>
+                <i class="fa-brands fa-paypal"></i>
+                </div>
+            </div>
+            </div>
+            <h5 class="copi-footer">© Prisma 2023</h5>
+        </section>
+
+    </footer>
+    */
+    

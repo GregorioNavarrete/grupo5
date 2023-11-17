@@ -1,0 +1,172 @@
+
+
+:root{
+    --celeste: #7BCCC0;
+    --blanco: #FAFCFE;
+    --azul-oscuro: #152636;
+    --cian: #00C7AA;
+    --anaranjado: #F94D01;
+    --gris-claro: #E5E3DF;
+    --gris-petroleo: #3E6C6A;
+    }
+
+* {
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+body {
+    margin: 0; 
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+}
+
+
+.logo {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background-color: #23BFF2;*/
+}
+
+.imagen{
+    width: 30%;
+    padding: 5px;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.contenedor {
+    width: 100%;
+    padding: 15px;
+}
+
+.form-caja{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.formulario {
+    background-color: var(--gris-claro);
+    margin: 30px;
+    padding: 3px;
+    width: 80%;
+    border-radius: 5px;
+    
+
+}
+
+h1 {
+    text-align: center;
+    color: #000;
+    font-size: 1rem;
+    font-weight: bolder;
+}
+
+/* input[type="email"],
+input[type="password"] { */
+.input-txt {
+    font-size: 14px;
+    width: 80%;
+    padding: 10px;
+    border: none;
+}
+
+.check {
+    font-size: 20px;
+    margin-top: 15px;
+    width: auto;
+}
+
+.input-contenedor {
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.redirect-login {
+    text-decoration: none;
+    color:black;
+}
+
+.redirect-login:hover {
+    color:#23BFF2;
+}
+
+button {
+    display: block;
+    width: 96%;
+}
+
+.icon {
+    min-width: 50px;
+    text-align: center;
+    color: #999
+}
+
+.button {
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background-color: #23BFF2;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: lightskyblue;
+}
+
+p {
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color: #23BFF2;
+    font-weight: 600;
+}
+
+.link:hover {
+    color: lightskyblue
+}
+
+input:invalid {
+    background-color: #f7adad2e;
+}
+
+.error-message {
+    display: none;
+    color: red;
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+input:invalid+.error-message {
+    display: block;
+}
+
+/*MEDIA QUERIES*/
+@media(min-width:992px) {
+    .formulario {
+        margin: auto;
+        width: 500px;
+        margin-top: 50px;
+        border-radius: 2%;
+        margin-bottom: 50px;
+    }
+}
+
+
+
+
+
