@@ -1,34 +1,196 @@
-
-header{
-    background-color: rgb(0,199,170);
-    height: 135px;
-    margin: auto;
-    padding: 25px; ;
+:root{
+    --celeste: #7BCCC0;
+    --blanco: #FAFCFE;
+    --azul-oscuro: #152636;
+    --cian: #00C7AA;
+    --anaranjado: #F94D01;
+    --gris-claro: #E5E3DF;
+    --gris-petroleo: #3E6C6A;
+    }
+*{
+    margin: 0px;
+    font-family: 'Quicksand', sans-serif;
 }
+
+
+/*.toogle{
+    position:relative;
+    display: inline-block;
+    width: 65px;
+    height: 35px;
+}
+.toogle input{
+    opacity:0 ;
+    width: 0;
+    height: 0;
+}
+.slider{
+    position:absolute ;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    background-color:#ccc ;
+    -webkit-transition: .4s;
+    transition: .4s;
+
+}
+.slider:before{
+    position:absolute;
+    cursor: "";
+    top: 26px;
+    left: 26px;
+    right: 4px;
+    bottom:4px;
+    background-color:red ;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked+.slider{
+    background-color: #2196F3;
+}
+input:focus+.slider{
+    box-shadow: 0 0 1px #2196F3;
+}
+input:checked+.slider:before{
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+.slider.round{
+border-radius: 34px;
+}
+.slider.round::before{
+    border-radius: 50%;
+}
+*/
+
+.botones{
+    display: flex;
+    width: 40%;
+    margin-top: 20px;
+}
+.btn-1{
+    background-color:var(--gris-claro);
+    
+    color: var(--cian);
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px 0px 0px 5px;
+    margin: 0px;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+}
+
+
+.btn-2{
+    
+    background-color:var(--cian);
+    color: aliceblue;
+    width: 50%;
+    padding: 10px;
+    border-radius: 0px 5px 5px 0px;
+    margin:0px;
+    border: none;
+    outline: none;
+}
+
+.btn-1:hover{
+    background-color: var(--cian);
+    color: aliceblue;
+}
+.registro-boton:hover{
+    background-color: var(--anaranjado);
+    color:var(--blanco);
+}
+.registro-boton{
+    transition: 0.3s;
+}
+
+
 main{
     
-    margin-bottom:300px;
+    margin-bottom:50px;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 60vh;
     
 }
 form{
-    border: dashed red 3px;
-    background-color:rgb(249,77,1);
+    
+    
+    background-color:var(--gris-petroleo);
     width: 275px ;
-    height: 250px;
+    height: 400px;
     padding:20px ;
-    margin: auto;
+    margin:10px;
+    
     border-radius: 10px;
     box-sizing: border-box;   
 
 }
+button{
+    padding: 10px 1em;
+    font-size: 12px;
+    background-color:#7BCCC0; ;
+    border-radius: 10px;
+    margin: 3px;
+    box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
+    border:none;
+}
+
 .registro{
     text-align: center;
+
+    
+}
+main .registro{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     
 }
 .condiciones-terminos{
     text-align: left;
 }
-footer{
-    background-color: rgb(0,199,170);
+
+input{
+    border-radius:5px;
+    outline:none;
+    border: none;
+    
+}
+
+@media(min-width:750px){
+
+header .conte-header{
+    height:40% ;
+
+}
+div.registro {
+    height: 100%;
+    width: 60%;
+}
+
+main div.registro{
+    
+    justify-content: none;
+    align-items: start;
+
+}
+
+}
+@media(min-width:1024px){
+input{
+    padding:8px;
+}
+form{
+    height:450px ;
+}
 }
