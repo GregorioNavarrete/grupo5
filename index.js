@@ -17,7 +17,7 @@ app.listen(puerto, () => {
 // usamos el sendfild, para mandar un archivo html
 
 
-//queremos la carpeta "public" como un recurso estatico, para consumirlo de manera cencilla
+//queremos la carpeta "public" como un recurso estatico, para consumirlo de manera sencilla
 // el metodo .resolve , nos permite dar una ruta absoluta 
 const publiPath = path.resolve(__dirname,'./public') ;
 app.use(express.static(publiPath));

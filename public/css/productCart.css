@@ -1,14 +1,243 @@
-body{
+
+:root{
+    --celeste: #7BCCC0;
+    --blanco: #FAFCFE;
+    --azul-oscuro: #152636;
+    --cian: #00C7AA;
+    --anaranjado: #F94D01;
+    --gris-claro: #E5E3DF;
+    --gris-petroleo: #3E6C6A;
+    }
+
+    body{
+        background-color: var(--gris-claro);
+        background-color: var(--celeste)
+    }
+
+
+/*
+    Estilos de todo lo que esta en "main"
+*/
+main{
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
     background-color: white;
 }
+.producto button{
+    background-color: #F94D01;
+    color: aliceblue;
+    border-radius: 50%;
+}
+.subTitulo a {
+    color:  #F94D01;
+    font-size: 30px;
+    
+}
+.subTitulo{
+    text-align: center;
+}
+
+
 .listaProduct{
-    border: 1px solid black;
+    background-color: #E5E3DF;
+    border-radius: 5%;
 }
-.ResumenCompra{
-    border: 1px solid black;
-}
+
 .producto{
     display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between
+    
+    align-items: flex-end;
+    justify-content: flex-start;
+
+    padding-bottom: 10px;
+    margin-top: 15px;
+    margin-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top: 1px solid black;
+}
+.producto .Banner{
+    padding-left: 35px;
+    padding-right: 30px;
+    padding-top: 15px;
+    width: 20%;
+}
+.producto .CaracteristicasProduct{
+    width: 70%;
+    
+    justify-content: flex-start;
+}
+.producto .DescripcionProduct {
+    display: flex;
+    padding-bottom: 20%
+}
+.producto .botones{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+/*
+    Estilos de todo lo que esta en "mainInferior"
+*/
+.ResumenCompra{
+    
+    border: 1px solid black;
+ 
+    background-color: #a8e2d9;
+    border-radius: 5%;
+    min-width: 250px;
+    max-height: 300px;
+
+}
+.ResumenCompra h2{
+    text-align: center;
+    background-color: #a8e2d9;
+    font-size: 18px;
+}
+.Product-SubGerido{
+    border: 1px solid red;
+    width: 150px;
+
+}
+.SubGerencias{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 80%;
+  
+}
+.mainInferior{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+    padding-right: 20px;
+    
+}
+.Content-SubGerecias{
+    height: 80%;
+
+    
+}
+.titulo{
+    text-align: center;
+    color: #F94D01;
+    font-size: 30px;
+
+}
+.titulo p{
+        margin-bottom: 1px;
+    margin-top: 5px;
+}
+
+
+.Content-subgerencias .btn{
+    color: white;
+    border-radius: 25%;
+
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #F94D01;
+}
+.Content-subgerencias svg{
+    /*de esta forma le puedo dar color a cada "SVG" , si afectar a los otros */
+    font-size: 25px;
+    fill: #00C7AA;
+    
+
+}
+.SubGerencias{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+
+
+.Res-total{
+    border-top: 1px solid black;
+}
+.ResumenCompra div{
+    padding-top: 5%;
+    
+    padding-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #a8e2d9;
+    border-radius: 15%;
+}
+
+.Botton-compra button {
+    
+    border-radius: 25%;
+    font-size: 19px;
+    text-align: center;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #F94D01;
+    color : white;
+    
+}
+button{
+    text-align: center;
+}
+.flechas{
+    margin: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 40px;
+}
+
+
+/*probando incorporar el codigo de lou */
+.articulo{
+    width: 42%;
+    padding: 15px;
+    background-color: var(--gris-claro);
+    border-radius: 10px;
+}
+.img-articulo{
+    width: 100%;
+}
+.desc-articulo{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.icon-articulo{
+    color: var(--cian);
+    font-size: 200%;
+}
+
+
+
+
+
+
+/*
+    Agregando estilo al footer
+
+    se me sale del body
+*/
+
+
+
+
+
+/*las medias querys */
+
+
+
+@media (min-width: 361px) {
+    /*estas modificaciones se hacen desde 361px en adelante ! */
+    .Content-subgerencias{
+        width: 50%;
+    }
 }
