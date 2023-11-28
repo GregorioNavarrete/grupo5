@@ -9,10 +9,6 @@
     --gris-petroleo: #3E6C6A;
     }
 
-    body{
-        background-color: var(--gris-claro);
-        background-color: var(--celeste)
-    }
 
 
 /*
@@ -25,56 +21,98 @@ main{
     background-color: white;
 }
 .producto button{
-    background-color: #F94D01;
+    background-color: var(--anaranjado);
     color: aliceblue;
-    border-radius: 50%;
-}
-.subTitulo a {
-    color:  #F94D01;
-    font-size: 30px;
-    
-}
-.subTitulo{
+    border-radius: 100%;
+    border: none;
     text-align: center;
+
+}
+
+h2{
+    color: #F94D01;
+    text-align: center;
+    font-family: 'Merriweather', serif;
 }
 
 
 .listaProduct{
-    background-color: #E5E3DF;
-    border-radius: 5%;
+    background-color: var(--gris-claro);
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+
+
 }
 
 .producto{
     display: flex;
-    
-    align-items: flex-end;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+    background-color: var(--gris-claro);
+    border-radius: 5px;
+    width: 100%;
+}
 
-    padding-bottom: 10px;
-    margin-top: 15px;
-    margin-top: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-top: 1px solid black;
+.producto .banner{
+    width: 30%;
 }
-.producto .Banner{
-    padding-left: 35px;
-    padding-right: 30px;
-    padding-top: 15px;
-    width: 20%;
+
+.producto .img-Banner{
+    width: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 .producto .CaracteristicasProduct{
     width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    align-items: center;
     
-    justify-content: flex-start;
 }
 .producto .DescripcionProduct {
     display: flex;
-    padding-bottom: 20%
+    margin-left: 15px;
+    color: var(--gris-petroleo);
+    font-size: 15px;
+
 }
+
+
+
+
+
 .producto .botones{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
+    width: 100%;
+
+}
+
+.btn-{
+ color: var(--anaranjado);
+ margin: auto;
+ margin-left: 10px;
+ margin-right: 10px;
+}
+
+.btn-trash{
+color: #3E6C6A;
+margin: auto;
+margin-left: 5px;
+margin-right: 10px;
+opacity: 0.7;
+}
+
+.cant{
+    margin:auto;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 
@@ -82,21 +120,71 @@ main{
 /*
     Estilos de todo lo que esta en "mainInferior"
 */
-.ResumenCompra{
-    
-    border: 1px solid black;
- 
-    background-color: #a8e2d9;
-    border-radius: 5%;
-    min-width: 250px;
-    max-height: 300px;
+
+.content-resumen{
+    background-color: var(--celeste);
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 15px;
 
 }
-.ResumenCompra h2{
-    text-align: center;
-    background-color: #a8e2d9;
-    font-size: 18px;
+
+.ResumenCompra{ 
+    background-color: var(--blanco);
+    border-radius: 5px;
+    padding: 15px;
+    width: 80%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 10px;
+
 }
+.ResumenCompra h3{
+    text-align: center;
+    font-size: 15px;
+    color: var(--gris-petroleo);
+    margin-top: 0px;
+}
+
+.ResumenCompra .subtotal{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    font-size: 14px;
+}
+
+.ResumenCompra .envio{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 0px;
+    padding-top: 0px;
+    font-size: 14px;
+}
+
+.ResumenCompra .Res-total{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 0px;
+    padding-top: 0px;
+    font-size: 15px;
+    font-weight: bold;
+    border-top: solid 1px var(--gris-petroleo);
+
+}
+
 .Product-SubGerido{
     border: 1px solid red;
     width: 150px;
@@ -114,8 +202,6 @@ main{
     flex-wrap: wrap;
     justify-content: space-evenly;
     
-    padding-right: 20px;
-    
 }
 .Content-SubGerecias{
     height: 80%;
@@ -129,7 +215,7 @@ main{
 
 }
 .titulo p{
-        margin-bottom: 1px;
+    margin-bottom: 1px;
     margin-top: 5px;
 }
 
@@ -156,34 +242,32 @@ main{
 }
 
 
-
-.Res-total{
-    border-top: 1px solid black;
-}
 .ResumenCompra div{
-    padding-top: 5%;
-    
-    padding-bottom: 15px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    background-color: #a8e2d9;
-    border-radius: 15%;
 }
 
-.Botton-compra button {
+.Botton-compra button{
     
-    border-radius: 25%;
+    border-radius: 50px;
     font-size: 19px;
     text-align: center;
     padding-right: 50px;
     padding-left: 50px;
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: #F94D01;
+    background-color: var(--anaranjado);
     color : white;
-    
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 1s;
 }
+
+.Botton-compra button:hover{
+    background-color: var(--cian);
+}
+
 button{
     text-align: center;
 }
@@ -221,11 +305,132 @@ button{
 
 
 
-/*
-    Agregando estilo al footer
 
-    se me sale del body
+/*
+   Codigo de Lou para articulos
 */
+
+.cont-articulos{
+    display: flex;
+    flex-wrap: wrap;
+   
+   
+}
+
+.articulo{
+    width: 42%;
+    padding: 15px;
+    background-color: var(--gris-claro);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 2s;
+}
+
+.articulo:hover{
+    -webkit-transform:scale(1.1);transform:scale(1.1);
+}
+
+.articulo-oculto-1{
+    width: 42%;
+    padding: 15px;
+    background-color: var(--gris-claro);
+    border-radius: 10px;
+    display: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 2s;
+}
+
+.articulo-oculto-1:hover{
+    -webkit-transform:scale(1.1);transform:scale(1.1);
+}
+
+.articulo-oculto-2{
+    width: 42%;
+    padding: 15px;
+    background-color: var(--gris-claro);
+    border-radius: 10px;
+    display: none;
+    height: 30%;
+    text-align: center;
+    cursor: pointer;
+    transition: all 2s;
+}
+
+.articulo-oculto-2:hover{
+    -webkit-transform:scale(1.1);transform:scale(1.1);
+}
+
+.img-articulo{
+    width: 70%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 15px;  
+}
+
+
+
+.desc-articulo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.list-articulos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.icon-articulo{
+    color: var(--cian);
+    font-size: 160%;
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25));
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.icon-articulo:hover{
+    color: #F94D01;
+}
+
+.precio-articulo{
+    display: none;
+    color: #3E6C6A;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.signo-precio-art{
+    display: none;
+    color: var(--cian);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.button-art{
+    border: none;
+    background-color: #F94D01;
+    color: var(--blanco);
+    padding: 8px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.button-art:hover{
+    background-color: var(--cian);
+}
+
 
 
 
@@ -235,9 +440,139 @@ button{
 
 
 
-@media (min-width: 361px) {
+/*@media (min-width: 361px) {
     /*estas modificaciones se hacen desde 361px en adelante ! */
-    .Content-subgerencias{
+    /*.Content-subgerencias{
         width: 50%;
+    }
+
+    .producto.img-Banner{
+        width: 70%;
+    }
+}
+*/
+
+@media (min-width: 769px) {
+    .img-articulo{
+        width: 70%;
+    }
+
+    .producto{
+        width: 90%;
+        margin: auto;
+    }
+
+    .content-resumen{
+        width: 60%;
+    }
+    
+    .DescripcionProduct{
+        width: 100%;
+    }
+
+    .tlo-autor{
+        font-size: 23px;
+        font-weight: bold;
+    }
+
+    .botones{
+        font-size: 25px;
+    }
+
+    .tlo-sug{
+        width: 100%;
+    }
+    
+    .producto .img-Banner{
+        width: 80%;
+        margin: auto;
+    }
+
+    .ResumenCompra{
+        font-size: 50px;
+    }
+
+
+
+
+
+    .articulo{
+        width: 30%;
+    }
+
+    .articulo-oculto-1{
+        width: 30%;
+        display: block;
+    }
+    .precio-articulo{
+        display: block;
+    }
+
+    .signo-precio-art{
+        display: block;
+    }
+
+    main{
+        font-size: 22px;
+        padding-bottom: 20px;
+    }
+
+   
+
+}
+
+@media (min-width: 1024px) {
+    .content-resumen{
+        width: 35%;
+        margin-right: 20px;
+    }
+
+    .listaProduct{
+        padding-bottom: 50px;
+        padding-top: 25px;
+    }
+
+    .producto{
+        width: 80%;
+    }
+
+    .producto .banner{
+        width: 25%;
+    }
+    
+    .content-resumen{
+        position: relative;
+        bottom: 20px;
+    }
+
+    .ResumenCompra h3{
+        font-size: 22px;
+    }
+
+    .ResumenCompra p{
+        font-size: 17px;
+    }
+
+    .mas-art{
+        width: 60%;
+     
+    }
+
+    .precio-articulo{
+        display: none;
+    }
+
+    .signo-precio-art{
+        display: none;
+    }
+
+    .mas-art h2{
+        font-size: 24px;
+    }
+
+
+
+    .mainInferior{
+        flex-direction: row-reverse;
     }
 }

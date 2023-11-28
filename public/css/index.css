@@ -117,6 +117,12 @@ main{
     color: var(--cian);
     font-size: 160%;
     filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25));
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.icon-articulo:hover{
+    color: #F94D01;
 }
 
 .precio-articulo{
