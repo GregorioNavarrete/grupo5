@@ -45,11 +45,11 @@
                 </div>
 
                 <div>
-                    <a class="nav_icon" href="/productCart" class="nav_link"><i class="fa-solid fa-bag-shopping"></i></a>
+                    <a class="nav_icon" href="product/cart" class="nav_link"><i class="fa-solid fa-bag-shopping"></i></a>
                  </div>
 
                 <div>
-                    <a class="nav_icon" href="login" class="nav_link"><i class="fa-solid fa-circle-user"></i></a>
+                    <a class="nav_icon" href="user/login" class="nav_link"><i class="fa-solid fa-circle-user"></i></a>
                 </div>
             </div>
             
@@ -64,14 +64,17 @@
 
         <h2>Novedades</h2>
         <section class="list-articulos">
-            <article class="articulo">
-                <img class="img-articulo" src="/img/portadas/Defiant.jpg" alf="Defiant">  
+            <% libros.forEach((product) =>{ %>
+                <article class="articulo">
+                <img class="img-articulo" src="<%= product.portada %>" alf="<%= product.titulo %>">  
                 <div class="desc-articulo">
                 <a class="icon-articulo" href="/productCart" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
-                <p class="signo-precio-art">$</p><p class="precio-articulo">18.499,00</p>
+                <p class="signo-precio-art">$</p><p class="precio-articulo"><%= product.precio %></p>
                 <a href="/productDetail"><button class="button-art">Descubrir</button></a>
                 </div>
             </article>
+            <% }); %>
+
 
             <article class="articulo-oculto-1">
                 <img class="img-articulo" src="/img/portadas/el-alquimista.jpg" alf="El Alquimista">  
