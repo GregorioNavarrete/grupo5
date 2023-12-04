@@ -2,64 +2,50 @@
 <html lang="en">
 
 <head>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-
-    <link href="/css/styles.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Quicksand&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="\css\register.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ('../partials/head') %>
+    
+    <link rel="stylesheet" href="\css\login.css">
     <title>Register</title>
 </head>
 
 <body>
     <header>
-        <div class="conte-header">
-
-
-            <div class="barra-busqueda-header">
-
-                <input class="input-header" type="text" placeholder="Buscar">
-                <div class="button-header">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-
-            </div>
-
-
-            <div class="conte-logo-prisma">
-                <a href="/"><img class="logo-prisma" src="/img/Logo-Blanco-P.svg" alf="logo-prisma"></a>
-            </div>
-
-
-            <div class="nav_list">
-
-                <div>
-                    <a class="nav_icon" href="#" class="nav_link"><i class="fa-solid fa-bars"></i></a>
-                </div>
-
-                <div>
-                    <a class="nav_icon" href="/productCart" class="nav_link"><i
-                            class="fa-solid fa-bag-shopping"></i></a>
-                </div>
-
-                <div>
-                    <a class="nav_icon" href="login" class="nav_link"><i class="fa-solid fa-circle-user"></i></a>
-                </div>
-            </div>
-
-        </div>
+    <%- include ('../partials/header') %>
     </header>
 
     <main>
-        <div class="botones">
+
+        <div class="form-caja">
+            <form action="/" method="post" class="formulario">
+                <h1>REGISTRO</h1>
+                <div class="contenedor">
+                    <div class="input-contenedor">
+                        <i class="fa-solid fa-user" style="color: #838486;"></i>
+                        <input class="input-txt" type="text" name="Usuario" placeholder="Ingrese un Usuaario" required>
+                        <span class="error-message">Ingresa un usuario valido.</span>
+                    </div>
+                    <div class="input-contenedor">
+                        <i class="fa-regular fa-envelope icon"></i>
+                        <input class="input-txt" type="email" name="email" placeholder="Ingrese un e-mail" required>
+                        <span class="error-message">Ingresa una dirección de correo electrónico válida.</span>
+                    </div>
+                    <div class="input-contenedor">
+                        <i class="fa-solid fa-key icon"></i>
+                        <input class="input-txt" type="password" name="password" placeholder="Ingrese una contraseña" required minlength="8">
+                        <span class="error-message">Debe tener 8 carácteres como mínimo.</span>
+                    </div>
+                    <label>
+                    <input class="check" type="checkbox" name="remember" value="remember"> Recordarme </label>
+                    <br>
+                    <p><a type="link" href="login" class="link">Ya tengo una cuenta</a></p>
+            
+                    <input type="submit" value="Registrarme" class="button">
+                    <br>
+            
+                </div>
+            </form>
+            </div>
+        <!-- <div class="botones">
             <button  class="btn-1">Ingresar</button>
             <button class="btn-2">Registro</button>
         </div>
@@ -100,64 +86,11 @@
                     <button class="registro-boton">registrarme</button>
                 </div>
             </form>
-        </div>
+        </div> -->
 
     </main>
     <footer>
-        <section class="redes-footer">
-            <a class="icon-redes-footer" href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
-            <a class="icon-redes-footer" href="https://twitter.com"><i class="fa-brands fa-twitter"></i></a>
-            <a class="icon-redes-footer" href="https://ar.pinterest.com"><i class="fa-brands fa-pinterest"></i></a>
-            <a class="icon-redes-footer" href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
-            <a class="icon-redes-footer" href="https://www.tiktok.com"><i class="fa-brands fa-tiktok"></i></a>
-            <a class="icon-redes-footer" href="https://www.youtube.com"><i class="fa-brands fa-youtube"></i></a>
-        </section>
-
-        <section class="nav-footer">
-            <div class="info-footer">
-                <h4 class="categ-footer">Información</h4>
-                <div class="detalle-footer">
-                    <p>Politica de Privacidad</p>
-                    <p>terminos y condiciones</p>
-                    <p>Envíos de autores</p>
-                    <p>Privacidad</p>
-                </div>
-            </div>
-
-            <div class="info-footer">
-                <h4 class="categ-footer">Ayuda</h4>
-                <div class="detalle-footer">
-                    <p>Preguntas frecuentes</p>
-                    <p>Envío</p>
-                    <p>Devoluciones</p>
-                    <p>Contáctenos</p>
-                </div>
-            </div>
-
-            <div class="info-footer">
-                <h4 class="categ-footer">Más de Prisma</h4>
-                <div class="detalle-footer">
-                    <p>Acerca de Prisma</p>
-                    <p>Blog</p>
-                    <p>Trabajos</p>
-                    <p>Prensa</p>
-                </div>
-            </div>
-
-            <div class="info-footer">
-                <h4 class="categ-footer">Metodos de Pagó</h4>
-                <div class="detalle-footer">
-                    <div class="icon-pago-footer">
-                        <i class="fa-brands fa-cc-visa"></i>
-                        <i class="fa-brands fa-cc-mastercard"></i>
-                        <i class="fa-brands fa-cc-amex"></i>
-                        <i class="fa-brands fa-paypal"></i>
-                    </div>
-                </div>
-            </div>
-            <h5 class="copi-footer">© Prisma 2023</h5>
-        </section>
-
+        <%- include ('../partials/footer') %>
     </footer>
 </body>
 

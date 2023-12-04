@@ -1,57 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <script src="https://kit.fontawesome.com/848249e791.js" crossorigin="anonymous"></script>
+    <%- include ('../partials/head') %>
     <link rel="stylesheet" href="/css/login.css">
-    <link rel="stylesheet" href="/css/styles.css">
     <title>Iniciar sesión en Libros Prisma</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Quicksand&display=swap" rel="stylesheet">
     
 </head>
 <body>
-
-    <header>
-        <div class="conte-header">
-
-           
-            <div class="barra-busqueda-header">
-           
-                <input class="input-header" type="text" placeholder="Buscar">
-                <div class="button-header">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-           
-            </div>
-           
-        
-            <div class="conte-logo-prisma">
-                <a href="/"><img class="logo-prisma" src="/img/Logo-Blanco-P.svg" alf="logo-prisma"></a> 
-            </div>
-            
-
-            <div class="nav_list">
-
-                <div>
-                <a class="nav_icon" href="#" class="nav_link"><i class="fa-solid fa-bars"></i></a>
-                </div>
-
-                <div>
-                    <a class="nav_icon" href="/productCart" class="nav_link"><i class="fa-solid fa-bag-shopping"></i></a>
-                 </div>
-
-                <div>
-                    <a class="nav_icon" href="login" class="nav_link"><i class="fa-solid fa-circle-user"></i></a>
-                </div>
-            </div>
-            
-        </div>
-    </header> 
-
+<header>
+    <%- include ('../partials/header') %>
+</header>
     <main>
     <div class="form-caja">
     <form action="/" method="post" class="formulario">
@@ -72,7 +30,7 @@
             <p><a type="link" href="/register" class="link">Olvidé mi contraseña</a></p>
             <input type="submit" value="Ingresar" class="button">
             <br>
-            <p>¿No tienes una cuenta? <a type="link" href="/register" class="link">Regístrate.</a></p>
+            <p>¿No tienes una cuenta? <a type="link" href="register" class="link">Regístrate.</a></p>
         </div>
     </form>
     </div>
@@ -81,59 +39,7 @@
 
 
 <footer>
-    <section class="redes-footer"> 
-        <a class="icon-redes-footer" href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
-        <a class="icon-redes-footer" href="https://twitter.com"><i class="fa-brands fa-twitter"></i></a>
-        <a class="icon-redes-footer" href="https://ar.pinterest.com"><i class="fa-brands fa-pinterest"></i></a>
-        <a class="icon-redes-footer" href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
-        <a class="icon-redes-footer" href="https://www.tiktok.com"><i class="fa-brands fa-tiktok"></i></a>
-        <a class="icon-redes-footer" href="https://www.youtube.com"><i class="fa-brands fa-youtube"></i></a>
-    </section>
-
-    <section class="nav-footer">
-        <div class="info-footer">
-        <h4 class="categ-footer">Información</h4> 
-        <div class="detalle-footer">    
-            <p>Politica de Privacidad</p>
-            <p>terminos y condiciones</p>
-            <p>Envíos de autores</p>
-            <p>Privacidad</p>
-        </div>
-        </div>
-
-        <div class="info-footer">
-        <h4 class="categ-footer">Ayuda</h4>
-        <div class="detalle-footer">    
-            <p>Preguntas frecuentes</p>
-            <p>Envío</p>
-            <p>Devoluciones</p>
-            <p>Contáctenos</p>
-        </div>
-        </div>
-
-        <div class="info-footer">
-       <h4 class="categ-footer">Más de Prisma</h4> 
-       <div class="detalle-footer">
-            <p>Acerca de Prisma</p>
-            <p>Blog</p>
-            <p>Trabajos</p>
-            <p>Prensa</p>
-        </div>
-        </div>
-
-        <div class="info-footer">
-        <h4 class="categ-footer">Metodos de Pagó</h4>
-         <div class="detalle-footer">   
-            <div class="icon-pago-footer">
-            <i class="fa-brands fa-cc-visa"></i>
-            <i class="fa-brands fa-cc-mastercard"></i>
-            <i class="fa-brands fa-cc-amex"></i>
-            <i class="fa-brands fa-paypal"></i>
-            </div>
-        </div>
-        </div>
-        <h5 class="copi-footer">© Prisma 2023</h5>
-    </section>
+    <%- include ('../partials/footer') %>
 
 </footer>
 

@@ -34,7 +34,7 @@ const productController = {
         res.render(htmlPath);
 
       },
-      FormCarga : (req, res) => {
+      formCarga : (req, res) => {
         
         let htmlPath = path.resolve(__dirname,'../views/products/FormularioDeCarga.ejs') ;
         res.render(htmlPath);
