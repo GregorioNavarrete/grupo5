@@ -50,4 +50,18 @@
     </div>
     </div>
     <h5 class="copi-footer">© Prisma 2023</h5>
+
+        <!--Le pongo unas cosas de manupulacion de DOM, creo que lo tengo que dejar al final del body-->
+        <script>
+            const menuHumbeIcon = document.querySelector('#HabuIcon');
+            const mobilMenu = document.querySelector('.mobile-menu');
+    
+    
+    
+            menuHumbeIcon.addEventListener('click',toggleMobilemenu );
+    
+            function toggleMobilemenu(){
+                mobilMenu.classList.toggle('inactive');
+            }
+        </script>
 </section>

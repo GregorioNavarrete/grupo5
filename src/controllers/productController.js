@@ -33,6 +33,11 @@ const productController = {
         //al estar en la ruta "/" me manda a una direccion de archivo html
         res.render(htmlPath);
 
+      },
+      FormCarga : (req, res) => {
+        
+        let htmlPath = path.resolve(__dirname,'../views/products/FormularioDeCarga.ejs') ;
+        res.render(htmlPath);
       }
 }
 

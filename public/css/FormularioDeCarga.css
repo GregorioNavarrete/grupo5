@@ -1,0 +1,324 @@
+:root{
+    --celeste: #7BCCC0;
+    --blanco: #FAFCFE;
+    --azul-oscuro: #152636;
+    --cian: #00C7AA;
+    --anaranjado: #F94D01;
+    --gris-claro: #E5E3DF;
+    --gris-petroleo: #3E6C6A;
+    }
+    
+
+
+
+
+.FormularioDeCarga{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+/*      Estilos del Left     */   
+.Left{
+    background-color: #7BCCC0;
+    border-radius: 5px;
+    height:100%;
+    width: 300px;
+    text-align: center;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.Left .btn-art{
+
+    font-size: 1rem;
+    margin: 10px;
+    padding: 10px;
+    background-color: #F94D01;
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s ease all;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.Left .btn-art:hover{
+    background-color: var(--cian);
+    color: var(--azul-oscuro);
+}
+.Left .form-actions{
+    display: flex;
+    justify-content: space-evenly
+}
+.Left .SubTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+/*      Estilos del Center      */
+.Center{
+
+    height:100%;
+    width: 300px;
+    text-align: center;
+
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.Center .SearchBox{
+    background-color: #7BCCC0;
+    border-radius: 5px;
+}
+.Center .IndexList{
+    background-color: #7BCCC0;
+    border-radius: 5px;
+
+
+    padding-bottom: 30px;
+
+}
+
+.Center .Producto{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+        background-color: #3E6C6A;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+
+.Center .IndexList .SubTitulo{
+    display: flex;
+    justify-content: space-evenly;
+}
+.Center .SearchBox{
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.Center .SearchBox .button{
+    background-color:#F94D01;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    padding-top: 5px;
+
+
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: white;
+    transition: .3s ease all;
+}
+.Center .SearchBox .button:hover{
+    background-color: var(--cian);
+    color: var(--azul-oscuro);
+}
+
+
+.Center .SearchBox input{
+    width: 70%;
+    border-radius: 12px
+}
+
+.Center .SearchBox-form{
+    display: flex;
+    justify-content: center;
+}
+.Center .SubTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+/*     Estilos que en PC esta a la izquierda     */
+.Rigth{
+    background-color: #7BCCC0;
+    border-radius: 5px;
+   
+    height:100%;
+    width: 300px;
+    text-align: center;
+
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+.Rigth .btn-art{
+
+    font-size: 1rem;
+    margin: 10px;
+    padding: 10px;
+    background-color: #F94D01;
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s ease all;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.Rigth .btn-art:hover{
+    background-color: var(--cian);
+    color: var(--azul-oscuro);
+
+}
+.Rigth .form-actions{
+    display: flex;
+    justify-content: space-evenly
+}
+
+.Rigth .SubTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+/*             Codigo general   tener mucho cuidado */
+
+/*es el mismo estilo de los bustitulos de los 3 componentes */
+.SubTitle i{
+    font-size: 30px;
+}
+.SubTitle p{
+    padding-left: 10px;
+    font-size: 25px;
+}
+
+
+        /*cuando no sea mobil, antes desplegarse verticalmente, se tendria que desplegar horizontal*/
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            
+    
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .mobile-menu ul {
+            padding: 0;
+            margin: 24px 0 0;
+            list-style: none;
+            display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+         
+        }
+    
+        .mobile-menu ul li {
+            margin-bottom: 24px;
+        }
+    
+
+
+/*para la manipulacion de DOM   codigo agregado para el menu */
+.inactive {
+    
+    display: none; 
+    
+    
+  }
+
+ /*
+     <style>
+       
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            
+        }
+        .mobile-menu ul {
+            padding: 0;
+            margin: 24px 0 0;
+            list-style: none;
+         
+        }
+    
+        .mobile-menu ul li {
+            margin-bottom: 24px;
+        }
+    
+        </style>
+         <div class="mobile-menu inactive">
+            <ul>
+              <li>
+                <a href="/">Categorias</a>
+              </li>
+              <li>
+                <a href="/">todas</a>
+              </li>
+              <li>
+                <a href="/">Misterio</a>
+              </li>
+              <li>
+                <a href="/">Romance</a>
+              </li>
+              <li>
+                <a href="/">Aventura</a>
+              </li>
+              <li>
+                <a href="/">Terror</a>
+              </li>
+              <li>
+                <a href="/">Fantasia</a>
+              </li>
+            </ul>
+        </div>
+
+        <script>
+        const menuHumbeIcon = document.querySelector('#HabuIcon');
+        const mobilMenu = document.querySelector('.mobile-menu');
+
+
+
+        menuHumbeIcon.addEventListener('click',toggleMobilemenu );
+
+        function toggleMobilemenu(){
+            mobilMenu.classList.toggle('inactive');
+        }
+    </script>
+ 
+ */ 
