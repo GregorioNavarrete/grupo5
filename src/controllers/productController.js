@@ -38,6 +38,12 @@ const productController = {
         
         let htmlPath = path.resolve(__dirname,'../views/products/FormularioDeCarga.ejs') ;
         res.render(htmlPath);
+      },
+
+      catg: (req, res) => {
+      
+        let htmlPath = path.resolve(__dirname,'../views/products/categoria.ejs') ;
+        res.render(htmlPath);
       }
 }
 

@@ -627,4 +627,29 @@ h2{
 
 
 
-    
+    .catg{
+        background-color: var(--gris-claro);
+        border-radius: 5px;
+        margin: auto;
+        width: 30%;
+        cursor: pointer;
+        transition: all 2s;
+    }
+
+    .catg:hover{
+        background-color: var(--anaranjado);
+    }
+
+    .titulo-catg{
+        color: #00C7AA;
+        text-align: center;
+        font-size: 30px;
+        margin: 15px;
+        padding: 15px;
+        cursor: pointer;
+        transition: all 2s;
+    }
+
+    .titulo-catg:hover{
+        color:var(--blanco);
+    }

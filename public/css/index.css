@@ -467,6 +467,13 @@ a{
     transition: all 2s;
 }
 
+.categ{
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  
+}
+
 .list-categoria{
     display: flex;
     flex-wrap: wrap;
