@@ -113,6 +113,40 @@ header{
     color: var(--blanco);
 }
 
+        /*cuando no sea mobil, antes desplegarse verticalmente, se tendria que desplegar horizontal*/
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            
+    
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .mobile-menu ul {
+            padding: 0;
+            margin: 24px 0 0;
+            list-style: none;
+            display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+         
+        }
+    
+        .mobile-menu ul li {
+            margin-bottom: 24px;
+        }
+    
+
+
+/*para la manipulacion de DOM   codigo agregado para el menu */
+.inactive {
+    
+    display: none; 
+    
+    
+  }
 
 
 
