@@ -41,3 +41,45 @@ En el Sprint anterior la devolución puso en enfasis que todos debiamos hacer Co
 -> No responder u opinir en el grupo
 -> Dejar las cosas para ultimo momento
 -> No Pedir ayuda
+
+# Retro Sprint 2
+
+Con el Sprint dos nos dimos cuenta que podiamos hacer un buen equipo, y aquie no optimizamos las tareas de la forma mas eficiente posible, si podemos decir que el que todos nos encarguemos de hacer HTML y CSS, nos sirvio para sumar nuevas herramientas que nos ayudaran el los siguientes sprints,
+
+Nuevamente uno de nuestro bloqueantes mas graves fue el uso de GIT, y si bien pudimos resolver todas los problemas que surguieron es verdad que nos costo bastante y sufrimos mas en los ultimos minutos antes del cierre del Sprint.
+
+En el Sprint anterior nos fue bastante bien ya que teniamos unas vistas ya bien definidas, y en este nuevo Sprint nos tocara darles dinamismo. 
+
+Entre las correcciones que nos hicieron como grupo fue que todos los participantes deberian hacer Commits significativos, lo cual intentamos dividiento las 5 vistas entre los 5 participantes del grupo, lo cual pudo ser por un lado un acierto, ya que nos dio mas libertad de trabajar individualmente, pero por el otro hacia vistas que tenian mas complejidad que otras.
+
+### Dinamica Estrella de Mar
+
+1. Comenzar a hacer.
+-> Seguir las clases para no quedarnos atras
+-> Arreglar un horario para codear en conjunto
+-> Hacer un codigo mas limpio
+-> Commitear diario
+
+2. Hacer más.
+-> Tomar la iniciativa para comenzar a trabajar
+-> Preguntar apenas surge un bloqueante
+-> Contestar rapido los bloqueantes
+-> Utilizar de mejor manera el Trello
+
+3. Continuar haciendo.
+-> Hacer reuniones para mostrar progresos
+-> Comunicarnos periodicamente
+-> Practicar GIT
+-> Mantener un estilo parecido en las vistas
+
+4. Hacer menos.
+-> Reuniones sin sentido
+-> Usar el tiempo de las clases para mostrar avances
+-> Dividir tareas sin pensar en la complejidad
+-> Estar callados en las reuniones
+
+5. Dejar de hacer.
+-> No estar al dia con las clase
+-> No aprovechar el tiempo de la practica
+-> Esperar las correcciones para empezar el sprint
+-> Hacer commits solo al final de sprint
