@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/head') %>
+    <link  href="/css/index.css" rel="stylesheet">
+    <title>Prisma</title>
+ 
+</head>
+<body>
+    <header>
+        <%- include ('../partials/header') %>
+    </header>
+    
+    <main>
+        <br>
+        <section class="oferta">
+        <img class="banner" src="/img/Banners/Heartstopper-banner.jpg" alf="banner.heartstopper">
+        </section>
+
+        <h2>Novedades</h2>
+
+        <%- include ('../partials/slider') %>
+        <br>
+        <h2>Categorias</h2>
+        <%- include ('../partials/categorias') %>
+
+        
+        <h2>Best Sellers</h2>
+        <%- include ('../partials/listadeArticulos') %>
+        <br>
+       
+    <img class="banner" src="/img/Banners/banner-harrypotter.jpg" alf="banner.harrypotter">
+
+    <br>
+   
+        <h2>Más Vendidos</h2>
+        <%- include ('../partials/listadeArticulos') %>
+        <br>
+
+
+    <h2>Conoce Más</h2>
+    <section class="mas-info">
+        <img class="img-mas-info" src="/img/Banners/mas-sking.png" alf="S.King">
+        <img class="img-mas-oculto" src="/img/Banners/mas-grrMartin.png" alf="GeorgeMartin"> 
+        <img class="img-mas-info" src="/img/Banners/mas-harrypotter.png" alf="harrypotter">
+        
+    </section>
+
+
+    </main>
+    <footer>
+        <%- include ('../partials/footer') %>    
+    </footer>
+</body>
+</html>

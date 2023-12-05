@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/head') %>
+    <link  href="/css/FormularioDeCarga.css" rel="stylesheet">  
+    <title>FormularioDeCarga</title>
+
+</head>
+<body>
+    
+    <header>
+        <%- include ('../partials/header') %>
+    </header>
+    
+    <main>
+        <div class="FormularioDeCarga">
+            
+            <div class="Rigth">
+                <!--Agregar-->
+                <div class="SubTitle">
+                    <i class="fa-solid fa-folder-plus"></i>
+                    <p>Cargar Libro</p>
+
+                </div>
+
+                <form action="/guardar_producto" method="POST">
+                    <div >Título</div>
+                    <input type="text" id="titulo" name="titulo" required><br><br>
+                    
+                    <div>Autor</div>
+                    <input type="text" id="autor" name="autor" required><br><br>
+                    
+                    <div>Detalle del producto</div>
+                    <textarea id="detalle" name="detalle" required></textarea><br><br>
+                    
+                    <div>Género</div>
+                    <select id="genero" name="genero" required>
+                      <option value="">Seleccione un género</option>
+                      <option value="Misterio">Misterio</option>
+                      <option value="Romance"> Romance</option>
+                      <option value="Aventura">Aventura</option>
+                      <option value="Clasicos">Clasicos</option>
+                      <option value="Terror">Terror</option>
+                      <option value="Fantasia">Fantasia</option>
+                    </select><br><br>
+    
+    
+                    <div>Estrellas</div>
+                    <select id="Estrellas" name="Estrellas" required>
+                      <option value="">Seleccione Estrellas</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select><br><br>
+                    
+                    
+                    <div>Precio</div>
+                    <input type="number" id="precio" name="precio" step="0.01" required><br><br>
+                    
+                    <div>Imagen</div>
+                    <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>
+                    
+                    
+                    <div class="form-actions">
+                        <a class="btn-art" href="/productDetail">
+                            <div>Agregar</div>
+                        </a>
+                    </div>
+        
+                  </form>
+            </div>
+
+            <div class="Center">
+                <!--Buscador y lista de libros-->
+
+                <div class="SearchBox">
+                    <div class="SubTitle">
+                        <i class="fa-solid fa-rectangle-list"></i>
+                        <p>Lista de libros</p>
+    
+                    </div>
+                    <form class="SearchBox-form" action="/buscar" method="GET">
+                        <input type="text" placeholder="Buscar por titulo o autor..." >
+                        <div class="button">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="IndexList">
+                    <div class="SubTitulo">
+                        <p>Titulo</p>
+                        <p>Tamaño del archivo</p>
+                        <p>Fecha</p>
+                    </div>
+                    <div class="Productos">
+                        <div class="Producto">
+
+                            <div class="">
+                    
+                                    <input type="checkbox" id="miCheckbox">
+                                    <span class="checkmark"></span>
+                            </div>
+
+                            <div>
+                                Titulo
+                            </div>
+                            <div>
+                                Tamaño del archivo
+                            </div>
+                            <div>
+                                Fecha
+                            </div>
+                        </div>
+
+                        <div class="Producto">
+
+                            <div class="">
+                    
+                                <input type="checkbox" id="miCheckbox">
+                                <span class="checkmark"></span>
+                            </div>
+
+                            <div>
+                                Titulo
+                            </div>
+                            <div>
+                                Tamaño del archivo
+                            </div>
+                            <div>
+                                Fecha
+                            </div>
+                        </div>
+                        <div class="Producto">
+
+                            <div class="">
+                    
+                                <input type="checkbox" id="miCheckbox">
+                                <span class="checkmark"></span>
+                            </div>
+
+                            <div>
+                                Titulo
+                            </div>
+                            <div>
+                                Tamaño del archivo
+                            </div>
+                            <div>
+                                Fecha
+                            </div>
+                        </div>
+                        <div class="Producto">
+
+                            <div class="">
+                    
+                                <input type="checkbox" id="miCheckbox">
+                                <span class="checkmark"></span>
+                            </div>
+
+                            <div>
+                                Titulo
+                            </div>
+                            <div>
+                                Tamaño del archivo
+                            </div>
+                            <div>
+                                Fecha
+                            </div>
+                        </div>
+                        <div class="Producto">
+
+                            <div class="">
+                    
+                                <input type="checkbox" id="miCheckbox">
+                                <span class="checkmark"></span>
+                            </div>
+
+                            <div>
+                                Titulo
+                            </div>
+                            <div>
+                                Tamaño del archivo
+                            </div>
+                            <div>
+                                Fecha
+                            </div>
+                        </div>
+
+                        <div class="Producto">
+
+                            <div class="">
+                    
+                                <input type="checkbox" id="miCheckbox">
+                                <span class="checkmark"></span>
+                            </div>
+
+                            <div>
+                                Titulo
+                            </div>
+                            <div>
+                                Tamaño del archivo
+                            </div>
+                            <div>
+                                Fecha
+                            </div>
+                                
+                        </div>
+
+                    </div>
+
+
+            </div>
+
+            </div>
+
+            <div class="Left">
+            <!--Eliminar o modificar-->
+
+            <div class="SubTitle">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <p>Editar Libro</p>
+
+            </div>
+            <form action="/guardar_producto" method="POST">
+                <div>Título</div>
+                <input type="text" id="titulo" name="titulo" required><br><br>
+                
+                <div>Autor</div>
+                <input type="text" id="autor" name="autor" required><br><br>
+                
+                <div>Detalle del producto</div>
+                <textarea id="detalle" name="detalle" required></textarea><br><br>
+                
+                <div>Género</div>
+                <select id="genero" name="genero" required>
+                  <option value="">Seleccione un género</option>
+                  <option value="Misterio">Misterio</option>
+                  <option value="Romance"> Romance</option>
+                  <option value="Aventura">Aventura</option>
+                  <option value="Clasicos">Clasicos</option>
+                  <option value="Terror">Terror</option>
+                  <option value="Fantasia">Fantasia</option>
+                </select><br><br>
+
+
+                <div>Estrellas</div>
+                <select id="Estrellas" name="Estrellas" required>
+                  <option value="">Seleccione Estrellas</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select><br><br>
+                
+                
+                <div>Precio</div>
+                <input type="number" id="precio" name="precio" step="0.01" required><br><br>
+                
+                <div>Imagen</div>
+                <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>
+                
+                <div class="form-actions">
+                    <a class="btn-art" href="/productDetail">
+                        <div> Modificar</div>
+                    </a>
+    
+                    <a class="btn-art" href="/productDetail">
+                        <div> Eliminar</div>
+                    </a>
+                </div>
+
+
+              </form>
+            </div>
+        
+    </main>
+
+
+    <footer>
+        <%- include ('../partials/footer') %>
+    </footer>
+
+   
+</body>
+</html>
