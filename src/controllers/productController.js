@@ -1,6 +1,7 @@
 const path = require('path');
 const product = require('../model/productos');
 const producto = require('../model/productos');
+const productService = require('../data/productService');
 
 
 
@@ -30,15 +31,21 @@ const productController = {
 
       },
       formCarga : (req, res) => {
-        
-        let htmlPath = path.resolve(__dirname,'../views/products/FormularioDeCarga.ejs') ;
-        res.render(htmlPath);
+        //para mostrar los elementos enlistados
+
+        res.render('products/FormularioDeCarga',{product : productService.getAll()});
+        //let htmlPath = path.resolve(__dirname,'../views/products/FormularioDeCarga.ejs') ;
+        //res.render(htmlPath);
       },
 
       catg: (req, res) => {
       
         let htmlPath = path.resolve(__dirname,'../views/products/categoria.ejs') ;
         res.render(htmlPath);
+      },
+      search: (req, res)=>{
+        let buscar = req.query.Buscar;
+        res.send(buscar);
       }
 }
 

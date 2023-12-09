@@ -73,7 +73,8 @@
 .Center{
 
     height:100%;
-    width: 300px;
+    min-width: 300px; /* Establece el ancho mínimo en 300px */
+    width: 40%; /* Abarca todo el ancho disponible */
     text-align: center;
 
 
@@ -153,6 +154,9 @@
     align-items: center;
     justify-content: center;
 }
+.Center img{
+    width: 70px;
+}
 
 
 
@@ -164,7 +168,8 @@
     border-radius: 5px;
    
     height:100%;
-    width: 300px;
+    min-width: 300px; /* Establece el ancho mínimo en 300px */
+    
     text-align: center;
 
 

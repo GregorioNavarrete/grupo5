@@ -81,8 +81,9 @@
                         <p>Lista de libros</p>
     
                     </div>
-                    <form class="SearchBox-form" action="/buscar" method="GET">
-                        <input type="text" placeholder="Buscar por titulo o autor..." >
+                    <form class="SearchBox-form" action="/product/FormCarga/search" method="GET">
+                        <!--lo al buscar lo manda a la ruta -->
+                        <input type="text" placeholder="Buscar por titulo o autor..." name="Buscar" >
                         <div class="button">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
@@ -95,118 +96,28 @@
                         <p>Tamaño del archivo</p>
                         <p>Fecha</p>
                     </div>
+
+                    <!--Le tengo que poner un for con la logica EJS -->
                     <div class="Productos">
+                        <% product.forEach(producto => { %>
                         <div class="Producto">
 
                             <div class="">
-                    
-                                    <input type="checkbox" id="miCheckbox">
-                                    <span class="checkmark"></span>
+                                    <button>Editar</button>
                             </div>
 
                             <div>
-                                Titulo
-                            </div>
-                            <div>
-                                Tamaño del archivo
+                                <%= producto.titulo %>
                             </div>
                             <div>
                                 Fecha
                             </div>
+                            <figure class="product-box_image">
+                                <!--la imagen por defecto si funcion-->
+                                <img src="/img/portadas/<%=(producto.portada !== 0 && producto.portada !== undefined) ? producto.portada : 'default-image.png'%>" alt="imagen de producto">
+                            </figure>
                         </div>
-
-                        <div class="Producto">
-
-                            <div class="">
-                    
-                                <input type="checkbox" id="miCheckbox">
-                                <span class="checkmark"></span>
-                            </div>
-
-                            <div>
-                                Titulo
-                            </div>
-                            <div>
-                                Tamaño del archivo
-                            </div>
-                            <div>
-                                Fecha
-                            </div>
-                        </div>
-                        <div class="Producto">
-
-                            <div class="">
-                    
-                                <input type="checkbox" id="miCheckbox">
-                                <span class="checkmark"></span>
-                            </div>
-
-                            <div>
-                                Titulo
-                            </div>
-                            <div>
-                                Tamaño del archivo
-                            </div>
-                            <div>
-                                Fecha
-                            </div>
-                        </div>
-                        <div class="Producto">
-
-                            <div class="">
-                    
-                                <input type="checkbox" id="miCheckbox">
-                                <span class="checkmark"></span>
-                            </div>
-
-                            <div>
-                                Titulo
-                            </div>
-                            <div>
-                                Tamaño del archivo
-                            </div>
-                            <div>
-                                Fecha
-                            </div>
-                        </div>
-                        <div class="Producto">
-
-                            <div class="">
-                    
-                                <input type="checkbox" id="miCheckbox">
-                                <span class="checkmark"></span>
-                            </div>
-
-                            <div>
-                                Titulo
-                            </div>
-                            <div>
-                                Tamaño del archivo
-                            </div>
-                            <div>
-                                Fecha
-                            </div>
-                        </div>
-
-                        <div class="Producto">
-
-                            <div class="">
-                    
-                                <input type="checkbox" id="miCheckbox">
-                                <span class="checkmark"></span>
-                            </div>
-
-                            <div>
-                                Titulo
-                            </div>
-                            <div>
-                                Tamaño del archivo
-                            </div>
-                            <div>
-                                Fecha
-                            </div>
-                                
-                        </div>
+                        <% }); %>
 
                     </div>
 

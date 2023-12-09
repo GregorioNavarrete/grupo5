@@ -15,7 +15,11 @@ router.get('/libro:id', productController.getOne);
 router.get('/all', productController.all);
 router.get('/catg', productController.catg);
 
+//para buscar los libros con el nombre
+router.get('/search',productController.search);
+
 // /*** GET ALL PRODUCTS ***/ 
+
 // /*** CREATE ONE PRODUCT ***/ 
 // /*** GET ONE PRODUCT ***/ 
 // /*** EDIT ONE PRODUCT ***/ 
