@@ -87,6 +87,20 @@ const productService = {
         let indece = this.products.findIndex(elem => elem == req.params.id);
         this.products[indece]= producto;
         fs.writeFileSync(productsFilePath,JSON.stringify(this.products),'utf-8');
+    },
+    seach : function(req){
+        //el "req.query" es el objeto que manda el GET 
+        let buscar = req.query.Buscar;
+
+        let buscados =[];
+
+        for(let i=0;i<this.products.length;i++){
+            if (this.products[i].titulo.includes(buscar)){
+                //SI LA PALABRA ESTA CONTENIDA, GUARDARA EL ELEMENTO 
+                buscados.push(this.products[i]);
+            }
+        }
+        return buscados;
     }
 
 }

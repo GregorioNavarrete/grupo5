@@ -44,8 +44,9 @@ const productController = {
         res.render(htmlPath);
       },
       search: (req, res)=>{
-        let buscar = req.query.Buscar;
-        res.send(buscar);
+        
+        res.render('products/FormularioDeCarga',{product : productService.seach(req)})
+        
       }
 }
 
