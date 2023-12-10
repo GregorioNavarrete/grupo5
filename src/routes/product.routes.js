@@ -34,7 +34,7 @@ router.post('/formCarga',upload.single('portada'), productController.store);
 El edit me esta trayendo problemas con el EJS
 quizas tengan que ser 2 paginas diferentes, hay que consultar este problema 
 */
-//router.get('/formCarga/:id/edit', productController.edit); 
+router.get('/formCarga/:id/edit', productController.edit); 
 //router.put('/:id', productsController.update); 
 
 

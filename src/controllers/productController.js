@@ -21,8 +21,10 @@ const productController = {
       },
 
       getOne : (req, res) => {
-        let htmlPath = path.resolve(__dirname,'../views/products/productDetail.ejs') ;
-         res.render(htmlPath);
+
+        res.render('products/productDetail',{product : productService.getOne(req.params.id)});
+        //let htmlPath = path.resolve(__dirname,'../views/products/productDetail.ejs') ;
+        //res.render(htmlPath);
       },
 
       all: (req, res) => {
@@ -61,7 +63,8 @@ const productController = {
       },
       edit: (req, res) => {
         // Do the magic
-        res.render('products/FormularioDeCarga', ({productToEdit : productService.getOne(req.params.id)}));
+        res.render('products/FormularioDeCarga', {productToEdit : productService.getOne(req.params.id)});
+        
       }
 }
 
