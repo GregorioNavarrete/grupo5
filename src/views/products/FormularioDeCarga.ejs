@@ -108,12 +108,17 @@
 
                             <div class="">
                                     <!--este tendria que cambia el metodo con el que se responde-->
-                                    <a href="/product/FormCarga/<%=producto.id%>">Editar</a>
+                                    <a href="/product/FormCarga/<%=producto.id%>/edit">Editar</a>
+                                   
                             </div>
                             <div class="">
                                 <!--anun este JSON no tiene id los elementos-->
                                 <a href="/product/libro/<%=producto.id%>">Detalles</a>
                             </div>
+                            <!--delte necesita el domulario, para decirle al router, con que metodo responder esta ruta-->
+                            <form action="/product/FormCarga/<%=producto.id%>?_method=DELETE" method="POST" style="display: inline-flex">
+                                <button type="submit" class="action-button delete">ELIMINAR</button>
+                            </form>
 
                             <div>
                                 <%= producto.titulo %>
@@ -145,10 +150,10 @@
             </div>
             <form action="/guardar_producto" method="POST">
                 <div>Título</div>
-                <input type="text" id="titulo" name="titulo" required><br><br>
+                <input type="text" id="titulo" name="titulo" required  ><br><br>
                 
                 <div>Autor</div>
-                <input type="text" id="autor" name="autor" required><br><br>
+                <input type="text" id="autor" name="autor" required ><br><br>
                 
                 <div>Detalle del producto</div>
                 <textarea id="detalle" name="detalle" required></textarea><br><br>
@@ -177,7 +182,8 @@
                 
                 
                 <div>Precio</div>
-                <input type="number" id="precio" name="precio" step="0.01" required><br><br>
+                
+                <input type="number" id="precio" name="precio" step="0.01" required ><br><br>
                 
                 <div>Imagen</div>
                 <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>

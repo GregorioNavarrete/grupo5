@@ -53,6 +53,15 @@ const productController = {
         productService.save(req);
         //res.send(req.body); //Para ver si lo modifico, que si
         res.redirect('/product/FormCarga');
+      },
+      destroy : (req, res) => {
+        // Do the magic
+        productService.delete(req.params.id);
+        res.send("El producto fue eliminado con exito");
+      },
+      edit: (req, res) => {
+        // Do the magic
+        res.render('products/FormularioDeCarga', ({productToEdit : productService.getOne(req.params.id)}));
       }
 }
 

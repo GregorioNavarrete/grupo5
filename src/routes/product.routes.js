@@ -28,8 +28,19 @@ router.post('/formCarga',upload.single('portada'), productController.store);
 
 
 // /*** GET ONE PRODUCT ***/ 
+
 // /*** EDIT ONE PRODUCT ***/ 
+/*
+El edit me esta trayendo problemas con el EJS
+quizas tengan que ser 2 paginas diferentes, hay que consultar este problema 
+*/
+//router.get('/formCarga/:id/edit', productController.edit); 
+//router.put('/:id', productsController.update); 
+
+
+
 // /*** DELETE ONE PRODUCT***/ 
+router.delete('/formCarga/:id', productController.destroy); 
 
 
 module.exports = router;
