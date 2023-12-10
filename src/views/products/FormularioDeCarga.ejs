@@ -23,7 +23,7 @@
 
                 </div>
 
-                <form action="/guardar_producto" method="POST">
+                <form action="/product/formCarga" method="POST" enctype="multipart/form-data">
                     <div >Título</div>
                     <input type="text" id="titulo" name="titulo" required><br><br>
                     
@@ -59,16 +59,20 @@
                     <div>Precio</div>
                     <input type="number" id="precio" name="precio" step="0.01" required><br><br>
                     
-                    <div>Imagen</div>
-                    <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>
+                    <div>Portada</div>
+                    <input type="file" id="portada" name="portada" accept=".jpg, .pnj" required><br><br>
                     
-                    
+                    <!--como necesito usar el SUBMIT para e,biar el formulario completo no uso el boton lindo 
                     <div class="form-actions">
-                        <a class="btn-art" href="/productDetail">
+                        <a class="btn-art" href="/product/crate" >
                             <div>Agregar</div>
                         </a>
                     </div>
-        
+                    -->
+                    <div class="col-12">
+                         <button type="submit" class="buy-now-button">Agregar </button>
+                    </div>
+
                   </form>
             </div>
 
@@ -103,7 +107,12 @@
                         <div class="Producto">
 
                             <div class="">
-                                    <button>Editar</button>
+                                    <!--este tendria que cambia el metodo con el que se responde-->
+                                    <a href="/product/FormCarga/<%=producto.id%>">Editar</a>
+                            </div>
+                            <div class="">
+                                <!--anun este JSON no tiene id los elementos-->
+                                <a href="/product/libro/<%=producto.id%>">Detalles</a>
                             </div>
 
                             <div>

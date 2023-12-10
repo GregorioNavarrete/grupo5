@@ -29,7 +29,7 @@ const productService = {
             //le paso todo el req al back
             let product = req.body;
             let imagen = req.file;
-            product.image = imagen.filename;//no me reconose el filename
+            product.portada = imagen.filename;//no me reconose el filename
 
             //ME BUSCA EL OBJ, CON EL id MAS GRANDE
             let mayorID = this.products.reduce((maxID, Obj) => {
@@ -48,7 +48,7 @@ const productService = {
             let product = req.body;
             //como no se puede poner null, los deja sin campo image
             //let imagen = "null";  con string traba el html 
-            product.image = 0;
+            product.portada = 0;
 
             //ME BUSCA EL OBJ, CON EL id MAS GRANDE
             let mayorID = this.products.reduce((maxID, Obj) => {

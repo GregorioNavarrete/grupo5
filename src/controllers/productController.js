@@ -47,6 +47,12 @@ const productController = {
         
         res.render('products/FormularioDeCarga',{product : productService.seach(req)})
         
+      },
+      store: (req, res)=>{
+        // al metodo "save" le poso por parametro el OBJ "body" que obtengo del POST
+        productService.save(req);
+        //res.send(req.body); //Para ver si lo modifico, que si
+        res.redirect('/product/FormCarga');
       }
 }
 
