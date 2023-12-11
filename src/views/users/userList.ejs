@@ -32,13 +32,19 @@
             <img src="<%= Users[i].imagen %>" alt="" width="200" height="150">
 
             <section class="UserData">
-            <p>Nombre: <%= Users[i].nombre %></p>
-            <p>Apellido: <%= Users[i].apellido %></p>
-            <p>Correo : <%= Users[i].email %></p>
-            <p>Categoria : <%= Users[i].categoria %></p>
+                    <p>Nombre: <%= Users[i].nombre %></p>
+                    <p>Apellido: <%= Users[i].apellido %></p>
+                    <p>Correo : <%= Users[i].email %></p>
+                    <p>Categoria : <%= Users[i].categoria %></p>
             </section>
-            <br>
 
+            <div class="cont-botones">
+                <form action="" class="botones">
+                    <button class="editar">editar</button>
+                    <button class="borrar">Eliminar</button>
+                </form>
+            </div>
+            
         </li>
         <% } %>
    </ul>

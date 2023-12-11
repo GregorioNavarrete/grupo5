@@ -28,14 +28,17 @@ ul li{
     padding: 5px;
     background-color: white;
     
+    
 }
 
 .UserData{
     display: flex;
-    width: 70%;
+    width: 40%;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-evenly
+    justify-content: space-evenly;
+    position: relative;
+    right: 50px;
     
 }
 
@@ -90,3 +93,43 @@ ul li section p{
     padding: 7px;
 }
 
+.cont-botones{
+    width: 25%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.botones{
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.borrar{
+    padding: 15px;
+    font-size: 15px;
+    transition: all 0.3 s;
+}
+
+.editar{
+    padding: 15px;
+    font-size: 15px;
+    transition: all 0.3 s;
+} 
+
+.editar:hover{
+    background-color: rgb(25, 144, 212);
+    color: white;
+    border: none;
+    cursor: pointer;
+
+} 
+
+.borrar:hover{
+    background-color: rgb(243, 46, 46);
+    color: white;
+    border: none;
+    cursor: pointer;
+
+} 
