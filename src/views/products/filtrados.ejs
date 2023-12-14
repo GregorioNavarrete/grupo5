@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link  href="/css/allProduct.css" rel="stylesheet"> 
+    <link  href="/css/styles.css" rel="stylesheet">
+    <link  href="/css/filtros.css" rel="stylesheet">
+
+    <title>Productos</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Quicksand&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <header>
+    <%- include ('../partials/header') %>
+    </header>
+<main>
+
+    <div class="conte-all">
+        <h5 class="titulo-princ-filtro">Filtros</h5>
+        <form action="Filtro" method="get">
+        <section class="filtro">
+    
+    <div class="conte-filtro">
+            <h5 class="titulo-filtro">Genero</h5>
+            <label for="genero"></label>
+        <select id="genero" name="genero">
+            <option value="selecciona" selected disabled>Elige un Genero</option>
+            <option value="fantasia">Fantasía</option>
+            <option value="ciencia_ficcion">Ciencia Ficción</option>
+            <option value="Romance">Romance</option>
+            <option value="misterio">Misterio</option>
+            <option value="aventura">Aventura</option>
+            <option value="terror">Terror</option>
+            <option value="historia">Historia</option>
+        </select>
+    </div>
+    
+    <div class="conte-filtro">
+            <h5 class="titulo-filtro">Autores</h5>
+            <label for="autores"></label>
+            <select id="autores" name="autor">
+                <option value="selecciona" selected disabled>Elige un autor</option>
+                <option value="antoine">Antoine de Saint Exupéry</option>   
+                <option value="Collen Hoover">Collen Hoover</option>
+                <option value="Rick Riordan">Rick Riordan</option>
+                <option value="Suzanne Collins">Suzanne Collins</option>
+                <option value="Cassandra Clare">Cassandra Clare</option>
+                <option value="Stephenie Meyer">Stephenie Meyer</option>
+                <option value="Dan Brown">Dan Brown</option>
+                <option value="Jane Austen">Jane Austen</option>
+                
+            </select>
+    </div>
+    
+    <div class="conte-filtro">
+            <h5 class="titulo-filtro">Formato</h5>
+            <label for="Formato"></label>
+            <select id="Formato" name="formato">
+                <option value="selecciona" selected disabled>Elige un Formato</option>
+                <option value="fisico">Fisico</option>
+                <option value="Ebook">Ebook</option>
+                <option value="audioLibro">AudioLibro</option>
+            </select>
+    </div>
+    
+    <div class="conte-filtro">
+            <h5  class="titulo-filtro">Editorial</h5>
+            <label for="editoriales"></label>
+            <select id="editoriales" name="editoriales">
+                <option value="sin-seleccion">Elige una editorial</option>
+                <option value="anagrama">Anagrama</option>
+                <option value="planeta">Planeta</option>
+                <option value="alfaguara">Alfaguara</option>
+                <option value="santillana">Santillana</option>
+                <option value="penguin-random-house">Penguin Random House</option>
+            </select>
+    </div>
+    <button>enviar</button>
+    </form>
+    </section>
+    </div>
+    <h2>Resultados</h2>
+    <div class="caja-centrar">
+    <section class="caja-resultados">
+    <% newObject.forEach(product => { %>
+    <article class="articulo">
+        <a href="../product/libro:id"><img class="img-articulo" src="<%= product.portada %>" alf="Defiant"> </a> 
+        <div class="desc-articulo">
+        <a href="../product/libro:id"><p class="prodc-titulo"><%= product.titulo %></p></a>
+        <p class="prodc-autor"><%= product.autor %></p>
+        <a class="icon-articulo" href="../product/cart" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
+         <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo">18.499,00</p></div>
+        </div>
+    </article>
+    <% }) %>
+    </section>
+    </div>
+
+
+  </main>
+    <footer>
+    <%- include ('../partials/footer') %>
+    </footer>
+  
+</html>

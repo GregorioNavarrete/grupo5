@@ -2,9 +2,8 @@ const path = require('path');
 const product = require('../model/productos');
 const producto = require('../model/productos');
 const productService = require('../data/productService');
-
-
-
+const fs = require('fs');
+const productsFilePath = path.join(__dirname, '../data/products.json');
 const productController = {
 
     index :  (req, res) => {
@@ -26,10 +25,13 @@ const productController = {
       },
 
       all: (req, res) => {
+        
         let htmlPath = path.resolve(__dirname,'../views/products/allProduct.ejs') ;
         res.render(htmlPath);
 
       },
+      
+
       formCarga : (req, res) => {
         //para mostrar los elementos enlistados
 
@@ -62,7 +64,29 @@ const productController = {
       edit: (req, res) => {
         // Do the magic
         res.render('products/FormularioDeCarga', ({productToEdit : productService.getOne(req.params.id)}));
-      }
+      },
+      filter : (req, res) => {
+        let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        let generos = req.query.genero;
+         let autores = req.query.autor;
+        let formato = req.query.formato;
+        let editorial = req.query.editoriales; 
+
+        let filtrados=[];
+        
+    
+        for(let i=0; i < products.length;i++ ){
+          if(products[i].genero == generos   || products[i].autor == autores || products[i].formato == formato || products[i].editorial == editorial ){
+                filtrados.push(products[i]);
+                
+          }
+        }
+              //res.send(autores)
+            res.render('products/filtrados',{newObject:filtrados})
+        }
+         
+        //res.render('products/filtrados', {newObject: filtrados});
+    
 }
 
 

@@ -16,7 +16,7 @@ const userController = {
       },
 
       List: (req,res) => {
-        const Users = JSON.parse(fs.readFileSync(UsersFilePath, 'utf-8'));
+        let Users = JSON.parse(fs.readFileSync(UsersFilePath, 'utf-8'));
         res.render('users/userList', {Users:Users})
     },
     search: (req,res) => {
@@ -30,12 +30,11 @@ const userController = {
       }
       return Results;
     },
-
     edit:(req,res)=>{
-      const Users = JSON.parse(fs.readFileSync(UsersFilePath, 'utf-8'));
+      let Users = JSON.parse(fs.readFileSync(UsersFilePath, 'utf-8'));
       let idUser= req.params.idUser;
       let UserToEdit = Users[idUser];
-      res.render('userEdit',{UserToEdit:UserToEdit|})
+      res.render('userEdit',{UserToEdit:UserToEdit})
     }
 }
     
