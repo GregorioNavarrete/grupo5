@@ -39,6 +39,13 @@ const productController = {
         //let htmlPath = path.resolve(__dirname,'../views/products/FormularioDeCarga.ejs') ;
         //res.render(htmlPath);
       },
+      formCargaLibro : (req, res) => {
+        //para mostrar los elementos enlistados
+
+        res.render('products/FormularioCargaLibros');
+        //let htmlPath = path.resolve(__dirname,'../views/products/FormularioDeCarga.ejs') ;
+        //res.render(htmlPath);
+      },
 
       catg: (req, res) => {
       
@@ -63,8 +70,15 @@ const productController = {
       },
       edit: (req, res) => {
         // Do the magic
-        res.render('products/FormularioDeCarga', {productToEdit : productService.getOne(req.params.id)});
+        res.render('products/FormularioEditLibro', {productToEdit : productService.getOne(req.params.id)});
         
+      },
+      update: (req, res) => {
+        // Do the magic
+        /*buscamos un prod por id y busco cambiarle los datos, por los que tengo en el req */
+        //productService.save(req);
+        productService.edit(req);
+        res.redirect('/product/FormCarga');
       }
 }
 

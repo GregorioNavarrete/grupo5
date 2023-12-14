@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/head') %>
+    <link  href="/css/FormularioDeCarga.css" rel="stylesheet">  
+    <title>FormularioDeCarga</title>
+
+</head>
+<body>
+    
+    <header>
+        <%- include ('../partials/header') %>
+    </header>
+    
+    <main>
+        <div class="FormularioDeCarga">
+            
+            <div class="Rigth">
+                <!--Agregar-->
+                <div class="SubTitle">
+                    <i class="fa-solid fa-folder-plus"></i>
+                    <p>Cargar Libro</p>
+
+                </div>
+
+                <form action="/product/formCarga" method="POST" enctype="multipart/form-data">
+                    <div >Título</div>
+                    <input type="text" id="titulo" name="titulo" required><br><br>
+                    
+                    <div>Autor</div>
+                    <input type="text" id="autor" name="autor" required><br><br>
+                    
+                    <div>Detalle del producto</div>
+                    <textarea id="detalle" name="descripcion" required></textarea><br><br>
+                    
+                    <div>Género</div>
+                    <select id="genero" name="genero" required>
+                      <option value="">Seleccione un género</option>
+                      <option value="Misterio">Misterio</option>
+                      <option value="Romance"> Romance</option>
+                      <option value="Aventura">Aventura</option>
+                      <option value="Clasicos">Clasicos</option>
+                      <option value="Terror">Terror</option>
+                      <option value="Fantasia">Fantasia</option>
+                    </select><br><br>
+    
+    
+                    <div>Estrellas</div>
+                    <select id="Estrellas" name="Estrellas" required>
+                      <option value="">Seleccione Estrellas</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select><br><br>
+                    
+                    
+                    <div>Precio</div>
+                    <input type="number" id="precio" name="precio" step="0.01" required><br><br>
+                    
+                    <div>Portada</div>
+                    <input type="file" id="portada" name="portada" accept=".jpg, .pnj" required><br><br>
+                    
+                    <!--como necesito usar el SUBMIT para e,biar el formulario completo no uso el boton lindo 
+                    <div class="form-actions">
+                        <a class="btn-art" href="/product/crate" >
+                            <div>Agregar</div>
+                        </a>
+                    </div>
+                    -->
+                    <div class="col-12">
+                         <button type="submit" class="buy-now-button">Agregar </button>
+                    </div>
+
+                  </form>
+            </div>
+
+            
+        </div>
+            
+        
+    </main>
+
+
+    <footer>
+        <%- include ('../partials/footer') %>
+    </footer>
+
+   
+</body>
+</html>

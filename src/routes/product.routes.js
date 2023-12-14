@@ -14,6 +14,7 @@ router.get('/cart', productController.cart);
 router.get('/libro/:id', productController.getOne);
 router.get('/all', productController.all);
 router.get('/catg', productController.catg);
+router.get('/formCargaLibro', productController.formCargaLibro);
 
 //*****************Formulario de carga
 //para buscar los libros con el nombre
@@ -35,7 +36,7 @@ El edit me esta trayendo problemas con el EJS
 quizas tengan que ser 2 paginas diferentes, hay que consultar este problema 
 */
 router.get('/formCarga/:id/edit', productController.edit); 
-//router.put('/:id', productsController.update); 
+router.put('/:id', upload.single('portada'), productController.update); 
 
 
 
