@@ -80,9 +80,15 @@ const productController = {
                 filtrados.push(products[i]);
                 
           }
+          
+        }
+        if(filtrados.length==0){
+          res.render("products/noResult");
+        }
+        else{
+          res.render('products/filtrados',{newObject:filtrados});
         }
               //res.send(autores)
-            res.render('products/filtrados',{newObject:filtrados})
         }
          
         //res.render('products/filtrados', {newObject: filtrados});
