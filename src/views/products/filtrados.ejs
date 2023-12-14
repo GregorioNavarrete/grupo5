@@ -99,12 +99,12 @@
     <section class="caja-resultados">
     <% newObject.forEach(product => { %>
     <article class="articulo">
-        <a href="../product/libro:id"><img class="img-articulo" src="<%= product.portada %>" alf="Defiant"> </a> 
+        <img class="img-articulo" src="/img/portadas/<%=(product.portada !== 0 && product.portada !== undefined) ? product.portada : 'default-image.png'%>" alt="imagen de producto" alf="Defiant">
         <div class="desc-articulo">
         <a href="../product/libro:id"><p class="prodc-titulo"><%= product.titulo %></p></a>
         <p class="prodc-autor"><%= product.autor %></p>
         <a class="icon-articulo" href="../product/cart" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
-         <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo">18.499,00</p></div>
+         <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo"><%= product.precio %></p></div>
         </div>
     </article>
     <% }) %>
