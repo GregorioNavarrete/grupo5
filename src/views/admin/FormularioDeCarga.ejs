@@ -23,7 +23,7 @@
 
                 </div>
 
-                <form action="/product/formCarga" method="POST" enctype="multipart/form-data">
+                <form action="/admin/formCarga" method="POST" enctype="multipart/form-data">
                     <div >Título</div>
                     <input type="text" id="titulo" name="titulo" required><br><br>
                     
@@ -85,7 +85,7 @@
                         <p>Lista de libros</p>
     
                     </div>
-                    <form class="SearchBox-form" action="/product/search" method="GET">
+                    <form class="SearchBox-form" action="/admin/search" method="GET">
                         <!--lo al buscar lo manda a la ruta -->
                         <input type="text" placeholder="Buscar por titulo o autor..." name="Buscar" >
                         <div class="button">
@@ -108,7 +108,7 @@
 
                             <div class="">
                                     <!--este tendria que cambia el metodo con el que se responde-->
-                                    <a href="/product/FormCarga/<%=producto.id%>/edit">Editar</a>
+                                    <a href="/admin/FormCarga/<%=producto.id%>/edit">Editar</a>
                                    
                             </div>
                             <div class="">
@@ -116,7 +116,7 @@
                                 <a href="/product/libro/<%=producto.id%>">Detalles</a>
                             </div>
                             <!--delte necesita el domulario, para decirle al router, con que metodo responder esta ruta-->
-                            <form action="/product/FormCarga/<%=producto.id%>?_method=DELETE" method="POST" style="display: inline-flex">
+                            <form action="/admin/FormCarga/<%=producto.id%>?_method=DELETE" method="POST" style="display: inline-flex">
                                 <button type="submit" class="action-button delete">ELIMINAR</button>
                             </form>
 
@@ -189,11 +189,11 @@
                 <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>
                 
                 <div class="form-actions">
-                    <a class="btn-art" href="/productDetail">
+                    <a class="btn-art" href="../products/productDetail.ejs">
                         <div> Modificar</div>
                     </a>
     
-                    <a class="btn-art" href="/productDetail">
+                    <a class="btn-art" href="../products/productDetail.ejs">
                         <div> Eliminar</div>
                     </a>
                 </div>
