@@ -15,6 +15,7 @@ router.get('/libro/:id', productController.getOne);
 router.get('/all', productController.all);
 router.get('/catg', productController.catg);
 router.get('/Filtro',productController.filter)
+router.get('/detail/:idLibro',productController.detail)
 
 //*****************Formulario de carga
 //para buscar los libros con el nombre

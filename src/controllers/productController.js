@@ -68,7 +68,7 @@ const productController = {
       filter : (req, res) => {
         let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         let generos = req.query.genero;
-         let autores = req.query.autor;
+        let autores = req.query.autor;
         let formato = req.query.formato;
         let editorial = req.query.editoriales; 
 
@@ -89,11 +89,20 @@ const productController = {
           res.render('products/filtrados',{newObject:filtrados});
         }
               //res.send(autores)
+              //res.render('products/filtrados', {newObject: filtrados});
+        },
+        
+        detail:(req, res) => {
+          let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+          let idLibro = req.params.idLibro;
+          let product = products.find(product => product.id == idLibro);
+          res.render('products/productDetail', {product:product})
         }
          
-        //res.render('products/filtrados', {newObject: filtrados});
     
 }
+
+
 
 
 module.exports = productController
