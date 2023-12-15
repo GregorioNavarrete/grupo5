@@ -84,16 +84,30 @@ const productService = {
         producto.genero = nuevoProducto.genero ;
         producto.autor = nuevoProducto.autor;
         producto.Estrellas = nuevoProducto.Estrellas;
+
+        console.log("\n  antes : " + producto.portada);
+        let borrar = path.join(__dirname, `../../public/img/portadas/${producto.portada}`);
+        fs.unlink(borrar, (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+          console.log("\n  medio : " + producto.portada);
+        });
+        
+
+    
+    
         
         producto.descripcion = nuevoProducto.descripcion;
-        if (req.file !== undefined) {
+        if (req.file != undefined) {
             //no puedo esditar imagenes, xq el filename sale indefinido siempre !!!!
             producto.portada = imagen.filename;
         }else{
             producto.portada = 0;
         }
 
-        
+        console.log("\n  despues : " + imagen.filename);
         
 
         let indece = this.products.findIndex(elem => elem.id == req.params.id);

@@ -25,7 +25,7 @@
                 <p>Editar Libro</p>
 
             </div>
-            <form action="/admin/<%= productToEdit.id%>?_method=PUT" method="POST">
+            <form action="/admin/<%= productToEdit.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div>Título</div>
                 <input type="text" id="titulo" name="titulo" required  value="<%= productToEdit.titulo %>" ><br><br>
                 
