@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/head') %>
+    <link  href="/css/FormularioDeCarga.css" rel="stylesheet">  
+    <title>FormularioDeCarga</title>
+
+</head>
+<body>
+    
+    <header>
+        <%- include ('../partials/header') %>
+    </header>
+    
+    <main>
+        <div class="FormularioDeCarga">
+            
+            
+
+            <div class="Left">
+            <!--Eliminar o modificar  productToEdit-->
+
+            <div class="SubTitle">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <p>Editar Libro</p>
+
+            </div>
+            <form action="/admin/<%= productToEdit.id%>?_method=PUT" method="POST">
+                <div>Título</div>
+                <input type="text" id="titulo" name="titulo" required  value="<%= productToEdit.titulo %>" ><br><br>
+                
+                <div>Autor</div>
+                <input type="text" id="autor" name="autor" required value="<%= productToEdit.autor %>" ><br><br>
+                
+                <div>Descripcion del libro</div>
+                <textarea id="detalle" name="descripcion" required ><%= productToEdit.descripcion %></textarea><br><br>
+                
+                <div>Género</div>
+                <select id="genero" name="genero" required>
+                  <option value="">Seleccione un género</option>
+                  <option value="Misterio">Misterio</option>
+                  <option value="Romance"> Romance</option>
+                  <option value="Aventura">Aventura</option>
+                  <option value="Clasicos">Clasicos</option>
+                  <option value="Terror">Terror</option>
+                  <option value="Fantasia">Fantasia</option>
+                </select><br><br>
+
+
+                <div>Estrellas</div>
+                <select id="Estrellas" name="Estrellas" required>
+                  <option value="">Seleccione Estrellas</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select><br><br>
+                
+                
+                <div>Precio</div>
+                
+                <input type="text" id="precio" name="precio" step="0.01" required value="<%= productToEdit.precio %>"><br><br>
+                
+                <div>Imagen</div>
+                <input type="file" id="portada" name="portada" accept=".jpg, .pnj" required><br><br>
+                
+                <div class="form-actions">
+                   
+                    <div class="col-12">
+						<button type="submit" class="btn-art">Guardar producto</button>
+					</div>
+                </div>
+
+
+              </form>
+            </div>
+        
+    </main>
+
+
+    <footer>
+        <%- include ('../partials/footer') %>
+    </footer>
+
+   
+</body>
+</html>

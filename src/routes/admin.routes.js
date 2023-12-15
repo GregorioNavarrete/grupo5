@@ -10,6 +10,8 @@ const upload = require('../middlewares/multer');
 const adminController = require ('../controllers/adminController');
 
 
+//direccion a crear libro
+router.get('/formCargaLibro', adminController.formCargaLibro);
 //*****************Formulario de carga
 //para buscar los libros con el nombre
 router.get('/search',adminController.search);
@@ -22,20 +24,20 @@ router.get('/formCarga', adminController.formCarga);
 router.post('/formCarga',upload.single('portada'), adminController.store); 
 
 
-// /*** GET ONE PRODUCT ***/ 
+// /*** DELETE ONE PRODUCT***/ 
+router.delete('/formCarga/:id', adminController.destroy); 
+
+
 
 // /*** EDIT ONE PRODUCT ***/ 
 /*
 El edit me esta trayendo problemas con el EJS
 quizas tengan que ser 2 paginas diferentes, hay que consultar este problema 
 */
-//router.get('/formCarga/:id/edit', productController.edit); 
-//router.put('/:id', productsController.update); 
+router.get('/formCarga/:id/edit', adminController.edit); 
+router.put('/:id', upload.single('portada'), adminController.update); 
 
 
-
-// /*** DELETE ONE PRODUCT***/ 
-router.delete('/formCarga/:id', adminController.destroy); 
 
 
 module.exports = router;

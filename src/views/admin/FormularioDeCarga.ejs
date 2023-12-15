@@ -15,66 +15,6 @@
     <main>
         <div class="FormularioDeCarga">
             
-            <div class="Rigth">
-                <!--Agregar-->
-                <div class="SubTitle">
-                    <i class="fa-solid fa-folder-plus"></i>
-                    <p>Cargar Libro</p>
-
-                </div>
-
-                <form action="/admin/formCarga" method="POST" enctype="multipart/form-data">
-                    <div >Título</div>
-                    <input type="text" id="titulo" name="titulo" required><br><br>
-                    
-                    <div>Autor</div>
-                    <input type="text" id="autor" name="autor" required><br><br>
-                    
-                    <div>Detalle del producto</div>
-                    <textarea id="detalle" name="detalle" required></textarea><br><br>
-                    
-                    <div>Género</div>
-                    <select id="genero" name="genero" required>
-                      <option value="">Seleccione un género</option>
-                      <option value="Misterio">Misterio</option>
-                      <option value="Romance"> Romance</option>
-                      <option value="Aventura">Aventura</option>
-                      <option value="Clasicos">Clasicos</option>
-                      <option value="Terror">Terror</option>
-                      <option value="Fantasia">Fantasia</option>
-                    </select><br><br>
-    
-    
-                    <div>Estrellas</div>
-                    <select id="Estrellas" name="Estrellas" required>
-                      <option value="">Seleccione Estrellas</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                    </select><br><br>
-                    
-                    
-                    <div>Precio</div>
-                    <input type="number" id="precio" name="precio" step="0.01" required><br><br>
-                    
-                    <div>Portada</div>
-                    <input type="file" id="portada" name="portada" accept=".jpg, .pnj" required><br><br>
-                    
-                    <!--como necesito usar el SUBMIT para e,biar el formulario completo no uso el boton lindo 
-                    <div class="form-actions">
-                        <a class="btn-art" href="/product/crate" >
-                            <div>Agregar</div>
-                        </a>
-                    </div>
-                    -->
-                    <div class="col-12">
-                         <button type="submit" class="buy-now-button">Agregar </button>
-                    </div>
-
-                  </form>
-            </div>
 
             <div class="Center">
                 <!--Buscador y lista de libros-->
@@ -83,16 +23,27 @@
                     <div class="SubTitle">
                         <i class="fa-solid fa-rectangle-list"></i>
                         <p>Lista de libros</p>
-    
+
                     </div>
-                    <form class="SearchBox-form" action="/admin/search" method="GET">
-                        <!--lo al buscar lo manda a la ruta -->
-                        <input type="text" placeholder="Buscar por titulo o autor..." name="Buscar" >
-                        <div class="button">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </div>
-                    </form>
+                    <div class="">
+                        <!--manada a la vista de carga de libros -->
+                        <form class="SearchBox-form" action="/admin/formCargaLibro" method="GET">
+                             <button class="button" submit>
+                                <i class="fa-solid fa-folder-plus"></i>
+                            </button>
+                        </form>
+
+                        <form class="SearchBox-form" action="/admin/search" method="GET">
+                            <!--lo al buscar lo manda a la ruta -->
+                            <input type="text" placeholder="Buscar por titulo o autor..." name="Buscar" >
+                            <button submit="" class="button">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </div>
+
                 </div>
+
 
                 <div class="IndexList">
                     <div class="SubTitulo">
@@ -113,7 +64,7 @@
                             </div>
                             <div class="">
                                 <!--anun este JSON no tiene id los elementos-->
-                                <a href="/product/libro/<%=producto.id%>">Detalles</a>
+                                <a href="../product/libro/<%=producto.id%>">Detalles</a>
                             </div>
                             <!--delte necesita el domulario, para decirle al router, con que metodo responder esta ruta-->
                             <form action="/admin/FormCarga/<%=producto.id%>?_method=DELETE" method="POST" style="display: inline-flex">
@@ -140,67 +91,6 @@
 
             </div>
 
-            <div class="Left">
-            <!--Eliminar o modificar  productToEdit-->
-
-            <div class="SubTitle">
-                <i class="fa-solid fa-pen-to-square"></i>
-                <p>Editar Libro</p>
-
-            </div>
-            <form action="/guardar_producto" method="POST">
-                <div>Título</div>
-                <input type="text" id="titulo" name="titulo" required  ><br><br>
-                
-                <div>Autor</div>
-                <input type="text" id="autor" name="autor" required ><br><br>
-                
-                <div>Detalle del producto</div>
-                <textarea id="detalle" name="detalle" required></textarea><br><br>
-                
-                <div>Género</div>
-                <select id="genero" name="genero" required>
-                  <option value="">Seleccione un género</option>
-                  <option value="Misterio">Misterio</option>
-                  <option value="Romance"> Romance</option>
-                  <option value="Aventura">Aventura</option>
-                  <option value="Clasicos">Clasicos</option>
-                  <option value="Terror">Terror</option>
-                  <option value="Fantasia">Fantasia</option>
-                </select><br><br>
-
-
-                <div>Estrellas</div>
-                <select id="Estrellas" name="Estrellas" required>
-                  <option value="">Seleccione Estrellas</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select><br><br>
-                
-                
-                <div>Precio</div>
-                
-                <input type="number" id="precio" name="precio" step="0.01" required ><br><br>
-                
-                <div>Imagen</div>
-                <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>
-                
-                <div class="form-actions">
-                    <a class="btn-art" href="../products/productDetail.ejs">
-                        <div> Modificar</div>
-                    </a>
-    
-                    <a class="btn-art" href="../products/productDetail.ejs">
-                        <div> Eliminar</div>
-                    </a>
-                </div>
-
-
-              </form>
-            </div>
         
     </main>
 

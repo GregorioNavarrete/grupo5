@@ -75,17 +75,30 @@ const productService = {
         fs.writeFileSync(productsFilePath,JSON.stringify(this.products),'utf-8');
     },
     edit: function(req){
-        let producto = this.getAll(req.params.id);
+        let producto = this.getOne(req.params.id);
         let nuevoProducto = req.body; // es porque el PUT viaja de forma privada
+        let imagen = req.file;  //esto lo copie del Crear libro, para la imagen
 
-        producto.name = nuevoProducto.name;
-        producto.price = nuevoProducto.price;
-        producto.discount = nuevoProducto.discount;
-        producto.category = nuevoProducto.category ;
-        producto.description = nuevoProducto.description;
+        producto.titulo = nuevoProducto.titulo;
+        producto.precio = nuevoProducto.precio;
+        producto.genero = nuevoProducto.genero ;
+        producto.autor = nuevoProducto.autor;
+        producto.Estrellas = nuevoProducto.Estrellas;
+        
+        producto.descripcion = nuevoProducto.descripcion;
+        if (req.file !== undefined) {
+            //no puedo esditar imagenes, xq el filename sale indefinido siempre !!!!
+            producto.portada = imagen.filename;
+        }else{
+            producto.portada = 0;
+        }
 
-        let indece = this.products.findIndex(elem => elem == req.params.id);
+        
+        
+
+        let indece = this.products.findIndex(elem => elem.id == req.params.id);
         this.products[indece]= producto;
+    
         fs.writeFileSync(productsFilePath,JSON.stringify(this.products),'utf-8');
     },
     seach : function(req){

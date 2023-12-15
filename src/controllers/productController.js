@@ -7,7 +7,7 @@ const productService = require('../data/productService');
 
 const productController = {
 
-    index :  (req, res) => {
+    index:  (req, res) => {
 
         //__dirname una constante node.js, que hace referencia al directorio donde estamos
         let htmlPath = path.resolve(__dirname,'../views/products/index.ejs') ;
@@ -38,8 +38,8 @@ const productController = {
         let htmlPath = path.resolve(__dirname,'../views/products/categoria.ejs') ;
         res.render(htmlPath);
       },
-     
-}
+      
+    }
 
 
 module.exports = productController
