@@ -15,6 +15,40 @@ const userController = {
         res.render('users/register');
       },
 
+      create:(req,res)=>{
+      let archivoUsuario = fs.readFileSync(UsersFilePath, 'utf-8');
+    function ultimoId = archivoUsuario.reduce((maxId, usuario) => {
+        return usuario.id > maxId ? usuario.id : maxId;
+      }, archivoUsuario[0].id);
+    
+    
+      
+      let nuevoUsuario={
+        id: ultimoId+1,
+        nombre: req.body.usuario,
+        apellido:req.body.apellido,
+        email: req.body.email,
+        contraseña: req.body.password,
+      }
+
+      let usuarios;
+      if(archivoUsuario == ""){
+         usuarios = [];
+      }
+      else{
+         usuarios = JSON.parse(archivoUsuario);
+      }
+
+      usuarios.push(nuevoUsuario);
+      usuarioJSON=JSON.stringify(usuarios);
+      fs.writeFileSync(UsersFilePath, usuarioJSON);
+
+      res.redirect("/");
+
+    }, 
+
+
+
       List: (req,res) => {
         let Users = JSON.parse(fs.readFileSync(UsersFilePath, 'utf-8'));
         res.render('users/userList', {Users:Users})
