@@ -51,8 +51,8 @@
                         <div class="datos-text-form">Etiqueta</div>
                         <select class="input-text" name="etiqueta" id="etiqueta" required>
                             <option value="">Selecciona una Etiqueta</option>
-                            <option value="saga">Saga</option>
-                            <option value="unico">Unico</option>
+                            <option value="saga"  <%= productToEdit.etiqueta === 'Saga' ? "selected" : ""  %> >Saga</option>
+                            <option value="unico" <%= productToEdit.etiqueta === 'Único' ? "selected" : ""  %>  >Unico</option>
                         </select>
                     </div><br><br>
     
@@ -65,28 +65,43 @@
                         <div  class="datos-text-form">Género</div>
                         <select class="input-text" id="genero" name="genero" required>
                           <option value="">Seleccione un género</option>
-                          <option value="Misterio">Misterio</option>
-                          <option value="Romance"> Romance</option>
-                          <option value="Aventura">Aventura</option>
-                          <option value="Clasicos">Clasicos</option>
-                          <option value="Terror">Terror</option>
-                          <option value="Fantasia">Fantasia</option>
+                          <option value="Misterio"  <%= productToEdit.genero === 'Misterio' ? "selected" : "" %> >Misterio</option>
+                          <option value="Romance"  <%= productToEdit.genero === 'Romance' ? "selected" : "" %> > Romance</option>
+                          <option value="Aventura" <%= productToEdit.genero === 'Aventura' ? "selected" : "" %>  >Aventura</option>
+                          <option value="Clasicos" <%= productToEdit.genero === 'Clasicos' ? "selected" : "" %>  >Clasicos</option>
+                          <option value="Terror" <%= productToEdit.genero === 'Terror' ? "selected" : ""  %> >Terror</option>
+                          <option value="Fantasia"  <%= productToEdit.genero === 'Fantasia' ? "selected" : ""  %>  >Fantasia</option>
                         </select>
                         </div><br><br>
     
-                        <div  class="celda">
-                        <div  class="datos-text-form">Formato</div>
-                        <select class="input-text" name="formato" id="formato" required>
-                            <option value="">Selecciona un Formato</option>
-                            <option value="fisico">Fisico</option>
-                            <option value="audiolibro">AudioLibro</option>
-                            <option value="ebook">Ebook</option>
-                        </select>
-                        </div><br><br>
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+
+                        <div class="celda">
+                            <div class="datos-text-form">Formato</div>
+                            <select class="input-text" name="formato" id="formato" required>
+                                <option value="">Selecciona un Formato</option>
+                                <option value="fisico" <%= productToEdit.formato === 'Físico' ? "selected" : "" %>>Físico</option>
+                                <option value="audiolibro" <%= productToEdit.formato === 'audiolibro' ? "selected" : "" %>>AudioLibro</option>
+                                <option value="ebook" <%= productToEdit.formato === 'ebook' ? "selected" : "" %>>Ebook</option>
+                            </select>
+                        </div>
+                        <br><br>
+                        
+
+
+
     
                         <div  class="celda">
                         <div class="datos-text-form">Precio</div>
-                        <input class="input-text" type="number" id="precio" name="precio" step="0.01" required value="<%= productToEdit.precio %>">
+                        <input class="input-text" type="text" id="precio" name="precio" step="0.01" required value="<%= productToEdit.precio %>">
                         </div><br><br>
     
                         <div  class="celda">
@@ -104,9 +119,9 @@
                         <div class="datos-text-form">Idioma</div>
                         <select class="input-text" name="idioma" id="idioma"required>
                             <option value="">Selecciona un Idioma</option>
-                            <option value="español">Español</option>
-                            <option value="frances">Frances</option>
-                            <option value="ingles">Ingles</option>
+                            <option value="Español"  <%= productToEdit.idioma === 'Español' ? "selected" : ""  %> >Español</option>
+                            <option value="frances" <%= productToEdit.idioma === 'frances' ? "selected" : ""  %>  >Frances</option>
+                            <option value="ingles"  <%= productToEdit.idioma === 'ingles' ? "selected" : "" ; %> >Ingles</option>
                         </select>
                         </div><br><br>
         
@@ -117,7 +132,7 @@
     
                         <div  class="celda">
                         <div class="datos-text-form">Año de Edición</div>
-                        <input class="input-text" type="number" name="añoEdicion" id="añoEdicion" required value="<%= productToEdit.añoEdicion %>">
+                        <input class="input-text" type="number" name="año_edicion" id="añoEdicion" required value="<%= productToEdit.año_edicion %>">
                         </div><br><br>
     
                         <div  class="celda-btn">
