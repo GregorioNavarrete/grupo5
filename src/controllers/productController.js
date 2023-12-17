@@ -64,42 +64,9 @@ const productController = {
       edit: (req, res) => {
         // Do the magic
         res.render('products/FormularioDeCarga', ({productToEdit : productService.getOne(req.params.id)}));
-      },
-      filter : (req, res) => {
-        let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let generos = req.query.genero;
-        let autores = req.query.autor;
-        let formato = req.query.formato;
-        let editorial = req.query.editoriales; 
-
-        let filtrados=[];
+      }
+      
         
-    
-        for(let i=0; i < products.length;i++ ){
-          if(products[i].genero == generos   || products[i].autor == autores || products[i].formato == formato || products[i].editorial == editorial ){
-                filtrados.push(products[i]);
-                
-          }
-          
-        }
-        if(filtrados.length==0){
-          res.render("products/noResult");
-        }
-        else{
-          res.render('products/filtrados',{newObject:filtrados});
-        }
-              //res.send(autores)
-              //res.render('products/filtrados', {newObject: filtrados});
-        },
-        
-        detail:(req, res) => {
-          let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-          let idLibro = req.params.idLibro;
-          let product = products.find(product => product.id == idLibro);
-          res.render('products/productDetail', {product:product})
-        }
-         
-    
 }
 
 

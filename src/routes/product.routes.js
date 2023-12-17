@@ -4,6 +4,7 @@ const router = express.Router();
 //CREAR CUANDO TENGA EL CREAR ARCHIVO
 const upload = require('../middlewares/multer');
 
+const productService = require ('../data/productService');
 
 
 //controlador de peticiones 
@@ -14,8 +15,8 @@ router.get('/cart', productController.cart);
 router.get('/libro/:id', productController.getOne);
 router.get('/all', productController.all);
 router.get('/catg', productController.catg);
-router.get('/Filtro',productController.filter)
-router.get('/detail/:idLibro',productController.detail)
+router.get('/Filtro',productService.filter)
+router.get('/detail/:idLibro',productService.detail)
 
 //*****************Formulario de carga
 //para buscar los libros con el nombre
