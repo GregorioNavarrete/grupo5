@@ -13,68 +13,122 @@
     </header>
     
     <main>
-        <div class="FormularioDeCarga">
-            
-            
+        <div class="formularioDeCarga">
 
-            <div class="Left">
+            <div class="conte-carga-edicion">
+                <div  class="conte-titulo-form-carga">
+                <div class="titulo-icon-form-carga">
+                <div class="icon-form-carga"><i class="fa-solid fa-pen-to-square"></i></i></div>
+
+                <div class="titulo-form-carga">Editar Libro</div>
+                </div>
+
+                <a class="icon-form-carga-flecha" href="./formCarga"><i class="fa-solid fa-chevron-right"></a></i>
+
+                </div>
+
             <!--Eliminar o modificar  productToEdit-->
 
-            <div class="SubTitle">
-                <i class="fa-solid fa-pen-to-square"></i>
-                <p>Editar Libro</p>
+           
+                <form class="form-carga-ediccion" action="/admin/<%= productToEdit.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
 
-            </div>
-            <form action="/admin/<%= productToEdit.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-                <div>Título</div>
-                <input type="text" id="titulo" name="titulo" required  value="<%= productToEdit.titulo %>" ><br><br>
-                
-                <div>Autor</div>
-                <input type="text" id="autor" name="autor" required value="<%= productToEdit.autor %>" ><br><br>
-                
-                <div>Descripcion del libro</div>
-                <textarea id="detalle" name="descripcion" required ><%= productToEdit.descripcion %></textarea><br><br>
-                
-                <div>Género</div>
-                <select id="genero" name="genero" required>
-                  <option value="">Seleccione un género</option>
-                  <option value="Misterio">Misterio</option>
-                  <option value="Romance"> Romance</option>
-                  <option value="Aventura">Aventura</option>
-                  <option value="Clasicos">Clasicos</option>
-                  <option value="Terror">Terror</option>
-                  <option value="Fantasia">Fantasia</option>
-                </select><br><br>
+                    <div class="celda">
+                        <div class="datos-text-form">Título</div>
+                        <input class="input-text" type="text" id="titulo" name="titulo" value="<%= productToEdit.titulo %>" required>
+                    </div><br><br>
 
-
-                <div>Estrellas</div>
-                <select id="Estrellas" name="Estrellas" required>
-                  <option value="">Seleccione Estrellas</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select><br><br>
-                
-                
-                <div>Precio</div>
-                
-                <input type="text" id="precio" name="precio" step="0.01" required value="<%= productToEdit.precio %>"><br><br>
-                
-                <div>Imagen</div>
-                <input type="file" id="portada" name="portada" accept=".jpg, .pnj" required><br><br>
-                
-                <div class="form-actions">
-                   
-                    <div class="col-12">
-						<button type="submit" class="btn-art">Guardar producto</button>
-					</div>
-                </div>
+                    <div  class="celda">
+                        <div class="datos-text-form">Subtítulo</div>
+                        <input class="input-text" type="text" id="subtitulo" name="subtitulo" value="<%= productToEdit.subtitulo %>">
+                        </div><br><br>
+    
+                    <div  class="celda">
+                        <div class="datos-text-form">Autor</div>
+                        <input class="input-text" type="text" id="autor" name="autor" required value="<%= productToEdit.autor %>">
+                    </div><br><br>
+    
+                    <div  class="celda">
+                        <div class="datos-text-form">Etiqueta</div>
+                        <select class="input-text" name="etiqueta" id="etiqueta" required>
+                            <option value="">Selecciona una Etiqueta</option>
+                            <option value="saga">Saga</option>
+                            <option value="unico">Unico</option>
+                        </select>
+                    </div><br><br>
+    
+                        <div  class="celda">
+                        <div class="datos-text-form">Saga/Serie</div>
+                        <input class="input-text" type="text" id="sagaSerie" name="sagaSerie" value="<%= productToEdit.sagaSerie %>">
+                        </div><br><br>
+    
+                        <div  class="celda">
+                        <div  class="datos-text-form">Género</div>
+                        <select class="input-text" id="genero" name="genero" required>
+                          <option value="">Seleccione un género</option>
+                          <option value="Misterio">Misterio</option>
+                          <option value="Romance"> Romance</option>
+                          <option value="Aventura">Aventura</option>
+                          <option value="Clasicos">Clasicos</option>
+                          <option value="Terror">Terror</option>
+                          <option value="Fantasia">Fantasia</option>
+                        </select>
+                        </div><br><br>
+    
+                        <div  class="celda">
+                        <div  class="datos-text-form">Formato</div>
+                        <select class="input-text" name="formato" id="formato" required>
+                            <option value="">Selecciona un Formato</option>
+                            <option value="fisico">Fisico</option>
+                            <option value="audiolibro">AudioLibro</option>
+                            <option value="ebook">Ebook</option>
+                        </select>
+                        </div><br><br>
+    
+                        <div  class="celda">
+                        <div class="datos-text-form">Precio</div>
+                        <input class="input-text" type="number" id="precio" name="precio" step="0.01" required value="<%= productToEdit.precio %>">
+                        </div><br><br>
+    
+                        <div  class="celda">
+                       <div class="datos-text-form">Portada</div>
+                        <input  class="input-text"  type="file" id="portada" name="portada" accept=".jpg, .pnj" required>
+                        </div><br><br>
+    
+    
+                        <div  class="celda">
+                        <div class="datos-text-form">Descripción</div>
+                        <textarea class="input-text" id="detalle" name="descripcion" required><%= productToEdit.descripcion %></textarea>
+                        </div><br><br>
+    
+                        <div  class="celda">
+                        <div class="datos-text-form">Idioma</div>
+                        <select class="input-text" name="idioma" id="idioma"required>
+                            <option value="">Selecciona un Idioma</option>
+                            <option value="español">Español</option>
+                            <option value="frances">Frances</option>
+                            <option value="ingles">Ingles</option>
+                        </select>
+                        </div><br><br>
+        
+                        <div  class="celda">
+                        <div class="datos-text-form">Paginas</div>
+                        <input class="input-text" type="number" name="paginas" id="paginas" required value="<%= productToEdit.paginas%>">
+                        </div><br><br>
+    
+                        <div  class="celda">
+                        <div class="datos-text-form">Año de Edición</div>
+                        <input class="input-text" type="number" name="añoEdicion" id="añoEdicion" required value="<%= productToEdit.añoEdicion %>">
+                        </div><br><br>
+    
+                        <div  class="celda-btn">
+                            <button class="btn-form" type="submit">Agregar</button>
+                        </div>
 
 
               </form>
             </div>
+
+        </div>
         
     </main>
 

@@ -12,61 +12,172 @@
 
 
 
-.FormularioDeCarga{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-
-/*      Estilos del Left     */   
-.Left{
+/*      Estilos de Editar  y crear   */   
+.conte-carga-edicion{
     background-color: #7BCCC0;
     border-radius: 5px;
-    height:100%;
-    width: 300px;
+    width: 100%;
     text-align: center;
-
+    margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
+    padding: 20px;
 
 }
 
-.Left .btn-art{
-
-    font-size: 1rem;
-    margin: 10px;
-    padding: 10px;
-    background-color: #F94D01;
-    color: white;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    transition: .3s ease all;
-    border-radius: 15px;
-    position: relative;
-    overflow: hidden;
-    text-decoration: none;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
 
 
-.Left .btn-art:hover{
-    background-color: var(--cian);
+.titulo-form-carga{
     color: var(--azul-oscuro);
+    font-size: 2em;
+    font-weight: bold;
+    margin: 20px;
 }
-.Left .form-actions{
+
+.conte-titulo-form-carga{
+    margin: auto;
+    width: 90%;
     display: flex;
-    justify-content: space-evenly
-}
-.Left .SubTitle{
-    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.icon-form-carga{
+    color: var(--azul-oscuro);
+    font-size: 2em;
+    text-align: center;
+    margin: auto;
+    width: 10%;
+}
+
+.icon-form-carga-flecha{
+    color: var(--azul-oscuro);
+    font-size: 2em;
+    text-decoration: none;
+    text-align: center;
+    width: 10%;
 }
 
 
+.titulo-icon-form-carga{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+
+.input-text{
+    flex: 1;
+    padding: 7px;
+    border: none;
+    outline: none;
+    width: 90%;
+    border-radius: 5px;
+    color: #152636; 
+    text-align: center;
+}
+
+.datos-text-form{
+    color: var(--blanco);
+    font-weight: bold;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.btn-form{
+    width: 90%;
+    color: white;
+    background-color: var(--cian);
+    border-radius: 5px;
+    height: 35px;
+    border: none;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.btn-form:hover{
+    background-color: var(--anaranjado);
+}
+
+
+@media (min-width: 769px) {
+    .form-carga-ediccion{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: auto;
+
+    }
+
+    .celda{
+        width: 40%;
+        margin-bottom: 10px;
+    }
+
+    .celda-btn{
+        width: 40%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: end;
+        justify-content: center;
+   
+    }
+
+    .btn-form{
+        margin-bottom: 10px;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .celda{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 45%;
+        margin-bottom: 30px;
+    }
+
+    .input-text{
+        width: 60%;
+    }
+
+    .datos-text-form{
+        width: 20%;
+        align-items: start;
+    }
+    .celda-btn{
+        width: 45%;
+        align-items: center;
+        margin-bottom: 15px;
+        justify-content: center;
+    }
+
+    .conte-carga-edicion{
+        width: 90%;
+    }
+
+    .form-carga-ediccion{
+        justify-content: space-evenly;
+        align-content: center;
+    }
+
+    .btn-form{
+        width: 100%;
+    }
+
+}
+
+
+
+
+
+
+  
 
 
 /*      Estilos del Center      */
