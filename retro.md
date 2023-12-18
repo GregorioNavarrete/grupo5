@@ -13,6 +13,7 @@ En el Sprint anterior la devolución puso en enfasis que todos debiamos hacer Co
 ## Dinamica Estrella de Mar
 
 1. Comenzar a hacer.
+
 -> Tener reuniones de inicio de Sprint.
 
 -> Dividir las tareas entre todos.
@@ -22,6 +23,7 @@ En el Sprint anterior la devolución puso en enfasis que todos debiamos hacer Co
 -> Aprender mas sobre Git.
 
 2. Hacer más.
+
 -> Comunicar los bloqueantes a tiempo.
 
 -> Ayudar a nuestros integrantes con sus bloqueantes.
@@ -31,6 +33,7 @@ En el Sprint anterior la devolución puso en enfasis que todos debiamos hacer Co
 -> Empezar a programar antes.
 
 3. Continuar haciendo.
+
 -> Estar comunicados.
 
 -> Asistir a clases.
@@ -40,6 +43,7 @@ En el Sprint anterior la devolución puso en enfasis que todos debiamos hacer Co
 -> Tener Iniciativa y buscar maneras para resolver bloqueantes,
 
 4. Hacer menos.
+
 -> Extender mucho el tiempo de planeamiento del sprint.
 
 -> Tener una gran cantidad de ideas para votar e elegir.
@@ -49,6 +53,7 @@ En el Sprint anterior la devolución puso en enfasis que todos debiamos hacer Co
 -> No preguntar la opinion de otros integrantes sobre el trabajo propio.
 
 5. Dejar de hacer.
+
 -> No asistir a las reuniones (En especial la de inicio de sprint).
 
 -> No responder u opinir en el grupo.
@@ -73,6 +78,7 @@ Entre las correcciones que nos hicieron como grupo fue que todos los participant
 ## Dinamica Estrella de Mar
 
 1. Comenzar a hacer.
+
 -> Seguir las clases para no quedarnos atras.
 
 -> Arreglar un horario para codear en conjunto.
@@ -82,6 +88,7 @@ Entre las correcciones que nos hicieron como grupo fue que todos los participant
 -> Commitear diario.
 
 2. Hacer más.
+
 -> Tomar la iniciativa para comenzar a trabajar.
 
 -> Preguntar apenas surge un bloqueante.
@@ -91,6 +98,7 @@ Entre las correcciones que nos hicieron como grupo fue que todos los participant
 -> Utilizar de mejor manera el Trello.
 
 3. Continuar haciendo.
+
 -> Hacer reuniones para mostrar progresos.
 
 -> Comunicarnos periodicamente.
@@ -100,6 +108,7 @@ Entre las correcciones que nos hicieron como grupo fue que todos los participant
 -> Mantener un estilo parecido en las vistas.
 
 4. Hacer menos.
+
 -> Reuniones sin sentido.
 
 -> Usar el tiempo de las clases para mostrar avances.
@@ -109,6 +118,7 @@ Entre las correcciones que nos hicieron como grupo fue que todos los participant
 -> Estar callados en las reuniones.
 
 5. Dejar de hacer.
+
 -> No estar al dia con las clase.
 
 -> No aprovechar el tiempo de la practica.
@@ -134,6 +144,7 @@ Meme de final de Sprint: https://www.instagram.com/reel/CzyfmDZt51p/?igshid=MzRl
 ## Dinamica Estrella de Mar
 
 1. Comenzar a hacer.
+
 -> Dividir las tareas en SubGrupos.
 
 -> Dejar comentarios necesarios en el codigo.
@@ -143,6 +154,7 @@ Meme de final de Sprint: https://www.instagram.com/reel/CzyfmDZt51p/?igshid=MzRl
 -> Lista de tareas Prioritarias.
 
 2. Hacer más.
+
 -> Revisar el Trello diario.
 
 -> Aprender a resolver conflictos en Git.
@@ -152,6 +164,7 @@ Meme de final de Sprint: https://www.instagram.com/reel/CzyfmDZt51p/?igshid=MzRl
 -> Pedir ayuda a los profes.
 
 3. Continuar haciendo.
+
 -> Tener en cuenta las correcciones antes de trabajar.
 
 -> Pedir ayudar cuando sentimos que no llegamos.
@@ -161,6 +174,7 @@ Meme de final de Sprint: https://www.instagram.com/reel/CzyfmDZt51p/?igshid=MzRl
 -> Agregar cosas que no son obligatorias pero suman a Prisma.
 
 4. Hacer menos.
+
 -> Perder el tiempo por no ver las clases.
 
 -> Codear sin avisar lo que estamos haciendo.
@@ -170,6 +184,7 @@ Meme de final de Sprint: https://www.instagram.com/reel/CzyfmDZt51p/?igshid=MzRl
 -> Quedarnos con la duda de las consignas.
 
 5. Dejar de hacer.
+
 -> Empezar tarde.
 
 -> No llevar al dia las clases.
