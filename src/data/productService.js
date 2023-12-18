@@ -140,10 +140,20 @@ const productService = {
 
         catg:(req,res) => {
             let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-            let catg = req.query.catg
+            let catg = Object.keys(req.query)[0];
+            
+            
+            let newCatg=[];
+
+            for(let i=0; i < products.length; i++){
+                if(products[i].genero.includes(catg)){
+                   newCatg.push(products[i])
+                }
+                
+            }
             
 
-            res.send(catg)
+            res.render('products/categoria',{newCatg:newCatg})
         }
     
 
