@@ -136,8 +136,15 @@ const productService = {
           let idLibro = req.params.idLibro;
           let product = products.find(product => product.id == idLibro);
           res.render('products/productDetail', {product:product})
-        }
+        },
 
+        catg:(req,res) => {
+            let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+            let catg = req.query.catg
+            
+
+            res.send(catg)
+        }
     
 
 }

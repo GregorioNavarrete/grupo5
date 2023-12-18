@@ -178,6 +178,10 @@ a{
     text-decoration: none;
 }
 
+.boton-categ{
+    display: inline;
+}
+
 /* media queries articulos */
 
 @media (min-width: 769px) {
