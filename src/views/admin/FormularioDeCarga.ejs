@@ -20,27 +20,36 @@
                 <!--Buscador y lista de libros-->
 
                 <div class="SearchBox">
-                    <div class="SubTitle">
-                        <i class="fa-solid fa-rectangle-list"></i>
-                        <p>Lista de libros</p>
 
-                    </div>
-                    <div class="">
+                    <div  class="conte-titulo-form-carga">
+                        <div class="titulo-icon-form-carga">
+                        <div class="icon-form-carga"><i class="fa-solid fa-rectangle-list"></i>
+                        </div>
+        
+                        <div class="titulo-form-carga">Lista de Libros</div>
+                        </div>
+            
+
+                    <div>
                         <!--manada a la vista de carga de libros -->
                         <form class="SearchBox-form" action="/admin/formCargaLibro" method="GET">
-                             <button class="button" submit>
+                             <button class="icon-carga-producto" submit>
                                 <i class="fa-solid fa-folder-plus"></i>
                             </button>
                         </form>
 
-                        <form class="SearchBox-form" action="/admin/search" method="GET">
+                    </div>
+                    </div>
+
+                   
+                        <form class="lista-libros-busq" action="/admin/search" method="GET">
                             <!--lo al buscar lo manda a la ruta -->
-                            <input type="text" placeholder="Buscar por titulo o autor..." name="Buscar" >
-                            <button submit="" class="button">
+                            <input class="input-text-busq" type="text" placeholder="Buscar por titulo o autor..." name="Buscar" >
+                            <button submit="" class="button-busq">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </button>
                         </form>
-                    </div>
+                
 
                 </div>
 
@@ -48,8 +57,6 @@
                 <div class="IndexList">
                     <div class="SubTitulo">
                         <p>Titulo</p>
-                        <p>Tamaño del archivo</p>
-                        <p>Fecha</p>
                     </div>
 
                     <!--Le tengo que poner un for con la logica EJS -->
@@ -57,26 +64,31 @@
                         <% product.forEach(producto => { %>
                         <div class="Producto">
 
-                            <div class="">
+                            <div class="editar-detalle-delete">
+                            <div>
                                     <!--este tendria que cambia el metodo con el que se responde-->
-                                    <a href="/admin/FormCarga/<%=producto.id%>/edit">Editar</a>
+                                    <a class="editar-detalle" href="/admin/FormCarga/<%=producto.id%>/edit">Editar</a>
                                    
                             </div>
-                            <div class="">
+                            <div >
                                 <!--anun este JSON no tiene id los elementos-->
-                                <a href="../product/libro/<%=producto.id%>">Detalles</a>
+                                <a class="editar-detalle" href="../product/libro/<%=producto.id%>">Detalles</a>
                             </div>
                             <!--delte necesita el domulario, para decirle al router, con que metodo responder esta ruta-->
                             <form action="/admin/FormCarga/<%=producto.id%>?_method=DELETE" method="POST" style="display: inline-flex">
-                                <button type="submit" class="action-button delete">ELIMINAR</button>
+                                <button type="submit" class="action-button"><i class="fa-solid fa-trash"></i></button>
                             </form>
+                            </div>
 
-                            <div>
+                            <div class="titulo-autor-producto">
+                            <div class="titulo-producto">
                                 <%= producto.titulo %>
                             </div>
-                            <div>
-                                Fecha
+                            <div class="autor-producto">
+                                <%= producto.autor %>
                             </div>
+                           </div>
+
                             <figure class="product-box_image">
                                 <!--la imagen por defecto si funcion-->
                                 <img src="/img/portadas/<%=(producto.portada !== 0 && producto.portada !== undefined) ? producto.portada : 'default-image.png'%>" alt="imagen de producto">
