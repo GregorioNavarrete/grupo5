@@ -365,11 +365,6 @@
     color: #F94D01;
 }
 
-.productos{
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
 @media (min-width: 769px){
     .lista-libros-busq{
         width: 60%;
@@ -384,7 +379,7 @@
         margin-bottom: 15px;
     }
 
-    .productos{
+    .Productos{
         width: 90%;
         margin: auto;
     }
