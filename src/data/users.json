@@ -97,5 +97,43 @@
         "contraseña": "contraseña",
         "categoria": "usuario",
         "imagen": "usuario.jpg"
+    },
+    {
+        "id": 12,
+        "nombre": "exequiel ",
+        "apellido": "gay",
+        "email": "exequiel@digitalhouse.com",
+        "contraseña": "contraseña",
+        "categoria": "usuario",
+        "imagen": "usuario.jpg"
+    },
+    {
+        "id": 13,
+        "nombre": "usuario",
+        "apellido": "apellido",
+        "email": "email@gmail",
+        "contraseña": "12345678",
+        "categoria": "usuario",
+        "imagen": "usuario.jpg"
+    },
+    {
+        "id": 14,
+        "nombre": "exequiel",
+        "apellido": "juarez",
+        "usuario": "exequieldigital",
+        "email": "exequiel@digitalhouse.com",
+        "contraseña": "12345678",
+        "categoria": "usuario",
+        "imagen": "usuario.jpg"
+    },
+    {
+        "id": 15,
+        "nombre": "prueba2",
+        "apellido": "prueba2",
+        "usuario": "usuarioPrueba",
+        "email": "email@gmail",
+        "contraseña": "12345678",
+        "categoria": "usuario",
+        "imagen": "usuario.jpg"
     }
 ]

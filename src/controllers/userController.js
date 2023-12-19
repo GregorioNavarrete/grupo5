@@ -32,8 +32,9 @@ const userController = {
       
         let nuevoUsuario = {
           id: ultimoId + 1,
-          nombre: req.body.usuario,
+          nombre: req.body.nombre,
           apellido: req.body.apellido,
+          usuario:req.body.usuario,
           email: req.body.email,
           contraseña: req.body.password,
           categoria : "usuario",
