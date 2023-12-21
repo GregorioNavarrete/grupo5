@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/head') %>
+    <link  href="/css/FormularioDeCarga.css" rel="stylesheet">  
+    <title>FormularioDeCarga</title>
+
+</head>
+<body>
+    
+    <header>
+        <%- include ('../partials/header') %>
+    </header>
+    
+    <main>
+        <div class="formularioDeCarga">
+            
+            <div class="conte-carga-edicion">
+                <!--Agregar-->
+                <div  class="conte-titulo-form-carga">
+                <div class="titulo-icon-form-carga">
+                <div class="icon-form-carga"><i class="fa-solid fa-folder-plus"></i></div>
+
+                <div class="titulo-form-carga">Cargar Libro</div>
+                </div>
+
+                <a class="icon-form-carga-flecha" href="./formCarga"><i class="fa-solid fa-chevron-right"></a></i>
+
+            
+
+                <form class="form-carga-ediccion" action="/admin/formCarga" method="POST" enctype="multipart/form-data">
+
+                    <div class="celda">
+                    <div class="datos-text-form">Título</div>
+                    <input class="input-text" type="text" id="titulo" name="titulo" required>
+                    </div><br><br>
+
+                    <div  class="celda">
+                    <div class="datos-text-form">Subtítulo</div>
+                    <input class="input-text" type="text" id="subtitulo" name="subtitulo">
+                    </div><br><br>
+
+                    <div  class="celda">
+                    <div class="datos-text-form">Autor</div>
+                    <input class="input-text" type="text" id="autor" name="autor" required>
+                    </div><br><br>
+
+                    <div  class="celda">
+                    <div class="datos-text-form">Etiqueta</div>
+                    <select class="input-text" name="etiqueta" id="etiqueta" required>
+                        <option value="">Selecciona una Etiqueta</option>
+                        <option value="saga">Saga</option>
+                        <option value="unico">Unico</option>
+                    </select>
+                    </div><br><br>
+
+                    <div  class="celda">
+                    <div class="datos-text-form">Saga/Serie</div>
+                    <input class="input-text" type="text" id="sagaSerie" name="sagaSerie">
+                    </div><br><br>
+
+                    <div  class="celda">
+                    <div  class="datos-text-form">Género</div>
+                    <select class="input-text" id="genero" name="genero" required>
+                      <option value="">Seleccione un género</option>
+                      <option value="Misterio">Misterio</option>
+                      <option value="Romance"> Romance</option>
+                      <option value="Aventura">Aventura</option>
+                      <option value="Clasicos">Clasicos</option>
+                      <option value="Terror">Terror</option>
+                      <option value="Fantasia">Fantasia</option>
+                    </select>
+                    </div><br><br>
+
+                    <div  class="celda">
+                    <div  class="datos-text-form">Formato</div>
+                    <select class="input-text" name="formato" id="formato" required>
+                        <option value="">Selecciona un Formato</option>
+                        <option value="fisico">Fisico</option>
+                        <option value="audiolibro">AudioLibro</option>
+                        <option value="ebook">Ebook</option>
+                    </select>
+                    </div><br><br>
+
+                    <div  class="celda">
+                    <div class="datos-text-form">Precio</div>
+                    <input class="input-text" type="text" id="precio" name="precio" step="0.01" required>
+                    </div><br><br>
+
+                    <div  class="celda">
+                   <div class="datos-text-form">Portada</div>
+                    <input  class="input-text"  type="file" id="portada" name="portada" accept=".jpg, .pnj" required>
+                    </div><br><br>
+
+
+                    <div  class="celda">
+                    <div class="datos-text-form">Descripción</div>
+                    <textarea class="input-text" id="detalle" name="descripcion" required></textarea>
+                    </div><br><br>
+
+                    <div  class="celda">
+                    <div class="datos-text-form">Idioma</div>
+                    <select class="input-text" name="idioma" id="idioma"required>
+                        <option value="">Selecciona un Idioma</option>
+                        <option value="español">Español</option>
+                        <option value="frances">Frances</option>
+                        <option value="ingles">Ingles</option>
+                    </select>
+                    </div><br><br>
+    
+                    <div  class="celda">
+                    <div class="datos-text-form">Paginas</div>
+                    <input class="input-text" type="number" name="paginas" id="paginas" required>
+                    </div><br><br>
+
+                    <div  class="celda">
+                    <div class="datos-text-form">Año de Edición</div>
+                    <input class="input-text" type="number" name="año_edicion" id="añoEdicion" required>
+                    </div><br><br>
+
+                    
+    
+                    <!-- <div>Estrellas</div>
+                    <select id="Estrellas" name="Estrellas" required>
+                      <option value="">Seleccione Estrellas</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select><br><br> -->
+
+
+                    
+          
+                     
+                        
+              
+       
+                    
+                    
+                    
+                    <!--como necesito usar el SUBMIT para e,biar el formulario completo no uso el boton lindo 
+                    <div class="form-actions">
+                        <a class="btn-art" href="/product/crate" >
+                            <div>Agregar</div>
+                        </a>
+                    </div>
+                    -->
+                    <div  class="celda-btn">
+                        <button class="btn-form" type="submit">Agregar</button>
+                    </div>
+       
+
+                  </form>
+           
+             </div>
+
+            
+        </div>
+            
+        
+    </main>
+
+
+    <footer>
+        <%- include ('../partials/footer') %>
+    </footer>
+
+   
+</body>
+</html>

@@ -1,6 +1,6 @@
 
 
-const   express= require('express');
+const  express = require('express');
 // Este enrutador contendrá las rutas para manejar las solicitudes HTTP para la raíz del sitio web
 const indexRouter = require ('./routes/index.routes');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE

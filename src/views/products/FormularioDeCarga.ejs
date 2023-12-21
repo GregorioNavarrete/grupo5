@@ -23,7 +23,7 @@
 
                 </div>
 
-                <form action="/product/formCarga" method="POST" enctype="multipart/form-data">
+                <form action="/guardar_producto" method="POST">
                     <div >Título</div>
                     <input type="text" id="titulo" name="titulo" required><br><br>
                     
@@ -59,20 +59,16 @@
                     <div>Precio</div>
                     <input type="number" id="precio" name="precio" step="0.01" required><br><br>
                     
-                    <div>Portada</div>
-                    <input type="file" id="portada" name="portada" accept=".jpg, .pnj" required><br><br>
+                    <div>Imagen</div>
+                    <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>
                     
-                    <!--como necesito usar el SUBMIT para e,biar el formulario completo no uso el boton lindo 
+                    
                     <div class="form-actions">
-                        <a class="btn-art" href="/product/crate" >
+                        <a class="btn-art" href="/productDetail">
                             <div>Agregar</div>
                         </a>
                     </div>
-                    -->
-                    <div class="col-12">
-                         <button type="submit" class="buy-now-button">Agregar </button>
-                    </div>
-
+        
                   </form>
             </div>
 
@@ -85,9 +81,8 @@
                         <p>Lista de libros</p>
     
                     </div>
-                    <form class="SearchBox-form" action="/product/search" method="GET">
-                        <!--lo al buscar lo manda a la ruta -->
-                        <input type="text" placeholder="Buscar por titulo o autor..." name="Buscar" >
+                    <form class="SearchBox-form" action="/buscar" method="GET">
+                        <input type="text" placeholder="Buscar por titulo o autor..." >
                         <div class="button">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
@@ -100,38 +95,118 @@
                         <p>Tamaño del archivo</p>
                         <p>Fecha</p>
                     </div>
-
-                    <!--Le tengo que poner un for con la logica EJS -->
                     <div class="Productos">
-                        <% product.forEach(producto => { %>
                         <div class="Producto">
 
                             <div class="">
-                                    <!--este tendria que cambia el metodo con el que se responde-->
-                                    <a href="/product/FormCarga/<%=producto.id%>/edit">Editar</a>
-                                   
+                    
+                                    <input type="checkbox" id="miCheckbox">
+                                    <span class="checkmark"></span>
                             </div>
-                            <div class="">
-                                <!--anun este JSON no tiene id los elementos-->
-                                <a href="/product/libro/<%=producto.id%>">Detalles</a>
-                            </div>
-                            <!--delte necesita el domulario, para decirle al router, con que metodo responder esta ruta-->
-                            <form action="/product/FormCarga/<%=producto.id%>?_method=DELETE" method="POST" style="display: inline-flex">
-                                <button type="submit" class="action-button delete">ELIMINAR</button>
-                            </form>
 
                             <div>
-                                <%= producto.titulo %>
+                                Titulo
+                            </div>
+                            <div>
+                                Tamaño del archivo
                             </div>
                             <div>
                                 Fecha
                             </div>
-                            <figure class="product-box_image">
-                                <!--la imagen por defecto si funcion-->
-                                <img src="/img/portadas/<%=(producto.portada !== 0 && producto.portada !== undefined) ? producto.portada : 'default-image.png'%>" alt="imagen de producto">
-                            </figure>
                         </div>
-                        <% }); %>
+
+                        <div class="Producto">
+
+                            <div class="">
+                    
+                                <input type="checkbox" id="miCheckbox">
+                                <span class="checkmark"></span>
+                            </div>
+
+                            <div>
+                                Titulo
+                            </div>
+                            <div>
+                                Tamaño del archivo
+                            </div>
+                            <div>
+                                Fecha
+                            </div>
+                        </div>
+                        <div class="Producto">
+
+                            <div class="">
+                    
+                                <input type="checkbox" id="miCheckbox">
+                                <span class="checkmark"></span>
+                            </div>
+
+                            <div>
+                                Titulo
+                            </div>
+                            <div>
+                                Tamaño del archivo
+                            </div>
+                            <div>
+                                Fecha
+                            </div>
+                        </div>
+                        <div class="Producto">
+
+                            <div class="">
+                    
+                                <input type="checkbox" id="miCheckbox">
+                                <span class="checkmark"></span>
+                            </div>
+
+                            <div>
+                                Titulo
+                            </div>
+                            <div>
+                                Tamaño del archivo
+                            </div>
+                            <div>
+                                Fecha
+                            </div>
+                        </div>
+                        <div class="Producto">
+
+                            <div class="">
+                    
+                                <input type="checkbox" id="miCheckbox">
+                                <span class="checkmark"></span>
+                            </div>
+
+                            <div>
+                                Titulo
+                            </div>
+                            <div>
+                                Tamaño del archivo
+                            </div>
+                            <div>
+                                Fecha
+                            </div>
+                        </div>
+
+                        <div class="Producto">
+
+                            <div class="">
+                    
+                                <input type="checkbox" id="miCheckbox">
+                                <span class="checkmark"></span>
+                            </div>
+
+                            <div>
+                                Titulo
+                            </div>
+                            <div>
+                                Tamaño del archivo
+                            </div>
+                            <div>
+                                Fecha
+                            </div>
+                                
+                        </div>
 
                     </div>
 
@@ -150,10 +225,10 @@
             </div>
             <form action="/guardar_producto" method="POST">
                 <div>Título</div>
-                <input type="text" id="titulo" name="titulo" required  ><br><br>
+                <input type="text" id="titulo" name="titulo" required><br><br>
                 
                 <div>Autor</div>
-                <input type="text" id="autor" name="autor" required ><br><br>
+                <input type="text" id="autor" name="autor" required><br><br>
                 
                 <div>Detalle del producto</div>
                 <textarea id="detalle" name="detalle" required></textarea><br><br>
@@ -182,8 +257,7 @@
                 
                 
                 <div>Precio</div>
-                
-                <input type="number" id="precio" name="precio" step="0.01" required ><br><br>
+                <input type="number" id="precio" name="precio" step="0.01" required><br><br>
                 
                 <div>Imagen</div>
                 <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>

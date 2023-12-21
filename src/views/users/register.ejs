@@ -32,7 +32,20 @@
                     </div>
                     <div class="input-contenedor">
                         <i class="fa-solid fa-user" style="color: #838486;"></i>
-                        <input class="input-txt" type="text" name="usuario" placeholder="Ingrese un Usuaario" value="usuario" required>
+
+                        
+
+                        <input class="input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" required>
+                        <span class="error-message">Ingresa un nombre valido.</span>
+                    </div>
+                    <div class="input-contenedor"> 
+                        <i class="fa-solid fa-user" style="color: #838486;"></i>
+                        <input class="input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" required>
+                        <span class="error-message">Ingresa un apellido valido.</span>
+                    </div>
+                    <div class="input-contenedor">
+                        <i class="fa-solid fa-user" style="color: #838486;"></i>
+                        <input class="input-txt" type="text" name="Usuario" placeholder="Ingrese un Usuario" required>
                         <span class="error-message">Ingresa un usuario valido.</span>
                     </div>
                     <div class="input-contenedor">
@@ -44,6 +57,11 @@
                         <i class="fa-solid fa-key icon"></i>
                         <input class="input-txt" type="password" name="password" placeholder="Ingrese una contraseña" value="contraseña"required minlength="8">
                         <span class="error-message">Debe tener 8 carácteres como mínimo.</span>
+                    </div>
+                    <div class="input-contenedor">
+                        <i class="fa-solid fa-key icon"></i>
+                        <input class="input-txt" type="password" name="confirmar-password" placeholder="Confirmar contraseña" required minlength="8">
+                        <span class="error-message">La contraseña no coincide.</span>
                     </div>
                     <label>
                     <input class="check" type="checkbox" name="remember" value="remember"> Recordarme </label>

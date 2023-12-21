@@ -8,78 +8,201 @@
     --gris-petroleo: #3E6C6A;
     }
     
+*
 
 
 
-
-.FormularioDeCarga{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-
-/*      Estilos del Left     */   
-.Left{
+/*      Estilos de Editar  y crear   */   
+.conte-carga-edicion{
     background-color: #7BCCC0;
     border-radius: 5px;
-    height:100%;
-    width: 300px;
+    width: 100%;
     text-align: center;
-
+    margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
+    padding: 20px;
 
 }
 
-.Left .btn-art{
-
-    font-size: 1rem;
-    margin: 10px;
-    padding: 10px;
-    background-color: #F94D01;
-    color: white;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    transition: .3s ease all;
-    border-radius: 15px;
-    position: relative;
-    overflow: hidden;
-    text-decoration: none;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.form-carga-ediccion{
+    margin: auto;
 }
 
 
-.Left .btn-art:hover{
-    background-color: var(--cian);
+
+.titulo-form-carga{
     color: var(--azul-oscuro);
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 20px;
+    
 }
-.Left .form-actions{
+
+.conte-titulo-form-carga{
+    margin: auto;
+    width: 90%;
     display: flex;
-    justify-content: space-evenly
-}
-.Left .SubTitle{
-    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.icon-form-carga{
+    color: var(--azul-oscuro);
+    font-size: 1.5em;
+    text-align: center;
+    margin: auto;
+    width: 10%;
+}
+
+.icon-form-carga-flecha{
+    color: var(--azul-oscuro);
+    font-size: 1.5em;
+    text-decoration: none;
+    text-align: center;
+    width: 10%;
 }
 
 
+.titulo-icon-form-carga{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+
+.input-text{
+    flex: 1;
+    padding: 7px;
+    border: none;
+    outline: none;
+    width: 95%;
+    border-radius: 5px;
+    color: #152636; 
+    text-align: center;
+}
+
+.datos-text-form{
+    color: var(--blanco);
+    font-weight: bold;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.btn-form{
+    width: 95%;
+    color: white;
+    background-color: var(--cian);
+    border-radius: 5px;
+    height: 35px;
+    border: none;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.btn-form:hover{
+    background-color: var(--anaranjado);
+}
+
+
+@media (min-width: 769px) {
+    .form-carga-ediccion{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: auto;
+
+    }
+
+    .celda{
+        width: 40%;
+        margin-bottom: 10px;
+    }
+
+    .celda-btn{
+        width: 40%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: end;
+        justify-content: center;
+   
+    }
+
+    .btn-form{
+        margin-bottom: 10px;
+    }
+
+    .icon-form-carga{
+        font-size: 2em;
+    }
+
+    .icon-form-carga-flecha{
+        font-size: 2em;
+    }
+
+    .titulo-form-carga{
+        font-size: 2em;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .celda{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 45%;
+        margin-bottom: 30px;
+    }
+
+    .input-text{
+        width: 60%;
+    }
+
+    .datos-text-form{
+        width: 20%;
+        align-items: start;
+    }
+    .celda-btn{
+        width: 45%;
+        align-items: center;
+        margin-bottom: 15px;
+        justify-content: center;
+    }
+
+    .conte-carga-edicion{
+        width: 90%;
+    }
+
+    .form-carga-ediccion{
+        justify-content: space-evenly;
+        align-content: center;
+    }
+
+    .btn-form{
+        width: 100%;
+    }
+
+}
+
+
+
+
+
+
+  
 
 
 /*      Estilos del Center      */
 .Center{
-
-    height:100%;
-    min-width: 300px; /* Establece el ancho mínimo en 300px */
-    width: 40%; /* Abarca todo el ancho disponible */
+    width: 100%; /* Abarca todo el ancho disponible */
     text-align: center;
-
-
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 
 }
 
@@ -100,14 +223,15 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-        background-color: #3E6C6A;
+    background-color: var(--blanco);
     border-radius: 5px;
     margin-bottom: 5px;
     padding-bottom: 5px;
     padding-top: 5px;
-
+    height: 150px;
     margin-right: 10px;
     margin-left: 10px;
+   
 
 }
 
@@ -140,11 +264,6 @@
 }
 
 
-.Center .SearchBox input{
-    width: 70%;
-    border-radius: 12px
-}
-
 .Center .SearchBox-form{
     display: flex;
     justify-content: center;
@@ -158,64 +277,123 @@
     width: 70px;
 }
 
-
-
-
-
-/*     Estilos que en PC esta a la izquierda     */
-.Rigth{
-    background-color: #7BCCC0;
-    border-radius: 5px;
-   
-    height:100%;
-    min-width: 300px; /* Establece el ancho mínimo en 300px */
-    
-    text-align: center;
-
-
-    margin-top: 10px;
-    margin-bottom: 10px;
-
+.action-button{
+    color: #00C7AA;
+    outline: none;
+    border: none;
+    font-size: 1.5em;
+    background-color: var(--blanco);
 }
-.Rigth .btn-art{
 
-    font-size: 1rem;
-    margin: 10px;
-    padding: 10px;
-    background-color: #F94D01;
-    color: white;
-    border-radius: 20px;
+.editar-detalle-delete{
     display: flex;
-    justify-content: center;
-    cursor: pointer;
-    transition: .3s ease all;
-    border-radius: 15px;
-    position: relative;
-    overflow: hidden;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 5px;
+    width: 25%;
+}
+
+.editar-detalle{
     text-decoration: none;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #152636;
+    margin: 5px;
+    font-weight: bold;
 }
 
-
-.Rigth .btn-art:hover{
-    background-color: var(--cian);
-    color: var(--azul-oscuro);
-
-}
-.Rigth .form-actions{
+.titulo-autor-producto{
     display: flex;
-    justify-content: space-evenly
+    flex-direction: column;
+    margin-top: 20px;
+    width: 50%;
+    align-items: center;
 }
 
-.Rigth .SubTitle{
+.titulo-autor{
+    color: #3E6C6A;
+}
+
+.titulo-producto{
+    color: #F94D01;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.product-box_image{
+    margin: 20px;
+    width: 25%;
+}
+
+.input-text-busq{
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    width: 80%;
+    border-radius: 10px;
+    color: #152636; 
+    text-align: center;
+}
+
+.button-busq{
+    color: var(--blanco);
+    outline: none;
+    border: none;
+    font-size: 1.3em;
+    background-color: var(--celeste);
+}
+
+.lista-libros-busq{
     display: flex;
     align-items: center;
-    justify-content: center;
+    width: 80%;
+    margin: auto;
 }
 
+.icon-carga-producto{
+    outline: none;
+    border: none;
+    background-color: var(--celeste);
+    color: var(--blanco);
+    cursor: pointer;
+    transition: all 2s;
+    font-size: 2em;
+}
 
+.icon-carga-producto:hover{
+    color: #F94D01;
+}
 
+@media (min-width: 769px){
+    .lista-libros-busq{
+        width: 60%;
+    }
+}
 
+@media (min-width: 1024px){
+    .Center{
+        width: 90%;
+        margin: auto;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .Productos{
+        width: 90%;
+        margin: auto;
+    }
+
+    .lista-libros-busq{
+        width: 40%;
+    }
+
+    .icon-carga-producto{
+        font-size: 2.5em;
+    }
+
+    
+}
 
 
 /*             Codigo general   tener mucho cuidado */
