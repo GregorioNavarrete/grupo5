@@ -128,7 +128,61 @@ const productService = {
             }
         }
         return buscados;
-    }
+    },
+
+    filter : (req, res) => {
+        let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        let generos = req.query.genero;
+        let autores = req.query.autor;
+        let formato = req.query.formato;
+        let editorial = req.query.editoriales; 
+
+        let filtrados=[];
+        
+    
+        for(let i=0; i < products.length;i++ ){
+          if(products[i].genero == generos   || products[i].autor == autores || products[i].formato == formato || products[i].editorial == editorial ){
+                filtrados.push(products[i]);
+                
+          }
+          
+        }
+        if(filtrados.length==0){
+          res.render("products/noResult");
+        }
+        else{
+          res.render('products/filtrados',{newObject:filtrados});
+        }
+              //res.send(autores)
+              //res.render('products/filtrados', {newObject: filtrados});
+        },
+        
+        
+        detail:(req, res) => {
+          let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+          let idLibro = req.params.idLibro;
+          let product = products.find(product => product.id == idLibro);
+          res.render('products/productDetail', {product:product})
+        },
+
+        catg:(req,res) => {
+            let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+            let catg = Object.keys(req.query)[0];
+            
+            
+            let newCatg=[];
+
+            for(let i=0; i < products.length; i++){
+                if(products[i].genero.includes(catg)){
+                   newCatg.push(products[i])
+                }
+                
+            }
+            
+
+            res.render('products/categoria',{newCatg:newCatg})
+        }
+    
 
 }
 

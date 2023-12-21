@@ -2,9 +2,8 @@ const path = require('path');
 const product = require('../model/productos');
 const producto = require('../model/productos');
 const productService = require('../data/productService');
-
-
-
+const fs = require('fs');
+const productsFilePath = path.join(__dirname, '../data/products.json');
 const productController = {
 
     index:  (req, res) => {
@@ -28,18 +27,24 @@ const productController = {
       },
 
       all: (req, res) => {
+        
         let htmlPath = path.resolve(__dirname,'../views/products/allProduct.ejs') ;
         res.render(htmlPath);
 
       },
 
+
       catg: (req, res) => {
       
         let htmlPath = path.resolve(__dirname,'../views/products/categoria.ejs') ;
         res.render(htmlPath);
-      },
+      }
+
       
     }
+
+
+
 
 
 module.exports = productController
