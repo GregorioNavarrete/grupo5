@@ -58,8 +58,7 @@ header{
     outline: none;
     width: 20%;
     border-radius: 10px 0px 0px 10px;
-    color: #152636;
-    
+    color: #152636; 
 }
 
 .barra-busqueda-header:hover{

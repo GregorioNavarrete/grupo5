@@ -192,9 +192,27 @@ a{
     object-fit: cover;
     scroll-snap-align: center;
   } 
+  .cont-cont-boton{
+    width:40% ;
 
+  }
+  .cont-boton{
+    display:flex;
+    width: 100%;
+    justify-content: center
+    
+  }
+  .enviar{
+    background-color:#7BCCC0;
+    color:white;
+    border: none;
+    border-radius: 15px;
+    width: 40%;
+    margin-top: 15px;
+    justify-content: center;
+    font-size:20px;
 
-
+    }
 
 
 @media (min-width: 769px) {
