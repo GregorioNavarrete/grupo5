@@ -1,0 +1,135 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgb(96, 175, 175);
+}
+
+h2 {
+    text-align: center;
+    color: white;
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+ul li{
+    display: flex;
+    width: 90%;
+    margin-bottom: 20px;
+    justify-content: space-around;
+    padding: 5px;
+    background-color: white;
+    
+    
+}
+
+.UserData{
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    position: relative;
+    right: 50px;
+    
+}
+
+ul li section p{
+    font-size: 18px;
+    padding: 5px,0.5px,0;
+    
+}
+
+.cont-search{
+    display: flex;
+    justify-content: center;
+}
+
+.Search-users{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.barra-busqueda-header{
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+
+.input-header{
+    flex: 1;
+    padding: 7px;
+    border: none;
+    outline: none;
+    width: 20%;
+    border-radius: 10px 0px 0px 10px;
+    color: #152636;
+    
+}
+
+.button-search{
+    background-color: white;
+    color: var(--azul-oscuro);
+    border: none;
+    cursor: pointer;
+    border-radius: 0px 10px 10px 0px;
+    font-size: 13px;
+    padding: 7px;
+}
+
+.cont-botones{
+    width: 25%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.botones{
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.borrar{
+    padding: 15px;
+    font-size: 15px;
+    transition: all 0.3 s;
+}
+
+.editar{
+    padding: 15px;
+    font-size: 15px;
+    transition: all 0.3 s;
+} 
+
+.editar:hover{
+    background-color: rgb(25, 144, 212);
+    color: white;
+    border: none;
+    cursor: pointer;
+
+} 
+
+.borrar:hover{
+    background-color: rgb(243, 46, 46);
+    color: white;
+    border: none;
+    cursor: pointer;
+
+} 

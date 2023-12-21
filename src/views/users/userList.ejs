@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/head') %>
+    <link rel="stylesheet" href="/css/userList.css">
+    <title>Iniciar sesión en Libros Prisma</title>
+    
+</head>
+<body>
+<header>
+    <%- include ('../partials/header') %>
+</header>
+    <main><br>
+
+        
+   <section class="cont-search">
+    <div class="Search-users">
+        <H2>lista de Usuarios</H2>
+
+        <form class="barra-busqueda-header" action="/user/search" method="GET">
+                <input class="input-header" type="text" placeholder="Buscar" name="search">
+                <button class="button-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                
+        </form>
+
+   </section>
+   <br>
+
+   <ul>
+        <% for(let i=0;i<Users.length;i++) { %>
+        <li>
+            <img src="/img/users/<%= Users[i].imagen %>" alt="" width="200" height="150">
+
+            <section class="UserData">
+                    <p>Nombre: <%= Users[i].nombre %></p>
+                    <p>Apellido: <%= Users[i].apellido %></p>
+                    <p>Correo : <%= Users[i].email %></p>
+                    <p>Categoria : <%= Users[i].categoria %></p>
+            </section>
+
+            <div class="cont-botones">
+                <form action="" class="botones">
+                    <button class="editar">editar</button>
+                    <button class="borrar">Eliminar</button>
+                </form>
+            </div>
+            
+        </li>
+        <% } %>
+   </ul>
+   
+
+</main>
+
+
+<footer>
+    <%- include ('../partials/footer') %>
+
+</footer>
+
+</body>

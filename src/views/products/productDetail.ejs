@@ -13,54 +13,53 @@
     <br>
     <section class="section1">
         <article class="ocultar_2">
-            <h2 class="titulo">Heartstopper 5 - Alice Oseman</h2>
+            <h2 class="titulo"><%= product.titulo %></h2>
             <div class="cont_estrellas "><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
         </article>
         <div class="cont_img1">
-            <img class="img_1" src="\img\heartstopper-V5.jpg" alt="lugar de la imagen del producto">
+            <img class="img_1" src="/img/portadas/<%=(product.portada !== 0 && product.portada !== undefined) ? product.portada : 'default-image.png'%>" alt="lugar de la imagen del producto">
         </div>
         <article class="articulo_descripcion">
             <div class="cont_oculto">
-                <h2 class="titulo oculto">Heartstopper 5 - Alice Oseman</h2>
+                <h2 class="titulo oculto"><%= product.titulo %></h2>
                 <div class="cont_sub">
-                    <h3 class="subtitulo">HEARTSTOPPER 5</h3>
+                    <h3 class="subtitulo"><%= product.subtitulo %></h3>
                 </div>
                 <div class="cont_estrellas oculto"><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p class="texto">Nick y Charlie están más enamorados que nunca y dan un paso muy importante en su relación. Mientras tanto, Nick empieza a visitar universidades para el próximo año, entonces una duda se instala en su cabeza: ¿será capaz de vivir sin Charlie? ¿Soportarán una relación a distancia?</p>
+                <p class="texto"><%= product.descripcion %></p>
             </div>
         </article>
         <article class="articulo_precio">
 
-            <nav class="oculto">
+            <div class="oculto">
                 
-                <ul>
-                    <li><a href="">Genero</a></li>
-                    <li><a href="">Editorial</a></li>
-                    <li><a href="">Cantidad de Paginas</a></li>
-                    <li><a href="">Nivel</a></li>
-                    <li><a href="">Idioma</a></li>
-                    <li><a href="">Edad</a></li>
-                    <li><a href="">Año de edicion</a></li>
-                    <li><a href="">Formato</a></li>
-                    <li><a href="">Tipo soporte</a></li>
-                </ul>
-            </nav>
+                
+                    <p>Genero : <%= product.genero %></p>
+                    <p>Editorial : <%= product.editorial %></p>
+                    <p>Cantidad de Paginas : <%= product.paginas %></p>
+                    <p>Idioma : <%= product.idioma %></p>
+                    <p>Año de edicion : <%= product.año_edicion %></p>
+                    <p>Formato : <%= product.formato %></p>
+                    <p>Etiqueta : <%= product.etiqueta %></p>
+            </div>
+                
+            
             <div class="div_oculto">
-            <h2 class="h2_precio">$11.300,00</h2>
+            <h2 class="h2_precio"><%= product.precio %></h2>
             <div class="div_1"><a href="/productCart" class="agregar_al_carrito">Agregar al carrito <i class="fa-solid fa-cart-shopping"></i></a></div>   
             </div>
-            <h2 class="h2_precio sec_ocult ">$11.300,00</h2>
+            <h2 class="h2_precio sec_ocult "><%= product.precio %></h2>
             <div class="div_1 sec_ocult"><a href="/productCart" class="agregar_al_carrito">Agregar al carrito <i class="fa-solid fa-cart-shopping"></i></a></div>   
         </article>
 
     </section>
     
     <h2>Titulos relacionados</h2>
-    <%- include ('../partials/slider') %>
+    
     <br>
    
 
-    <!--<section class="section2">
+    <section class="section2">
 
         <article class="articulos2">
              <div class="cont_img2">
@@ -95,14 +94,14 @@
         </div>
         </article>
 
-    </section>-->
+    </section>
 
     <h2> Sobre el Autor</h2>
 
     <section class="section3">
         <div class="autor">
             <article class="cont_descrip3">
-                <h4 class="nombre_autor">Alice Oseman</h4>
+                <h4 class="nombre_autor"><%= product.autor %></h4>
                 <p class="p_desc_autor">Alice May Oseman (Chatham, Kent; 16 de octubre de 1994)1​ es una escritora, guionista e ilustradora británica de literatura juvenil. Es principalmente conocida por su novela gráfica Heartstopper. Ha sido elogiada por la crítica especializada y ha recibido diversos premios como los Inky Awards y United By Pop Awards.</p>
             </article>
             <div class="cont_img3">

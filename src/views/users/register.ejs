@@ -16,17 +16,41 @@
     <main>
 
         <div class="form-caja">
-            <form action="/" method="post" class="formulario">
+            <form action="/user/register" method="post" class="formulario">
                 <h1>REGISTRO</h1>
                 <div class="contenedor">
+                    
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
                     <div class="input-contenedor">
                         <i class="fa-solid fa-user" style="color: #838486;"></i>
-                        <input class="input-txt" type="text" name="Usuario" placeholder="Ingrese un Usuaario" required>
+
+                        
+
+                        <input class="input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" required>
+                        <span class="error-message">Ingresa un nombre valido.</span>
+                    </div>
+                    <div class="input-contenedor"> 
+                        <i class="fa-solid fa-user" style="color: #838486;"></i>
+                        <input class="input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" required>
+                        <span class="error-message">Ingresa un apellido valido.</span>
+                    </div>
+                    <div class="input-contenedor">
+                        <i class="fa-solid fa-user" style="color: #838486;"></i>
+                        <input class="input-txt" type="text" name="Usuario" placeholder="Ingrese un Usuario" required>
                         <span class="error-message">Ingresa un usuario valido.</span>
                     </div>
                     <div class="input-contenedor">
                         <i class="fa-regular fa-envelope icon"></i>
-                        <input class="input-txt" type="email" name="email" placeholder="Ingrese un e-mail" required>
+                        <input class="input-txt" type="email" name="email" placeholder="Ingrese un e-mail" value="email" required>
                         <span class="error-message">Ingresa una dirección de correo electrónico válida.</span>
                     </div>
                     <div class="input-contenedor">
@@ -34,6 +58,15 @@
                         <input class="input-txt" type="password" name="password" placeholder="Ingrese una contraseña" required minlength="8">
                         <span class="error-message">Debe tener 8 carácteres como mínimo.</span>
                     </div>
+                    <div class="input-contenedor">
+                        <i class="fa-solid fa-key icon"></i>
+                        <input class="input-txt" type="password" name="confirmar-password" placeholder="Confirmar contraseña" required minlength="8">
+                        <span class="error-message">La contraseña no coincide.</span>
+                    </div>
+                    <br>
+                    
+                    <input  class="input-text"  type="file" id="portada" name="portada" accept=".jpg, .pnj" required>
+                    <br>
                     <label>
                     <input class="check" type="checkbox" name="remember" value="remember"> Recordarme </label>
                     <br>
@@ -41,7 +74,8 @@
             
                     <input type="submit" value="Registrarme" class="button">
                     <br>
-            
+                    
+                    
                 </div>
             </form>
             </div>

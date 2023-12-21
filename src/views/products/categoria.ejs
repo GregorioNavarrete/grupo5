@@ -3,6 +3,7 @@
 <head>
     <%- include ('../partials/head') %>
     <link  href="/css/allProduct.css" rel="stylesheet">
+    <link  href="/css/filtros.css" rel="stylesheet">
     <title>Categoria</title>
 </head>
 <body>
@@ -10,11 +11,26 @@
         <%- include ('../partials/header') %>  
     </header>
 <div class="catg">
-    <h3 class="titulo-catg">Categoria</h3>
+    
+    <h3 class="titulo-catg"><%= newCatg[0].genero %></h3>
 </div>
-    <h2>Recomendados</h2>
+<h2>resultados</h2>
 
-    <%- include ('../partials/slider') %>
+<div class="caja-centrar">
+    <section class="caja-resultados">
+            <% newCatg.forEach(product => { %>
+        <article class="articulo">
+            <img class="img-articulo" src="/img/portadas/<%=(product.portada !== 0 && product.portada !== undefined) ? product.portada : 'default-image.png'%>" alt="imagen de producto" alf="Defiant">
+            <div class="desc-articulo">
+            <a href="../product/libro:id"><p class="prodc-titulo"><%= product.titulo %></p></a>
+            <p class="prodc-autor"><%= product.autor %></p>
+            <a class="icon-articulo" href="../product/cart" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
+             <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo"><%= product.precio %></p></div>
+            </div>
+        </article>
+        <% }) %>
+        </section>
+        </div>
 
     <br>
     <h2>Todos los Títulos</h2>
