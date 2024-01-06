@@ -135,5 +135,17 @@
         "contraseña": "12345678",
         "categoria": "usuario",
         "imagen": "usuario.jpg"
+    },
+    {
+        "id": 16,
+        "imagen": "group-1704573571124.jpg",
+        "categoria": "usuario",
+        "nombre": "exequiel",
+        "apellido": "gay",
+        "Usuario": "Ledesmaf659@gmail.com",
+        "email": "email@gmail",
+        "password": "12345678",
+        "confirmar-password": "12345678",
+        "remember": "remember"
     }
 ]
