@@ -2,6 +2,12 @@ const path = require('path');
 const fs = require('fs');
 const { log, Console } = require('console');
 const UsersFilePath= path.join(__dirname, '../data/users.json');
+const bcryptjs = require('bcryptjs');
+
+
+
+const User = require('../model/User');
+
 
 const userController = {
 
@@ -77,6 +83,67 @@ const userController = {
       let idUser= req.params.idUser;
       let UserToEdit = Users[idUser];
       res.render('userEdit',{UserToEdit:UserToEdit})
+    },
+    loginProcess: (req, res) => {
+
+         /*
+      supongoque ya tengo una clave sifrada con sal de 10 
+
+      gmail es = gregonavarrete30@gmail.com
+      123 = $2a$10$obMzpsGjB0ylI2WL726oReep1IuZ4iU4TZjp58rQPH2t6YQy3AyM.
+
+      */
+      //Cuando el usuario quiere ingresar a su cuenta
+      //queremos verificar si tenemos "req.body" registrada
+
+      let userToLogin = User.findByField('email', req.body.email);//me da un usuario 
+      
+      //si encontro alguien por email
+      if(userToLogin) {
+      
+        let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+
+  
+        //si la contraseña iniciada es igual a la contraseña en la BD
+        if (isOkThePassword) {
+          delete userToLogin.password;//para q no se conserve en la secion
+  
+          req.session.userLogged = userToLogin;//son todos los datos que se vana a guardar en la secion
+  
+          //if(req.body.remember_user) {
+          //  res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+          //}
+  
+          return res.redirect('/user/profile');//*****************si todo sale bien te manda a la vista del perfil que un no tenemos 
+        } 
+  
+        //si la contraseña iniciada es distinta a la contraseña en la BD
+        return res.render('userLoginForm', {
+          errors: {
+            email: {
+              msg: 'Las contraseña es inválida'
+            }
+          }
+        });
+      }
+  
+  
+      //si no encontro alguien por email
+       return res.render('userLoginForm', {
+        //lo cargo al "errors" para 
+        errors: {
+          email: {
+            msg: 'No se encuentra este email en nuestra base de datos'
+          }
+        }
+      });
+    },
+    profile: (req, res) => {
+      //vemos que mostramos una vista con los valores que hay en las "secion " (coki)
+      console.log(req.session.userLogged);
+      return res.render('users/userProfile', {
+        user: req.session.userLogged
+      });
     }
 }
     

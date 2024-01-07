@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<body>
+	
+	
+	<!-- Container -->
+	<div class="container" style="margin-top: 40px;">
+		<div class="row">
+			<div class="col-md-3">
+				<h2>Hi <%= user.nombre %> <%= user.apellido %> </h2>
+				<!--Las direcciones estan vien, pero no muestra la imagen en la vista !!! -->
+				<img src=" ../../../public/img/users/<%= user.imagen %> ">
+				<img src="../../../public/img/Banners/banner-harrypotter.jpg">
+				<br>
+				<br>
+				<div class="alert alert-success"><%= user.email %> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //Container -->
+	
+	
+</body>
+</html>
