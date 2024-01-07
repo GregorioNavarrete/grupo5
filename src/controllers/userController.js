@@ -110,18 +110,19 @@ const userController = {
   
           req.session.userLogged = userToLogin;//son todos los datos que se vana a guardar en la secion
   
-          //if(req.body.remember_user) {
-          //  res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
-          //}
+          if(req.body.remember_user) {
+           res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+           
+          }
   
           return res.redirect('/user/profile');//*****************si todo sale bien te manda a la vista del perfil que un no tenemos 
         } 
   
         //si la contraseña iniciada es distinta a la contraseña en la BD
-        return res.render('userLoginForm', {
+        return res.render('users/login', {
           errors: {
             email: {
-              msg: 'Las contraseña es inválida'
+              msg: 'La contraseña es inválida, debe tener 3 caracteres minimo'
             }
           }
         });
@@ -129,7 +130,7 @@ const userController = {
   
   
       //si no encontro alguien por email
-       return res.render('userLoginForm', {
+       return res.render('users/login', {
         //lo cargo al "errors" para 
         errors: {
           email: {
@@ -144,6 +145,11 @@ const userController = {
       return res.render('users/userProfile', {
         user: req.session.userLogged
       });
+    },
+    logout: (req, res) => {
+      res.clearCookie('userEmail');//para destruir la cookie
+      req.session.destroy();//borra todo lo que este en secion
+      return res.redirect('/');
     }
 }
     

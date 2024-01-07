@@ -18,7 +18,7 @@ router.post('/login', userController.loginProcess);
 router.get('/profile/', authMiddleware, userController.profile);
 
 // Logout
-//router.get('/logout/', usersController.logout);
+router.get('/logout/', userController.logout);
 
 router.get('/register', userController.registro);
 router.get('/admin/list', userController.List);
