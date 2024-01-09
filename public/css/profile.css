@@ -1,0 +1,72 @@
+:root{
+    --celeste: #7BCCC0;
+    --blanco: #FAFCFE;
+    --azul-oscuro: #152636;
+    --cian: #00C7AA;
+    --anaranjado: #F94D01;
+    --gris-claro: #E5E3DF;
+    --gris-petroleo: #3E6C6A;
+    }
+
+*{
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.user-profile{
+    margin: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 80%;
+
+}
+
+.user-text{
+    background-color: var(--gris-claro);
+    width: 70%;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+
+}
+
+.user-titulo{
+    font-family: 'Merriweather', serif;
+    color: #F94D01;
+    font-size: 1.2 em;
+    margin: auto;
+    text-align: center;
+}
+
+.user-img{
+    width: 30%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-avatar{
+    border-radius: 50%;
+    border: #F94D01;
+    width: 80%;
+    margin: auto;
+}
+
+.user-btn{
+   width: 80%;
+   background: var(--anaranjado);
+   border: none;
+   border-radius: 5px;
+   margin: 10px;
+   padding: 10px;
+}
+
+.user-btn-text{
+    text-decoration: none;
+    font-weight: bold;
+    color: #E5E3DF;    
+    outline: none;
+}
