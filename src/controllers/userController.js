@@ -1,17 +1,13 @@
 const path = require('path');
 const fs = require('fs');
-const { log, Console } = require('console');
-const UsersFilePath= path.join(__dirname, '../data/users.json');
-const bcryptjs = require('bcryptjs');
 
+const userService = require('../data/userService');
 
-
-const User = require('../model/User');
 
 
 const userController = {
 
-    Users:JSON.parse(fs.readFileSync(UsersFilePath, 'utf-8')),
+    
 
     login : (req, res) => {
         res.render('users/login');
@@ -21,61 +17,24 @@ const userController = {
         res.render('users/register');
       },
 
-      create: (req, res) => {
-        let archivoUsuario = fs.readFileSync(UsersFilePath, 'utf-8');
-      
-        // Verificar si el archivo está vacío
-        if (archivoUsuario == "") {
-          archivoUsuario = [];
-        } else {
-          // Convertir la cadena de texto en un array
-          archivoUsuario = JSON.parse(archivoUsuario);
-        }
-      
-        let ultimoId = archivoUsuario.reduce((maxId, usuario) => {
-          return usuario.id > maxId ? usuario.id : maxId;
-        }, archivoUsuario[0].id);
-      
-        let nuevoUsuario = {
-          id: ultimoId + 1,
-          nombre: req.body.nombre,
-          apellido: req.body.apellido,
-          usuario:req.body.usuario,
-          email: req.body.email,
-          contraseña: req.body.password,
-          categoria : "usuario",
-          imagen : "usuario.jpg"
-
-        }
-      
-        archivoUsuario.push(nuevoUsuario);
-        usuarioJSON = JSON.stringify(archivoUsuario);
-        fs.writeFileSync(UsersFilePath, usuarioJSON);
-      
-        res.redirect("/");
-      },
-
-
-
-      List: (req,res) => {
-        let Users = JSON.parse(fs.readFileSync(UsersFilePath, 'utf-8'));
-        res.render('users/userList', {Users:Users})
+    registrationProcess:(req,res)=>{
+      userService.create(req)
+      res.redirect('/');
     },
 
-
-
-    search: (req,res) => {
-      const Users = JSON.parse(fs.readFileSync(UsersFilePath, 'utf-8'));
-      let searchUsers = req.query.search.toLowerCase();
-      let Results = [];
-      for ( let i=0; i < Users.length;i++){
-         if(Users[i].nombre.toLowerCase().includes(searchUsers) || Users[i].apellido.toLowerCase().includes(searchUsers)){
-          Results.push(Users[i])
-        }
-      }
-      //res.send(Results)
-      res.render('users/userResults',{userResults : Results});
+    edit: (req, res) => {
+      // Do the magic
+      res.render('users/userEdit', {userToEdit : userService.findByPk(req.params.id)});
+      
     },
+
+    update: (req, res) => {
+      // Do the magic
+      /*buscamos un prod por id y busco cambiarle los datos, por los que tengo en el req */
+      //productService.save(req);
+      userService.edit(req);
+      res.redirect('/');
+    }
 
 
     edit:(req,res)=>{
@@ -159,6 +118,7 @@ const userController = {
     //   userService.edit(req);
     //   res.redirect('/user/profile');
     // }
+
 }
     
     
