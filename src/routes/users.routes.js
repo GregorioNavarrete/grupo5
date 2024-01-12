@@ -30,6 +30,9 @@ router.get('/edit/:idUser',userController.edit);//esto depende "/admin/list"
 
 router.post('/register', userController.create);
 
+// router.get('/profile/:id/edit', userController.edit); 
+// router.put('/:id', upload.single('user'), userController.update); 
+
 
 
 

@@ -151,6 +151,14 @@ const userController = {
       req.session.destroy();//borra todo lo que este en secion
       return res.redirect('/');
     }
+    // edit: (req, res) => {
+    //   res.render('user/profileEdit', {profileEdit : userService.getOne(req.params.id)});
+      
+    // },
+    // update: (req, res) => {
+    //   userService.edit(req);
+    //   res.redirect('/user/profile');
+    // }
 }
     
     

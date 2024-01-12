@@ -70,3 +70,16 @@
     color: #E5E3DF;    
     outline: none;
 }
+
+.user-sub{
+    color: var(--cian);
+    font-weight: bold;
+    display: flex;
+    margin:20px
+}
+
+.user-email{
+    color: #152636;
+    margin-left: 10px;
+ 
+}
