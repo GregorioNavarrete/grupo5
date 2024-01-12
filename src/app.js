@@ -1,6 +1,11 @@
 
 
 const  express = require('express');
+const session = require('express-session');
+const cookies = require('cookie-parser');
+
+
+
 // Este enrutador contendrá las rutas para manejar las solicitudes HTTP para la raíz del sitio web
 const indexRouter = require ('./routes/index.routes');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
@@ -9,8 +14,19 @@ const path=require('path');
 
 const app=express();//instancia de la aplicación express
 
+//************Seccion de middlewares
+
+//configuramos la secion
+app.use(session({
+	secret: "Shhh, It's a secret",
+	resave: false, 
+	saveUninitialized: false,
+}));
+
+app.use(cookies());
 
 
+//************
 const puerto = 3000;
 app.listen(puerto, () => {
   console.log(`Levantando un servidor con Express en el puerto ${puerto}`);
