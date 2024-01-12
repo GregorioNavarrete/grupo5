@@ -14,7 +14,8 @@ router.get('/edit/:idUser');//esto depende "/admin/list"
 
 router.post('/register',uploadUser.single('img-user'), userController.registrationProcess);
 
-
+router.get('/register/:id/edit', userController.edit); 
+router.put('/:id', uploadUser.single('img-user'), userController.update); 
 
 
 module.exports = router;

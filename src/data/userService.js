@@ -67,6 +67,28 @@ const userService = {
       
     },
 
+    edit: function(req){
+        let user = this.getOne(req.params.id);
+        let newUser = req.body; // es porque el PUT viaja de forma privada
+        let imagen = req.file;  //esto lo copie del Crear libro, para la imagen
+
+        user.nombre = newUser.nombre;
+        user.apellido = newUser.apellido;
+        user.usuario = newUser.usuario ;
+        user.email = newUser.email;
+        
+
+        console.log("\n  antes : " + user.imagen);
+        let borrar = path.join(__dirname, `../../public/img/users/${user.imagen}`);
+        fs.unlink(borrar, (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+          console.log("\n  medio : " + user.imagen);
+        });
+    }
+
 
     
 
