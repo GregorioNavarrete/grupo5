@@ -1,9 +1,7 @@
 const path = require('path');
-const product = require('../model/productos');
-const producto = require('../model/productos');
 const productService = require('../data/productService');
 const fs = require('fs');
-const productsFilePath = path.join(__dirname, '../data/products.json');
+
 const productController = {
 
   index:  (req, res) => {
