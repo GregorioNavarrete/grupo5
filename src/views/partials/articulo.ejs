@@ -1,9 +1,15 @@
+<% product.forEach(producto => { %>
 <article class="articulo">
-    <a href="../product/libro:id"><img class="img-articulo" src="/img/portadas/Defiant.jpg" alf="Defiant"> </a> 
+    <a href=""><img class="img-articulo" src="/img/portadas/Defiant.jpg" alf="Defiant"> </a> 
     <div class="desc-articulo">
-    <a href="../product/libro:id"><p class="prodc-titulo">Defiant</p></a>
-    <p class="prodc-autor">Brandon Sanderson</p>
+    <a href=""><p class="prodc-titulo"><%=producto.titulo%></p></a>
+    <p class="prodc-autor"><%=producto.autor%></p>
+    <div class="iconPrecioArt">
     <a class="icon-articulo" href="../product/cart" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
-     <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo">18.499,00</p></div>
+    <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo">1<%=producto.precio%></p></div></div>
     </div>
 </article>
+<% }); %>    
+
+
+         

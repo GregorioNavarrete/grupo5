@@ -3,7 +3,7 @@ const fs = require('fs');
 const { log, Console } = require('console');
 const UsersFilePath= path.join(__dirname, '../data/users.json');
 const bcryptjs = require('bcryptjs');
-
+const userService = require('../data/userService');
 
 
 const User = require('../model/User');
@@ -78,12 +78,18 @@ const userController = {
     },
 
 
-    edit:(req,res)=>{
-      let Users = JSON.parse(fs.readFileSync(UsersFilePath, 'utf-8'));
-      let idUser= req.params.idUser;
-      let UserToEdit = Users[idUser];
-      res.render('userEdit',{UserToEdit:UserToEdit})
-    },
+    // edit:(req,res)=>{
+    //   let idUser= req.params.idUser;
+    //   let userToEdit = userService.getOne()[idUser];
+    //   res.render('users/userEdit',{userToEdit:userToEdit})
+    // },
+
+      edit: (req, res) => {
+      res.render('users/userEdit', {user : userService.getOne(req.params.id)});
+      console.log(userService.getOne(req.params.id))
+     },
+
+
     loginProcess: (req, res) => {
 
          /*
@@ -150,15 +156,13 @@ const userController = {
       res.clearCookie('userEmail');//para destruir la cookie
       req.session.destroy();//borra todo lo que este en secion
       return res.redirect('/');
-    }
-    // edit: (req, res) => {
-    //   res.render('user/profileEdit', {profileEdit : userService.getOne(req.params.id)});
-      
-    // },
-    // update: (req, res) => {
-    //   userService.edit(req);
-    //   res.redirect('/user/profile');
-    // }
+    },
+    
+  
+     update: (req, res) => {
+       userService.edit(req);
+       res.redirect('/user/profile');
+     }
 }
     
     

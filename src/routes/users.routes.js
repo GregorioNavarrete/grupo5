@@ -25,7 +25,7 @@ router.get('/admin/list', userController.List);
 
 
 router.get('/search',userController.search);//esto depende "/admin/list"
-router.get('/edit/:idUser',userController.edit);//esto depende "/admin/list"
+router.get('/profile/:id/edit',userController.edit);//esto depende "/admin/list"
 
 
 router.post('/register', userController.create);
