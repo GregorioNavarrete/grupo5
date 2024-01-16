@@ -32,7 +32,7 @@ router.get('/edit/:idUser');//esto depende "/admin/list"
 router.post('/register',uploadUser.single('img-user'), userController.registrationProcess);
 
 
-router.post('/register', userController.create);
+/*  router.post('/register', userController.create);  */
 
 // router.get('/profile/:id/edit', userController.edit); 
 // router.put('/:id', upload.single('user'), userController.update); 

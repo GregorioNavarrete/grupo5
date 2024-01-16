@@ -28,8 +28,7 @@ const productController = {
 
       all: (req, res) => {
         
-        let htmlPath = path.resolve(__dirname,'../views/products/allProduct.ejs') ;
-        res.render(htmlPath);
+        res.render('products/allProduct', {products : productService.getAll()})
 
       },
 
@@ -38,9 +37,23 @@ const productController = {
       
         let htmlPath = path.resolve(__dirname,'../views/products/categoria.ejs') ;
         res.render(htmlPath);
-      }
+      },
 
-      
+      indexCatg :(req,res) => {
+        
+        res.render('products/categoria',{newCatg:productService.catg(req), products : productService.getAll()})
+
+      },
+
+      filtro : (req,res) => {
+
+        if(productService.filter(req).length==0){
+          res.render("products/noResult");
+        }
+        else{
+          res.render('products/filtrados',{newObject:productService.filter(req), });
+        }
+      }
     }
 
 

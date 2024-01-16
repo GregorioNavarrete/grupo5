@@ -22,11 +22,7 @@ const userController = {
       res.redirect('/');
     },
 
-    edit: (req, res) => {
-      // Do the magic
-      res.render('users/userEdit', {userToEdit : userService.findByPk(req.params.id)});
-      
-    },
+    
 
     update: (req, res) => {
       // Do the magic
@@ -34,7 +30,7 @@ const userController = {
       //productService.save(req);
       userService.edit(req);
       res.redirect('/');
-    }
+    },
 
 
     edit:(req,res)=>{
