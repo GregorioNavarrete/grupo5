@@ -1,57 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <%- include ('../partials/head') %>
-    <link  href="/css/FormularioDeCarga.css" rel="stylesheet">  
-    <title>FormularioDeCarga</title>
 
-</head>
+<html lang="es">
+	<head>
+		<%- include ('../partials/head') %>
+		<link rel="stylesheet" href="/css/profile.css">
+		<title>Profile</title>
+		
+	</head>
+
+	<header>
+		<%- include ('../partials/header') %>
+	</header>
+
 <body>
-    
-    <header>
-        <%- include ('../partials/header') %>
-    </header>
-    
-    <main>
-        <div class="formularioDeCarga">
+	
+	
+	<!-- Container -->
+	<div class="container" style="margin-top: 40px;">
+		<div class="user-profile">
+			<section class="user-img">
+			<img class="user-avatar" src="/img/users/<%= user.imagen %> ">
 
-            <div class="conte-carga-edicion">
-                <div  class="conte-titulo-form-carga">
-                <div class="titulo-icon-form-carga">
-                <div class="icon-form-carga"><i class="fa-solid fa-pen-to-square"></i></i></div>
+			<button class="user-btn">
+			<a class="user-btn-text" href="/user/logout">Cerrar Sesión</a>
+			</button>
+			<!-- <div class="col-md-3">
+				<a class="dropdown-item" href="/user/profile">My profile</a>
+				<li><hr class="dropdown-divider"></li>
+				<a class="dropdown-item" href="/user/logout">Logout</a>
+				<li class="nav-item"><a class="nav-link" href="/user/register">Register</a></li>
+				<li class="nav-item"><a class="nav-link" href="/user/login">Login</a></li> -->
+			</section>
 
-                <div class="titulo-form-carga">Editar Libro</div>
-                </div>
+			<section class="user-text">
+				<h2 class="user-titulo">EDITAR <%= user.nombre %> <%= user.apellido %> </h2>
 
-                <a class="icon-form-carga-flecha" href="/admin/formCarga"><i class="fa-solid fa-chevron-right"></a></i>
+			
+				<br>
+				<br>
+				<div class="user-sub">Usuario:<div class="user-email"><%= user.usuario %> </div></div>
+				<div class="user-sub">Email:<div class="user-email"><%= user.email %> </div></div>	
+				
+				
+			</div>
+			</section>
+		</div>
+	</div>
 
-                </div>
+	<br>
+				<br>
+	<!-- //Container -->
+	
+	
+</body>
 
-            <!--Eliminar o modificar  productToEdit-->
+<footer>
+    <%- include ('../partials/footer') %>
 
-           
-                <form class="form-carga-ediccion" action="/admin/<%= userToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+</footer>
 
-                    <div class="celda">
-                        <div class="datos-text-form">Título</div>
-                        <input class="input-text" type="text" id="titulo" name="titulo" value="<%= userToEdit.nombre %>" required>
-                    </div><br><br>
+</html>
 
-                    <div  class="celda">
-                        <div class="datos-text-form">Subtítulo</div>
-                        <input class="input-text" type="text" id="subtitulo" name="subtitulo" value="<%= userToEdit.apellido %>">
-                        </div><br><br>
-    
-                    <div  class="celda">
-                        <div class="datos-text-form">Autor</div>
-                        <input class="input-text" type="text" id="autor" name="autor" required value="<%= userToEdit.email %>">
-                    </div><br><br>
-    
-                    
-    
-                        <div  class="celda">
-                        <div class="datos-text-form">Saga/Serie</div>
-                        <input class="input-text" type="text" id="sagaSerie" name="sagaSerie" value="<%= productToEdit.sagaSerie %>">
-                        </div><br><br>
-    
-                        

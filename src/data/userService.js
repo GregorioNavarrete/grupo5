@@ -1,3 +1,4 @@
+
 const path = require('path');
 const fs = require('fs');
 
@@ -66,31 +67,33 @@ const userService = {
       return results
       
     },
+  
+   edit: function(req){
+        let Usuario = this.getOne(req.params.id);
+        let nuevoUsuario = req.body; 
+        let imagen = req.file;  
 
-    edit: function(req){
-        let user = this.getOne(req.params.id);
-        let newUser = req.body; // es porque el PUT viaja de forma privada
-        let imagen = req.file;  //esto lo copie del Crear libro, para la imagen
+        usuario.nombre = nuevoUsuario.nombre;
+        usuario.apellido = nuevoUsuario.apellido;
+        usuario.email = nuevoUsuario.email;
+        usuario.usuario = nuevoUsuario.usuario;
 
-        user.nombre = newUser.nombre;
-        user.apellido = newUser.apellido;
-        user.usuario = newUser.usuario ;
-        user.email = newUser.email;
-        
+        console.log("\n  antes : " + producto.portada);
+        let borrar = path.join(__dirname, `../../public/img/users/${usuario.imagen}`);
 
-        console.log("\n  antes : " + user.imagen);
-        let borrar = path.join(__dirname, `../../public/img/users/${user.imagen}`);
+   
+
         fs.unlink(borrar, (err) => {
           if (err) {
             console.error(err);
             return;
           }
+
           console.log("\n  medio : " + user.imagen);
         });
     }
 
 
-    
 
 }
 
