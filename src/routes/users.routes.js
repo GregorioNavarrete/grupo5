@@ -22,11 +22,11 @@ router.get('/profile/', authMiddleware, userController.profile);
 router.get('/logout/', userController.logout);
 
 router.get('/register', userController.registro);
-router.get('/admin/list');
 
 
 
-router.get('/search',userController.search);//esto depende "/admin/list"
+
+router.get('/search',userController.search);
 router.get('/profile/:id/edit',userController.edit);//esto depende "/admin/list"
 
 
@@ -43,6 +43,7 @@ router.post('/register',uploadUser.single('img-user'), userController.registrati
 
 router.get('/register/:id/edit', userController.edit); 
 router.put('/:id', uploadUser.single('img-user'), userController.update); 
+
 
 
 module.exports = router;

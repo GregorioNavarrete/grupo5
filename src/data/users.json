@@ -9,16 +9,14 @@
         "imagen": "usuario.jpg"
     },
     {
-    
-            "id": 2,
-            "nombre": "Gregory",
-            "apellido": "Nava",
-            "usuario": "GregoDH",
-            "email": "gregonavarrete30@gmail.com",
-            "password": "$2a$10$obMzpsGjB0ylI2WL726oReep1IuZ4iU4TZjp58rQPH2t6YQy3AyM.",
-            "categoria": "usuario",
-      "imagen": "user-img.png"
-        
+        "id": 2,
+        "nombre": "Gregory",
+        "apellido": "Nava",
+        "usuario": "GregoDH",
+        "email": "gregonavarrete30@gmail.com",
+        "password": "$2a$10$obMzpsGjB0ylI2WL726oReep1IuZ4iU4TZjp58rQPH2t6YQy3AyM.",
+        "categoria": "usuario",
+        "imagen": "user-img.png"
     },
     {
         "id": 3,
@@ -102,15 +100,6 @@
         "imagen": "usuario.jpg"
     },
     {
-        "id": 12,
-        "nombre": "exequiel ",
-        "apellido": "gay",
-        "email": "exequiel@digitalhouse.com",
-        "contraseña": "contraseña",
-        "categoria": "usuario",
-        "imagen": "usuario.jpg"
-    },
-    {
         "id": 13,
         "nombre": "usuario",
         "apellido": "apellido",
@@ -141,15 +130,13 @@
     },
     {
         "id": 16,
-        "imagen": "group-1704573571124.jpg",
+        "imagen": "group-1705414584183.png",
         "categoria": "usuario",
-        "nombre": "exequiel",
-        "apellido": "gay",
-        "Usuario": "Ledesmaf659@gmail.com",
+        "password": "123456789",
+        "nombre": "exe",
+        "apellido": "juarez",
+        "usuario": "gregonavarrete30@gmail.com",
         "email": "email@gmail",
-        "password": "12345678",
-        "confirmar-password": "12345678",
-        "remember": "remember"
+        "confirmar-password": "123456789"
     }
 ]
-

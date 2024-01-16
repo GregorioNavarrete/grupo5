@@ -16,7 +16,6 @@ router.get('/libro/:id', productController.getOne);
 router.get('/all', productController.all);
 //router.get('/catg', productService.catg);
 router.get('/filter',productController.filtro)
-router.get('/detail/:idLibro',productService.detail)
 router.get('/catg',productController.indexCatg)
 
 

@@ -6,13 +6,11 @@ const fs = require('fs');
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const productController = {
 
-    index:  (req, res) => {
+  index:  (req, res) => {
 
-        //__dirname una constante node.js, que hace referencia al directorio donde estamos
-        let htmlPath = path.resolve(__dirname,'../views/products/index.ejs') ;
-        //al estar en la ruta "/" me manda a una direccion de archivo html
-        res.render(htmlPath, {libros: producto.getAllProducts()});
-      },
+    
+    res.render('products/index', {product: productService.getAll()});
+  },
 
      cart:  (req, res) => {
         let htmlPath = path.resolve(__dirname,'../views/products/productCart.ejs') ;

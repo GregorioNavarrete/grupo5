@@ -151,14 +151,7 @@ const productService = {
         return filtrados
         },
         
-        
-        detail:(req, res) => {
-          let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-          let idLibro = req.params.idLibro;
-          let product = products.find(product => product.id == idLibro);
-          res.render('products/productDetail', {product:product})
-        },
-
+    
         catg:(req,res) => {
             let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
             let catg = Object.keys(req.query)[0];

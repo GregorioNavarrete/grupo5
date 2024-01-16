@@ -2,6 +2,7 @@ const path = require('path');
 const product = require('../model/productos');
 const producto = require('../model/productos');
 const productService = require('../data/productService');
+const userService = require('../data/userService');
 
 const adminController = {
   formCarga : (req, res) => {
@@ -45,7 +46,18 @@ const adminController = {
     //productService.save(req);
     productService.edit(req);
     res.redirect('/admin/FormCarga');
+  },
+
+  list: (req,res)=>{
+      res.render('users/userList', {Users : userService.findAll()})
+  },
+
+
+  destroy : (req,res) => {
+    userService.delete(req.params.id);
+    res.redirect('user/admin/list');
   }
+
 }
 
 

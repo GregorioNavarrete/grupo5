@@ -43,9 +43,10 @@ const userController = {
     //   res.render('users/userEdit',{userToEdit:userToEdit})
     // },
 
-      edit: (req, res) => {
-      res.render('users/userEdit', {user : userService.getOne(req.params.id)});
-      console.log(userService.getOne(req.params.id))
+    edit: (req, res) => {
+      let id= req.params.id;
+      res.render('users/userEdit', {user : userService.getOne(id)});
+      console.log(userService.getOne(id))
      },
 
 
@@ -61,7 +62,7 @@ const userController = {
       //Cuando el usuario quiere ingresar a su cuenta
       //queremos verificar si tenemos "req.body" registrada
 
-      let userToLogin = User.findByField('email', req.body.email);//me da un usuario 
+      let userToLogin = userService.findByField('email', req.body.email);//me da un usuario 
       
       //si encontro alguien por email
       if(userToLogin) {
@@ -122,8 +123,11 @@ const userController = {
      update: (req, res) => {
        userService.edit(req);
        res.redirect('/user/profile');
+     },
+   
+     search :(req, res) => {
+      res.render('users/userResults',{userResults : userService.search()})
      }
-
    
 }
     

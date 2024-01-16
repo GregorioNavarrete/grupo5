@@ -1,14 +1,24 @@
 
 const path = require('path');
 const fs = require('fs');
+const bcryptjs = require('bcryptjs');
+
+
 
 const userService = {
+
+    
     
     fileName : path.join(__dirname,'../data/users.json'), //tomamos el archivo json
 
     getData : function () {
         return JSON.parse(fs.readFileSync(this.fileName , 'utf-8')); //este metodo getData devuelve la informacion del archivo json
 
+    },
+
+    getOne: function(id){
+        usuario = this.getData().find((elem)=>elem.id == id);
+        return usuario;
     },
 
     generateId: function () { // este metodo incrementa el id al crear un usuario
@@ -25,6 +35,7 @@ const userService = {
         return this.getData();//hace lo mismo que getData pero este hace mas sentido al nombre
     },
 
+    
     findByPk: function (id){
         let allUsers = this.findAll();
         let userFound = allUsers.find(oneUser => oneUser.id === id ); //este metodo find toma el id del array y lo compara con el id del parametro findByPk, cuando lo encuentra corta la busqueda
@@ -37,14 +48,13 @@ const userService = {
         return userFound;
     },
 
-
-
     create : function (req) {
         let allUsers = this.findAll();
         let newUser = {
             id : this.generateId(),
             imagen : req.file.filename,
             categoria : 'usuario',
+            password: bcryptjs.hashSync(req.body.password, 10),
             ...req.body
         }
 
@@ -52,8 +62,6 @@ const userService = {
         fs.writeFileSync(this.fileName, JSON.stringify(allUsers , null , '' ));
         return newUser;
     },
-
-
 
     search: function(req){
         let allUsers = this.findAll();
@@ -91,6 +99,13 @@ const userService = {
 
           console.log("\n  medio : " + user.imagen);
         });
+    },
+
+    delete: function (id) {
+        let allUsers = this.findAll();
+        let finalUsers = allUsers.filter(oneUser => oneUser.id !== id);
+        fs.writeFileSync(this.fileName, JSON.stringify(finalUsers , null , '' ));
+        return true;
     }
 
 
