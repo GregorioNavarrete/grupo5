@@ -39,7 +39,7 @@ router.put('/:id', upload.single('portada'), adminController.update);
 
 
 router.get('/list', adminController.list );
-router.delete('/list/:id', adminController.destroy)
+router.delete('/list/:id', adminController.destroyuser)
 
 
 

@@ -53,9 +53,11 @@ const adminController = {
   },
 
 
-  destroy : (req,res) => {
-    userService.delete(req.params.id);
-    res.redirect('user/admin/list');
+  destroyuser : (req,res) => {
+    let id = req.params.id
+    userService.delete(id);
+    console.log(userService.delete(id));
+    res.redirect('/admin/list');
   }
 
 }
