@@ -147,14 +147,8 @@ const productService = {
           }
           
         }
-        if(filtrados.length==0){
-          res.render("products/noResult");
-        }
-        else{
-          res.render('products/filtrados',{newObject:filtrados});
-        }
-              //res.send(autores)
-              //res.render('products/filtrados', {newObject: filtrados});
+        
+        return filtrados
         },
         
         
@@ -179,8 +173,7 @@ const productService = {
                 
             }
             
-
-            res.render('products/categoria',{newCatg:newCatg})
+            return newCatg;
         }
     
 

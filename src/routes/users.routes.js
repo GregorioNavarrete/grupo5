@@ -1,6 +1,7 @@
 const express = require ('express');
 const router = express.Router();
 const userController = require ('../controllers/userController');
+const uploadUser = require('../middlewares/multerUser');
 
 //es un mid, para restringir "si ya esta loguedo no entra" en "registro y login"
 const guestMiddleware = require('../middlewares/guestMiddleware');
@@ -21,19 +22,27 @@ router.get('/profile/', authMiddleware, userController.profile);
 router.get('/logout/', userController.logout);
 
 router.get('/register', userController.registro);
-router.get('/admin/list', userController.List);
+router.get('/admin/list');
+
 
 
 router.get('/search',userController.search);//esto depende "/admin/list"
 router.get('/profile/:id/edit',userController.edit);//esto depende "/admin/list"
 
 
-router.post('/register', userController.create);
+
+router.post('/register',uploadUser.single('img-user'), userController.registrationProcess);
+
+
+/*  router.post('/register', userController.create);  */
 
 // router.get('/profile/:id/edit', userController.edit); 
 // router.put('/:id', upload.single('user'), userController.update); 
 
 
+
+router.get('/register/:id/edit', userController.edit); 
+router.put('/:id', uploadUser.single('img-user'), userController.update); 
 
 
 module.exports = router;
