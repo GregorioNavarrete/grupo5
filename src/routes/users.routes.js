@@ -21,7 +21,6 @@ router.get('/profile/', authMiddleware, userController.profile);
 // Logout
 router.get('/logout/', userController.logout);
 
-router.get('/register', userController.registro);
 
 
 
@@ -31,6 +30,7 @@ router.get('/profile/:id/edit',userController.edit);//esto depende "/admin/list"
 
 
 
+router.get('/register', userController.registro);
 router.post('/register',uploadUser.single('img-user'), userController.registrationProcess);
 
 
