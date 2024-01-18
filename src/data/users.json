@@ -1,1 +1,122 @@
-[{"id":1,"nombre":"roman","apellido":"Amado","email":"romanamado1@gmail.com","contraseña":"1231sssrr","categoria":"admin","imagen":"usuario.jpg"},{"id":2,"nombre":"Gregory","apellido":"Nava","usuario":"GregoDH","email":"gregonavarrete30@gmail.com","password":"$2a$10$obMzpsGjB0ylI2WL726oReep1IuZ4iU4TZjp58rQPH2t6YQy3AyM.","categoria":"usuario","imagen":"user-img.png"},{"id":3,"nombre":"Hugo","apellido":"Soria","email":"huguiño2@gmail.com","contraseña":"8s562123h","categoria":"usuario","imagen":"usuario.jpg"},{"id":4,"nombre":"Leandro","apellido":"Reynoso","email":"reynoso@hotmail.com","contraseña":"33664892","categoria":"usuario","imagen":"usuario.jpg"},{"id":5,"nombre":"Gabriela","apellido":"Coronel","email":"gabicoronel@gmail.com","contraseña":"12254762","categoria":"usuario","imagen":"usuario.jpg"},{"id":6,"nombre":"Maria","apellido":"Angel","email":"mariangel@hotmail.com","contraseña":"84422ma4","categoria":"usuario","imagen":"usuario.jpg"},{"id":7,"nombre":"Juan","apellido":"Ledesma","email":"ledesma001@gmail.com","contraseña":"j072019p","categoria":"admin","imagen":"usuario.jpg"},{"id":8,"nombre":"Carlos","apellido":"Gonzalez","email":"carlosgonza@gmail.com","contraseña":"16997685","categoria":"usuario","imagen":"usuario.jpg"},{"id":9,"nombre":"Jeremias","apellido":"Alfonso","email":"jerealfo@hotmail.com","contraseña":"00479251","categoria":"admin","imagen":"usuario.jpg"},{"id":10,"nombre":"Luciano","apellido":"Capria","email":"luchocapria1@gmail.com","contraseña":"lc7245318","categoria":"usuario","imagen":"usuario.jpg"},{"id":11,"nombre":"romanji","apellido":"jimenez","email":"romanjimenez@gmail.com","contraseña":"contraseña","categoria":"usuario","imagen":"usuario.jpg"},{"id":13,"nombre":"usuario","apellido":"apellido","email":"email@gmail","contraseña":"12345678","categoria":"usuario","imagen":"usuario.jpg"}]
+[
+  {
+    "id": 1,
+    "nombre": "roman",
+    "apellido": "Amado",
+    "email": "romanamado1@gmail.com",
+    "contraseña": "1231sssrr",
+    "categoria": "admin",
+    "imagen": "usuario.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Gregory",
+    "apellido": "Nava",
+    "usuario": "GregoDH",
+    "email": "gregonavarrete30@gmail.com",
+    "password": "$2a$10$obMzpsGjB0ylI2WL726oReep1IuZ4iU4TZjp58rQPH2t6YQy3AyM.",
+    "categoria": "usuario",
+    "imagen": "user-img.png"
+  },
+  {
+    "id": 3,
+    "nombre": "Hugo",
+    "apellido": "Soria",
+    "email": "huguiño2@gmail.com",
+    "contraseña": "8s562123h",
+    "categoria": "usuario",
+    "imagen": "usuario.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Leandro",
+    "apellido": "Reynoso",
+    "email": "reynoso@hotmail.com",
+    "contraseña": "33664892",
+    "categoria": "usuario",
+    "imagen": "usuario.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Gabriela",
+    "apellido": "Coronel",
+    "email": "gabicoronel@gmail.com",
+    "contraseña": "12254762",
+    "categoria": "usuario",
+    "imagen": "usuario.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Maria",
+    "apellido": "Angel",
+    "email": "mariangel@hotmail.com",
+    "contraseña": "84422ma4",
+    "categoria": "usuario",
+    "imagen": "usuario.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Juan",
+    "apellido": "Ledesma",
+    "email": "ledesma001@gmail.com",
+    "contraseña": "j072019p",
+    "categoria": "admin",
+    "imagen": "usuario.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "Carlos",
+    "apellido": "Gonzalez",
+    "email": "carlosgonza@gmail.com",
+    "contraseña": "16997685",
+    "categoria": "usuario",
+    "imagen": "usuario.jpg"
+  },
+  {
+    "id": 9,
+    "nombre": "Jeremias",
+    "apellido": "Alfonso",
+    "email": "jerealfo@hotmail.com",
+    "contraseña": "00479251",
+    "categoria": "admin",
+    "imagen": "usuario.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Luciano",
+    "apellido": "Capria",
+    "email": "luchocapria1@gmail.com",
+    "contraseña": "lc7245318",
+    "categoria": "usuario",
+    "imagen": "usuario.jpg"
+  },
+  {
+    "id": 11,
+    "nombre": "romanji",
+    "apellido": "jimenez",
+    "email": "romanjimenez@gmail.com",
+    "contraseña": "contraseña",
+    "categoria": "usuario",
+    "imagen": "usuario.jpg"
+  },
+  {
+    "id": 13,
+    "nombre": "usuario",
+    "apellido": "apellido",
+    "email": "email@gmail",
+    "contraseña": "12345678",
+    "categoria": "usuario",
+    "imagen": "usuario.jpg"
+  },
+  {
+    "id": 14,
+    "imagen": "group-1705586647450.jpg",
+    "categoria": "usuario",
+    "password": "12345678",
+    "nombre": "Lourdes",
+    "apellido": "Ortega",
+    "usuario": "Malu27",
+    "email": "marialourdesortega_27@hotmail.com",
+    "confirmar-password": "12345678"
+  }
+]

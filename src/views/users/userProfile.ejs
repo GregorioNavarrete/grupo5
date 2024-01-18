@@ -40,7 +40,14 @@
 				<div class="user-sub">Usuario:<div class="user-email"><%= user.usuario %> </div></div>
 				<div class="user-sub">Email:<div class="user-email"><%= user.email %> </div></div>	
 				
-				<a class="user-btn-editar" href="/user/profile/<%=user.id%>/edit">Editar</a>
+
+				<div class="user-btn-edit-conte">
+				<button class="user-btn-edit">
+					<a class="user-btn-text" href="/user/profile/<%=user.id%>/edit">Editar</a>
+					</button>
+				</div>
+				
+				
 			</div>
 			</section>
 		</div>

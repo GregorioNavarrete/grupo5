@@ -64,6 +64,27 @@
    padding: 10px;
 }
 
+.user-btn-edit-conte{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.user-btn-edit{
+   width: 40%;
+   background: var(--anaranjado);
+   border: none;
+   border-radius: 5px;
+   margin: 10px;
+   padding: 10px;
+   cursor: pointer;
+   transition: all 2s;
+}
+
+.user-btn-edit:hover{
+    background: var(--cian);
+}
+
 .user-btn-text{
     text-decoration: none;
     font-weight: bold;
@@ -83,3 +104,31 @@
     margin-left: 10px;
  
 }
+
+.user-input-txt{
+    padding: 7px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: #152636; 
+    text-align: center;
+    height: 30px;
+    width: 50%;
+}
+
+.user-input{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.user-sub-input{
+    color: var(--cian);
+    font-weight: bold;
+    display: flex;
+    width: 45%;
+    margin: 15px;
+}
+

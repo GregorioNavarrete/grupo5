@@ -77,16 +77,17 @@ const userService = {
     },
   
    edit: function(req){
-        let Usuario = this.getOne(req.params.id);
-        let nuevoUsuario = req.body; 
+        let usuario = this.getOne(req.params.id);
+        let userToEdit = req.body; 
         let imagen = req.file;  
 
-        usuario.nombre = nuevoUsuario.nombre;
-        usuario.apellido = nuevoUsuario.apellido;
-        usuario.email = nuevoUsuario.email;
-        usuario.usuario = nuevoUsuario.usuario;
+        usuario.nombre = userToEdit.nombre;
+        usuario.apellido = userToEdit.apellido;
+        usuario.email = userToEdit.email;
+        usuario.usuario = userToEdit.usuario;
 
-        console.log("\n  antes : " + producto.portada);
+
+        console.log("\n  antes : " + usuario.imagen);
         let borrar = path.join(__dirname, `../../public/img/users/${usuario.imagen}`);
 
    
@@ -97,8 +98,9 @@ const userService = {
             return;
           }
 
-          console.log("\n  medio : " + user.imagen);
+          console.log("\n  medio : " + usuario.imagen);
         });
+
     },
 
     

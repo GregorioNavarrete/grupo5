@@ -35,11 +35,55 @@
 			<section class="user-text">
 				<h2 class="user-titulo">EDITAR <%= user.nombre %> <%= user.apellido %> </h2>
 
+
+				
+                <form class="user-form-edit" action="" method="POST" enctype="multipart/form-data">
+
+					<div class="user-input">
+                        <div class="user-sub-input">Nombre</div>
+                        <input class="user-input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" >
+                    </div>
+
+                    <div class="user-input"> 
+                        <div class="user-sub-input">Apellido</div>
+                        <input class="user-input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" >
+                        <!-- <span class="error-message">Ingresa un apellido valido.</span> -->
+                    </div>
+
+                    <div class="user-input">
+                        <div class="user-sub-input">Usuario</div>
+                        <input class="user-input-txt" type="text" name="usuario" placeholder="Ingrese un Usuario" >
+                        <!-- <span class="error-message">Ingresa un usuario valido.</span> -->
+                    </div>
+
+                    <div class="user-input">
+                        <div class="user-sub-input">Email</div>
+                        <input class="user-input-txt" type="email" name="email" placeholder="Ingrese un e-mail"  >
+                        <!-- <span class="error-message">Ingresa una dirección de correo electrónico válida.</span> -->
+                    </div>
+
+                    <div class="user-input">
+                        <div class="user-sub-input">Cambiar Contraseña</div>
+                        <input class="user-input-txt" type="password" name="password" placeholder="Ingrese una contraseña" >
+                        
+                    </div>
+
+                    <div class="user-input">
+                        <div class="user-sub-input">Confirmar Contraseña</div>
+                        <input class="user-input-txt" type="password" name="confirmar-password" placeholder="Confirmar contraseña" >
+                        <!-- <span class="error-message">La contraseña no coincide.</span> -->
+                    </div>
+                    
+                    
+                    <div class="user-input">
+                        <input  class="user-input-text"  type="file" id="portada" name="img-user" accept=".jpg, .png" >
+                    </div>
+
+
+				</form>
 			
 				<br>
 				<br>
-				<div class="user-sub">Usuario:<div class="user-email"><%= user.usuario %> </div></div>
-				<div class="user-sub">Email:<div class="user-email"><%= user.email %> </div></div>	
 				
 				
 			</div>
