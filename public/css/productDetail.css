@@ -40,14 +40,14 @@
    
     .cont_img1{
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
         width: 65%;
         margin: auto;
     }
     .img_1{
         width: 100%;
-        opacity: 1;
+        object-fit: contain;
 
     }
     article .articulo_precio {
