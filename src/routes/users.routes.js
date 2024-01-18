@@ -26,7 +26,7 @@ router.get('/logout/', userController.logout);
 
 
 router.get('/search',userController.search);
-router.get('/profile/:id/edit',userController.edit);//esto depende "/admin/list"
+router.get('/profile/:id/edit',userController.edit);
 
 
 
@@ -42,7 +42,9 @@ router.post('/register',uploadUser.single('img-user'), userController.registrati
 
 
 router.get('/register/:id/edit', userController.edit); 
-router.put('/:id', uploadUser.single('img-user'), userController.update); 
+router.put('/profile/:id/edit', uploadUser.single('img-user'), userController.update); 
+
+router.delete('/profile/:id/edit', userController.destroyuser)
 
 
 

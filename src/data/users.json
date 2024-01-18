@@ -8,6 +8,7 @@
     "categoria": "admin",
     "imagen": "usuario.jpg"
   },
+
   {
     "id": 2,
     "nombre": "Gregory",
@@ -18,6 +19,7 @@
     "categoria": "usuario",
     "imagen": "user-img.png"
   },
+
   {
     "id": 3,
     "nombre": "Hugo",

@@ -16,7 +16,7 @@ const productController = {
 
       getOne : (req, res) => {
 
-        res.render('products/productDetail',{product : productService.getOne(req.params.id)});
+        res.render('products/productDetail',{producto : productService.getOne(req.params.id),product: productService.getAll()});
         //let htmlPath = path.resolve(__dirname,'../views/products/productDetail.ejs') ;
         //res.render(htmlPath);
       },

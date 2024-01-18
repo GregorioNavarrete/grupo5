@@ -31,7 +31,7 @@ const userController = {
       /*buscamos un prod por id y busco cambiarle los datos, por los que tengo en el req */
       //productService.save(req);
       userService.edit(req);
-      res.redirect('/');
+      res.redirect('/profile');
     },
 
 
@@ -117,15 +117,22 @@ const userController = {
 
     },
     
-  
      update: (req, res) => {
-       userService.edit(req);
+       userService.edit(req.params.id);
+       console.log(req.params.id)
        res.redirect('/user/profile');
      },
    
      search :(req, res) => {
       res.render('users/userResults',{userResults : userService.search()})
-     }
+     },
+
+     destroyuser : (req,res) => {
+      let id = req.params.id
+      userService.delete(id);
+      console.log(userService.delete(id));
+      res.redirect('/');
+    }
    
 }
     

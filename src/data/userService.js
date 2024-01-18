@@ -77,32 +77,21 @@ const userService = {
     },
   
    edit: function(req){
-        let usuario = this.getOne(req.params.id);
-        let userToEdit = req.body; 
-        let imagen = req.file;  
+     let usuario = this.getOne(req.params.id);
+     let nuevoUsuario = req.body; 
 
-        usuario.nombre = userToEdit.nombre;
-        usuario.apellido = userToEdit.apellido;
-        usuario.email = userToEdit.email;
-        usuario.usuario = userToEdit.usuario;
-
-
-        console.log("\n  antes : " + usuario.imagen);
-        let borrar = path.join(__dirname, `../../public/img/users/${usuario.imagen}`);
-
-   
-
-        fs.unlink(borrar, (err) => {
-          if (err) {
-            console.error(err);
-            return;
-          }
-
-          console.log("\n  medio : " + usuario.imagen);
-        });
-
-    },
-
+     usuario.nombre = nuevoUsuario.nombre;
+     usuario.apellido = nuevoUsuario.apellido;
+     usuario.email = nuevoUsuario.email;
+     usuario.usuario = nuevoUsuario.usuario;
+     let borrar = path.join(__dirname, "../../public/img/users/${usuario.imagen}");
+     fs.unlink(borrar, (err) => {
+       if (err) {
+         console.error(err);
+         return;
+       }
+     });
+ },
     
     delete: function (id) {
         let allUsers = this.findAll();

@@ -31,7 +31,7 @@ const adminController = {
   destroy : (req, res) => {
     // Do the magic
     productService.delete(req.params.id);
-    res.send("El producto fue eliminado con exito");
+    res.redirect("/admin/formCarga");
   },
   edit: (req, res) => {
     // Do the magic
