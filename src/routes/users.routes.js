@@ -2,6 +2,18 @@ const express = require ('express');
 const router = express.Router();
 const userController = require ('../controllers/userController');
 const uploadUser = require('../middlewares/multerUser');
+const { body } = require('express-validator');
+
+
+const validations = [
+    body('nombre').notEmpty(),
+    body('apellido').notEmpty(),
+    body('usuario').notEmpty(),
+    body('email').notEmpty(),
+    body('password').notEmpty(),
+    body('confirm-password').notEmpty(),
+]
+
 
 //es un mid, para restringir "si ya esta loguedo no entra" en "registro y login"
 const guestMiddleware = require('../middlewares/guestMiddleware');
@@ -21,31 +33,21 @@ router.get('/profile/', authMiddleware, userController.profile);
 // Logout
 router.get('/logout/', userController.logout);
 
-
-
-
-
 router.get('/search',userController.search);
-router.get('/profile/:id/edit',userController.edit);
-
 
 
 router.get('/register', userController.registro);
 router.post('/register',uploadUser.single('img-user'), userController.registrationProcess);
 
 
-/*  router.post('/register', userController.create);  */
-
-// router.get('/profile/:id/edit', userController.edit); 
-// router.put('/:id', upload.single('user'), userController.update); 
-
-
-
 router.get('/register/:id/edit', userController.edit); 
-router.put('/profile/:id/edit', uploadUser.single('img-user'), userController.update); 
+router.put('/:id', uploadUser.single('img-user'), userController.update); 
 
+router.put('/profile/:id/edit', uploadUser.single('img-user'), userController.update); 
 router.delete('/profile/:id/edit', userController.destroyuser)
 
+
+router.get('/search',userController.search);
 
 
 module.exports = router;

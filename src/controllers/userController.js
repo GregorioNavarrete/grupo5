@@ -1,11 +1,8 @@
 const path = require('path');
 const fs = require('fs');
-
 const { log, Console } = require('console');
-const UsersFilePath= path.join(__dirname, '../data/users.json');
-const bcryptjs = require('bcryptjs');
-
 const userService = require('../data/userService');
+const bcryptjs = require('bcryptjs');
 
 
 
@@ -21,7 +18,14 @@ const userController = {
         res.render('users/register');
       },
 
-    registrationProcess:(req,res)=>{
+    processRegister:(req,res)=>{
+
+      let userInDb = userService.findByField('email', req.body.email);
+
+      if(userInDb){
+
+      }
+
       userService.create(req)
       res.redirect('/');
     },

@@ -52,9 +52,6 @@ const userService = {
         let allUsers = this.findAll();
         let newUser = {
             id : this.generateId(),
-            imagen : req.file.filename,
-            categoria : 'usuario',
-            password: bcryptjs.hashSync(req.body.password, 10),
             ...req.body
         }
 
@@ -79,20 +76,20 @@ const userService = {
    edit: function(req){
      let usuario = this.getOne(req.params.id);
      let nuevoUsuario = req.body; 
+        usuario.nombre = nuevoUsuario.nombre;
+        usuario.apellido = nuevoUsuario.apellido;
+        usuario.email = nuevoUsuario.email;
+        usuario.usuario = nuevoUsuario.usuario;
+        let borrar = path.join(__dirname, `../../public/img/users/${usuario.imagen}`);
 
-     usuario.nombre = nuevoUsuario.nombre;
-     usuario.apellido = nuevoUsuario.apellido;
-     usuario.email = nuevoUsuario.email;
-     usuario.usuario = nuevoUsuario.usuario;
-     let borrar = path.join(__dirname, "../../public/img/users/${usuario.imagen}");
-     fs.unlink(borrar, (err) => {
-       if (err) {
-         console.error(err);
-         return;
-       }
-     });
- },
-    
+        fs.unlink(borrar, (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        });
+    },
+
     delete: function (id) {
         let allUsers = this.findAll();
         let finalUsers = allUsers.filter(oneUser => oneUser.id != id);
