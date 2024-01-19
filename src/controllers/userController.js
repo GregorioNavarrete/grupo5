@@ -92,7 +92,8 @@ const userController = {
         if (isOkThePassword) {
           delete userToLogin.password;//para q no se conserve en la secion
   
-          req.session.userLogged = userToLogin;//son todos los datos que se vana a guardar en la secion
+          //defino un campo en la session y guardo todo ahi
+          req.session.userLogged = userToLogin;
   
           if(req.body.remember_user) {
            res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
