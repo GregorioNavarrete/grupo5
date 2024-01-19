@@ -3,6 +3,7 @@ const fs = require('fs');
 const { log, Console } = require('console');
 const userService = require('../data/userService');
 const bcryptjs = require('bcryptjs');
+const {validationResult} = require('express-validator')
 
 
 
@@ -20,15 +21,23 @@ const userController = {
 
     processRegister:(req,res)=>{
 
-      let userInDb = userService.findByField('email', req.body.email);
+      let resultValidation = validationResult(req);
+      console.log(resultValidation.mapped())
+      if(resultValidation.errors.length > 0){
+        return res.render('users/register',{
+          errors : resultValidation.mapped(),
+          oldData : req.body
+        })
+       } 
 
-      if(userInDb){
 
-      }
 
-      userService.create(req)
-      res.redirect('/');
-    },
+
+
+
+
+
+    },             
 
     update: (req, res) => {
       // Do the magic

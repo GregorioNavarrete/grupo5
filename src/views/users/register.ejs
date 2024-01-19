@@ -22,38 +22,60 @@
                    
                     <div class="input-contenedor">
                         <i class="fa-solid fa-user icon" style="color: #838486;"></i>
-                        <input class="input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" >
+                        <input class="input-txt " type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
                     </div>
+
+                    <% if (locals.errors && errors.nombre) { %>
+                        <div class="error-message">
+                             <%= errors.nombre.msg %>
+                        </div>
+                    <% } %>
 
                     <div class="input-contenedor"> 
                         <i class="fa-solid fa-user icon" style="color: #838486;"></i>
-                        <input class="input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" >
-                        <span class="error-message">Ingresa un apellido valido.</span>
+                        <input class="input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" value="<%= locals.oldData ? oldData.apellido : null %>" >
                     </div>
+
+                    <% if (locals.errors && errors.apellido) { %>
+                        <div class="error-message">
+                             <%= errors.apellido.msg %>
+                        </div>
+                    <% } %>
+
+                    
 
                     <div class="input-contenedor">
                         <i class="fa-solid fa-user icon" style="color: #838486;"></i>
-                        <input class="input-txt" type="text" name="usuario" placeholder="Ingrese un Usuario" >
-                        <span class="error-message">Ingresa un usuario valido.</span>
+                        <input class="input-txt" type="text" name="usuario" placeholder="Ingrese un Usuario" value="<%= locals.oldData ? oldData.usuario : null %>" >
                     </div>
+
+                    <% if (locals.errors && errors.usuario) { %>
+                        <div class="error-message">
+                             <%= errors.usuario.msg %>
+                        </div>
+                    <% } %>
 
                     <div class="input-contenedor">
                         <i class="fa-regular fa-envelope icon"></i>
-                        <input class="input-txt" type="email" name="email" placeholder="Ingrese un e-mail"  >
-                        <span class="error-message">Ingresa una dirección de correo electrónico válida.</span>
+                        <input class="input-txt" type="email" name="email" placeholder="Ingrese un e-mail" value="<%= locals.oldData ? oldData.email : null %>" >
                     </div>
+
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="error-message">
+                             <%= errors.email.msg %>
+                        </div>
+                    <% } %>
 
                     <div class="input-contenedor">
                         <i class="fa-solid fa-key icon"></i>
-                        <input class="input-txt" type="password" name="password" placeholder="Ingrese una contraseña" >
+                        <input class="input-txt" type="password" name="password" placeholder="Ingrese una contraseña" value="<%= locals.oldData ? oldData.nombre : null %>">
                         
                     </div>
 
-                    <div class="input-contenedor">
-                        <i class="fa-solid fa-key icon"></i>
-                        <input class="input-txt" type="password" name="confirmar-password" placeholder="Confirmar contraseña" >
-                        <span class="error-message">La contraseña no coincide.</span>
-                    </div>
+                   <!--  <div class="input-contenedor"> -->
+                   <!--      <i class="fa-solid fa-key icon"></i> -->
+                   <!--      <input class="input-txt" type="password" name="confirmar-password" placeholder="Confirmar contraseña" > -->
+                   <!--  </div> -->
                     
                     
                     <div class="input-contenedor-imagen">

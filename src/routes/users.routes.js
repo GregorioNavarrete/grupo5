@@ -6,12 +6,11 @@ const { body } = require('express-validator');
 
 
 const validations = [
-    body('nombre').notEmpty(),
-    body('apellido').notEmpty(),
-    body('usuario').notEmpty(),
-    body('email').notEmpty(),
-    body('password').notEmpty(),
-    body('confirm-password').notEmpty(),
+    body('nombre').notEmpty().withMessage('el nombre no puede estar vacio'),
+    body('apellido').notEmpty().withMessage('el apellido no puede estar vacio'),
+    body('usuario').notEmpty().withMessage('el nombre de usuario no puede estar vacio'),
+    body('email').notEmpty().withMessage('el nombre no puede estar vacio').bail().isEmail('Tienes que escribir un formato de correo valido'),
+    body('password').notEmpty().withMessage('la contraseña no puede estar vacia'),
 ]
 
 
@@ -35,13 +34,10 @@ router.get('/logout/', userController.logout);
 
 router.get('/search',userController.search);
 
-
+//registro
 router.get('/register', userController.registro);
-router.post('/register',uploadUser.single('img-user'), userController.registrationProcess);
+router.post('/register',uploadUser.single('img-user'),validations, userController.processRegister);
 
-
-router.get('/register/:id/edit', userController.edit); 
-router.put('/:id', uploadUser.single('img-user'), userController.update); 
 
 router.put('/profile/:id/edit', uploadUser.single('img-user'), userController.update); 
 router.delete('/profile/:id/edit', userController.destroyuser)

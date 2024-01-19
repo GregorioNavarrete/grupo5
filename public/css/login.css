@@ -87,7 +87,7 @@ input[type="password"] { */
 }
 
 .input-contenedor-imagen{
-    margin-bottom: 15px;
+    margin-top: 15px;
     border: 1px solid #aaa;
     display: flex;
     flex-wrap: wrap;
@@ -97,7 +97,7 @@ input[type="password"] { */
 }
 
 .input-contenedor {
-    margin-bottom: 15px;
+    margin-top: 15px;
     border: 1px solid #aaa;
     display: flex;
     flex-wrap: nowrap;
@@ -161,15 +161,17 @@ input:invalid {
 }
 
 .error-message {
-    display: none;
     color: red;
-    font-size: 10px;
+    font-size: 12px;
     margin-left: 5px;
 }
 
 input:invalid+.error-message {
     display: block;
 }
+
+
+
 
 /*MEDIA QUERIES*/
 @media(min-width:992px) {
