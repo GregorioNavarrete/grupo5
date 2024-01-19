@@ -51,15 +51,8 @@ const userController = {
       /*buscamos un prod por id y busco cambiarle los datos, por los que tengo en el req */
       //productService.save(req);
       userService.edit(req);
-      res.redirect('/profile');
+      res.redirect('user/profile');
     },
-
-
-    //  edit:(req,res)=>{
-    //    let idUser= req.params.idUser;
-    //   let userToEdit = userService.getOne()[idUser];
-    //    res.render('users/userEdit',{userToEdit:userToEdit})
-    //  },
 
     edit: (req, res) => {
       let id= req.params.id;
@@ -137,11 +130,7 @@ const userController = {
 
     },
     
-     update: (req, res) => {
-       userService.edit(req.params.id);
-       console.log(req.params.id)
-       res.redirect('/user/profile');
-     },
+   
    
 
      destroyuser : (req,res) => {
