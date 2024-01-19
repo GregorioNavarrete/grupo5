@@ -40,6 +40,13 @@ main{
    
 }
 
+.bc{
+    color: white;
+    background-color: var(--celeste);
+    border: none;
+    font-size: 16px;
+}
+
 /* .articulo{
     width: 42%;
     padding: 10px;

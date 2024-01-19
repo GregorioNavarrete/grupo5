@@ -23,15 +23,11 @@
 
 			
 
-			<form action="/user/profile/<%=user.id%>/edit?_method=DELETE" method="post" class="botones">
-				<button class="borrar">Eliminar</button>
+			<form action="/user/profile/<%=user.id%>/edit?_method=DELETE"  method="post" class="botones">
+				<button class="user-btn user-btn-text">Borrar Perfil</button>
 			</form>
 
-			<form action="/">
-			<button class="user-btn">
-			<a class="user-btn-text" href="/user/logout">Borrar Perfil</a>
-			</button>
-			</form>
+
 			<!-- <div class="col-md-3">
 				<a class="dropdown-item" href="/user/profile">My profile</a>
 				<li><hr class="dropdown-divider"></li>
@@ -70,26 +66,14 @@
                         <!-- <span class="error-message">Ingresa una dirección de correo electrónico válida.</span> -->
                     </div>
 
-                    <!-- <div class="user-input">
-                        <div class="user-sub-input">Cambiar Contraseña</div>
-                        <input class="user-input-txt" type="password" name="password" placeholder="Ingrese una contraseña" >
-                        
-                    </div>
-
-                    <div class="user-input">
-                        <div class="user-sub-input">Confirmar Contraseña</div>
-                        <input class="user-input-txt" type="password" name="confirmar-password" placeholder="Confirmar contraseña" >
-                         <span class="error-message">La contraseña no coincide.</span> -->
-                    </div>
-                    
                     
                     <div class="user-input">
                         <input  class="user-input-text"  type="file" id="portada" name="img-user" accept=".jpg, .png" >
                     </div>
 
-					<button >
-						editar
-					</button>
+					<form action="/user/profile/<%=user.id%>/edit?_method=PUT"  method="post" class="botones">
+						<button class="user-btn user-btn-text">Confirmar Cambios</button>
+					</form>
 
 
 				</form>

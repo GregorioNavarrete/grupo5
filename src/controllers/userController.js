@@ -30,13 +30,20 @@ const userController = {
         })
        } 
 
+    let userInDB = userService.findByField('email', req.body.email);
 
-
-
-
-
-
-
+		if (userInDB) {
+			return res.render('users/register', {
+				errors: {
+					email: {
+						msg: 'Este email ya está registrado'
+					}
+				},
+				oldData: req.body
+			});
+		}
+		userService.create(req);
+    res.redirect('/')
     },             
 
     update: (req, res) => {
@@ -136,9 +143,6 @@ const userController = {
        res.redirect('/user/profile');
      },
    
-     search :(req, res) => {
-      res.render('users/userResults',{userResults : userService.search()})
-     },
 
      destroyuser : (req,res) => {
       let id = req.params.id

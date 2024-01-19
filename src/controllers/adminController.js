@@ -56,6 +56,10 @@ const adminController = {
     userService.delete(id);
     console.log(userService.delete(id));
     res.redirect('/admin/list');
+  },
+
+  userSearch : (req,res)=>{
+    res.render('users/userResults', {userResults : userService.search(req)} )
   }
 
 }

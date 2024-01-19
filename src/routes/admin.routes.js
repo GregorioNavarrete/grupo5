@@ -39,7 +39,9 @@ router.put('/:id', upload.single('portada'), adminController.update);
 
 
 router.get('/list', adminController.list );
-router.delete('/list/:id', adminController.destroyuser)
+router.delete('/list/:id', adminController.destroyuser);
+
+router.get('/searchUser',adminController.userSearch);
 
 
 

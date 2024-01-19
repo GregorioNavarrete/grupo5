@@ -3,14 +3,30 @@ const router = express.Router();
 const userController = require ('../controllers/userController');
 const uploadUser = require('../middlewares/multerUser');
 const { body } = require('express-validator');
+const path = require('path')
 
 
 const validations = [
-    body('nombre').notEmpty().withMessage('el nombre no puede estar vacio'),
-    body('apellido').notEmpty().withMessage('el apellido no puede estar vacio'),
-    body('usuario').notEmpty().withMessage('el nombre de usuario no puede estar vacio'),
-    body('email').notEmpty().withMessage('el nombre no puede estar vacio').bail().isEmail('Tienes que escribir un formato de correo valido'),
-    body('password').notEmpty().withMessage('la contraseña no puede estar vacia'),
+    body('nombre').notEmpty().withMessage('El Nombre no puede estar vacio'),
+    body('apellido').notEmpty().withMessage('El Apellido no puede estar vacio'),
+    body('usuario').notEmpty().withMessage('El Nombre de Usuario no puede estar vacio'),
+    body('email').notEmpty().withMessage('El Email no puede estar vacio').bail().isEmail().withMessage('Tienes que escribir un formato de correo valido'),
+    body('password').notEmpty().withMessage('La Contraseña no puede estar vacia'),
+    body('imgUser').custom((value, {req})=>{
+        let file = req.file
+        let acceptedExtensions = ["jpg","png","gif"]
+        if(!file){
+            throw new Error('Tienes que subir una imagen')
+        }else{
+            let fileExtensions = path.extname(file.originalname)
+            if(acceptedExtensions.includes(fileExtensions)){
+                throw new Error('Las extenciones de archivo permitidas son ${acceptedExtensions.join(',')}')
+            }
+        }
+
+        
+        return true;
+    })
 ]
 
 
@@ -32,18 +48,17 @@ router.get('/profile/', authMiddleware, userController.profile);
 // Logout
 router.get('/logout/', userController.logout);
 
-router.get('/search',userController.search);
-
 //registro
 router.get('/register', userController.registro);
-router.post('/register',uploadUser.single('img-user'),validations, userController.processRegister);
+router.post('/register',uploadUser.single('imgUser'),validations, userController.processRegister);
 
 
-router.put('/profile/:id/edit', uploadUser.single('img-user'), userController.update); 
+router.get('/profile/:id/edit', userController.edit); 
+router.put('/profile/:id/edit', uploadUser.single('imgUser'), userController.update); 
 router.delete('/profile/:id/edit', userController.destroyuser)
 
 
-router.get('/search',userController.search);
+
 
 
 module.exports = router;

@@ -79,6 +79,15 @@ input[type="password"] { */
     border: none;
 }
 
+.error {
+    margin-top: 15px;
+    border: 1px solid red;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 
 .check {
     font-size: 20px;

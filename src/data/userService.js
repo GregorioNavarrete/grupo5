@@ -52,8 +52,12 @@ const userService = {
         let allUsers = this.findAll();
         let newUser = {
             id : this.generateId(),
-            ...req.body
+            categoria : 'usuario',
+            ...req.body,
+            password : bcryptjs.hashSync(req.body.password, 10),
+            imagen : req.file.filename
         }
+        console.log(newUser.imagen);
 
         allUsers.push(newUser)
         fs.writeFileSync(this.fileName, JSON.stringify(allUsers , null , '' ));
@@ -61,12 +65,12 @@ const userService = {
     },
 
     search: function(req){
-        let allUsers = this.findAll();
+      let allUsers = this.getData()
       let searchUsers = req.query.search.toLowerCase();
       let results = [];
       for ( let i=0; i < allUsers.length;i++){
-         if(Users[i].nombre.toLowerCase().includes(searchUsers) || Users[i].apellido.toLowerCase().includes(searchUsers)){
-          results.push(Users[i])
+         if(allUsers[i].nombre.toLowerCase().includes(searchUsers) || allUsers[i].apellido.toLowerCase().includes(searchUsers)){
+          results.push(allUsers[i])
         }
       }
       return results

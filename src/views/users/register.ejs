@@ -20,9 +20,15 @@
                 <h1>REGISTRO</h1>
                 <div class="contenedor">
                    
-                    <div class="input-contenedor">
+                    <div class="
+                   <% if (locals.errors && errors.nombre) { %>
+                        error
+                        <% } else { %>
+                        
+                           input-contenedor
+                        <% } %> ">
                         <i class="fa-solid fa-user icon" style="color: #838486;"></i>
-                        <input class="input-txt " type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
+                        <input class="input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
                     </div>
 
                     <% if (locals.errors && errors.nombre) { %>
@@ -31,7 +37,13 @@
                         </div>
                     <% } %>
 
-                    <div class="input-contenedor"> 
+                    <div class="
+                    <% if (locals.errors && errors.apellido) { %>
+                         error
+                         <% } else { %>
+                         
+                            input-contenedor
+                         <% } %> ">
                         <i class="fa-solid fa-user icon" style="color: #838486;"></i>
                         <input class="input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" value="<%= locals.oldData ? oldData.apellido : null %>" >
                     </div>
@@ -44,7 +56,13 @@
 
                     
 
-                    <div class="input-contenedor">
+                    <div class="
+                    <% if (locals.errors && errors.usuario) { %>
+                         error
+                         <% } else { %>
+                         
+                            input-contenedor
+                         <% } %> ">
                         <i class="fa-solid fa-user icon" style="color: #838486;"></i>
                         <input class="input-txt" type="text" name="usuario" placeholder="Ingrese un Usuario" value="<%= locals.oldData ? oldData.usuario : null %>" >
                     </div>
@@ -55,7 +73,13 @@
                         </div>
                     <% } %>
 
-                    <div class="input-contenedor">
+                    <div class="
+                    <% if (locals.errors && errors.email) { %>
+                         error
+                         <% } else { %>
+                         
+                            input-contenedor
+                         <% } %> ">
                         <i class="fa-regular fa-envelope icon"></i>
                         <input class="input-txt" type="email" name="email" placeholder="Ingrese un e-mail" value="<%= locals.oldData ? oldData.email : null %>" >
                     </div>
@@ -78,13 +102,25 @@
                    <!--  </div> -->
                     
                     
-                    <div class="input-contenedor-imagen">
-                        <input  class="input-text"  type="file" id="portada" name="img-user" accept=".jpg, .png" >
+                    <div class="
+                    <% if (locals.errors && errors.imgUser) { %>
+                         error
+                         <% } else { %>
+                         
+                            input-contenedor
+                         <% } %> ">
+                        <input  class="input-text"  
+                        type="file"  name="imgUser" accept=".jpg, .png" >
                     </div>
+
+                    <% if (locals.errors && errors.imgUser) { %>
+                        <div class="error-message">
+                             <%= errors.imgUser.msg %>
+                        </div>
+                    <% } %>
+
                     
-                    <label>
-                    <input class="check" type="checkbox" name="remember" value="remember"> Recordarme </label>
-                    <br>
+                    
                     <p><a type="link" href="login" class="link">Ya tengo una cuenta</a></p>
             
                     <input type="submit" value="Registrarme" class="button">
