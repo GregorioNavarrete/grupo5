@@ -1,11 +1,11 @@
 <% product.forEach(producto => { %>
 <article class="articulo">
-    <a href="/product/libro/<%=producto.id%>"><img class="img-articulo" src="/img/portadas/<%=(producto.portada !== 0 && producto.portada !== undefined) ? producto.portada : 'default-image.png'%>" alf="<%=producto.titulo%>"> </a> 
+    <a href="../../product/libro/<%=producto.id%>"><img class="img-articulo" src="/img/portadas/<%=(producto.portada !== 0 && producto.portada !== undefined) ? producto.portada : 'default-image.png'%>" alf="<%=producto.titulo%>"> </a> 
     <div class="desc-articulo">
-    <a href="/product/libro/<%=producto.id%>"><p class="prodc-titulo"><%=producto.titulo%></p></a>
+    <a href="../../product/libro/<%=producto.id%>"><p class="prodc-titulo"><%=producto.titulo%></p></a>
     <p class="prodc-autor"><%=producto.autor%></p>
     <div class="iconPrecioArt">
-    <a class="icon-articulo" href="../product/cart" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
+    <a class="icon-articulo" href="../../product/cart" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
     <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo"><%=producto.precio%></p></div></div>
     </div>
 </article>

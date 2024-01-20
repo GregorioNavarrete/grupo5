@@ -135,8 +135,8 @@ const userController = {
       res.clearCookie('userEmail');//para destruir la cookie
       req.session.destroy();//borra todo lo que este en secion
       return res.redirect('/');
-
-    // },
+    },
+    
     // update: (req, res) => {
     //   userService.edit(req);
     //   res.redirect('/user/profile');
