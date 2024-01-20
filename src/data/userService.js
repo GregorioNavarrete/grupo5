@@ -7,7 +7,7 @@ const bcryptjs = require('bcryptjs');
 
 const userService = {
 
-    
+   
     
     fileName : path.join(__dirname,'../data/users.json'), //tomamos el archivo json
 
@@ -77,11 +77,11 @@ const userService = {
       
     },
   
-    edit: function(req){
+   edit: function(req){
 
         let usuario = this.getOne(req.params.id);
         let userToEdit = req.body; 
-       // let imagen = req.file;
+       // let imagen = req.file;  
 
         usuario.nombre = userToEdit.nombre;
         usuario.apellido = userToEdit.apellido;
@@ -90,11 +90,11 @@ const userService = {
         /*
             ashear la contraseña con sal=10
             usuario.password = userToEdit.password  pero asheado
-        /
+        */
 
-       /
+       /*
        console.log("\n  antes : " + usuario.imagen);
-        let borrar = path.join(__dirname, ../../public/img/users/${usuario.imagen});
+        let borrar = path.join(__dirname, `../../public/img/users/${usuario.imagen}`);
 
         fs.unlink(borrar, (err) => {
           if (err) {
@@ -104,17 +104,17 @@ const userService = {
 
           console.log("\n  medio : " + usuario.imagen);
         }); */
-
+        
 
         console.log(usuario);
         let indece = this.getData().findIndex(elem => elem.id == req.params.id);
         this.getData()[indece]= usuario;
-
+    
         fs.writeFileSync(this.fileName,JSON.stringify(this.getData()),'utf-8');
 
     },
 
-
+    
     delete: function (id) {
         let allUsers = this.findAll();
         let finalUsers = allUsers.filter(oneUser => oneUser.id != id);

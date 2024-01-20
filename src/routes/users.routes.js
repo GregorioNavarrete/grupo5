@@ -48,19 +48,27 @@ router.get('/profile/', authMiddleware, userController.profile);
 // Logout
 router.get('/logout/', userController.logout);
 
-//registro
-router.get('/register', userController.registro);
-router.post('/register',uploadUser.single('imgUser'),validations, userController.processRegister);
-
-
-
 
 
 // EDIT ONE USER
 //router.get('/search',userController.search);// que hace ? 
 router.get('/profile/:id/edit',userController.edit);//esto depende "/admin/list"
 router.post('/profile/:id/edit',userController.update);
-router.delete('/profile/:id/edit', userController.destroyuser)
+
+
+
+//CREATE ONE USER
+
+router.get('/register', userController.registro);
+router.post('/register',uploadUser.single('imgUser'),validations, userController.processRegister);
+
+
+//router.get('/profile/:id/edit', userController.edit); 
+//router.put('/profile/:id/edit', uploadUser.single('imgUser'), userController.update); 
+
+//DELETE ONE USER
+//router.delete('/profile/:id/edit', userController.destroyuser);
+
 
 
 module.exports = router;

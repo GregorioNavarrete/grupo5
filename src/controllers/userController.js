@@ -51,8 +51,15 @@ const userController = {
       /*buscamos un prod por id y busco cambiarle los datos, por los que tengo en el req */
       //productService.save(req);
       userService.edit(req);
-      res.redirect('user/profile');
+      res.redirect('/profile');
     },
+
+
+    //  edit:(req,res)=>{
+    //    let idUser= req.params.idUser;
+    //   let userToEdit = userService.getOne()[idUser];
+    //    res.render('users/userEdit',{userToEdit:userToEdit})
+    //  },
 
     edit: (req, res) => {
       let id= req.params.id;
@@ -85,7 +92,8 @@ const userController = {
         if (isOkThePassword) {
           delete userToLogin.password;//para q no se conserve en la secion
   
-          req.session.userLogged = userToLogin;//son todos los datos que se vana a guardar en la secion
+          //defino un campo en la session y guardo todo ahi
+          req.session.userLogged = userToLogin;
   
           if(req.body.remember_user) {
            res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
@@ -128,8 +136,15 @@ const userController = {
       req.session.destroy();//borra todo lo que este en secion
       return res.redirect('/');
 
-    },
-
+    // },
+    // update: (req, res) => {
+    //   userService.edit(req);
+    //   res.redirect('/user/profile');
+    // },
+  
+    // search :(req, res) => {
+    //  res.render('users/userResults',{userResults : userService.search()})
+    // }
 
      destroyuser : (req,res) => {
       let id = req.params.id
