@@ -1,16 +1,16 @@
 const User = require('../model/User');
 //Este es un MID de aplicacio que nos permite loguearnos automaticamente, si es que aun
-// estan activas las cookies, al cerra el navergador 
+// estan activas las cookies, al cerra el navergador
 
 
-//falta explicar el codigo 
+//falta explicar el codigo de la cooki
 function userLoggedMiddleware(req, res, next) {
   res.locals.isLogged = false;
 
   const emailInCookie = req.cookies.userEmail;
   const userFromCookie = User.findByField('email', emailInCookie);
 
-  console.log(userFromCookie);
+  //console.log(userFromCookie);
 
   if (userFromCookie) {
     req.session.userLogged= userFromCookie;

@@ -1,8 +1,10 @@
 function authMiddleware(req, res, next) {
+	console.log("estoy en autenticator");
 	if (!req.session.userLogged) {
-		//si no hay nadie en secion, se tiene que dirigir a login !!!
+		//si no esta en session un usuario o admin, te redirigira a login
 		return res.redirect('/user/login');
 	}
+	
 	next();
 }
 
