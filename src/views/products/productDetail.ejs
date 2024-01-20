@@ -6,71 +6,75 @@
     <title>Libros</title>
     
 </head>
-<body>
 <header>
     <%- include ('../partials/header') %>
 </header> 
+<body>
 
     <br>
     <section class="section1">
         <article class="ocultar_2">
-            <h2 class="titulo"><%= producto.titulo %></h2>
-            <div class="cont_estrellas "><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <div>
+            <h2 class="det-art-cont-titulo"><%= producto.titulo %> <%=producto.subtitulo %></h2>
+            <h2 class="det-art-subtitulo"><%= producto.autor%></h2>
+            <div class="det-art-cont-estrellas "><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            </div>
+
+            <a href="../../admin/formCarga/<%=producto.id%>/edit" class="det-art-btn-edit-a">
+                <button class="det-art-btn-edit">Editar</button>
+            </a>
         </article>
         <div class="cont_img1">
-            <img class="img_1" src="/img/portadas/<%=(producto.portada !== 0 && producto.portada !== undefined) ? producto.portada : 'default-image.png'%>" alt="lugar de la imagen del producto">
+            <img class="det-art-img_1" src="/img/portadas/<%=(producto.portada !== 0 && producto.portada !== undefined) ? producto.portada : 'default-image.png'%>" alt="lugar de la imagen del producto">
         </div>
-        <article class="articulo_descripcion">
-            <div class="cont_oculto">
-                <h2 class="titulo oculto"><%= producto.titulo %></h2>
-                <div class="cont_sub">
-                    <h3 class="subtitulo"><%= producto.subtitulo %></h3>
-                </div>
-                <div class="cont_estrellas oculto"><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p class="texto"><%= producto.descripcion %></p>
-            </div>
-        </article>
-        <article class="articulo_precio">
 
-            <div class="oculto">
-                
-                
-                    <p>Genero : <%= producto.genero %></p>
-                    <p>Editorial : <%= producto.editorial %></p>
-                    <p>Cantidad de Paginas : <%= producto.paginas %></p>
-                    <p>Idioma : <%= producto.idioma %></p>
-                    <p>Año de edicion : <%= producto.año_edicion %></p>
-                    <p>Formato : <%= producto.formato %></p>
-                    <p>Etiqueta : <%= producto.etiqueta %></p>
-            </div>
-                
-            
-            <div class="div_oculto">
-            <h2 class="h2_precio"><%= producto.precio %></h2>
-            <div class="div_1"><a href="/productCart" class="agregar_al_carrito">Agregar al carrito <i class="fa-solid fa-cart-shopping"></i></a></div>   
-            </div>
-            <h2 class="h2_precio sec_ocult "><%= producto.precio %></h2>
-            <div class="div_1 sec_ocult"><a href="/productCart" class="agregar_al_carrito">Agregar al carrito <i class="fa-solid fa-cart-shopping"></i></a></div>   
+
+        <article class="det-art-conte-desc">
+            <p class="det-art-texto"><%= producto.descripcion %></p>
         </article>
+
+        
+
+        <article class="det-art-detalles-precio">
+            <div class="det-art-info">
+                    <p class="det-art-info-item">Genero : <%= producto.genero %></p>
+                    <p class="det-art-info-item">Editorial : <%= producto.editorial %></p>
+                    <p class="det-art-info-item">Cantidad de Paginas : <%= producto.paginas %></p>
+                    <p class="det-art-info-item">Idioma : <%= producto.idioma %></p>
+                    <p class="det-art-info-item">Año de edicion : <%= producto.año_edicion %></p>
+                    <p class="det-art-info-item">Formato : <%= producto.formato %></p>
+                    <p class="det-art-info-item">Etiqueta : <%= producto.etiqueta %></p>
+            </div>
+            
+            <div class="det-art-precio-btn">
+            <div class="det-art-precio-sig"><p class="det-art-signo-precio">$</p><p class="det-art-precio"><%=producto.precio%></p></div>
+
+            <a class="det-art-agr-btn" href="../product/cart">
+           
+            <div class="det-art-agr-btn-text">Agregar</div>
+            <div class="det-art-btn-cart"><i class="fa-solid fa-cart-shopping"></i></i></div> 
+    
+            </a>
+            </div>
+    </article>
 
     </section>
+    <br>
     
     <h2>Titulos relacionados</h2>
-   
 
-        <%- include ('../partials/slider') %>
-
+    <%- include ('../partials/slider') %>
 
     <h2> Sobre el Autor</h2>
 
     <section class="section3">
-        <div class="autor">
-            <article class="cont_descrip3">
-                <h4 class="nombre_autor"><%= product.autor %></h4>
-                <p class="p_desc_autor">Alice May Oseman (Chatham, Kent; 16 de octubre de 1994)1​ es una escritora, guionista e ilustradora británica de literatura juvenil. Es principalmente conocida por su novela gráfica Heartstopper. Ha sido elogiada por la crítica especializada y ha recibido diversos premios como los Inky Awards y United By Pop Awards.</p>
+        <div class="det-aut-autor">
+            <article class="det-aut-descrip">
+                <h4 class="det-aut-nombre"><%= producto.autor %></h4>
+                <p class="det-aut-desc-autor">Alice May Oseman (Chatham, Kent; 16 de octubre de 1994)1​ es una escritora, guionista e ilustradora británica de literatura juvenil. Es principalmente conocida por su novela gráfica Heartstopper. Ha sido elogiada por la crítica especializada y ha recibido diversos premios como los Inky Awards y United By Pop Awards.</p>
             </article>
-            <div class="cont_img3">
-            <img class="img_3" src="\img\alice-oseman.jpg" alt="">
+            <div class="det-aut-conte-img">
+            <img class="det-aut-img" src="\img\alice-oseman.jpg" alt="">
             </div>
         </div>
         
@@ -78,50 +82,27 @@
 
     <h2>Comentarios</h2>
 
-    <section class="section4">
-        
-        <article class="cont_coment2">
-            <h3 class="tamaño">Josefina Bolañez</h3>
-            <p class="tamaño">Es una novela muy interesante que te sumerge en la vida de los personajes,permitiendo empatizar con su relato a través de situaciones cotidianas. Fluye y no resulta aburrida, consigue atraparte en cada capítulo</p>
-            <div class="cont_iconos">
-                <div class="cont_estrellas4"><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <i class="fa-solid fa-angle-down icono_abajo"></i>
-            </div>        
-        </article>
-
-        <article class="cont_coment2">
-            <h3 class="tamaño">Monica Ruiz</h3>
-            <p class="tamaño">soy madre de un adolescente de 17 años, a partir de la lectura de este libro logré comprender otra perspectiva del mundo actual y conocer más sobre mi hijo. Recomiendo totalmente, hermosa lectura</p>
-            <div class="cont_iconos">
-                <div class="cont_estrellas4"><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <i class="fa-solid fa-angle-down icono_abajo"></i>
+ 
+        <div class="coment-sliders">
+            <div class="coment-lista">
+                <%- include ('../partials/coment') %>
+                <%- include ('../partials/coment') %>
+                <%- include ('../partials/coment') %>
+                <%- include ('../partials/coment') %>
+                <%- include ('../partials/coment') %>
+                <%- include ('../partials/coment') %>
+                <%- include ('../partials/coment') %>
             </div>
-         </article>
-         <article class="cont_coment2 coment_ocult1">
-            <h3 class="tamaño">Natalia jimenez</h3>
-            <p class="tamaño">Es una novela gráfica hermosa y que vale la pena leerla, fácil de leer y entender. Sin duda una de mis lecturas favoritas. <br> <br>  <br></p>
-            <div class="cont_iconos">
-                <div class="cont_estrellas4"><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <i class="fa-solid fa-angle-down icono_abajo"></i>
-            </div>
-         </article>
+        </div>
 
-         <article class="cont_coment2 coment_ocult">
-            <h3 class="tamaño">Norma Dominguez</h3>
-            <p class="tamaño">AMÉ este libro vi primero la serie la verdad pero luego me dispuse a comprar los libros y no me arrepiento. <br> <br>  <br> <br></p>
-            <div class="cont_iconos">
-                <div class="cont_estrellas4"><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <i class="fa-solid fa-angle-down icono_abajo"></i>
-            </div>
-         </article>
-
-    </section>
+  
 
     <h2>Deja tu comentario</h2>
 
     <section class="section5">
-        <article class="cont_1">
-            <div class="cont_estrellas4">
+        <div class="det-dejacomen">
+        <article class="det-dejacomen-conte">
+            <div class="det-dejacomen-conte-star">
                 <i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 Califica el Libro
             </div>
@@ -134,20 +115,20 @@
                 </textarea>
               </form>
             </div>
-
+        </div>
 
     </section><br>
     <h2>Vista Previa</h2>
 
     <section class="section6">
-        <div class="contenedor_principal">
-        <article class="contenedor1">
-            <div class="contenedor_img">
+        <div class="det-vist-conte">
+        <article class="det-vist-img">
+            <div class="det-vist-conte-img">
             <p>Heartstopper Volumen 5</p>
             </div>
         </article>
 
-        <article class="contenedor2">
+        <article class="det-vist-flechas">
             <i class="fa-solid fa-chevron-up"></i>
             <i class="fa-solid fa-chevron-down"></i>
         </article>

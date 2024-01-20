@@ -129,9 +129,7 @@ const userController = {
       return res.redirect('/');
 
     },
-    
-   
-   
+
 
      destroyuser : (req,res) => {
       let id = req.params.id
