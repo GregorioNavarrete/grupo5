@@ -43,7 +43,7 @@ router.get('/login', guestMiddleware, userController.login );
 router.post('/login', userController.loginProcess);
 
 // Perfil de Usuario
-router.get('/profile/', authMiddleware, userController.profile);
+router.get('/profile', authMiddleware, userController.profile);
 
 // Logout
 router.get('/logout/', userController.logout);
@@ -53,7 +53,7 @@ router.get('/logout/', userController.logout);
 // EDIT ONE USER
 //router.get('/search',userController.search);// que hace ? 
 router.get('/profile/:id/edit',userController.edit);//esto depende "/admin/list"
-router.post('/profile/:id/edit',userController.update);
+router.post('/profile/:id/edit',uploadUser.single('imgUser'),userController.update);
 
 
 

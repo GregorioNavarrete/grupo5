@@ -81,37 +81,27 @@ const userService = {
 
         let usuario = this.getOne(req.params.id);
         let userToEdit = req.body; 
-       // let imagen = req.file;  
+
+        //borra la imagen anterior
+        let borrar = path.join(__dirname, `../../public/img/users/${usuario.imagen}`);
+        fs.unlink(borrar, (err) => {
+        if (err) {
+        console.error(err);
+        return;
+        }
+        });
 
         usuario.nombre = userToEdit.nombre;
         usuario.apellido = userToEdit.apellido;
         usuario.email = userToEdit.email;
         usuario.usuario = userToEdit.usuario;
-        /*
-            ashear la contraseña con sal=10
-            usuario.password = userToEdit.password  pero asheado
-        */
+        usuario.imagen = req.file.filename;
 
-       /*
-       console.log("\n  antes : " + usuario.imagen);
-        let borrar = path.join(__dirname, `../../public/img/users/${usuario.imagen}`);
-
-        fs.unlink(borrar, (err) => {
-          if (err) {
-            console.error(err);
-            return;
-          }
-
-          console.log("\n  medio : " + usuario.imagen);
-        }); */
-        
-
-        console.log(usuario);
-        let indece = this.getData().findIndex(elem => elem.id == req.params.id);
-        this.getData()[indece]= usuario;
-    
-        fs.writeFileSync(this.fileName,JSON.stringify(this.getData()),'utf-8');
-
+        // Actualiza el usuario en el json
+        let data = this.getData();
+        let index = data.findIndex(user => user.id == req.params.id);
+        data[index] = usuario;
+        fs.writeFileSync(this.fileName, JSON.stringify(data), 'utf-8');
     },
 
     

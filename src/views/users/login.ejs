@@ -19,12 +19,14 @@
                 <i class="fa-regular fa-envelope icon"></i>
                 <input class="input-txt" type="email" name="email" placeholder="Ingrese su e-mail" required>
                 
+            </div>
+
                 <% if (locals.errors && errors.email) { %>
-                    <span class="error-message">
+                <span class="error-message">
                         <%= errors.email.msg %>
                     </span>
                 <% } %>
-            </div>
+                
             <div class="input-contenedor">
                 <i class="fa-solid fa-key icon"></i>
                 <input class="input-txt" type="password" name="password" placeholder="Ingrese su contraseña" required minlength="3">

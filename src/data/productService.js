@@ -79,25 +79,21 @@ const productService = {
         let nuevoProducto = req.body; // es porque el PUT viaja de forma privada
         let imagen = req.file;  //esto lo copie del Crear libro, para la imagen
 
+        console.log("\n  antes : " + producto.portada);
+        let borrar = path.join(__dirname, `../../public/img/portadas/${producto.portada}`);
+        fs.unlink(borrar, (err) => {
+        if (err) {
+        console.error(err);
+        return;
+        }
+        console.log("\n  medio : " + producto.portada);
+        });
+
         producto.titulo = nuevoProducto.titulo;
         producto.precio = nuevoProducto.precio;
         producto.genero = nuevoProducto.genero ;
         producto.autor = nuevoProducto.autor;
         producto.Estrellas = nuevoProducto.Estrellas;
-
-        console.log("\n  antes : " + producto.portada);
-        let borrar = path.join(__dirname, `../../public/img/portadas/${producto.portada}`);
-        fs.unlink(borrar, (err) => {
-          if (err) {
-            console.error(err);
-            return;
-          }
-          console.log("\n  medio : " + producto.portada);
-        });
-        
-
-    
-    
         
         producto.descripcion = nuevoProducto.descripcion;
         if (req.file != undefined) {
