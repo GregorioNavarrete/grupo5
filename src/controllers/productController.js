@@ -46,7 +46,7 @@ const productController = {
           res.render("products/noResult");
         }
         else{
-          res.render('products/filtrados',{newObject:productService.filter(req), });
+          res.render('products/filtrados',{newObject:productService.filter(req) });
         }
       },
 
