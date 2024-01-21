@@ -19,7 +19,7 @@ const adminController = {
   },
 
   search: (req, res)=>{  
-    res.render('admin/FormularioDeCarga',{product : productService.seach(req)})
+    res.render('admin/FormularioDeCarga',{product : productService.search(req)})
     
   },
   store: (req, res)=>{

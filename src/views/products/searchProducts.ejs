@@ -11,13 +11,13 @@
         <%- include ('../partials/header') %>  
     </header><br>
 
-<h2><%= newCatg[0].genero %></h2>
+<h2>Resultados</h2>
 
 <div class="caja-centrar">
     <section class="caja-resultados">
-            <% newCatg.forEach(product => { %>
+            <% productResult.forEach(product => { %>
         <article class="articulo">
-            <a href="../product/libro/<%=product.id %>"> <img class="img-articulo" src="/img/portadas/<%=(product.portada !== 0 && product.portada !== undefined) ? product.portada : 'default-image.png'%>" alt="imagen de producto" alf="Defiant" ></a>
+            <a href="../product/libro/<%=product.id %>"><img class="img-articulo" src="/img/portadas/<%=(product.portada !== 0 && product.portada !== undefined) ? product.portada : 'default-image.png'%>" alt="imagen de producto" alf="Defiant"> </a>
             <div class="desc-articulo">
             <a href="../product/libro/<%=product.id %>"><p class="prodc-titulo"><%= product.titulo %></p></a>
             <p class="prodc-autor"><%= product.autor %></p>
@@ -36,7 +36,7 @@
         <section class="caja-resultados">
                 <% products.forEach(product => { %>
             <article class="articulo">
-                <img class="img-articulo" src="/img/portadas/<%=(product.portada !== 0 && product.portada !== undefined) ? product.portada : 'default-image.png'%>" alt="imagen de producto" alf="Defiant" href="../product/libro/<%=product.id %>">
+                <a href="../product/libro/<%=product.id %>"><img class="img-articulo" src="/img/portadas/<%=(product.portada !== 0 && product.portada !== undefined) ? product.portada : 'default-image.png'%>" alt="imagen de producto" alf="Defiant"> </a>
                 <div class="desc-articulo">
                 <a href="../product/libro/<%=product.id %>"><p class="prodc-titulo"><%= product.titulo %></p></a>
                 <p class="prodc-autor"><%= product.autor %></p>

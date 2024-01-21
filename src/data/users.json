@@ -1,1 +1,12 @@
-[{"id":1,"nombre":"Grego","apellido":"Nava","usuario":"GregoDH","email":"gregonavarrete30@gmail.com","password":"$2a$10$obMzpsGjB0ylI2WL726oReep1IuZ4iU4TZjp58rQPH2t6YQy3AyM.","categoria":"admin","imagen":"group-1705795687133.png"},{"id":2,"categoria":"usuario","nombre":"exequiel","apellido":"juarez","usuario":"exe154","email":"exequiel@gmail.com","password":"$2a$10$x1hGz1hiVzI25KPbfJ3BJOenZYWArvnyrJsjn9gD6YMs0orHwNYWe","imagen":"group-1705649460323.png"}]
+[
+    {
+        "id": 1,
+        "nombre": "Grego",
+        "apellido": "Nava",
+        "usuario": "GregoDH",
+        "email": "gregonavarrete30@gmail.com",
+        "password": "$2a$10$obMzpsGjB0ylI2WL726oReep1IuZ4iU4TZjp58rQPH2t6YQy3AyM.",
+        "categoria": "admin",
+        "imagen": "group-1705795687133.png"
+    }
+]

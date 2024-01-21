@@ -48,11 +48,16 @@ const productController = {
         else{
           res.render('products/filtrados',{newObject:productService.filter(req), });
         }
+      },
+
+      productSearch : (req,res) => {
+
+        res.render("products/searchProducts", {productResult : productService.search(req), products : productService.getAll()} )
       }
+
+
+
     }
-
-
-
 
 
 module.exports = productController

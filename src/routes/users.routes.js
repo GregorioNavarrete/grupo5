@@ -52,7 +52,7 @@ router.get('/logout/', userController.logout);
 
 // EDIT ONE USER
 //router.get('/search',userController.search);// que hace ? 
-router.get('/profile/:id/edit',userController.edit);//esto depende "/admin/list"
+router.get('/profile/:id/edit',userController.edit);
 router.post('/profile/:id/edit',uploadUser.single('imgUser'),userController.update);
 
 
@@ -62,12 +62,12 @@ router.post('/profile/:id/edit',uploadUser.single('imgUser'),userController.upda
 router.get('/register', userController.registro);
 router.post('/register',uploadUser.single('imgUser'),validations, userController.processRegister);
 
-
-//router.get('/profile/:id/edit', userController.edit); 
-//router.put('/profile/:id/edit', uploadUser.single('imgUser'), userController.update); 
-
 //DELETE ONE USER
-//router.delete('/profile/:id/edit', userController.destroyuser);
+router.delete('/profile/:id/edit', userController.destroyuser);
+
+
+
+
 
 
 
