@@ -19,12 +19,11 @@
 	<div class="container" style="margin-top: 40px;">
 		<div class="user-profile">
 			<section class="user-img">
-			<img class="user-avatar" src="/img/users/<%= user.imagen %> ">
+				<a class="user-img-a" href="/user/profile"><img class="user-avatar" src="/img/users/<%= user.imagen %> "></a>
 
-			
 
-			<form action="/user/profile/<%=user.id%>/edit?_method=DELETE"  method="post" class="botones">
-				<button class="user-btn user-btn-text">Borrar Perfil</button>
+			<form action="/user/profile/<%=user.id%>/edit?_method=DELETE"  method="post" class="user-btn-edit-conte">
+				<button class="user-btn-edit">Borrar Perfil</button>
 			</form>
 
 
@@ -37,10 +36,10 @@
 			</section>
 
 			<section class="user-text">
-				<h2 class="user-titulo">EDITAR <%= user.nombre %> <%= user.apellido %> </h2>
+				<h2 class="user-titulo">EDITAR</h2>
 
 
-				
+		
                 <form class="user-form-edit" action="/user/profile/<%=user.id%>/edit" method="POST" enctype="multipart/form-data">
 
 					<div class="user-input">
@@ -65,17 +64,31 @@
                         <input class="user-input-txt" type="email" name="email" placeholder="Ingrese un e-mail" value="<%= user.email %>"  >
                         <!-- <span class="error-message">Ingresa una dirección de correo electrónico válida.</span> -->
                     </div>
+					
 
+					<div class="user-input">
+                        <div class="user-sub-input">Categoria</div>
+                        <select name="categoria" id="categoria" class="user-input-txt">
+						<option value="admin">Administrador</option>
+						<option value="usuario">Usuario</option>
+						</select>
+                    </div>
+					
+					
+					<br>
                     
                     <div class="user-input">
                         <input  class="user-input-text"  type="file" id="portada" name="imgUser" accept=".jpg, .png" >
                     </div>
 
+				
 					
-						<button class="user-btn user-btn-text">Confirmar Cambios</button>
+					<br>
+						<button class="user-btn-edit">Confirmar Cambios</button>
 					
 
 
+						
 				</form>
 			
 				<br>

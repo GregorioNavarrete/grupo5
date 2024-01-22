@@ -1,12 +1,1 @@
-[
-    {
-        "id": 1,
-        "nombre": "Grego",
-        "apellido": "Nava",
-        "usuario": "GregoDH",
-        "email": "gregonavarrete30@gmail.com",
-        "password": "$2a$10$obMzpsGjB0ylI2WL726oReep1IuZ4iU4TZjp58rQPH2t6YQy3AyM.",
-        "categoria": "admin",
-        "imagen": "group-1705795687133.png"
-    }
-]
+[{"id":1,"nombre":"Grego","apellido":"Nava","usuario":"GregoDH","email":"gregonavarrete30@gmail.com","password":"$2a$10$obMzpsGjB0ylI2WL726oReep1IuZ4iU4TZjp58rQPH2t6YQy3AyM.","categoria":"admin","imagen":"group-1705935015006.png"},{"id":2,"categoria":"usuario","nombre":"María Lourdes","apellido":"Ortega","usuario":"malu","email":"marialourdesortega_27@hotmail.com","password":"$2a$10$2GxXy0Ii/Au0YfjocZ9hAe9XtHlEDTRYe.hi9lww71dYEM1NydPDa","imagen":"group-1705852256910.jpg"},{"id":3,"categoria":"usuario","nombre":"malu","apellido":"orte","usuario":"holi123","email":"maria@gmail.com","password":"$2a$10$oqfLiPr.pomJh9DAZv2fn.LoOTW4/5qT317L90HrewF62IBumoBvC","imagen":"group-1705932911364.jpg"},{"id":4,"categoria":"usuario","nombre":"señor ","apellido":"pato","usuario":"patito123","email":"patito@gmail.com","password":"$2a$10$VMld5GWezc10l5zaGi9zO.DRdrPLEahu.ALb/fOS4tGQkN/4T2Cvy","imagen":"group-1705933059626.jpg"}]

@@ -20,16 +20,13 @@
 			<section class="user-img">
 			<img class="user-avatar" src="/img/users/<%= user.imagen %> ">
 
-			<button class="user-btn">
-			<a class="user-btn-text" href="/user/logout">Cerrar Sesión</a>
+			<br>
+
+			<button class="user-btn-edit">
+			<a class="user-btn-edit-text" href="/user/logout">Cerrar Sesión</a>
 			</button>
-			<!-- <div class="col-md-3">
-				<a class="dropdown-item" href="/user/profile">My profile</a>
-				<li><hr class="dropdown-divider"></li>
-				<a class="dropdown-item" href="/user/logout">Logout</a>
-				<li class="nav-item"><a class="nav-link" href="/user/register">Register</a></li>
-				<li class="nav-item"><a class="nav-link" href="/user/login">Login</a></li> -->
 			</section>
+
 
 			<section class="user-text">
 				<h2 class="user-titulo">Hi <%= user.nombre %> <%= user.apellido %> </h2>
@@ -37,26 +34,66 @@
 			
 				<br>
 				<br>
+				<br>
 				<div class="user-sub">Usuario:<div class="user-email"><%= user.usuario %> </div></div>
 				<div class="user-sub">Email:<div class="user-email"><%= user.email %> </div></div>	
 				
+				<br><br><br>
 
-				<div class="user-btn-edit-conte">
-				<button class="user-btn-edit">
-					<a class="user-btn-text" href="/user/profile/<%=user.id%>/edit">Editar</a>
-					</button>
-				</div>
+
+
+
+				
+				<a href="/user/profile/<%=user.id%>/edit">
+					<button class="user-btn-edit">Editar</button>
+				</a>
+		
 				
 				
 			</div>
 			</section>
 		</div>
-	</div>
+	
 
 	<br>
-				<br>
-	<!-- //Container -->
+	<br>
 	
+	<section class="admin-container">
+		<div class="admin-list">
+
+			<a href="../../admin/formCarga" class="admin-list-icon-text">
+				<div class="admin-list-icon">
+				<i class="fa-solid fa-book"></i>
+				</div>
+				<div class="admin-list-text">
+					Lista de Libros
+				</div>
+			</a>
+		
+				
+		
+			<a href="../../admin/formCargaLibro" class="admin-list-icon-text">
+				<div class="admin-list-icon">
+				<i class="fa-solid fa-folder-plus"></i>
+				</div>
+				<div  class="admin-list-text">
+					Cargar Libros
+				</div>
+			</a>
+
+			<a href="../../admin/list" class="admin-list-icon-text">
+				<div class="admin-list-icon">
+				<i class="fa-solid fa-users"></i>
+				</div>
+				<div  class="admin-list-text">
+					Lista de Usuarios
+				</div>
+			</a>
+
+		</div>
+	</section>
+	
+	<br>
 	
 </body>
 

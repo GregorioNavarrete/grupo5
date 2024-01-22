@@ -47,7 +47,7 @@ const adminController = {
   },
 
   list: (req,res)=>{
-      res.render('users/userList', {Users : userService.findAll()})
+      res.render('admin/userList', {Users : userService.findAll()})
   },
 
 

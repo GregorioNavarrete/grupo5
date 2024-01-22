@@ -43,7 +43,7 @@ const userController = {
 			});
 		}
 		userService.create(req);
-    res.redirect('/')
+    res.redirect('../../user/login')
     },             
 
     update: (req, res) => {
