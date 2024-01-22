@@ -1,65 +1,109 @@
+:root{
+    --celeste: #7BCCC0;
+    --blanco: #FAFCFE;
+    --azul-oscuro: #152636;
+    --cian: #00C7AA;
+    --anaranjado: #F94D01;
+    --gris-claro: #E5E3DF;
+    --gris-petroleo: #3E6C6A;
+    }
+
 *{
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+    font-family: 'Quicksand', sans-serif;
 }
 
-body{
-    background-color: rgb(96, 175, 175);
+.userlist-conte{
+    margin: auto;
+    width: 80%;
+    padding: 25px;
+    background-color: var(--celeste);
+    border-radius: 5px;
 }
 
-h2 {
-    text-align: center;
-    color: white;
-}
-
-ul{
+.userlist-conte-usuarios{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-ul li{
+.userlist-caja-usuario{
     display: flex;
-    width: 90%;
-    margin-bottom: 20px;
+    width: 100%;
     justify-content: space-around;
+    flex-wrap: wrap;
     padding: 5px;
-    background-color: white;
-    
-    
+    background-color: var(--blanco);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 15px;
 }
 
-.UserData{
+.userlist-conte-img{
+    width: 25%;
     display: flex;
-    width: 40%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.userlist-img{
+    width: 60%;
+    border-radius: 100%;
+}
+
+.userlist-titulo {
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+}
+
+.userlist-data{
+    display: flex;
+    width: 50%;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-evenly;
-    position: relative;
-    right: 50px;
-    
+
 }
 
-ul li section p{
-    font-size: 18px;
-    padding: 5px,0.5px,0;
-    
+.userlist-data-text{
+    font-size: 13px;
+    margin: 3px;
 }
 
-.cont-search{
+.userlist-data-text-titulo{
+    font-size: 13px;
+    margin: 3px;
+    color: var(--cian);
+    font-weight: bold;
+}
+
+.userlist-data-text-titulo-conte{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+
+
+.userlist-cont-search{
     display: flex;
     justify-content: center;
 }
 
-.Search-users{
+.userlist-Search-users{
     display: flex;
     justify-content: space-between;
     width: 90%;
 }
 
-.barra-busqueda-header{
+.userlist-barra-busqueda-header{
     align-items: center;
     justify-content: center;
     align-content: center;
@@ -72,7 +116,7 @@ ul li section p{
 }
 
 
-.input-header{
+.userlist-input-header{
     flex: 1;
     padding: 7px;
     border: none;
@@ -83,7 +127,7 @@ ul li section p{
     
 }
 
-.button-search{
+.userlist-button-search{
     background-color: white;
     color: var(--azul-oscuro);
     border: none;
@@ -93,43 +137,75 @@ ul li section p{
     padding: 7px;
 }
 
-.cont-botones{
-    width: 25%;
+.userlist-btn-conte{
+    width: 100%;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
+    margin: 5px;
 }
 
-.botones{
-    width: 80%;
+.userlist-btn{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.userlist-btn-editar{
+    width: 40%;
     display: flex;
     justify-content: space-evenly;
+    border: none;
+    color: var(--blanco);
+    font-size: 13px;
+    background-color: var(--cian);
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 6px;
+    transition: all 1s;
 }
 
-.borrar{
-    padding: 15px;
-    font-size: 15px;
-    transition: all 0.3 s;
+.userlist-btn-editar:hover{
+    background-color: var(--anaranjado);
 }
 
-.editar{
-    padding: 15px;
-    font-size: 15px;
-    transition: all 0.3 s;
-} 
-
-.editar:hover{
-    background-color: rgb(25, 144, 212);
-    color: white;
+.userlist-btn-eliminar{
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
     border: none;
+    color: var(--blanco);
+    font-size: 13px;
+    background-color: var(--anaranjado);
+    border-radius: 5px;
     cursor: pointer;
+    padding: 6px;
+}
 
-} 
+.userlist-btn-eliminar:hover{
+    background-color: var(--cian);
+}
 
-.borrar:hover{
-    background-color: rgb(243, 46, 46);
-    color: white;
-    border: none;
-    cursor: pointer;
+@media(min-width:769px) {
+    .userlist-btn-conte{ 
+    width: 20%;
+    display: block;
+    margin: auto;
+}
 
-} 
+.userlist-btn-editar{
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.userlist-btn-eliminar{
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+}
+
+
+}
