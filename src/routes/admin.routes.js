@@ -42,7 +42,7 @@ router.get('/formCarga/:id/edit',authMiddleware,atenticaadmin, adminController.e
 router.put('/:id', upload.single('portada'), adminController.update); 
 
 //lista de usuarios de admin /eliminar usuario / editar usuario / buscar usuario 
-router.get('/list', adminController.list );
+router.get('/list',authMiddleware,atenticaadmin, adminController.list );
 router.delete('/list/:id', adminController.destroyuser);
 router.get('/searchUser',adminController.userSearch);
 

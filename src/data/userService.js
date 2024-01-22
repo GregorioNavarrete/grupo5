@@ -96,6 +96,7 @@ const userService = {
         usuario.email = userToEdit.email;
         usuario.usuario = userToEdit.usuario;
         usuario.imagen = req.file.filename;
+        usuario.categoria = userToEdit.categoria;
 
         // Actualiza el usuario en el json
         let data = this.getData();

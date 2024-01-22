@@ -1,7 +1,7 @@
 ||<div class="conte-header">
 
        
-    <form class="barra-busqueda-header" action="../../product/search" method="GET"  >
+    <form class="barra-busqueda-header" action="../../../product/search" method="GET"  >
    
         <input class="input-header" type="text" placeholder="search" name="search">
         <div class="button-header">
@@ -25,7 +25,7 @@
         <div>
             <!--locals.isLogged  si es distinto a "indefinido " -->
             <% if (locals.isLogged) { %>
-              <a class="nav_icon" href="../user/login" class="nav_link">
+              <a class="nav_icon" href="../../user/login" class="nav_link">
                 <img src="/img/users/<%= locals.userLogged.imagen %>" width="40" style="border-radius: 100%;">
                 Hi <%= locals.userLogged.nombre %> 
               </a>
@@ -37,7 +37,7 @@
               </a>
               <% } %>
             <% } else { %>
-              <a class="nav_icon" href="../user/login" class="nav_link">
+              <a class="nav_icon" href="../../user/login" class="nav_link">
                 <i class="fa-solid fa-circle-user"></i>
               </a>
             <% } %>
@@ -49,7 +49,7 @@
             </div>
     </div>
     <div class="mobile-menu inactive">
-      <form action="product/catg" method="get"  name="categoria" > 
+      <form action="../../product/catg" method="get"  name="categoria" > 
         <ul>
           <li>
             <a class="bc" href="../../product/all">Todas</a>
