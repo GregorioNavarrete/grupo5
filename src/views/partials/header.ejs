@@ -1,4 +1,4 @@
-<div class="conte-header">
+||<div class="conte-header">
 
        
     <form class="barra-busqueda-header" action="../../product/search" method="GET"  >
@@ -23,7 +23,25 @@
          </div>
 
         <div>
-            <a class="nav_icon" href="../../user/login" class="nav_link"><i class="fa-solid fa-circle-user"></i></a>
+            <!--locals.isLogged  si es distinto a "indefinido " -->
+            <% if (locals.isLogged) { %>
+              <a class="nav_icon" href="../user/login" class="nav_link">
+                <img src="/img/users/<%= locals.userLogged.imagen %>" width="40" style="border-radius: 100%;">
+                Hi <%= locals.userLogged.nombre %> 
+              </a>
+              <% if (locals.userLogged.categoria === "admin") { %>
+                <!--locals.userLogged  es el campo que nos da el session -->
+              <a class="nav_icon" href="/admin/formCarga" class="nav_link">
+                <!--Es para poner el boton, para agregar un libro nuevo, si es admin -->
+                <i class="fa-solid fa-rectangle-list"></i>
+              </a>
+              <% } %>
+            <% } else { %>
+              <a class="nav_icon" href="../user/login" class="nav_link">
+                <i class="fa-solid fa-circle-user"></i>
+              </a>
+            <% } %>
+
         </div>
 
         <div>

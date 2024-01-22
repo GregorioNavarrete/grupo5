@@ -83,15 +83,21 @@ const userController = {
         if (isOkThePassword) {
           delete userToLogin.password;//para q no se conserve en la secion
   
-          //defino un campo en la session y guardo todo ahi
-          req.session.userLogged = userToLogin;
+          req.session.userLogged = userToLogin;//son todos los datos que se vana a guardar en la secion
   
+          //si el checkbox esta activado para "recordar usuario"
           if(req.body.remember_user) {
+            //en la cooki crea el campo "userEmail" y guarada los datos ahi
            res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
            
           }
-  
-          return res.redirect('/user/profile');//*****************si todo sale bien te manda a la vista del perfil que un no tenemos 
+          //para verificar
+          //console.log("verificamos lo que tiene la cooki");
+          //console.log(req.cookies.userEmail);
+          //console.log("verificamos lo que tiene la session");
+          //console.log(req.session.userLogged);
+
+          return res.redirect('/user/profile');
         } 
   
         //si la contraseña iniciada es distinta a la contraseña en la BD
@@ -114,10 +120,11 @@ const userController = {
           }
         }
       });
+
     },
     profile: (req, res) => {
       //vemos que mostramos una vista con los valores que hay en las "secion " (coki)
-      console.log(req.session.userLogged);
+      //console.log(req.session.userLogged);
       return res.render('users/userProfile', {
         user: req.session.userLogged
       });

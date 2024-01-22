@@ -17,6 +17,7 @@ const path=require('path');
 const app=express();//instancia de la aplicación express
 
 //************Seccion de middlewares
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 //configuramos la secion
 app.use(session({
@@ -26,6 +27,7 @@ app.use(session({
 }));
 
 app.use(cookies());
+app.use(userLoggedMiddleware);
 
 
 //************
