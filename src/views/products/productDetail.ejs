@@ -20,9 +20,12 @@
             <div class="det-art-cont-estrellas "><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
             </div>
 
-            <a href="../../admin/formCarga/<%=producto.id%>/edit" class="det-art-btn-edit-a">
+            <% if (locals.isLogged && locals.userLogged.categoria === "admin") { %>
+		    <a href="../../admin/formCarga/<%=producto.id%>/edit" class="det-art-btn-edit-a">
                 <button class="det-art-btn-edit">Editar</button>
             </a>
+                <% } %>
+            
         </article>
         <div class="cont_img1">
             <img class="det-art-img_1" src="/img/portadas/<%=(producto.portada !== 0 && producto.portada !== undefined) ? producto.portada : 'default-image.png'%>" alt="lugar de la imagen del producto">

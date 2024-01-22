@@ -57,7 +57,8 @@
 
 	<br>
 	<br>
-	
+
+	<% if (locals.isLogged && locals.userLogged.categoria === "admin") { %>
 	<section class="admin-container">
 		<div class="admin-list">
 
@@ -69,8 +70,6 @@
 					Lista de Libros
 				</div>
 			</a>
-		
-				
 		
 			<a href="../../admin/formCargaLibro" class="admin-list-icon-text">
 				<div class="admin-list-icon">
@@ -91,7 +90,10 @@
 			</a>
 
 		</div>
-	</section>
+	</section>	
+		<% } %>
+	
+	
 	
 	<br>
 	

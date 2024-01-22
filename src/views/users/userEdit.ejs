@@ -65,14 +65,15 @@
                         <!-- <span class="error-message">Ingresa una dirección de correo electrónico válida.</span> -->
                     </div>
 					
-
-					<div class="user-input">
+					<% if (locals.isLogged && locals.userLogged.categoria === "admin") { %>
+						<div class="user-input">
                         <div class="user-sub-input">Categoria</div>
                         <select name="categoria" id="categoria"  class="user-input-txt">
 						<option value="admin">Administrador</option>
 						<option value="usuario">Usuario</option>
 						</select>
                     </div>
+					<% } %>
 					
 					
 					<br>
