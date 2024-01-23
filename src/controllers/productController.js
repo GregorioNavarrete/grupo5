@@ -1,18 +1,13 @@
 const path = require('path');
-const product = require('../model/productos');
-const producto = require('../model/productos');
 const productService = require('../data/productService');
 const fs = require('fs');
-const productsFilePath = path.join(__dirname, '../data/products.json');
+
 const productController = {
 
-    index:  (req, res) => {
+  index:  (req, res) => {
 
-        //__dirname una constante node.js, que hace referencia al directorio donde estamos
-        let htmlPath = path.resolve(__dirname,'../views/products/index.ejs') ;
-        //al estar en la ruta "/" me manda a una direccion de archivo html
-        res.render(htmlPath, {libros: producto.getAllProducts()});
-      },
+    res.render('products/index', {product: productService.getAll()});
+  },
 
      cart:  (req, res) => {
         let htmlPath = path.resolve(__dirname,'../views/products/productCart.ejs') ;
@@ -21,15 +16,14 @@ const productController = {
 
       getOne : (req, res) => {
 
-        res.render('products/productDetail',{product : productService.getOne(req.params.id)});
+        res.render('products/productDetail',{producto : productService.getOne(req.params.id),product: productService.getAll()});
         //let htmlPath = path.resolve(__dirname,'../views/products/productDetail.ejs') ;
         //res.render(htmlPath);
       },
 
       all: (req, res) => {
         
-        let htmlPath = path.resolve(__dirname,'../views/products/allProduct.ejs') ;
-        res.render(htmlPath);
+        res.render('products/allProduct', {products : productService.getAll()})
 
       },
 
@@ -38,13 +32,32 @@ const productController = {
       
         let htmlPath = path.resolve(__dirname,'../views/products/categoria.ejs') ;
         res.render(htmlPath);
+      },
+
+      indexCatg :(req,res) => {
+        
+        res.render('products/categoria',{newCatg:productService.catg(req), products : productService.getAll()})
+
+      },
+
+      filtro : (req,res) => {
+
+        if(productService.filter(req).length==0){
+          res.render("products/noResult");
+        }
+        else{
+          res.render('products/filtrados',{newObject:productService.filter(req) });
+        }
+      },
+
+      productSearch : (req,res) => {
+
+        res.render("products/searchProducts", {productResult : productService.search(req), products : productService.getAll()} )
       }
 
-      
+
+
     }
-
-
-
 
 
 module.exports = productController

@@ -61,6 +61,7 @@ header{
     color: #152636; 
 }
 
+
 .barra-busqueda-header:hover{
     filter: drop-shadow(0px 4px 8px var(--cian));
 }
@@ -72,6 +73,16 @@ header{
     padding: 5px 5px;
     cursor: pointer;
     border-radius: 0px 10px 10px 0px;
+}
+
+.button-search{
+    background-color: white;
+    color: var(--azul-oscuro);
+    border: none;
+    cursor: pointer;
+    border-radius: 0px 10px 10px 0px;
+    font-size: 13px;
+
 }
 
 
@@ -96,13 +107,23 @@ header{
     align-items: center;
     justify-content: space-between;
 }
+
+.img-nav-icon{
+    width: 40px;
+    border-radius: 100%
+
+
+}
+
 .nav_icon{
     color: var(--blanco);
     font-size: 150%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     transition: all 1s;
 }
-
 .nav_icon:hover{
     filter: drop-shadow(0px 4px 8px var(--cian));
 }
@@ -143,11 +164,15 @@ header{
 .inactive {
     
     display: none; 
-    
-    
   }
 
-
+  .bc{
+    color: white;
+    background-color: var(--celeste);
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+}
 
 
 
@@ -265,6 +290,7 @@ footer{
     }
 
 }
+
 
 
 

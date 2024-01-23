@@ -1,14 +1,14 @@
 <div class="conte-header">
 
        
-    <div class="barra-busqueda-header">
+    <form class="barra-busqueda-header" action="../../../product/search" method="GET"  >
    
-        <input class="input-header" type="text" placeholder="Buscar">
+        <input class="input-header" type="text" placeholder="search" name="search">
         <div class="button-header">
-            <i class="fa-solid fa-magnifying-glass"></i>
+          <button class="button-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
    
-    </div>
+    </form>
    
 
     <div class="conte-logo-prisma">
@@ -19,41 +19,61 @@
     <div class="nav_list">
 
         <div>
-            <a class="nav_icon" href="../product/cart" class="nav_link" ><i class="fa-solid fa-bag-shopping"></i></a>
+            <a class="nav_icon" href="../../product/cart" class="nav_link" ><i class="fa-solid fa-bag-shopping"></i></a>
          </div>
 
         <div>
-            <a class="nav_icon" href="../user/login" class="nav_link"><i class="fa-solid fa-circle-user"></i></a>
-        </div>
+            <!--locals.isLogged  si es distinto a "indefinido " -->
+            <% if (locals.isLogged) { %>
+              <a class="nav_icon" href="../../user/login" class="nav_link">
+                <img class="img-nav-icon" src="/img/users/<%= locals.userLogged.imagen %>">
+              </a>
+            </div>
+              <% if (locals.userLogged.categoria === "admin") { %>
+                <!--locals.userLogged  es el campo que nos da el session -->
+                <div>
+              <a class="nav_icon" href="/admin/formCarga" class="nav_link">
+                <!--Es para poner el boton, para agregar un libro nuevo, si es admin -->
+                <i class="fa-solid fa-book"></i>
+              </a>
+            </div>
+              <% } %>
+            <% } else { %>
+              <a class="nav_icon" href="../../user/login" class="nav_link">
+                <i class="fa-solid fa-circle-user"></i>
+              </a>
+            </div>
+            <% } %>
+
+       
 
         <div>
             <a class="nav_icon" href="#" class="nav_link" id="HabuIcon"><i class="fa-solid fa-bars"></i></a>
             </div>
     </div>
     <div class="mobile-menu inactive">
+      <form action="../../product/catg" method="get"  name="categoria" > 
         <ul>
           <li>
-            <a href="/">Categorias</a>
+            <a class="bc" href="../../product/all">Todas</a>
           </li>
           <li>
-            <a href="../product/all">todas</a>
+            <button name="misterio" class="bc">Misterio</button>
           </li>
           <li>
-            <a href="../product/catg">Misterio</a>
+            <button name="romance" class="bc">Romance</button>
           </li>
           <li>
-            <a href="../product/catg">Romance</a>
+            <button name="aventura" class="bc">Aventura</button>
           </li>
           <li>
-            <a href="../product/catg">Aventura</a>
+            <button name="terror" class="bc" >Terror</button>
           </li>
           <li>
-            <a href="../product/catg">Terror</a>
-          </li>
-          <li>
-            <a href="../product/catg">Fantasia</a>
+            <button name="fantasia" class="bc">Fantasia</button>
           </li>
         </ul>
+      </form>
     </div>
     
 </div>

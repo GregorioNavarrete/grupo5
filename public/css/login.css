@@ -40,6 +40,7 @@ body {
 }
 
 .contenedor {
+    background-color: white;
     width: 100%;
     padding: 15px;
 }
@@ -51,7 +52,7 @@ body {
 }
 
 .formulario {
-    background-color: var(--gris-claro);
+    background-color: var(--celeste);
     margin: 30px;
     padding: 3px;
     width: 80%;
@@ -70,11 +71,23 @@ h1 {
 /* input[type="email"],
 input[type="password"] { */
 .input-txt {
+    outline: none;
+    background-color: white;
     font-size: 14px;
-    width: 80%;
+    width: 90%;
     padding: 10px;
     border: none;
 }
+
+.error {
+    margin-top: 15px;
+    border: 1px solid red;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 
 .check {
     font-size: 20px;
@@ -82,13 +95,23 @@ input[type="password"] { */
     width: auto;
 }
 
-.input-contenedor {
-    margin-bottom: 15px;
+.input-contenedor-imagen{
+    margin-top: 15px;
     border: 1px solid #aaa;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+
+}
+
+.input-contenedor {
+    margin-top: 15px;
+    border: 1px solid #aaa;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .redirect-login {
@@ -106,6 +129,7 @@ button {
 }
 
 .icon {
+    width: 10%;
     min-width: 50px;
     text-align: center;
     color: #999
@@ -114,16 +138,17 @@ button {
 .button {
     border: none;
     width: 100%;
-    color: white;
+    color: var(--azul-oscuro);
     font-size: 20px;
-    background-color: #23BFF2;
+    background-color: var(--celeste);
     padding: 15px 20px;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .button:hover {
-    background: lightskyblue;
+    background: var(--anaranjado);
+    color: var(--blanco);
 }
 
 p {
@@ -132,7 +157,7 @@ p {
 
 .link {
     text-decoration: none;
-    color: #23BFF2;
+    color: var(--cian) ;
     font-weight: 600;
 }
 
@@ -145,15 +170,17 @@ input:invalid {
 }
 
 .error-message {
-    display: none;
     color: red;
-    font-size: 10px;
+    font-size: 12px;
     margin-left: 5px;
 }
 
 input:invalid+.error-message {
     display: block;
 }
+
+
+
 
 /*MEDIA QUERIES*/
 @media(min-width:992px) {

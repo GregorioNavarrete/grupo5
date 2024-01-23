@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<%- include ('../partials/head') %>
+		<link rel="stylesheet" href="/css/profile.css">
+		<title>Profile</title>
+		
+	</head>
+
+	<header>
+		<%- include ('../partials/header') %>
+	</header>
+
+<body>
+	
+	
+	<!-- Container -->
+	<div class="container" style="margin-top: 40px;">
+		<div class="user-profile">
+			<section class="user-img">
+			<img class="user-avatar" src="/img/users/<%= user.imagen %> ">
+
+			<br>
+
+			<button class="user-btn-edit">
+			<a class="user-btn-edit-text" href="/user/logout">Cerrar Sesión</a>
+			</button>
+			</section>
+
+
+			<section class="user-text">
+				<h2 class="user-titulo">Hi <%= user.nombre %> <%= user.apellido %> </h2>
+
+			
+				<br>
+				<br>
+				<br>
+				<div class="user-sub">Usuario:<div class="user-email"><%= user.usuario %> </div></div>
+				<div class="user-sub">Email:<div class="user-email"><%= user.email %> </div></div>	
+				
+				<br><br><br>
+
+
+
+
+				
+				<a href="/user/profile/<%=user.id%>/edit">
+					<button class="user-btn-edit">Editar</button>
+				</a>
+		
+				
+				
+			</div>
+			</section>
+		</div>
+	
+
+	<br>
+	<br>
+
+	<% if (locals.isLogged && locals.userLogged.categoria === "admin") { %>
+	<section class="admin-container">
+		<div class="admin-list">
+
+			<a href="../../admin/formCarga" class="admin-list-icon-text">
+				<div class="admin-list-icon">
+				<i class="fa-solid fa-book"></i>
+				</div>
+				<div class="admin-list-text">
+					Lista de Libros
+				</div>
+			</a>
+		
+			<a href="../../admin/formCargaLibro" class="admin-list-icon-text">
+				<div class="admin-list-icon">
+				<i class="fa-solid fa-folder-plus"></i>
+				</div>
+				<div  class="admin-list-text">
+					Cargar Libros
+				</div>
+			</a>
+
+			<a href="../../admin/list" class="admin-list-icon-text">
+				<div class="admin-list-icon">
+				<i class="fa-solid fa-users"></i>
+				</div>
+				<div  class="admin-list-text">
+					Lista de Usuarios
+				</div>
+			</a>
+
+		</div>
+	</section>	
+		<% } %>
+	
+	
+	
+	<br>
+	
+</body>
+
+<footer>
+    <%- include ('../partials/footer') %>
+
+</footer>
+
+</html>

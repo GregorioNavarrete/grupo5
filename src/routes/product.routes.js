@@ -15,9 +15,10 @@ router.get('/cart', productController.cart);
 router.get('/libro/:id', productController.getOne);
 router.get('/all', productController.all);
 //router.get('/catg', productService.catg);
-router.get('/Filtro',productService.filter)
-router.get('/detail/:idLibro',productService.detail)
+router.get('/filter',productController.filtro);
+router.get('/catg',productController.indexCatg);
 
+router.get("/search", productController.productSearch)
 
 
 

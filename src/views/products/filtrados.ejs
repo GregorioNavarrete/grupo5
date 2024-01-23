@@ -28,7 +28,7 @@
 
     <div class="conte-all">
         <h5 class="titulo-princ-filtro">Filtros</h5>
-        <form action="Filtro" method="get">
+        <form action="filter" method="get">
         <section class="filtro">
     
     <div class="conte-filtro">
@@ -99,9 +99,9 @@
     <section class="caja-resultados">
     <% newObject.forEach(product => { %>
     <article class="articulo">
-        <img class="img-articulo" src="/img/portadas/<%=(product.portada !== 0 && product.portada !== undefined) ? product.portada : 'default-image.png'%>" alt="imagen de producto" alf="Defiant">
+        <a href="../product/libro/<%=product.id %>"><img class="img-articulo" src="/img/portadas/<%=(product.portada !== 0 && product.portada !== undefined) ? product.portada : 'default-image.png'%>" alt="imagen de producto" alf="Defiant"> </a>
         <div class="desc-articulo">
-        <a href="../product/libro:id"><p class="prodc-titulo"><%= product.titulo %></p></a>
+        <a href="../product/libro/<%=product.id %>"><p class="prodc-titulo"><%= product.titulo %></p></a>
         <p class="prodc-autor"><%= product.autor %></p>
         <a class="icon-articulo" href="../product/cart" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
          <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo"><%= product.precio %></p></div>

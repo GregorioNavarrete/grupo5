@@ -16,113 +16,121 @@
     <main>
 
         <div class="form-caja">
-            <form action="/user/register" method="post" class="formulario">
+            <form action="/user/register" method="post" class="formulario" enctype="multipart/form-data">
                 <h1>REGISTRO</h1>
                 <div class="contenedor">
-                    
                    
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                    <div class="input-contenedor">
-                        <i class="fa-solid fa-user" style="color: #838486;"></i>
-
+                    <div class="
+                   <% if (locals.errors && errors.nombre) { %>
+                        error
+                        <% } else { %>
                         
+                           input-contenedor
+                        <% } %> ">
+                        <i class="fa-solid fa-user icon" style="color: #838486;"></i>
+                        <input class="input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
+                    </div>
 
-                        <input class="input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" required>
-                        <span class="error-message">Ingresa un nombre valido.</span>
+                    <% if (locals.errors && errors.nombre) { %>
+                        <div class="error-message">
+                             <%= errors.nombre.msg %>
+                        </div>
+                    <% } %>
+
+                    <div class="
+                    <% if (locals.errors && errors.apellido) { %>
+                         error
+                         <% } else { %>
+                         
+                            input-contenedor
+                         <% } %> ">
+                        <i class="fa-solid fa-user icon" style="color: #838486;"></i>
+                        <input class="input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" value="<%= locals.oldData ? oldData.apellido : null %>" >
                     </div>
-                    <div class="input-contenedor"> 
-                        <i class="fa-solid fa-user" style="color: #838486;"></i>
-                        <input class="input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" required>
-                        <span class="error-message">Ingresa un apellido valido.</span>
-                    </div>
-                    <div class="input-contenedor">
-                        <i class="fa-solid fa-user" style="color: #838486;"></i>
-                        <input class="input-txt" type="text" name="Usuario" placeholder="Ingrese un Usuario" required>
-                        <span class="error-message">Ingresa un usuario valido.</span>
-                    </div>
-                    <div class="input-contenedor">
-                        <i class="fa-regular fa-envelope icon"></i>
-                        <input class="input-txt" type="email" name="email" placeholder="Ingrese un e-mail" value="email" required>
-                        <span class="error-message">Ingresa una dirección de correo electrónico válida.</span>
-                    </div>
-                    <div class="input-contenedor">
-                        <i class="fa-solid fa-key icon"></i>
-                        <input class="input-txt" type="password" name="password" placeholder="Ingrese una contraseña" required minlength="8">
-                        <span class="error-message">Debe tener 8 carácteres como mínimo.</span>
-                    </div>
-                    <div class="input-contenedor">
-                        <i class="fa-solid fa-key icon"></i>
-                        <input class="input-txt" type="password" name="confirmar-password" placeholder="Confirmar contraseña" required minlength="8">
-                        <span class="error-message">La contraseña no coincide.</span>
-                    </div>
-                    <br>
+
+                    <% if (locals.errors && errors.apellido) { %>
+                        <div class="error-message">
+                             <%= errors.apellido.msg %>
+                        </div>
+                    <% } %>
+
                     
-                    <input  class="input-text"  type="file" id="portada" name="portada" accept=".jpg, .pnj" required>
-                    <br>
-                    <label>
-                    <input class="check" type="checkbox" name="remember" value="remember"> Recordarme </label>
-                    <br>
+
+                    <div class="
+                    <% if (locals.errors && errors.usuario) { %>
+                         error
+                         <% } else { %>
+                         
+                            input-contenedor
+                         <% } %> ">
+                        <i class="fa-solid fa-user icon" style="color: #838486;"></i>
+                        <input class="input-txt" type="text" name="usuario" placeholder="Ingrese un Usuario" value="<%= locals.oldData ? oldData.usuario : null %>" >
+                    </div>
+
+                    <% if (locals.errors && errors.usuario) { %>
+                        <div class="error-message">
+                             <%= errors.usuario.msg %>
+                        </div>
+                    <% } %>
+
+                    <div class="
+                    <% if (locals.errors && errors.email) { %>
+                         error
+                         <% } else { %>
+                         
+                            input-contenedor
+                         <% } %> ">
+                        <i class="fa-regular fa-envelope icon"></i>
+                        <input class="input-txt" type="email" name="email" placeholder="Ingrese un e-mail" value="<%= locals.oldData ? oldData.email : null %>" >
+                    </div>
+
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="error-message">
+                             <%= errors.email.msg %>
+                        </div>
+                    <% } %>
+
+                    <div class="input-contenedor">
+                        <i class="fa-solid fa-key icon"></i>
+                        <input class="input-txt" type="password" name="password" placeholder="Ingrese una contraseña" value="<%= locals.oldData ? oldData.nombre : null %>">
+                        
+                    </div>
+
+                   <!--  <div class="input-contenedor"> -->
+                   <!--      <i class="fa-solid fa-key icon"></i> -->
+                   <!--      <input class="input-txt" type="password" name="confirmar-password" placeholder="Confirmar contraseña" > -->
+                   <!--  </div> -->
+                    
+                    
+                    <div class="
+                    <% if (locals.errors && errors.imgUser) { %>
+                         error
+                         <% } else { %>
+                         
+                            input-contenedor
+                         <% } %> ">
+                        <input  class="input-text"  
+                        type="file"  name="imgUser" accept=".jpg, .png" >
+                    </div>
+
+                    <% if (locals.errors && errors.imgUser) { %>
+                        <div class="error-message">
+                             <%= errors.imgUser.msg %>
+                        </div>
+                    <% } %>
+
+                    
+                    
                     <p><a type="link" href="login" class="link">Ya tengo una cuenta</a></p>
             
                     <input type="submit" value="Registrarme" class="button">
                     <br>
                     
-                    
                 </div>
             </form>
             </div>
-        <!-- <div class="botones">
-            <button  class="btn-1">Ingresar</button>
-            <button class="btn-2">Registro</button>
-        </div>
-        <div class="registro">
-
-            <form action="/login" method="GET">
-                <div>
-                    <label for="usuario">Nombre</label><br>
-                    <input type="text" name="usuario" id="usuario" placeholder="nombre">
-                </div>
-                <br>
-                <div>
-                    <label for="nombre-usuario">usuario</label><br>
-                    <input type="text" name="nombre-usuario" id="nombre-usuario" placeholder="nombre de usuario">
-                </div>
-                <br>
-                <div>
-                    <label for="email">Email</label><br>
-                    <input type="email" name="email" id="email" placeholder="email">
-                </div>
-                <br>
-                <div>
-                    <label for="password">Contraseña</label><br>
-                    <input type="password" name="password" id="password" placeholder="contraseña">
-                </div>
-                <br>
-                <div>
-                    <label for="second-password">Confirmar-Contraseña</label><br>
-                    <input type="password" name="second-password" id="second-password"
-                        placeholder="Confirmar-Contraseña">
-                </div>
-                <br>
-                <div class="condiciones-terminos">
-                    <input type="checkbox" name="terminos">
-                    <label for="terminos">terminos y condiciones</a></label>
-                    <br>
-
-                    <button class="registro-boton">registrarme</button>
-                </div>
-            </form>
-        </div> -->
-
     </main>
+
     <footer>
         <%- include ('../partials/footer') %>
     </footer>

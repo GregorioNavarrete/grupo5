@@ -79,25 +79,21 @@ const productService = {
         let nuevoProducto = req.body; // es porque el PUT viaja de forma privada
         let imagen = req.file;  //esto lo copie del Crear libro, para la imagen
 
+        console.log("\n  antes : " + producto.portada);
+        let borrar = path.join(__dirname, `../../public/img/portadas/${producto.portada}`);
+        fs.unlink(borrar, (err) => {
+        if (err) {
+        console.error(err);
+        return;
+        }
+        console.log("\n  medio : " + producto.portada);
+        });
+
         producto.titulo = nuevoProducto.titulo;
         producto.precio = nuevoProducto.precio;
         producto.genero = nuevoProducto.genero ;
         producto.autor = nuevoProducto.autor;
         producto.Estrellas = nuevoProducto.Estrellas;
-
-        console.log("\n  antes : " + producto.portada);
-        let borrar = path.join(__dirname, `../../public/img/portadas/${producto.portada}`);
-        fs.unlink(borrar, (err) => {
-          if (err) {
-            console.error(err);
-            return;
-          }
-          console.log("\n  medio : " + producto.portada);
-        });
-        
-
-    
-    
         
         producto.descripcion = nuevoProducto.descripcion;
         if (req.file != undefined) {
@@ -115,20 +111,19 @@ const productService = {
     
         fs.writeFileSync(productsFilePath,JSON.stringify(this.products),'utf-8');
     },
-    seach : function(req){
-        //el "req.query" es el objeto que manda el GET 
-        let buscar = req.query.Buscar;
 
-        let buscados =[];
-
-        for(let i=0;i<this.products.length;i++){
-            if (this.products[i].titulo.includes(buscar)){
-                //SI LA PALABRA ESTA CONTENIDA, GUARDARA EL ELEMENTO 
-                buscados.push(this.products[i]);
-            }
+    search: function(req){
+        let allUsers = this.getAll()
+        let searchUsers = req.query.search.toLowerCase();
+        let results = [];
+        for ( let i=0; i < allUsers.length;i++){
+           if(allUsers[i].titulo.toLowerCase().includes(searchUsers) ){
+            results.push(allUsers[i])
+          }
         }
-        return buscados;
-    },
+        return results
+        
+      },
 
     filter : (req, res) => {
         let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -147,24 +142,11 @@ const productService = {
           }
           
         }
-        if(filtrados.length==0){
-          res.render("products/noResult");
-        }
-        else{
-          res.render('products/filtrados',{newObject:filtrados});
-        }
-              //res.send(autores)
-              //res.render('products/filtrados', {newObject: filtrados});
+        
+        return filtrados
         },
         
-        
-        detail:(req, res) => {
-          let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-          let idLibro = req.params.idLibro;
-          let product = products.find(product => product.id == idLibro);
-          res.render('products/productDetail', {product:product})
-        },
-
+    
         catg:(req,res) => {
             let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
             let catg = Object.keys(req.query)[0];
@@ -179,8 +161,7 @@ const productService = {
                 
             }
             
-
-            res.render('products/categoria',{newCatg:newCatg})
+            return newCatg;
         }
     
 

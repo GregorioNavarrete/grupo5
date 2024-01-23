@@ -196,3 +196,67 @@ Meme de final de Sprint: https://www.instagram.com/reel/CzyfmDZt51p/?igshid=MzRl
 
 
 
+# Retro Sprint 4
+
+El sprint 4 fue un sprint en el que innovamos en nuevas formas de trabajo que no salieron como nosotros esperabamos. Al intentar hacer una divicion mas equitativa del trabajo y mas autonoma perdimos de vista el avance de nuestros compañeros, que resulto en codigo repetido y bastante desorden.
+
+Una de las mayores dificultades que tuvimos fue al momento de unificar el codigo individual de cada uno ya que muchas veces no sabiamos que estaba conectado con que, y al realizar el merge todo se prendio de rojo por trabajar tanto tiempo separados sin hacer git push. Eso sumado a que aun no teniamos muy claro la forma correcta de hacer la correcion de conflictos en visual, hizo que mucho de nuestro codigo se perdiera o que dejaran de funcionar muchas cosas que induvidualmente funcionaba correctamente, pero en conjunto presentaba muchas fallas. 
+
+Si bien nos faltaron detalles que pulir dejamos bien plantada la base para que en el proximo sprint podamos corregir esos detalles que quedaron pendientes y avanzar con los nuevos temas.
+
+
+## Dinamica Estrella de Mar
+
+1. Comenzar a hacer.
+
+-> Limpiar el codigo.
+
+-> Avisar cuando realizamos push.
+
+-> Tener Una rama intermedia y subir los cambios importantes cada x tiempo.
+
+-> Preguntar donde se encuentran trabajando los miembros del equipo.
+
+2. Hacer más.
+
+-> Hacer temprano el Trello.
+
+-> Push al menos una vez al dia.
+
+-> Acomodar el codigo.
+
+-> Ser mas descriptivos en el codigo.
+
+3. Continuar haciendo.
+
+-> Ir corrigiendo de a poco las vistas.
+
+-> Ir agregando funcionalidades aunque no sean parte del sprint.
+
+-> Pensar en como resolver problemas o agregar funcionalidades en el futuro.
+
+-> Mantener la estetica, respetando colores, tipografias y patrones.
+
+4. Hacer menos.
+
+-> Trabajo autonomo.
+
+-> Comentar el codigo innecesariamente.
+
+-> Crear ramas que luego no se utilizan.
+
+-> Realizar pruebas en la rama conjunta.
+
+5. Dejar de hacer.
+
+-> Tener codigo repetido.
+
+-> No leer el codigo de los compañero.
+
+-> Faltar a las reuniones.
+
+-> No revisar antes de mandar al main.
+
+
+
+

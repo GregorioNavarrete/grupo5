@@ -1,7 +1,6 @@
 const path = require('path');
-const product = require('../model/productos');
-const producto = require('../model/productos');
 const productService = require('../data/productService');
+const userService = require('../data/userService');
 
 const adminController = {
   formCarga : (req, res) => {
@@ -20,7 +19,7 @@ const adminController = {
   },
 
   search: (req, res)=>{  
-    res.render('admin/FormularioDeCarga',{product : productService.seach(req)})
+    res.render('admin/FormularioDeCarga',{product : productService.search(req)})
     
   },
   store: (req, res)=>{
@@ -32,7 +31,7 @@ const adminController = {
   destroy : (req, res) => {
     // Do the magic
     productService.delete(req.params.id);
-    res.send("El producto fue eliminado con exito");
+    res.redirect("/admin/formCarga");
   },
   edit: (req, res) => {
     // Do the magic
@@ -45,7 +44,24 @@ const adminController = {
     //productService.save(req);
     productService.edit(req);
     res.redirect('/admin/FormCarga');
+  },
+
+  list: (req,res)=>{
+      res.render('admin/userList', {Users : userService.findAll()})
+  },
+
+
+  destroyuser : (req,res) => {
+    let id = req.params.id
+    userService.delete(id);
+    console.log(userService.delete(id));
+    res.redirect('/admin/list');
+  },
+
+  userSearch : (req,res)=>{
+    res.render('users/userResults', {userResults : userService.search(req)} )
   }
+
 }
 
 
