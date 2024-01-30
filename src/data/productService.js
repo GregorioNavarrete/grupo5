@@ -2,7 +2,7 @@
 toda la logica en el "productController" y no ser muy grande
 */
 
-
+const db = require('../model/database/models')
 const fs = require('fs');
 const path = require('path');
 //const upload = require('../middlewares/multer');
@@ -21,9 +21,18 @@ const productService = {
     //es un atributo que tiene todos los productos en un Arrglo de objetos
     products:JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')),
 
-    getAll: function(){
+    /* getAll: function(){
         return this.products;    
+    }, */
+    getAll: async function (){
+        try {
+            return await db.Products.findAll()
+        } catch (error) {
+            console.log(error);
+        }    
     },
+    
+
     save : function(req){
         if (req.file !== undefined) {
             //le paso todo el req al back
