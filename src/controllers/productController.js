@@ -4,9 +4,13 @@ const fs = require('fs');
 
 const productController = {
 
-  index:  (req, res) => {
-
-    res.render('products/index', {product: productService.getAll()});
+  index: async  (req, res) => {
+    try {
+      let libros = await productService.getAll()
+      res.render('products/index', {product: libros});
+    } catch (error) {
+      
+    }
   },
 
      cart:  (req, res) => {
@@ -24,15 +28,13 @@ const productController = {
       all: async function (req, res)  {
         try {
           let libros = await productService.getAll()
+          console.log(libros);
           res.render('products/allProduct', {products : libros})
+          console.log(libros.price);
         } catch (error) {
           
         }
       },
-
-          
-          
-
 
       catg: (req, res) => {
       

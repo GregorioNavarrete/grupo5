@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) =>{
-    let alias = 'Authors';
+    let alias = 'Author';
     let columns = {
         ID_USER : {
             type: DataTypes.INTEGER,
@@ -28,6 +28,16 @@ module.exports = (sequelize, DataTypes) =>{
 
 
    let Author = sequelize.define(alias, columns, config);
+
+   Author.associate = function(models){
+    Author.belongsToMany(models.Product,{
+     as: 'Productos',
+     through:'product_author',
+     foreignKey: 'id_author',
+     otherkey: 'id_product',
+     timertaps: 'false'
+    })
+   }
 
    return Author; 
 

@@ -1,21 +1,21 @@
 module.exports = (sequelize, DataTypes) =>{
-    let alias = 'Comments';
+    let alias = 'Comment';
     let columns = {
-        ID_COMMENT : {
+        id_comment : {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        DESCRIPTION: {
+        description: {
             type: DataTypes.STRING,
             allowNull:false
         },
-        PUBLICATION_DATE: {
+        publication_date: {
             type: DataTypes.DATE,
             allowNull: false
         },
-        STAR: {
+        star: {
             type: DataTypes.INTEGER,
             allowNull: false
         }
@@ -27,6 +27,17 @@ module.exports = (sequelize, DataTypes) =>{
 
 
    let Comment = sequelize.define(alias, columns, config);
+   Comment.associate = function(models){
+   Comment.belongsTo(models.Product,{
+    as: 'Products',
+    foreignKey: 'id_comment'
+   }),
+
+   Comment.belongsTo(models.User,{
+    as: 'Users',
+    foreignKey: 'id_user'
+   })
+   }
 
    return Comment; 
 

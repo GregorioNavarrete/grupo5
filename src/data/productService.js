@@ -26,7 +26,8 @@ const productService = {
     }, */
     getAll: async function (){
         try {
-            return await db.Products.findAll()
+            return await db.Product.findAll()
+            
         } catch (error) {
             console.log(error);
         }    

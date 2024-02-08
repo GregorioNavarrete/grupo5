@@ -1,13 +1,13 @@
 module.exports = (sequelize, DataTypes) =>{
-    let alias = 'Genres';
+    let alias = 'Genre';
     let columns = {
-        ID_GENRE : {
+        id_genre : {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        NAME: {
+        name: {
             type: DataTypes.STRING,
             allowNull:false
         }
@@ -19,6 +19,15 @@ module.exports = (sequelize, DataTypes) =>{
 
 
    let Genre = sequelize.define(alias, columns, config);
+   Genre.associate = function(models){
+   Genre.belongsToMany(models.Product,{
+    as: 'products',
+    through:'product_genre',
+    foreignKey: 'id_genre',
+    otherkey: 'id_product',
+    timertaps: 'false'
+   })
+   }
 
    return Genre; 
 

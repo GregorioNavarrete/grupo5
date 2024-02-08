@@ -1,13 +1,13 @@
 module.exports = (sequelize, DataTypes) =>{
-    let alias = 'Editorials';
+    let alias = 'Editorial';
     let columns = {
-        ID_EDITORIAL : {
+        id_editorial : {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        NAME: {
+        name: {
             type: DataTypes.STRING,
             allowNull:false
         }
@@ -19,6 +19,13 @@ module.exports = (sequelize, DataTypes) =>{
 
 
    let Editorial = sequelize.define(alias, columns, config);
+
+    Editorial.associate = function(models){
+    Editorial.hasMany(models.Product,{
+     as: 'Products',
+     foreignKey: 'id_editorial'
+    })
+    }
 
    return Editorial; 
 

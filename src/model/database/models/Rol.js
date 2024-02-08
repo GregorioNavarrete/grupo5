@@ -1,13 +1,13 @@
 module.exports = (sequelize, DataTypes) =>{
-    let alias = 'Roles';
+    let alias = 'Rol';
     let columns = {
-        ID_ROL : {
+        id_rol : {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        NAME: {
+        name: {
             type: DataTypes.STRING,
             allowNull:false
         }
@@ -19,6 +19,13 @@ module.exports = (sequelize, DataTypes) =>{
 
 
    let Rol = sequelize.define(alias, columns, config);
+
+   Rol.associate = function(models){
+    Rol.hasMany(models.User,{
+     As : 'Users',
+     foreignKey: 'id_rol'
+    })
+   }
 
    return Rol; 
 

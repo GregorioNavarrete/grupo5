@@ -1,14 +1,14 @@
 module.exports = (sequelize, DataTypes) =>{
-    let alias = 'Users';
+    let alias = 'User';
     let columns = {
-        ID_USER : {
+        id_user : {
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             primaryKey: true,
             autoIncrement: true
         },
-        NAME: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             
@@ -43,6 +43,17 @@ module.exports = (sequelize, DataTypes) =>{
 
 
    let User = sequelize.define(alias, columns, config);
+   User.associate = function(models){
+   User.hasMany(models.Comment,{
+    as: 'Comments',
+    foreignKey: 'id_user'
+   }),
+
+   User.belongsTo(models.Rol,{
+    as: 'Rols',
+    foreignKey: 'id_rol'
+   })
+   }
 
    return User; 
 

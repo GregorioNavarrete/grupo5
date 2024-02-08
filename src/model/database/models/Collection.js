@@ -1,13 +1,15 @@
+const Product = require("./Product");
+
 module.exports = (sequelize, DataTypes) =>{
-    let alias = 'Collections';
+    let alias = 'Collection';
     let columns = {
-        ID_COLLECTION : {
+        id_collection : {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        NAME: {
+        name: {
             type: DataTypes.STRING,
             allowNull:false
         }
@@ -19,7 +21,13 @@ module.exports = (sequelize, DataTypes) =>{
 
 
    let Collection = sequelize.define(alias, columns, config);
+   Collection.associate = function(models){
+   Collection.hasMany(models.Product,{
+    as: 'Products',
+    foreignKey: 'id_collection'
+   })
 
+   }
    return Collection; 
 
 }

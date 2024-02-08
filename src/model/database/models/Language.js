@@ -1,13 +1,13 @@
 module.exports = (sequelize, DataTypes) =>{
-    let alias = 'Languages';
+    let alias = 'Language';
     let columns = {
-        ID_LANGUAGE : {
+        id_language : {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        NAME: {
+        name: {
             type: DataTypes.STRING,
             allowNull:false
         }
@@ -19,6 +19,14 @@ module.exports = (sequelize, DataTypes) =>{
 
 
    let Language = sequelize.define(alias, columns, config);
+
+   Language.associate = function(models){
+   Language.hasMany(models.Product,{
+    as: 'Products',
+    foreignKey: 'id_language'
+   })
+
+   }
 
    return Language; 
 
