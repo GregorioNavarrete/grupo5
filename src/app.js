@@ -1,5 +1,3 @@
-
-
 const  express = require('express');
 const session = require('express-session');
 const cookies = require('cookie-parser');
@@ -16,18 +14,20 @@ const path=require('path');
 
 const app=express();//instancia de la aplicación express
 
-//************Seccion de middlewares
+//**Seccion de middlewares
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 //configuramos la secion
 app.use(session({
-	secret: "Shhh, It's a secret",
-	resave: false, 
-	saveUninitialized: false,
+    secret: "Shhh, It's a secret",
+    resave: false, 
+    saveUninitialized: false,
 }));
 
 app.use(cookies());
 app.use(userLoggedMiddleware);
+
+
 
 
 //************

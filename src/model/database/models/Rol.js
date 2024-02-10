@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) =>{
 
    Rol.associate = function(models){
     Rol.hasMany(models.User,{
-     As : 'Users',
+     as : 'Users',
      foreignKey: 'id_rol'
     })
    }

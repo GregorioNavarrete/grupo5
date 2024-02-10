@@ -18,7 +18,7 @@
 	<div class="container" style="margin-top: 40px;">
 		<div class="user-profile">
 			<section class="user-img">
-			<img class="user-avatar" src="/img/users/<%= user.imagen %> ">
+			<img class="user-avatar" src="/img/users/<%= user.image %> ">
 
 			<br>
 
@@ -29,13 +29,13 @@
 
 
 			<section class="user-text">
-				<h2 class="user-titulo">Hi <%= user.nombre %> <%= user.apellido %> </h2>
+				<h2 class="user-titulo">Hi <%= user.name %> <%= user.last_name %> </h2>
 
 			
 				<br>
 				<br>
 				<br>
-				<div class="user-sub">Usuario:<div class="user-email"><%= user.usuario %> </div></div>
+				<div class="user-sub">Usuario:<div class="user-email"><%= user.name_user %> </div></div>
 				<div class="user-sub">Email:<div class="user-email"><%= user.email %> </div></div>	
 				
 				<br><br><br>
@@ -58,7 +58,7 @@
 	<br>
 	<br>
 
-	<% if (locals.isLogged && locals.userLogged.categoria === "admin") { %>
+	<% if (locals.isLogged && locals.userLogged.id_rol === 1) { %>
 	<section class="admin-container">
 		<div class="admin-list">
 

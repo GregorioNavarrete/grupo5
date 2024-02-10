@@ -1,26 +1,32 @@
 const path = require('path');
 const fs = require('fs');
 const bcryptjs = require('bcryptjs');
-
+const db = require('../model/database/models');
+const { log } = require('console');
 
 
 const userService = {
 
    
     
-    fileName : path.join(__dirname,'../data/users.json'), //tomamos el archivo json
+    //fileName : path.join(__dirname,'../data/users.json'), //tomamos el archivo json
 
-    getData : function () {
-        return JSON.parse(fs.readFileSync(this.fileName , 'utf-8')); //este metodo getData devuelve la informacion del archivo json
+    getData : async function () {
+        //return JSON.parse(fs.readFileSync(this.fileName , 'utf-8')); //este metodo getData devuelve la informacion del archivo json
+        try {
+            return await db.User.findAll()
+        } catch (error) {
+            
+        }
 
     },
 
-    getOne: function(id){
-        usuario = this.getData().find((elem)=>elem.id == id);
+     getOne: async function(id){
+        usuario = await  this.getData().find((elem)=>elem.id == id);
         return usuario;
-    },
+    }, 
 
-    generateId: function () { // este metodo incrementa el id al crear un usuario
+    /* generateId: function () { // este metodo incrementa el id al crear un usuario
         let allUsers = this.findAll();
         let lastUser = allUsers.pop();// el metodo pop devuelve el ultimo usuario 
 
@@ -28,42 +34,57 @@ const userService = {
             return lastUser.id +1;
         }
         return 1
-    },
+    }, */
 
-    findAll: function () {
+    /* findAll: function () {
         return this.getData();//hace lo mismo que getData pero este hace mas sentido al nombre
-    },
+    }, */
 
     
-    findByPk: function (id){
-        let allUsers = this.findAll();
-        let userFound = allUsers.find(oneUser => oneUser.id === id ); //este metodo find toma el id del array y lo compara con el id del parametro findByPk, cuando lo encuentra corta la busqueda
-        return userFound;
-    },
-
-    findByField: function (fIeld , text){
-        let allUsers = this.findAll();
-        let userFound = allUsers.find(oneUser => oneUser[fIeld] === text ); //lo que hacemos aqui es comparar si field es igual al texto que le pasamos 
-        return userFound;
-    },
-
-    create : function (req) {
-        let allUsers = this.findAll();
-        let newUser = {
-            id : this.generateId(),
-            categoria : 'usuario',
-            ...req.body,
-            password : bcryptjs.hashSync(req.body.password, 10),
-            imagen : req.file.filename
+    findByPk: async function (id){
+        try {
+            let allUsers = await this.getData() // Aquí se llama a la función
+            let userFound = allUsers.find(oneUser => oneUser.id === id );
+            return userFound;
+        } catch (error) {
+            
         }
-        console.log(newUser.imagen);
-
-        allUsers.push(newUser)
-        fs.writeFileSync(this.fileName, JSON.stringify(allUsers , null , '' ));
-        return newUser;
     },
 
-    search: function(req){
+    findByField: async function (field, text){
+        try {
+            let allUsers = await this.getData() // Aquí se llama a la función
+            
+            let userFound = await allUsers.find(oneUser => oneUser[field] === text );
+            
+            return await userFound;
+        } catch (error) {
+            
+        }
+    },
+
+    create : async function (req) {
+        try {
+            let password = bcryptjs.hashSync(req.body.password, 10)
+            
+            let newUser = await db.User.create({
+                id_fav : 1,
+                id_rol:2,
+                name : req.body.nombre,
+                last_name : req.body.apellido,
+                name_user: req.body.usuario,
+                email: req.body.email,
+                password: password,
+                image: req.file.filename 
+            })
+            //console.log(newUser);
+            return newUser
+        } catch (error) {
+            //console.error(error);
+        }
+    },
+
+    /* search: function(req){
       let allUsers = this.getData()
       let searchUsers = req.query.search.toLowerCase();
       let results = [];
@@ -74,9 +95,9 @@ const userService = {
       }
       return results
       
-    },
+    }, */
   
-   edit: function(req){
+   /* edit: function(req){
 
         let usuario = this.getOne(req.params.id);
         let userToEdit = req.body; 
@@ -102,16 +123,21 @@ const userService = {
         let index = data.findIndex(user => user.id == req.params.id);
         data[index] = usuario;
         fs.writeFileSync(this.fileName, JSON.stringify(data), 'utf-8');
-    },
+    }, */
 
     
-    delete: function (id) {
-        let allUsers = this.findAll();
-        let finalUsers = allUsers.filter(oneUser => oneUser.id != id);
-        fs.writeFileSync(this.fileName, JSON.stringify(finalUsers , null , '' ));
-        console.log(finalUsers);
-        return finalUsers;
-    },
+     delete: async function (id) {
+        try {
+            let allUsers = await this.findAll();
+            let finalUsers = await  allUsers.filter(oneUser => oneUser.id != id);
+            fs.writeFileSync(this.fileName, JSON.stringify(finalUsers , null , '' ));
+            console.log(finalUsers);
+            return finalUsers;
+            
+        } catch (error) {
+            
+        }
+    }, 
 
 }
 
