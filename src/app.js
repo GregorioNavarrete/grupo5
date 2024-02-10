@@ -43,7 +43,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
-  
+
 
 //**********funciones que se ejecutan durante el ciclo de vida de la solicitud
 
@@ -57,6 +57,8 @@ app.use(methodOverride('_method'));
  // para cualquier solicitud que llegue a la raíz del sitio web ('/').
 app.use('/', indexRouter);
 
-
+app.use((req,res,next)=>{
+	res.status(404).render('admin/error404');
+})
 //se exportaba ???
 //module.exports = app; 
