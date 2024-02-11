@@ -20,6 +20,6 @@ router.get('/catg',productController.indexCatg);
 
 router.get("/search", productController.productSearch)
 
-
+router.get('/autor/:id', productController.author);
 
 module.exports = router;

@@ -61,8 +61,12 @@ const productController = {
       productSearch : (req,res) => {
 
         res.render("products/searchProducts", {productResult : productService.search(req), products : productService.getAll()} )
-      }
+      },
 
+      author:  (req, res) => {
+        let htmlPath = path.resolve(__dirname,'../views/products/authors.ejs') ;
+        res.render(htmlPath);
+      } //ignorar esto es temporar para poder ver la vista de autores
 
 
     }
