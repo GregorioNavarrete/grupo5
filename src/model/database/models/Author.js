@@ -1,22 +1,22 @@
 module.exports = (sequelize, DataTypes) =>{
     let alias = 'Author';
     let columns = {
-        ID_USER : {
+        id_author: {
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             primaryKey: true,
             autoIncrement: true
         },
-        NAME: {
+        name : {
             type: DataTypes.STRING,
             
         },
-        BIOGRAPHY: {
+        biography: {
             type: DataTypes.STRING,
            
         },
-        IMAGE: {
+        image: {
             type: DataTypes.STRING,
             
         }

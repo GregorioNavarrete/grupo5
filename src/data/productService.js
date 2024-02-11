@@ -172,7 +172,19 @@ const productService = {
             }
             
             return newCatg;
-        }
+        },
+        authors: async (id) => {
+            try {
+             return await db.Author.findByPk(id/* ,{
+                include : [{association : 'Productos'}]
+            } */)
+            
+            } catch (error) {
+                
+            }
+            
+                
+        },
     
 
 }

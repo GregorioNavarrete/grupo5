@@ -29,7 +29,7 @@
                 <img class="img-nav-icon" src="/img/users/<%= locals.userLogged.image %>">
               </a>
             </div>
-              <% if (locals.userLogged.categoria === "admin") { %>
+              <% if (locals.userLogged.id_rol === 1) { %>
                 <!--locals.userLogged  es el campo que nos da el session -->
                 <div>
               <a class="nav_icon" href="/admin/formCarga" class="nav_link">
