@@ -1,15 +1,15 @@
-module.exports = (sequelize, DataTypes) =>{
+module.exports = (sequelize, DataTypes) => {
     let alias = 'Genre';
     let columns = {
         id_genre : {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
         name: {
             type: DataTypes.STRING,
-            allowNull:false
+            allowNull: false
         }
     }
     let config = {
@@ -24,8 +24,8 @@ module.exports = (sequelize, DataTypes) =>{
     as: 'products',
     through:'product_genre',
     foreignKey: 'id_genre',
-    otherkey: 'id_product',
-    timertaps: 'false'
+    otherKey: 'id_product',
+    timestamps: false
    })
    }
 

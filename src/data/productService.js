@@ -175,9 +175,9 @@ const productService = {
         },
         authors: async (id) => {
             try {
-             return await db.Author.findByPk(id/* ,{
+             return await db.Author.findByPk(id,{
                 include : [{association : 'Productos'}]
-            } */)
+            })
             
             } catch (error) {
                 

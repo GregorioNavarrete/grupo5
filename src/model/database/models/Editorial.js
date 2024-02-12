@@ -1,15 +1,15 @@
-module.exports = (sequelize, DataTypes) =>{
+module.exports = (sequelize, DataTypes) => {
     let alias = 'Editorial';
     let columns = {
         id_editorial : {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
         name: {
             type: DataTypes.STRING,
-            allowNull:false
+            allowNull: false
         }
     }
     let config = {

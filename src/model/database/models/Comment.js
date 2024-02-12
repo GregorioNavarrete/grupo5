@@ -1,22 +1,22 @@
-module.exports = (sequelize, DataTypes) =>{
+module.exports = (sequelize, DataTypes) => {
     let alias = 'Comment';
     let columns = {
         id_comment : {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
         description: {
-            type: DataTypes.STRING,
-            allowNull:false
+            type: DataTypes.TEXT,
+            allowNull: false
         },
         publication_date: {
             type: DataTypes.DATE,
             allowNull: false
         },
         star: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.TINYINT,
             allowNull: false
         }
     }

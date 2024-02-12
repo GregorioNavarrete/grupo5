@@ -20,6 +20,11 @@
 </section>
 
 <h2 class="author-titulo">Más Títulos de </h2>
+<ul>
+    <% autor.Productos.forEach(producto => { %>
+        <li><%= producto.title %> - <%= producto.description %></li>
+    <% }) %>
+</ul>
 
 
 

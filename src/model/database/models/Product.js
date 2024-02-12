@@ -1,8 +1,8 @@
-module.exports = (sequelize, DataTypes) =>{
+module.exports = (sequelize, DataTypes) => {
     let alias = 'Product';
     let columns = {
         id_product : {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
@@ -13,10 +13,10 @@ module.exports = (sequelize, DataTypes) =>{
         },
         subtitle: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         price: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: false
         },
         image:{
@@ -24,25 +24,23 @@ module.exports = (sequelize, DataTypes) =>{
             allowNull: false
         },
         description: { 
-            type : DataTypes.INTEGER 
+            type : DataTypes.TEXT 
         },
         
         pages:{
-            type: DataTypes.INTEGER
+            type: DataTypes.SMALLINT
         },
         edition:{
-            type: DataTypes.INTEGER
+            type: DataTypes.SMALLINT
         },
         stock:{
-            type: DataTypes.INTEGER
+            type: DataTypes.SMALLINT
         },
         discount: {
-            type: DataTypes.INTEGER
-
+            type: DataTypes.BIGINT
         },
         created: {
             type: DataTypes.DATE,
-
         },
         updated:{
             type: DataTypes.DATE
@@ -61,24 +59,24 @@ module.exports = (sequelize, DataTypes) =>{
      as: 'authors',
      through:'product_author',
      foreignKey: 'id_product',
-     otherkey: 'id_author',
-     timertaps: 'false'
+     otherKey: 'id_author',
+     timestamps: false
     }),
 
     Product.belongsToMany(models.Support,{
         as: 'Formats',
         through:'product_support',
         foreignKey: 'id_product',
-        otherkey: 'id_support',
-        timertaps: 'false'
+        otherKey: 'id_support',
+        timestamps: false
        }),
 
        Product.belongsToMany(models.Genre,{
         as: 'Genres',
         through:'product_genre',
         foreignKey: 'id_product',
-        otherkey: 'id_genre',
-        timertaps: 'false'
+        otherKey: 'id_genre',
+        timestamps: false
        }),
 
        Product.belongsTo(models.Collection,{

@@ -1,8 +1,8 @@
-module.exports = (sequelize, DataTypes) =>{
+module.exports = (sequelize, DataTypes) => {
     let alias = 'Author';
     let columns = {
         id_author: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: false,
             unique: true,
             primaryKey: true,
@@ -10,15 +10,15 @@ module.exports = (sequelize, DataTypes) =>{
         },
         name : {
             type: DataTypes.STRING,
-            
+            allowNull: false
         },
         biography: {
             type: DataTypes.STRING,
-           
+            allowNull: false
         },
         image: {
             type: DataTypes.STRING,
-            
+            allowNull: false
         }
     }
     let config = {
@@ -34,8 +34,8 @@ module.exports = (sequelize, DataTypes) =>{
      as: 'Productos',
      through:'product_author',
      foreignKey: 'id_author',
-     otherkey: 'id_product',
-     timertaps: 'false'
+     otherKey: 'id_product',
+     timestamps: false
     })
    }
 
