@@ -22,8 +22,14 @@ const userService = {
     },
 
      getOne: async function(id){
-        usuario = await  this.getData().find((elem)=>elem.id == id);
-        return usuario;
+        try {
+             usuario = await db.User.findByPk(id) //this.getData().find((elem)=>elem.id == id);
+             return await usuario;
+            
+        } catch (error) {
+            
+        }
+        
     }, 
 
     /* generateId: function () { // este metodo incrementa el id al crear un usuario
@@ -42,6 +48,7 @@ const userService = {
 
     
     findByPk: async function (id){
+
         try {
             let allUsers = await this.getData() // Aquí se llama a la función
             let userFound = allUsers.find(oneUser => oneUser.id === id );
@@ -97,13 +104,30 @@ const userService = {
       
     }, */
   
-   /* edit: function(req){
+    edit: async function(req){
 
-        let usuario = this.getOne(req.params.id);
-        let userToEdit = req.body; 
+        try {
+            await db.User.update({
+                name : req.body.nombre,
+                last_name : req.body.apellido,
+                name_user: req.body.usuario,
+                email: req.body.email,
+                image: req.file.filename 
+            },{where:{id_user:req.params.id}})
+    
+            let userToEdit = await db.User.findOne({where: {id_user: req.params.id}});
+            return userToEdit;
+        } catch (error) {
+            console.log(error);
+            throw error; 
+        }
+    },
+
+        /* let usuario = this.getOne(req.params.id);
+        let userToEdit = req.body; */ 
 
         //borra la imagen anterior
-        let borrar = path.join(__dirname, `../../public/img/users/${usuario.imagen}`);
+        /* let borrar = path.join(__dirname, `../../public/img/users/${usuario.imagen}`);
         fs.unlink(borrar, (err) => {
         if (err) {
         console.error(err);
@@ -122,20 +146,21 @@ const userService = {
         let data = this.getData();
         let index = data.findIndex(user => user.id == req.params.id);
         data[index] = usuario;
-        fs.writeFileSync(this.fileName, JSON.stringify(data), 'utf-8');
-    }, */
+        fs.writeFileSync(this.fileName, JSON.stringify(data), 'utf-8'); */
+     
 
     
      delete: async function (id) {
         try {
-            let allUsers = await this.findAll();
-            let finalUsers = await  allUsers.filter(oneUser => oneUser.id != id);
-            fs.writeFileSync(this.fileName, JSON.stringify(finalUsers , null , '' ));
-            console.log(finalUsers);
-            return finalUsers;
+             return await db.User.destroy({
+                where:{
+                    id_user: id
+                }
+            })
+
             
         } catch (error) {
-            
+            console.log(error)
         }
     }, 
 

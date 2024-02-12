@@ -19,10 +19,12 @@
 	<div class="container" style="margin-top: 40px;">
 		<div class="user-profile">
 			<section class="user-img">
+				
 				<a class="user-img-a" href="/user/profile"><img class="user-avatar" src="/img/users/<%= user.image %> "></a>
+					
 
-
-			<form action="/user/profile/<%=user.id%>/edit?_method=DELETE"  method="post" class="user-btn-edit-conte">
+			<form action="/user/profile/<%=user.id_user%>/edit?_method=DELETE"  method="post" class="user-btn-edit-conte">
+				
 				<button class="user-btn-edit">Borrar Perfil</button>
 			</form>
 
@@ -40,22 +42,22 @@
 
 
 		
-                <form class="user-form-edit" action="/user/profile/<%=user.id%>/edit" method="POST" enctype="multipart/form-data">
+                <form class="user-form-edit" action="/user/profile/<%=user.id_user%>/edit" method="POST" enctype="multipart/form-data">
 
 					<div class="user-input">
                         <div class="user-sub-input">Nombre</div>
-                        <input class="user-input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= user.nombre %>">
+                        <input class="user-input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= user.name %>">
                     </div>
 
                     <div class="user-input"> 
                         <div class="user-sub-input">Apellido</div>
-                        <input class="user-input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" value="<%= user.apellido %>" >
+                        <input class="user-input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" value="<%= user.last_name %>" >
                         <!-- <span class="error-message">Ingresa un apellido valido.</span> -->
                     </div>
 
                     <div class="user-input">
                         <div class="user-sub-input">Usuario</div>
-                        <input class="user-input-txt" type="text" name="usuario" placeholder="Ingrese un Usuario" value="<%= user.usuario %>" >
+                        <input class="user-input-txt" type="text" name="usuario" placeholder="Ingrese un Usuario" value="<%= user.name_user %>" >
                         <!-- <span class="error-message">Ingresa un usuario valido.</span> -->
                     </div>
 

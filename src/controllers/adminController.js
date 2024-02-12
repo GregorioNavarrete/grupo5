@@ -1,6 +1,7 @@
 const path = require('path');
 const productService = require('../data/productService');
 const userService = require('../data/userService');
+const db = require('../model/database/models');
 
 const adminController = {
   formCarga : (req, res) => {
@@ -46,16 +47,30 @@ const adminController = {
     res.redirect('/admin/FormCarga');
   },
 
-  list: (req,res)=>{
-      res.render('admin/userList', {Users : userService.findAll()})
+  list:async (req,res)=>{
+    try {
+      let users = await userService.getData()
+      res.render('admin/userList', {Users : users})
+      console.log('hola')
+      console.log(users)
+
+    } catch (error) {
+      
+    }
   },
 
 
-  destroyuser : (req,res) => {
-    let id = req.params.id
-    userService.delete(id);
-    console.log(userService.delete(id));
-    res.redirect('/admin/list');
+  destroyuser : async (req,res) => {
+    try {
+      let id = await req.params.id
+     await userService.delete(id);
+     console.log("usuario eliminado")
+      console.log(userService.delete(id));
+      await res.redirect('/admin/list');
+      
+    } catch (error) {
+      
+    }
   },
 
   userSearch : (req,res)=>{

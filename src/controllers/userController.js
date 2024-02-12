@@ -51,21 +51,27 @@ const userController = {
        }
     },             
 
-    update: (req, res) => {
-      userService.edit(req);
-      res.redirect('../');
-    },
+    update: async (req, res) => {
+      try {
+          let userEdit = await userService.edit(req);
+          await res.redirect('/user/profile',{user:userEdit} );
+          console.log(userEdit) 
+      } catch (error) {
+          console.error(error); // Esto imprimirá el error en tu consola
+          res.status(500).send({error: 'Hubo un error al actualizar el usuario'}); // Esto enviará una respuesta con un mensaje de error
+      }
+  },
 
 
     edit: async (req, res) => {
       try {
         
-        let id = await req.params.id;
+        let id =  req.params.id;
         let user = await userService.getOne(id)
         res.render('users/userEdit', {user : user });
         console.log(user)
       } catch (error) {
-        
+        console.log(error)
       }
      },
 
@@ -137,11 +143,16 @@ const userController = {
       }
     },
     
-     destroyuser : (req,res) => {
-      let id = req.params.id
-      userService.delete(id);
-      console.log(userService.delete(id));
-      res.redirect('/');
+     destroyuser :async (req,res) => {
+      try {
+        let id = req.params.id
+        await userService.delete(id);
+        console.log(userService.delete(id));
+        await res.redirect('/');
+        
+      } catch (error) {
+        console.log(error)
+      }
     }
    
 }
