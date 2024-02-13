@@ -67,12 +67,9 @@ const productController = {
         try {
           let autor = await productService.authors(req.params.id)
           res.render('products/authors', {autor : autor})
-                console.log('hola');
-                console.log(autor);
-        } catch (error) {
-          
+        } catch (error) {    
         }
-      } //ignorar esto es temporar para poder ver la vista de autores
+      }
 
 
     }
