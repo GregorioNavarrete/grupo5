@@ -18,11 +18,16 @@ const productController = {
         res.render(htmlPath);
       },
 
-      getOne : (req, res) => {
+      getOne :async  (req, res) => {
+        try {
+          let id = req.params.id
+          let libros = await productService.getAll()
+          let libro = await productService.getOne(id)
+          res.render('products/productDetail',{producto : libro,product: libros });
+        } catch (error) {
+          
+        }
 
-        res.render('products/productDetail',{producto : productService.getOne(req.params.id),product: productService.getAll()});
-        //let htmlPath = path.resolve(__dirname,'../views/products/productDetail.ejs') ;
-        //res.render(htmlPath);
       },
       //esto hay que repetirlo donde requiera todos los libros osea el objto product(utilizamos try catch para todo)
       all: async function (req, res)  {

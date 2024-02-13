@@ -74,9 +74,17 @@ const productService = {
         }
     },
 
-    getOne: function(id){
-        product = this.products.find((elem)=>elem.id == id);
-            return product;
+    getOne: async  function(id){
+        try {
+            return await db.Product.findByPk(id,{
+                include : [{association : 'Editorials'},
+                {association : 'Collections'},
+                {association : 'Languages'},
+                {association : 'Genres'}]
+            })
+        } catch (error) {
+            
+        }
     },
 
     delete: function(id){

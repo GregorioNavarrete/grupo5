@@ -15,37 +15,37 @@
     <section class="section1">
         <article class="ocultar_2">
             <div>
-            <h2 class="det-art-cont-titulo"><%= producto.titulo %> <%=producto.subtitulo %></h2>
-            <h2 class="det-art-subtitulo"><%= producto.autor%></h2>
+            <h2 class="det-art-cont-titulo"><%= producto.title %> <%=producto.subtitle %></h2>
+            <h2 class="det-art-subtitulo"><%= producto.author%></h2>
             <div class="det-art-cont-estrellas "><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
             </div>
 
-            <% if (locals.isLogged && locals.userLogged.categoria === "admin") { %>
-		    <a href="../../admin/formCarga/<%=producto.id%>/edit" class="det-art-btn-edit-a">
+            <% if (locals.isLogged && locals.userLogged.id_rol === 1) { %>
+		    <a href="../../admin/formCarga/<%=producto.id_product%>/edit" class="det-art-btn-edit-a">
                 <button class="det-art-btn-edit">Editar</button>
             </a>
                 <% } %>
             
         </article>
         <div class="cont_img1">
-            <img class="det-art-img_1" src="/img/portadas/<%=(producto.portada !== 0 && producto.portada !== undefined) ? producto.portada : 'default-image.png'%>" alt="lugar de la imagen del producto">
+            <img class="det-art-img_1" src="/img/portadas/<%=(producto.image !== 0 && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alt="lugar de la imagen del producto">
         </div>
 
 
         <article class="det-art-conte-desc">
-            <p class="det-art-texto"><%= producto.descripcion %></p>
+            <p class="det-art-texto"><%= producto.description %></p>
         </article>
 
         
 
         <article class="det-art-detalles-precio">
             <div class="det-art-info">
-                    <p class="det-art-info-item">Genero : <%= producto.genero %></p>
-                    <p class="det-art-info-item">Editorial : <%= producto.editorial %></p>
-                    <p class="det-art-info-item">Cantidad de Paginas : <%= producto.paginas %></p>
-                    <p class="det-art-info-item">Idioma : <%= producto.idioma %></p>
-                    <p class="det-art-info-item">Año de edicion : <%= producto.año_edicion %></p>
-                    <p class="det-art-info-item">Formato : <%= producto.formato %></p>
+                    <p class="det-art-info-item">Genero : <%= producto.Genres.name %></p>
+                    <p class="det-art-info-item">Editorial : <%= producto.Editorials.name %></p>
+                    <p class="det-art-info-item">Cantidad de Paginas : <%= producto.pages %></p>
+                    <p class="det-art-info-item">Idioma : <%= producto.Languages.name %></p>
+                    <p class="det-art-info-item">Año de edicion : <%= producto.edition %></p>
+                    <p class="det-art-info-item">Formato : <%= producto.Collections.name %></p>
                     <p class="det-art-info-item">Etiqueta : <%= producto.etiqueta %></p>
             </div>
             

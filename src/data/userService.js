@@ -105,7 +105,6 @@ const userService = {
     }, */
   
     edit: async function(req){
-
         try {
             await db.User.update({
                 name : req.body.nombre,
@@ -116,13 +115,13 @@ const userService = {
             },{where:{id_user:req.params.id}})
     
             let userToEdit = await db.User.findOne({where: {id_user: req.params.id}});
+            req.session.user = userToEdit; // Actualiza el usuario en la sesión
             return userToEdit;
         } catch (error) {
             console.log(error);
-            throw error; 
+            throw error; // Esto permitirá que el error se maneje en tu controlador
         }
     },
-
         /* let usuario = this.getOne(req.params.id);
         let userToEdit = req.body; */ 
 

@@ -49,12 +49,20 @@ const userController = {
        } catch (error) {
         
        }
-    },             
+    },
+    
+    profile: (req, res) => {
+      //vemos que mostramos una vista con los valores que hay en las "secion " (coki)
+      //console.log(req.session.userLogged);
+      return res.render('users/userProfile', {
+        user: userService.getOne(id)
+      });
+    },
 
     update: async (req, res) => {
       try {
           let userEdit = await userService.edit(req);
-          await res.redirect('/user/profile',{user:userEdit} );
+          await res.redirect('../../../');
           console.log(userEdit) 
       } catch (error) {
           console.error(error); // Esto imprimirá el error en tu consola
@@ -68,6 +76,9 @@ const userController = {
         
         let id =  req.params.id;
         let user = await userService.getOne(id)
+        /* let user = await req.session.userLogged */
+        console.log('hola');
+        console.log(user);
         res.render('users/userEdit', {user : user });
         console.log(user)
       } catch (error) {
@@ -126,13 +137,7 @@ const userController = {
       }
 
     },
-    profile: (req, res) => {
-      //vemos que mostramos una vista con los valores que hay en las "secion " (coki)
-      //console.log(req.session.userLogged);
-      return res.render('users/userProfile', {
-        user: req.session.userLogged
-      });
-    },
+    
     logout: async (req, res) => {
       try {
         res.clearCookie('userEmail');//para destruir la cookie
