@@ -1,10 +1,12 @@
 <% product.forEach(producto => { %>
 <article class="articulo">
-    <a href="../../product/libro/<%=producto.id%>"><img class="img-articulo" src="/img/portadas/<%=(producto.portada !== 0 && producto.portada !== undefined) ? producto.portada : 'default-image.png'%>" alf="<%=producto.titulo%>"> </a> 
+    <a href="../../product/libro/<%=producto.id_product%>"><img class="img-articulo" src="/img/portadas/<%=(producto.image !== 0 && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alf="<%=producto.titulo%>"> </a> 
     <div class="desc-articulo">
-    <a href="../../product/libro/<%=producto.id%>"><p class="prodc-titulo"><%=producto.title%></p></a>
+    <a href="../../product/libro/<%=producto.id_product%>"><p class="prodc-titulo"><%=producto.title%></p></a>
     <p class="prodc-autor"><%=producto.author%></p>
     <div class="iconPrecioArt">
+
+        <!-- al boton le tendria que agregar para pasar los datos a la tabla de carrito de compras  -->
     <a class="icon-articulo" href="../../product/cart" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
     <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo"><%=producto.price%></p></div></div>
     </div>

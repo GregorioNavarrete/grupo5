@@ -13,20 +13,25 @@ module.exports = (sequelize, DataTypes) =>{
         }
     }
     let config = {
-        tableName: 'support',
+        tableName: 'SUPPORT',
         timestamps: false
     }
 
 
    let Support = sequelize.define(alias, columns, config);
    Support.associate = function(models){
-   Support.belongsToMany(models.Product,{
-    as: 'products',
-    through:'product_support',
-    foreignKey: 'id_support',
-    otherkey: 'id_product',
-    timertaps: 'false'
-   })
+//    Support.belongsToMany(models.Product,{
+//     as: 'products',
+//     through:'product_support',
+//     foreignKey: 'id_support',
+//     otherkey: 'id_product',
+//     timestamps: 'false'
+//    })
+        Support.hasMany(models.Product,{
+            as: 'Products',
+            foreignKey: 'ID_SUPPORT'
+        })
+
     }
 
    return Support; 

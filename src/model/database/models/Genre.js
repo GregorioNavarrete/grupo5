@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) =>{
     through:'product_genre',
     foreignKey: 'id_genre',
     otherkey: 'id_product',
-    timertaps: 'false'
+    timestamps: false
    })
    }
 

@@ -22,9 +22,9 @@ module.exports = (sequelize, DataTypes) =>{
 
    let Collection = sequelize.define(alias, columns, config);
    Collection.associate = function(models){
-   Collection.hasMany(models.Product,{
-    as: 'Products',
-    foreignKey: 'id_collection'
+    Collection.hasMany(models.Product,{
+        as: 'Products',
+        foreignKey: 'id_collection'
    })
 
    }

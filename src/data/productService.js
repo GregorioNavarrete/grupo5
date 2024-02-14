@@ -19,17 +19,31 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 const productService = {
 
     //es un atributo que tiene todos los productos en un Arrglo de objetos
-    products:JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')),
+    products:JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')), //simplemente puedo usar el GetAll()para consultar a la BDs
+    
 
     /* getAll: function(){
         return this.products;    
     }, */
     getAll: async function (){
         try {
-            return await db.Product.findAll()
+            let products = await db.Product.findAll({
+                include: [
+                    { association: "Languages" },
+                    { association: "Editorials" },
+                    { association: "Collections" },
+                    { association: "authors" },
+                    { association: "Genres" },
+                    { association: "Supports" }
+                ]
+            });
+           console.log(products);
+            return products;
             
         } catch (error) {
-            console.log(error);
+            //para q al menos no se rompa la vista
+            //mandar un mensaje de error
+            return [];
         }    
     },
     
@@ -74,9 +88,34 @@ const productService = {
         }
     },
 
-    getOne: function(id){
-        product = this.products.find((elem)=>elem.id == id);
+    getOne: async function (id){
+        try {
+            let products = await db.Product.findAll({
+                include: [
+                    { association: "Languages" },
+                    { association: "Editorials" },
+                    { association: "Collections" },
+                    { association: "authors" },
+                    { association: "Genres" },
+                    { association: "Supports" }
+                ]
+            });
+           //console.log(products.Supports);
+           product = products.find((elem)=>elem.id_product == id);
+
+           if(!product){
+                // si el no se encuantra el "id" en el arreglo, lo entrgamos bacio al obj
+                console.log("id invalido");
+                product = {};
+           }
             return product;
+            
+        } catch (error) {
+            //para q al menos no se rompa la vista
+            //mandar un mensaje de error
+            console.log(error);
+            return [];
+        }    
     },
 
     delete: function(id){
@@ -135,46 +174,118 @@ const productService = {
         
       },
 
-    filter : (req, res) => {
-        let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let generos = req.query.genero;
-        let autores = req.query.autor;
-        let formato = req.query.formato;
-        let editorial = req.query.editoriales; 
+    filter : async  (req, res) => {
+            try{
+                let products = await db.Product.findAll({
+                    include: [
+                        { association: "Languages" },
+                        { association: "Editorials" },
+                        { association: "Collections" },
+                        { association: "authors" },
+                        { association: "Genres" },
+                        { association: "Supports" }
+                    ]
+                });
+                let generos = req.query.genero;
+                let autores = req.query.autor;
+                let formato = req.query.formato;
+                let editorial = req.query.editoriales; 
 
-        let filtrados=[];
-        
-    
-        for(let i=0; i < products.length;i++ ){
-          if(products[i].genero == generos   || products[i].autor == autores || products[i].formato == formato || products[i].editorial == editorial ){
-                filtrados.push(products[i]);
+                let filtrados=[];
+               console.log(products);
+            
+                for(let i=0; i < products.length;i++ ){
+                    //Genres y authors son arreglos, hay que recorrerlos y luego ir a la condicion
+                    if(products[i].genero == generos   || products[i].autor == autores || products[i].formato == formato || products[i].editorial == editorial ){
+                            filtrados.push(products[i]);
+                            
+                    }
                 
-          }
-          
-        }
-        
-        return filtrados
-        },
-        
-    
-        catg:(req,res) => {
-            let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-            let catg = Object.keys(req.query)[0];
-            
-            
-            let newCatg=[];
-
-            for(let i=0; i < products.length; i++){
-                if(products[i].genero.includes(catg)){
-                   newCatg.push(products[i])
                 }
                 
+                return filtrados
+            }catch(error){
+                console.log(error);
+                return [];
             }
+        },
+        
+        catg: async function (req){
+            try {
+                let products = await db.Product.findAll({
+                    include: [
+                        { association: "Languages" },
+                        { association: "Editorials" },
+                        { association: "Collections" },
+                        { association: "authors" },
+                        { association: "Genres" },
+                        { association: "Supports" }
+                    ]
+                });
+                let catg = Object.keys(req.query)[0];  
+                let newCatg=[];
+                for(let i=0; i < products.length; i++){
+                    for(let j=0; j < products[i].Genres.length; j++){
+                        if(products[i].Genres[j].name === catg ){
+                            newCatg.push(products[i]);
+                        }                        
+                    }
+
+                    
+                }
+               
+                return newCatg;
+
             
-            return newCatg;
+            } catch (error) {
+                //para q al menos no se rompa la vista
+                //mandar un mensaje de error
+                console.log(error);
+                return [];
+            }  
+        },
+        findGenre: async function (id){
+            //no lo llama nadie 
+            try {
+                let product_genre = await db.Product.findAll();
+               
+               product = products.find((elem)=>elem.id_product == id);
+    
+               if(!product){
+                    // si el no se encuantra el "id" en el arreglo, lo entrgamos bacio al obj
+                    console.log("id invalido");
+                    product = {};
+               }
+                return product;
+                
+            } catch (error) {
+                //para q al menos no se rompa la vista
+                //mandar un mensaje de error
+                
+                return [];
+            }    
         }
     
 
 }
 
 module.exports = productService;
+
+
+
+
+//para ver que regresa cada funcion del Service que voy configurando 
+//$ node src/data/productService.js 
+// la consulta tiene que ser asincrona, ya q las funciones son asincrenas y 
+//con solo "console.log(), decia pendiente y no esperaba la respuesta"
+
+// async function aux(){
+//     try {
+//         let aux = await productService.filter(req);
+//         console.log(aux);
+        
+//     } catch (error) {
+//         console.log(error);
+//     }}
+
+// aux();

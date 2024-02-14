@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) =>{
         },
         subtitle: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         price: {
             type: DataTypes.INTEGER,
@@ -24,28 +24,35 @@ module.exports = (sequelize, DataTypes) =>{
             allowNull: false
         },
         description: { 
-            type : DataTypes.INTEGER 
+            type : DataTypes.TEXT,
+            allowNull: false
         },
         
         pages:{
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         edition:{
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         stock:{
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         discount: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: true
 
         },
         created: {
             type: DataTypes.DATE,
+            allowNull: false
 
         },
         updated:{
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
+            allowNull: false
         }
     }
     let config = {
@@ -61,16 +68,19 @@ module.exports = (sequelize, DataTypes) =>{
      as: 'authors',
      through:'product_author',
      foreignKey: 'id_product',
-     otherkey: 'id_author',
-     timertaps: 'false'
+     otherKey: 'id_author'
     }),
 
-    Product.belongsToMany(models.Support,{
-        as: 'Formats',
-        through:'product_support',
-        foreignKey: 'id_product',
-        otherkey: 'id_support',
-        timertaps: 'false'
+    // Product.belongsToMany(models.Support,{
+    //     as: 'Formats',
+    //     through:'product_support',
+    //     foreignKey: 'id_product',
+    //     otherkey: 'id_support',
+    //     timestamps: 'false'
+    //    }),
+    Product.belongsTo(models.Support,{
+        as: 'Supports',
+        foreignKey: 'ID_SUPPORT'
        }),
 
        Product.belongsToMany(models.Genre,{
@@ -78,7 +88,7 @@ module.exports = (sequelize, DataTypes) =>{
         through:'product_genre',
         foreignKey: 'id_product',
         otherkey: 'id_genre',
-        timertaps: 'false'
+        timestamps: 'false'
        }),
 
        Product.belongsTo(models.Collection,{

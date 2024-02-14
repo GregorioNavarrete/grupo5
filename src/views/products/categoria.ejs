@@ -10,19 +10,28 @@
     <header>
         <%- include ('../partials/header') %>  
     </header><br>
-
-<h2><%= newCatg[0].genero %></h2>
+    
+<h2><%= newCatg[0].Genres[0].name %></h2>
 
 <div class="caja-centrar">
     <section class="caja-resultados">
             <% newCatg.forEach(product => { %>
         <article class="articulo">
-            <a href="../product/libro/<%=product.id %>"> <img class="img-articulo" src="/img/portadas/<%=(product.portada !== 0 && product.portada !== undefined) ? product.portada : 'default-image.png'%>" alt="imagen de producto" alf="Defiant" ></a>
+            <a href="../product/libro/<%=product.id_product %>">
+                 <img class="img-articulo" src="/img/portadas/<%=(product.image !== 0 && product.image !== undefined) ? product.image : 'default-image.png'%>" alt="imagen de producto" alf="Defiant" >
+            </a>
             <div class="desc-articulo">
-            <a href="../product/libro/<%=product.id %>"><p class="prodc-titulo"><%= product.titulo %></p></a>
-            <p class="prodc-autor"><%= product.autor %></p>
+            <a href="../product/libro/<%=product.id_product %>">
+                <p class="prodc-titulo"><%= product.title %></p>
+            </a>
+            <p class="prodc-autor">
+                <% for(let i=0; i<product.authors.length; i++){ %>
+                    <%=product.authors[i].name %> 
+                    <br>
+                <% } %>
+                </p>
             <a class="icon-articulo" href="../product/cart" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
-             <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo"><%= product.precio %></p></div>
+             <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo"><%= product.price %></p></div>
             </div>
         </article>
         <% }) %>
@@ -36,12 +45,19 @@
         <section class="caja-resultados">
                 <% products.forEach(product => { %>
             <article class="articulo">
-                <img class="img-articulo" src="/img/portadas/<%=(product.portada !== 0 && product.portada !== undefined) ? product.portada : 'default-image.png'%>" alt="imagen de producto" alf="Defiant" href="../product/libro/<%=product.id %>">
+                <a href="../product/libro/<%=product.id_product %>">
+                    <img class="img-articulo" src="/img/portadas/<%=(product.image !== 0 && product.image !== undefined) ? product.image : 'default-image.png'%>" alt="imagen de producto" alf="Defiant" href="../product/libro/<%=product.id %>">
+                </a>
                 <div class="desc-articulo">
-                <a href="../product/libro/<%=product.id %>"><p class="prodc-titulo"><%= product.titulo %></p></a>
-                <p class="prodc-autor"><%= product.autor %></p>
+                <a href="../product/libro/<%=product.id_product %>"><p class="prodc-titulo"><%= product.title %></p></a>
+                <p class="prodc-autor">
+                    <% for(let i=0; i < product.authors.length ; i++){ %>
+                        <%=product.authors[i].name %> 
+                        <br>
+                    <% } %>
+                    </p>
                 <a class="icon-articulo" href="../product/cart" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
-                 <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo"><%= product.precio %></p></div>
+                 <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo"><%= product.price %></p></div>
                 </div>
             </article>
             <% }) %>

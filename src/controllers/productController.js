@@ -9,47 +9,65 @@ const productController = {
       let libros = await productService.getAll()
       res.render('products/index', {product: libros});
     } catch (error) {
-      
+      console.log(error);
     }
   },
 
      cart:  (req, res) => {
+        // le tengo que poner funcionalidad xq ya esta la tabla apara esto 
         let htmlPath = path.resolve(__dirname,'../views/products/productCart.ejs') ;
         res.render(htmlPath);
       },
 
-      getOne : (req, res) => {
+      getOne : async (req, res) => {
+        try {
+          let aux = await productService.getOne(req.params.id);
+          let aux1= await productService.getAll();
 
-        res.render('products/productDetail',{producto : productService.getOne(req.params.id),product: productService.getAll()});
-        //let htmlPath = path.resolve(__dirname,'../views/products/productDetail.ejs') ;
-        //res.render(htmlPath);
+          res.render('products/productDetail',{producto :aux ,product: aux1});
+          //let htmlPath = path.resolve(__dirname,'../views/products/productDetail.ejs') ;
+          //res.render(htmlPath);
+        }catch (error){
+          console.log(error);
+        }
+
       },
       //esto hay que repetirlo donde requiera todos los libros osea el objto product(utilizamos try catch para todo)
       all: async function (req, res)  {
         try {
           let libros = await productService.getAll()
-          console.log(libros);
-          res.render('products/allProduct', {products : libros})
-          console.log(libros.price);
-        } catch (error) {
           
+          res.render('products/allProduct', {products : libros});
+          // console.log(libros[1]);
+          // console.log(libros[2]);
+        } catch (error) {
+          console.log(error);
         }
       },
 
       catg: (req, res) => {
-      
+      //se usa ? 
         let htmlPath = path.resolve(__dirname,'../views/products/categoria.ejs') ;
         res.render(htmlPath);
       },
 
-      indexCatg :(req,res) => {
-        
-        res.render('products/categoria',{newCatg:productService.catg(req), products : productService.getAll()})
+      indexCatg :async function (req,res){
+        try {
+          let newCatg = await productService.catg(req);
+          let products = await productService.getAll();
 
+          if(newCatg[0]=== undefined){
+            // si no hay librose esa categoria, redirecciono 
+            res.redirect('/');
+          }
+          res.render('products/categoria',{newCatg:newCatg, products : products})
+
+        } catch (error) {
+          console.log(error);
+        }
       },
-
       filtro : (req,res) => {
-
+        //no se bien como se implementan
         if(productService.filter(req).length==0){
           res.render("products/noResult");
         }
@@ -59,7 +77,7 @@ const productController = {
       },
 
       productSearch : (req,res) => {
-
+        //no se bien como se implementan
         res.render("products/searchProducts", {productResult : productService.search(req), products : productService.getAll()} )
       }
 

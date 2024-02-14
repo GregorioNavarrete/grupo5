@@ -1,23 +1,25 @@
 module.exports = (sequelize, DataTypes) =>{
     let alias = 'Author';
     let columns = {
-        ID_USER : {
+        id_author : {
             type: DataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             primaryKey: true,
             autoIncrement: true
         },
-        NAME: {
+        name: {
             type: DataTypes.STRING,
+            allowNull:false
             
         },
-        BIOGRAPHY: {
-            type: DataTypes.STRING,
+        biography: {
+            type: DataTypes.TEXT,
+            allowNull:false
            
         },
-        IMAGE: {
+        image: {
             type: DataTypes.STRING,
+            allowNull:false
             
         }
     }
@@ -31,11 +33,11 @@ module.exports = (sequelize, DataTypes) =>{
 
    Author.associate = function(models){
     Author.belongsToMany(models.Product,{
-     as: 'Productos',
+     as: 'Products',
      through:'product_author',
      foreignKey: 'id_author',
-     otherkey: 'id_product',
-     timertaps: 'false'
+     otherKey: 'id_product',
+     timestamps: false
     })
    }
 
