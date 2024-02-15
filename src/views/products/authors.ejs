@@ -24,6 +24,8 @@
     
 
     <% autor.Productos.forEach(producto => { %>
+        <div class="sliders">
+            <div class="lista">
         <article class="articulo">
             <a href="../../product/libro/<%=producto.id%>"><img class="img-articulo" src="/img/portadas/<%=(producto.portada !== 0 && producto.portada !== undefined) ? producto.portada : 'default-image.png'%>" alf="<%=producto.titulo%>"> </a> 
             <div class="desc-articulo">
@@ -34,6 +36,9 @@
             <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo"><%=producto.price%></p></div></div>
             </div>
         </article>
+            </div>
+        </div>
+        
     <% }) %>
 </ul>
 

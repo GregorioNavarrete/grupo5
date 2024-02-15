@@ -28,10 +28,10 @@ module.exports = (sequelize, DataTypes) => {
         },
         
         pages:{
-            type: DataTypes.SMALLINT
+            type: DataTypes.STRING,
         },
         edition:{
-            type: DataTypes.SMALLINT
+            type: DataTypes.STRING,
         },
         stock:{
             type: DataTypes.SMALLINT
