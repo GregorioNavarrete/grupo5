@@ -48,6 +48,9 @@
                     <p class="det-art-info-item">Formato : <%= producto.Collections.name %></p>
                     <p class="det-art-info-item">Etiqueta : <%= producto.etiqueta %></p>
             </div>
+            <% for(let i=0; i<producto.Genres.length; i++){ %>
+                --<%=producto.Genres[i].name %> 
+            <% } %>
             
             <div class="det-art-precio-btn">
             <div class="det-art-precio-sig"><p class="det-art-signo-precio">$</p><p class="det-art-precio"><%=producto.precio%></p></div>

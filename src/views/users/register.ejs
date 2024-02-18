@@ -102,22 +102,11 @@
                    <!--  </div> -->
                     
                     
-                    <div class="
-                    <% if (locals.errors && errors.imgUser) { %>
-                         error
-                         <% } else { %>
-                         
-                            input-contenedor
-                         <% } %> ">
-                        <input  class="input-text"  
-                        type="file"  name="imgUser" accept=".jpg, .png" >
+                    <div class="input-contenedor">
+                        <input  class="input-text" type="file"  name="imgUser" accept=".jpg, .png" >
                     </div>
 
-                    <% if (locals.errors && errors.imgUser) { %>
-                        <div class="error-message">
-                             <%= errors.imgUser.msg %>
-                        </div>
-                    <% } %>
+                    
 
                     
                     

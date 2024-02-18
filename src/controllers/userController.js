@@ -6,12 +6,8 @@ const bcryptjs = require('bcryptjs');
 const {validationResult} = require('express-validator')
 
 
-
-
 const userController = {
-
-    
-
+  
     login : (req, res) => {
         res.render('users/login');
       },
@@ -20,49 +16,48 @@ const userController = {
         res.render('users/register');
       },
 
-    processRegister: async (req,res)=>{
-       try {
-         let resultValidation = await validationResult(req);
-         console.log(resultValidation.mapped())
-         if(resultValidation.errors.length > 0){
-           return res.render('users/register',{
-             errors : resultValidation.mapped(),
-             oldData : req.body
-           })
-          } 
-   
-        let userInDB = await userService.findByField('email', req.body.email);
-       
-       if (userInDB) {
-         return res.render('users/register', {
-           errors: {
-             email: {
-               msg: 'Este email ya está registrado'
-             }
-           },
-           oldData: req.body
-         });
-       } 
-       userService.create(req);
-       res.redirect('../../user/login')
+      processRegister: async (req,res)=>{
+        try {
+          let resultValidation = await validationResult(req);
+          console.log(resultValidation.mapped())
+          if(resultValidation.errors.length > 0){
+            return res.render('users/register',{
+              errors : resultValidation.mapped(),
+              oldData : req.body
+            })
+           } 
+     
+         let userInDB = await userService.findByField('email', req.body.email);
+     
+        if (userInDB) {
+          return res.render('users/register', {
+            errors: {
+              email: {
+                msg: 'Este email ya está registrado'
+              }
+            },
+            oldData: req.body
+          });
+        } 
+        let user = await userService.create(req);
         
-       } catch (error) {
-        
-       }
-    },
+        // Iniciar la sesión del usuario después de registrarse
+        req.session.userLogged = user;
+        res.redirect('../../../');
+        } catch (error) {
+     
+        }
+     },
     
-    profile: (req, res) => {
-      //vemos que mostramos una vista con los valores que hay en las "secion " (coki)
-      //console.log(req.session.userLogged);
-      return res.render('users/userProfile', {
-        user: userService.getOne(id)
-      });
+     profile: (req, res) => {
+      let user = req.session.userLogged;
+      return res.render('users/userProfile', {user: user});
     },
 
     update: async (req, res) => {
       try {
           let userEdit = await userService.edit(req);
-          await res.redirect('../../../');
+          await res.redirect('../../../user/profile');
           console.log(userEdit) 
       } catch (error) {
           console.error(error); // Esto imprimirá el error en tu consola
@@ -70,26 +65,19 @@ const userController = {
       }
   },
 
-
     edit: async (req, res) => {
       try {
-        
         let id =  req.params.id;
         let user = await userService.getOne(id)
-        /* let user = await req.session.userLogged */
-        console.log('hola');
-        console.log(user);
+        req.session.userLogged = user
         res.render('users/userEdit', {user : user });
-        console.log(user)
       } catch (error) {
         console.log(error)
       }
      },
 
-
     loginProcess: async (req, res) => {
       try {
-        
      let userToLogin = await userService.findByField('email', req.body.email);//me da un usuario 
      
      //si encontro alguien por email
@@ -148,17 +136,16 @@ const userController = {
       }
     },
     
-     destroyuser :async (req,res) => {
+    destroyuser : async (req,res) => {
       try {
-        let id = req.params.id
-        await userService.delete(id);
+        let id = await req.params.id
+       await userService.delete(id)
         console.log(userService.delete(id));
         await res.redirect('/');
-        
       } catch (error) {
-        console.log(error)
+        
       }
-    }
+    },
    
 }
     
