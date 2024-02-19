@@ -4,9 +4,27 @@ module.exports = (sequelize, DataTypes) =>{
         id_product : {
             type: DataTypes.INTEGER,
             allowNull: false,
+            unique: true,
             primaryKey: true,
             autoIncrement: true
+            
         },
+        ID_SUPPORT :{
+            type: DataTypes.INTEGER,
+            allowNull: false
+        } ,
+        ID_EDITORIAL :{
+            type: DataTypes.INTEGER,
+            allowNull: false
+        } ,
+        ID_LANGUAGE :{
+            type: DataTypes.INTEGER,
+            allowNull: false
+        } ,
+        ID_COLLECTION :{
+            type: DataTypes.INTEGER,
+            allowNull: false
+        } ,
         title: {
             type: DataTypes.STRING,
             allowNull:false

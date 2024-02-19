@@ -3,6 +3,13 @@
 module.exports = (sequelize, DataTypes) => {
     let alias = 'Productos_Generos'
     let columns = {
+        id : {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            unique: true,
+            primaryKey: true,
+            autoIncrement: true
+        },
         ID_GENRE: {
             type: DataTypes.INTEGER,
             allowNull: false,

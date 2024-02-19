@@ -5,8 +5,6 @@ function guestMiddleware(req, res, next) {
 			return res.redirect('/user/profile');
 	
 	}
-	
-	
 	next();
 }
 

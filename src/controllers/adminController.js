@@ -3,13 +3,23 @@ const productService = require('../data/productService');
 const userService = require('../data/userService');
 
 const adminController = {
-  formCarga : (req, res) => {
-    //para mostrar los elementos enlistados
+  // formCarga : (req, res) => {
+  //   //para mostrar los elementos enlistados
 
-    res.render('admin/FormularioDeCarga',{product : productService.getAll()});
-    //let htmlPath = path.resolve(__dirname,'../views/products/FormularioDeCarga.ejs') ;
-    //res.render(htmlPath);
-  },
+  //   res.render('admin/FormularioDeCarga',{product : productService.getAll()});
+  //   //let htmlPath = path.resolve(__dirname,'../views/products/FormularioDeCarga.ejs') ;
+  //   //res.render(htmlPath);
+  // }
+  formCarga : async (req, res) =>{
+    try{
+      let product = await productService.getAll();
+
+      res.render('admin/FormularioDeCarga',{product : product});
+    }catch(e){
+      console.log(e);
+    }
+  }
+  ,
   formCargaLibro : (req, res) => {
     //para mostrar los elementos enlistados
 
@@ -33,10 +43,14 @@ const adminController = {
     productService.delete(req.params.id);
     res.redirect("/admin/formCarga");
   },
-  edit: (req, res) => {
-    // Do the magic
-    res.render('admin/FormularioEditLibro', {productToEdit : productService.getOne(req.params.id)});
-    
+  edit: async (req, res) => {
+    try{
+        // Do the magic
+        let productToEdit = await productService.getOne(req.params.id)
+        res.render('admin/FormularioEditLibro', {productToEdit : productToEdit });
+    }catch(e){
+      console.log(e);
+    }
   },
   update: (req, res) => {
     // Do the magic

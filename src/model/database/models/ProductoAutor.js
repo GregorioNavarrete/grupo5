@@ -3,6 +3,13 @@
 module.exports = (sequelize, DataTypes) => {
     let alias = 'Productos_Autores'
     let columns = {
+        id : {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            unique: true,
+            primaryKey: true,
+            autoIncrement: true
+        },
         id_author: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -36,5 +43,5 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: "id_product" })
     }
 
-    return ProductoAutor
+    return ProductoAutor;
 }
