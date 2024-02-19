@@ -42,11 +42,34 @@
                         <input class="input-text" type="text" id="subtitulo" name="subtitulo" value="<%= productToEdit.subtitle %>">
                         </div><br><br>
     
-                    <div  class="celda">
+                    <!-- <div  class="celda">
                         <div class="datos-text-form">Autor</div>
-                        <!-- vamos a considerar q solo mostrara el primero,por ahora  -->
+                        vamos a considerar q solo mostrara el primero,por ahora  -
                         <input class="input-text" type="text" id="autor" name="autor" required value="<%= productToEdit.authors[0].name %>">
+                    </div><br><br> -->
+
+<!-- ////////// -->
+
+                    <div  class="celda">
+                        <!-- vamos a considerar q solo mostrara el primero,por ahora  -->
+
+                        <div  class="datos-text-form">Autor</div>
+                        <select class="input-text" id="Autor" name="Autor" required>
+                            <option value="">Seleccione un Autor</option>
+                            <option value="1" <%= productToEdit.authors[0].name === 'Antoine de Saint-Exupéry' ? "selected" : "" %> >Antoine de Saint-Exupéry</option>
+                            <option value="2" <%= productToEdit.authors[0].name === 'Collen Hoover' ? "selected" : "" %> > Collen Hoover</option>
+                            <option value="3" <%= productToEdit.authors[0].name === 'Rick Riordan' ? "selected" : "" %> >Rick Riordan</option>
+                            <option value="4" <%= productToEdit.authors[0].name === 'Suzanne Collins' ? "selected" : "" %> >Suzanne Collins</option>
+                            <option value="5" <%= productToEdit.authors[0].name === 'Cassandra Clare' ? "selected" : "" %> >Cassandra Clare</option>
+                            <option value="6" <%= productToEdit.authors[0].name === 'Stephenie Meyer' ? "selected" : "" %> >Stephenie Meyer</option>
+                        </select>
                     </div><br><br>
+
+
+
+<!-- //////// -->
+
+                    
 
                     <!-- <div  class="celda">
                         <div class="datos-text-form">Editorial</div>

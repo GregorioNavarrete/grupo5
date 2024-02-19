@@ -179,47 +179,167 @@ const productService = {
         }    
     },
 
-    delete: function(id){
-        indice = this.products.findIndex((elem)=>elem.id == id);
-        this.products.splice(indice,1);
-        fs.writeFileSync(productsFilePath,JSON.stringify(this.products),'utf-8');
-    },
-    edit: function(req){
-        let producto = this.getOne(req.params.id);
-        let nuevoProducto = req.body; // es porque el PUT viaja de forma privada
-        let imagen = req.file;  //esto lo copie del Crear libro, para la imagen
+    delete: async function(id){
+        try{
+            // indice = this.products.findIndex((elem)=>elem.id == id);
+            // this.products.splice(indice,1);
+            // fs.writeFileSync(productsFilePath,JSON.stringify(this.products),'utf-8');
+            /////////
+            let deletProductos_Autores = await db.Productos_Autores.destroy(
+                {
+                      //indicamos a que registro aplicamos los cambios 
+                      // todos con el mismo "id_product" seran modificados
+                      where: {id_product : parseInt(id) }
+                  }
+              );
+              let deletProductos_Generos = await db.Productos_Generos.destroy(
+             {
+                      //indicamos a que registro aplicamos los cambios 
+                      // todos con el mismo "id_product" seran modificados
+                      where: {id_product : parseInt(id) }
+                  }
+              );
 
-        console.log("\n  antes : " + producto.portada);
-        let borrar = path.join(__dirname, `../../public/img/portadas/${producto.portada}`);
-        fs.unlink(borrar, (err) => {
-            if (err) {
-                console.error(err);
-                return;
-            }
-            console.log("\n  medio : " + producto.portada);
-        });
+              let deletComment = await db.Comment.destroy(
+                {
+                         //indicamos a que registro aplicamos los cambios 
+                         // todos con el mismo "id_product" seran modificados
+                         where: {ID_PRODUCT : parseInt(id) }
+                     }
+                 );
+//tambien se relaciona con la tabla "comment" 
 
-        producto.titulo = nuevoProducto.titulo;
-        producto.precio = nuevoProducto.precio;
-        producto.genero = nuevoProducto.genero ;
-        producto.autor = nuevoProducto.autor;
-        producto.Estrellas = nuevoProducto.Estrellas;
-        
-        producto.descripcion = nuevoProducto.descripcion;
-        if (req.file != undefined) {
-            //no puedo esditar imagenes, xq el filename sale indefinido siempre !!!!
-            producto.portada = imagen.filename;
-        }else{
-            producto.portada = 0;
+    let deletproduct_carrito = await db.product_carrito.destroy(
+    {
+             //indicamos a que registro aplicamos los cambios 
+             // todos con el mismo "id_product" seran modificados
+             where: {ID_PRODUCT : parseInt(id) }
+         }
+     );
+//tambien se relaciona con la tabla "product_carrito"
+
+let deletproduct_favorites = await db.product_favorites.destroy(
+    {
+             //indicamos a que registro aplicamos los cambios 
+             // todos con el mismo "id_product" seran modificados
+             where: {ID_PRODUCT : parseInt(id) }
+         }
+     );
+
+//tambien se relaciona con la tabla "product_favorites"     
+
+
+              //hay que borrar antes todas las relaciones del libro, antres de borrarlo 
+            let delet = await db.Product.destroy(
+                {
+                    //indicamos a que registro aplicamos los cambios 
+                    where: {id_product : parseInt(id) }
+                }
+            );
+
+            /////////
+        }catch(e){
+            console.log(e);
         }
 
-        console.log("\n  despues : " + imagen.filename);
-        
+    },
+    edit: async function(req){
+        try{
+            console.log(req.body);
 
-        let indece = this.products.findIndex(elem => elem.id == req.params.id);
-        this.products[indece]= producto;
+
+            let producto = await this.getOne(req.params.id);
+            //let nuevoProducto = req.body; // es porque el PUT viaja de forma privada
+            let imagen = req.file;  //esto lo copie del Crear libro, para la imagen
     
-        fs.writeFileSync(productsFilePath,JSON.stringify(this.products),'utf-8');
+            console.log("\n  antes : " + producto.image);
+            let borrar = path.join(__dirname, `../../public/img/portadas/${producto.image}`);
+            fs.unlink(borrar, (err) => {
+                if (err) {
+                    console.error(err);
+                    return;
+                }
+                console.log("\n  medio : " + producto.image);
+            });
+    
+            // producto.titulo = nuevoProducto.titulo;
+            // producto.precio = nuevoProducto.precio;
+            // producto.genero = nuevoProducto.genero ;
+            // producto.autor = nuevoProducto.autor;
+            // producto.Estrellas = nuevoProducto.Estrellas;
+            // producto.descripcion = nuevoProducto.descripcion;
+
+            /********************/
+            let edicion = await db.Product.update(
+                {
+                    //los campos de la tabla que buscamos modificar
+                    title : req.body.titulo,
+
+                    ID_SUPPORT: req.body.formato,
+                    ID_EDITORIAL: req.body.edition,
+                    ID_LANGUAGE: req.body.idioma,
+                    ID_COLLECTION: req.body.sagaSerie,
+                    subtitle: req.body.subtitulo,
+                    price:  req.body.precio,
+                    image:  req.file.filename,
+                    description:  req.body.descripcion,
+                    pages:  req.body.paginas,
+                    edition:  req.body.edition,
+                    stock: req.body.Stock,
+                    created:1,
+                    updated:1 ,
+                    discount: req.body.Descuento
+                    //created:
+                    //updated:
+                },{
+                    //indicamos a que registro aplicamos los cambios 
+                    where: {id_product : req.params.id }
+                }
+            );
+            let edicionProductos_Autores = await db.Productos_Autores.update(
+                {
+                    //los campos de la tabla que buscamos modificar
+                    id_author: parseInt(req.body.Autor)
+                },{
+                    //indicamos a que registro aplicamos los cambios 
+                    // todos con el mismo "id_product" seran modificados
+                    where: {id_product : req.params.id }
+                }
+            );
+            let edicionProductos_Generos = await db.Productos_Generos.update(
+                {
+                    //los campos de la tabla que buscamos modificar
+                    ID_GENRE: parseInt(req.body.genero)
+                    
+                },{
+                    //indicamos a que registro aplicamos los cambios 
+                    // todos con el mismo "id_product" seran modificados
+                    where: {id_product : req.params.id }
+                }
+            )
+            /********************/
+
+
+
+            if (req.file != undefined) {
+                //no puedo esditar imagenes, xq el filename sale indefinido siempre !!!!
+                producto.image = imagen.filename;
+            }else{
+                producto.image = 0;
+            }
+    
+            console.log("\n  despues : " + imagen.filename);
+            
+    
+            // let indece = this.products.findIndex(elem => elem.id == req.params.id);
+            // this.products[indece]= producto;
+        
+            // fs.writeFileSync(productsFilePath,JSON.stringify(this.products),'utf-8');
+        }catch(e){
+            console.log(e);
+        }
+
+
     },
 
     search: function(req){

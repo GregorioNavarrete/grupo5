@@ -38,10 +38,15 @@ const adminController = {
     //res.send(req.body); //Para ver si lo modifico, que si
     res.redirect('/admin/FormCarga');
   },
-  destroy : (req, res) => {
-    // Do the magic
-    productService.delete(req.params.id);
-    res.redirect("/admin/formCarga");
+  destroy : async (req, res) => {
+    try{
+            // Do the magic
+      let aux = await productService.delete(req.params.id);
+      res.redirect("/admin/formCarga");
+    }catch(e){
+      console.log(e);
+    }
+
   },
   edit: async (req, res) => {
     try{
@@ -52,12 +57,16 @@ const adminController = {
       console.log(e);
     }
   },
-  update: (req, res) => {
-    // Do the magic
-    /*buscamos un prod por id y busco cambiarle los datos, por los que tengo en el req */
-    //productService.save(req);
-    productService.edit(req);
-    res.redirect('/admin/FormCarga');
+  update: async (req, res) => {
+    try {
+      // Do the magic
+      /*buscamos un prod por id y busco cambiarle los datos, por los que tengo en el req */
+      //productService.save(req);
+      productService.edit(req);
+      res.redirect('/admin/FormCarga');
+    }catch(e){
+      console.log(e);
+    }
   },
 
   list: (req,res)=>{
