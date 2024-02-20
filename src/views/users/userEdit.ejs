@@ -67,7 +67,7 @@
                         <!-- <span class="error-message">Ingresa una dirección de correo electrónico válida.</span> -->
                     </div>
 					
-					<% if (locals.isLogged && locals.userLogged.categoria === "admin") { %>
+					<% if (locals.isLogged && locals.userLogged.id_rol === 1) { %>
 						<div class="user-input">
                         <div class="user-sub-input">Categoria</div>
                         <select name="categoria" id="categoria"  class="user-input-txt">

@@ -26,8 +26,20 @@ const userController = {
               oldData : req.body
             })
            } 
+
+          let confirmPass = await req.body.confirmPassword
+          if(confirmPass != req.body.password){
+            return res.render('users/register', {
+              errors: {
+                password: {
+                  msg: 'Las Contraseñas no coinciden '
+                }
+              },
+              oldData: req.body
+            });
+          } 
      
-         let userInDB = await userService.findByField('email', req.body.email);
+         let userInDB = await userService.findByField('email', 'name_user', req.body.email);
      
         if (userInDB) {
           return res.render('users/register', {
@@ -78,7 +90,8 @@ const userController = {
 
     loginProcess: async (req, res) => {
       try {
-     let userToLogin = await userService.findByField('email', req.body.email);//me da un usuario 
+        
+     let userToLogin = await userService.findByField('name_user','email' , req.body.email);//me da un usuario 
      
      //si encontro alguien por email
      if(userToLogin) {

@@ -9,7 +9,10 @@ const userService = {
 
     getData : async function () {
         try {
-            return await db.User.findAll();
+            return await db.User.findAll(
+                {
+                    include : [{association : 'Rols'}]
+                });
         } catch (error) {
             
         }
@@ -18,8 +21,10 @@ const userService = {
 
      getOne: async function(id){
         try {
-             usuario = await db.User.findByPk(id);
-             return await usuario;
+             usuario = await db.User.findByPk(id,{
+                include : [{association : 'Rols'}]
+            });
+             return  usuario;
             
         } catch (error) {
             
@@ -37,11 +42,11 @@ const userService = {
         }
     },
 
-    findByField: async function (field, text){
+    findByField: async function (field, otrotext, text){
         try {
             let allUsers = await this.getData() 
-            let userFound = await allUsers.find(oneUser => oneUser[field] === text );
-            return await userFound;
+            let userFound = allUsers.find(oneUser => oneUser[field] === text || oneUser[otrotext] === text);
+            return userFound;
         } catch (error) {
             
         }
