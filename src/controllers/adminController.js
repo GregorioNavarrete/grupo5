@@ -2,6 +2,7 @@ const path = require('path');
 const productService = require('../data/productService');
 const userService = require('../data/userService');
 const db = require('../model/database/models');
+const adminService = require('../data/adminService')
 
 const adminController = {
   formCarga : (req, res) => {
@@ -51,23 +52,19 @@ const adminController = {
     try {
       let users = await userService.getData()
       res.render('admin/userList', {Users : users})
-      console.log('hola')
-      console.log(users)
-
+      console.log(users);
     } catch (error) {
-      
+      console.log(error);
     }
   },
 
 
   destroyuser : async (req,res) => {
     try {
-      let id = await req.params.id
-     await userService.delete(id);
-     console.log("usuario eliminado")
-      console.log(userService.delete(id));
-      await res.redirect('/admin/list');
       
+      let id = req.params.id
+     await adminService.delete(id);
+     res.redirect('/admin/list');
     } catch (error) {
       
     }
@@ -75,7 +72,27 @@ const adminController = {
 
   userSearch : (req,res)=>{
     res.render('users/userResults', {userResults : userService.search(req)} )
-  }
+  },
+
+  updateUser: async (req, res) => {
+    try {
+        let userEdit = await adminService.edit(req);
+        await res.redirect('../../../admin/list');
+    } catch (error) {
+        console.error(error); // Esto imprimirá el error en tu consola
+        res.status(500).send({error: 'Hubo un error al actualizar el usuario'}); // Esto enviará una respuesta con un mensaje de error
+    }
+},
+
+  editUser: async (req, res) => {
+    try {
+      let id =  req.params.id;
+      let user = await userService.getOne(id)
+      res.render('admin/userEdit', {user : user });
+    } catch (error) {
+      console.log(error)
+    }
+   },
 
 }
 

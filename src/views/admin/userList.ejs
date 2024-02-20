@@ -39,12 +39,12 @@
                     <div class="userlist-data-text-titulo-conte"><p class="userlist-data-text-titulo">Nombre:</p> <p class="userlist-data-text"><%= Users[i].name %></p></div>
                     <div class="userlist-data-text-titulo-conte"><p class="userlist-data-text-titulo">Apellido:</p> <p class="userlist-data-text"><%= Users[i].last_name %></p></div>
                     <div class="userlist-data-text-titulo-conte"><p class="userlist-data-text-titulo">Correo:</p> <p class="userlist-data-text"><%= Users[i].email %></p></div>
-                    <div class="userlist-data-text-titulo-conte"><p class="userlist-data-text-titulo">Categoria:</p> <p class="userlist-data-text"><%= Users[i].id_rol %></p></div>
+                    <div class="userlist-data-text-titulo-conte"><p class="userlist-data-text-titulo">Categoria:</p> <p class="userlist-data-text"><%= Users[i].Rols.name %></p></div>
             </section>
 
             <br>
             <div class="userlist-btn-conte">
-                <a href="../../user/profile/<%=Users[i].id_user %>/edit" class="userlist-btn">
+                <a href="../../admin/edit/<%=Users[i].id_user %>" class="userlist-btn">
 					<button class="userlist-btn-editar">Editar</button>
 				</a>
                 <br>

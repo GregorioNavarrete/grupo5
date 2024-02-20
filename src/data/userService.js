@@ -55,7 +55,7 @@ const userService = {
     create : async function (req) {
         try {
             let password = bcryptjs.hashSync(req.body.password, 10)
-            let imageFilename = req.file ? req.file.filename :  'descarga.jpg';
+            let imageFilename = req.file ? req.file.filename :  'default.png';
             let newUser = await db.User.create({
                 id_fav : 1,
                 id_rol:2,
@@ -72,22 +72,39 @@ const userService = {
         }
     },
 
-    /* search: function(req){
-      let allUsers = this.getData()
-      let searchUsers = req.query.search.toLowerCase();
-      let results = [];
-      for ( let i=0; i < allUsers.length;i++){
-         if(allUsers[i].nombre.toLowerCase().includes(searchUsers) || allUsers[i].apellido.toLowerCase().includes(searchUsers)){
-          results.push(allUsers[i])
+     /* search: async  function(req){
+        try {
+            let allUsers = await this.getData()
+            let searchUsers = req.query.search.toLowerCase();
+            let results = [];
+            for ( let i=0; i < allUsers.length;i++){
+               if(allUsers[i].name.toLowerCase().includes(searchUsers) || allUsers[i].last_name.toLowerCase().includes(searchUsers)){
+                results.push(allUsers[i])
+              }
+            }
+            return results
+            
+        } catch (error) {
+            
         }
-      }
-      return results
       
-    }, */
+    }, */ 
   
     edit: async function(req){
         try {
             let imageFilename = req.file ? req.file.filename :  req.session.userLogged.image;
+            let user = await this.getOne(req.params.id)
+            
+            if (user.image != "default.png") {
+                
+                let borrar = path.join(__dirname, `../../public/img/users/${user.image}`);
+                fs.unlink(borrar, (err) => {
+                if (err) {
+                console.error(err);
+                return;
+                }
+                });
+            }
     
             await db.User.update({
                 name : req.body.nombre,
@@ -107,12 +124,26 @@ const userService = {
     
      delete: async function (id) {
         try {
-             return await db.User.destroy({
+
+            let user = await this.getOne(id)
+            
+            if (user.image != "default.png") {
+                
+                let borrar = path.join(__dirname, `../../public/img/users/${user.image}`);
+                fs.unlink(borrar, (err) => {
+                if (err) {
+                console.error(err);
+                }
+                });
+            }
+
+            
+            return await db.User.destroy({
                 where:{
                     id_user: id
                 }
             })
-
+            
             
         } catch (error) {
             console.log(error)

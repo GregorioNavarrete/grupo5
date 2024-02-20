@@ -70,7 +70,6 @@ const userController = {
       try {
           let userEdit = await userService.edit(req);
           await res.redirect('../../../user/profile');
-          console.log(userEdit) 
       } catch (error) {
           console.error(error); // Esto imprimirá el error en tu consola
           res.status(500).send({error: 'Hubo un error al actualizar el usuario'}); // Esto enviará una respuesta con un mensaje de error
@@ -152,8 +151,9 @@ const userController = {
     destroyuser : async (req,res) => {
       try {
         let id = await req.params.id
+        res.clearCookie('userEmail');//para destruir la cookie
+        req.session.destroy();
        await userService.delete(id)
-        console.log(userService.delete(id));
         await res.redirect('/');
       } catch (error) {
         
