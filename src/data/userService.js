@@ -74,7 +74,7 @@ const userService = {
         }
     },
 
-     /* search: async  function(req){
+     search: async  function(req){
         try {
             let allUsers = await this.getData()
             let searchUsers = req.query.search.toLowerCase();
@@ -90,7 +90,7 @@ const userService = {
             
         }
       
-    }, */ 
+    }, 
   
     edit: async function(req){
         try {
