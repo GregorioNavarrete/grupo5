@@ -130,16 +130,20 @@ const productService = {
         fs.writeFileSync(productsFilePath,JSON.stringify(this.products),'utf-8');
     },
 
-    search: function(req){
-        let allUsers = this.getAll()
-        let searchUsers = req.query.search.toLowerCase();
-        let results = [];
-        for ( let i=0; i < allUsers.length;i++){
-           if(allUsers[i].titulo.toLowerCase().includes(searchUsers) ){
-            results.push(allUsers[i])
-          }
+    search: async  function(req){
+        try {
+            let allUsers = await this.getAll()
+            let searchUsers = req.query.search.toLowerCase();
+            let results = [];
+            for ( let i=0; i < allUsers.length;i++){
+               if(allUsers[i].title.toLowerCase().includes(searchUsers) ){
+                results.push(allUsers[i])
+              }
+            }
+            return results
+        } catch (error) {
+            
         }
-        return results
         
       },
 
