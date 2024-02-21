@@ -26,7 +26,12 @@ const productService = {
     }, */
     getAll: async function (){
         try {
-            return await db.Product.findAll()
+            return await db.Product.findAll({association : 'Genres'},
+            {association : 'authors'},
+            {association : 'Formats'},
+            {association : 'Editorials'}
+            
+            )
             
         } catch (error) {
             console.log(error);
@@ -80,7 +85,8 @@ const productService = {
                 include : [{association : 'Editorials'},
                 {association : 'Collections'},
                 {association : 'Languages'},
-                {association : 'Genres'}]
+                {association : 'Genres'},
+                {association : 'authors'}]
             })
         } catch (error) {
             
@@ -147,25 +153,30 @@ const productService = {
         
       },
 
-    filter : (req, res) => {
-        let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let generos = req.query.genero;
-        let autores = req.query.autor;
-        let formato = req.query.formato;
-        let editorial = req.query.editoriales; 
-
-        let filtrados=[];
-        
+    filter : async  (req, res) => {
+        try {
+            
+            let products = await this.getAll();
+            let generos = req.query.genero;
+            let autores = req.query.autor;
+            let formato = req.query.formato;
+            let editorial = req.query.editoriales; 
     
-        for(let i=0; i < products.length;i++ ){
-          if(products[i].genero == generos   || products[i].autor == autores || products[i].formato == formato || products[i].editorial == editorial ){
-                filtrados.push(products[i]);
-                
-          }
-          
-        }
+            let filtrados=[];
+            
         
-        return filtrados
+            for(let i=0; i < products.length;i++ ){
+              if(products[i].Genres.name == generos   || products[i].authors.name == autores || products[i].Formats.name == formato || products[i].Editorials.name == editorial ){
+                    filtrados.push(products[i]);
+                    
+              }
+              
+            }
+            
+            return filtrados
+        } catch (error) {
+            
+        }
         },
         
     

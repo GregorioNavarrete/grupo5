@@ -53,14 +53,20 @@ const productController = {
 
       },
 
-      filtro : (req,res) => {
+      filtro : async (req,res) => {
 
-        if(productService.filter(req).length==0){
-          res.render("products/noResult");
+        try {
+          let filtro = await productService.filter(req)
+          if(productService.filter(req).length==0){
+            res.render("products/noResult");
+          }
+          else{
+            res.render('products/filtrados',{newObject: filtro });
+          }
+        } catch (error) {
+          
         }
-        else{
-          res.render('products/filtrados',{newObject:productService.filter(req) });
-        }
+
       },
 
       productSearch : async (req,res) => {
