@@ -70,8 +70,14 @@ const adminController = {
     }
   },
 
-  userSearch : (req,res)=>{
-    res.render('users/userResults', {userResults : userService.search(req)} )
+  userSearch :async (req,res)=>{
+    try {
+      const userResults = await userService.search(req)
+      res.render('users/userResults', {userResults} )
+      
+    } catch (error) {
+      
+    }
   },
 
   updateUser: async (req, res) => {

@@ -4,6 +4,8 @@ const bcryptjs = require('bcryptjs');
 const db = require('../model/database/models');
 const { log } = require('console');
 const { promiseHooks } = require('v8');
+const { Result } = require('express-validator');
+const { setDefaultResultOrder } = require('dns/promises');
 
 
 const userService = {
@@ -74,23 +76,34 @@ const userService = {
         }
     },
 
-     /* search: async  function(req){
+      search: async  function(req){
         try {
-            let allUsers = await this.getData()
-            let searchUsers = req.query.search.toLowerCase();
-            let results = [];
-            for ( let i=0; i < allUsers.length;i++){
-               if(allUsers[i].name.toLowerCase().includes(searchUsers) || allUsers[i].last_name.toLowerCase().includes(searchUsers)){
-                results.push(allUsers[i])
-              }
+            
+            let allUsers = await this.getData();
+            let search = req.query.search.toLowerCase().trim().split(' ');
+            console.log(search)
+            let result = [];
+            
+            for (let i = 0; i < allUsers.length; i++) {
+                if (allUsers[i].name.toLowerCase().includes(search[0]) || allUsers[i].last_name.toLowerCase().includes(search[1])) {
+                    if(search != ''){
+                    result.push(allUsers[i]);
+                }
+                else{
+                    result = []
+                }
+                }
             }
-            return results
+            
+            console.log(result);
+            return result;
             
         } catch (error) {
-            
+            let respuesta = [];
+            return respuesta;
         }
       
-    }, */ 
+    },  
   
     edit: async function(req){
         try {

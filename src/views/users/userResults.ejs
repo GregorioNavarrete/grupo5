@@ -27,15 +27,15 @@
    <br>
 
    <ul>
-        <% for(let i=0;i<userResults.length;i++) { %>
+        <% for(let i=0;i<userResults.length; i++) { %>
         <li>
-            <img src="/img/users/<%= userResults[i].imagen %>" alt="" width="200" height="150">
+            <img src="/img/users/<%= userResults[i].image %>" alt="" width="200" height="150">
 
             <section class="UserData">
-            <p>Nombre: <%= userResults[i].nombre %></p>
-            <p>Apellido: <%= userResults[i].apellido %></p>
+            <p>Nombre: <%= userResults[i].name%></p>
+            <p>Apellido: <%= userResults[i].last_name %></p>
             <p>Correo : <%= userResults[i].email %></p>
-            <p>Categoria : <%= userResults[i].categoria %></p>
+            <p>Categoria : <%= userResults[i].Rols.name %></p>
             </section>
             <br>
 
