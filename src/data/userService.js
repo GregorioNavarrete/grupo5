@@ -3,6 +3,7 @@ const fs = require('fs');
 const bcryptjs = require('bcryptjs');
 const db = require('../model/database/models');
 const { log } = require('console');
+const { promiseHooks } = require('v8');
 
 
 const userService = {
@@ -22,7 +23,8 @@ const userService = {
      getOne: async function(id){
         try {
              usuario = await db.User.findByPk(id,{
-                include : [{association : 'Rols'}]
+                include : [{association : 'Rols'},
+            {association:'Comments'}]
             });
              return  usuario;
             
@@ -123,9 +125,12 @@ const userService = {
     },
     
      delete: async function (id) {
-        try {
+        
+            try {    
 
-            let user = await this.getOne(id)
+                
+           let comment = await db.Comment.destroy({ where: { id_user: id } })
+           
             
             if (user.image != "default.png") {
                 
@@ -138,14 +143,14 @@ const userService = {
             }
 
             
-            return await db.User.destroy({
+            return db.User.destroy({
                 where:{
                     id_user: id
                 }
             })
             
             
-        } catch (error) {
+        }catch (error) {
             console.log(error)
         }
     }, 

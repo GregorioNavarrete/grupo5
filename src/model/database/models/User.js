@@ -51,7 +51,8 @@ module.exports = (sequelize, DataTypes) => {
    User.associate = function(models){
    User.hasMany(models.Comment,{
     as: 'Comments',
-    foreignKey: 'id_user'
+    foreignKey: 'id_user',
+    onDelete:'CASCADE'
    }),
 
    User.belongsTo(models.Rol,{
