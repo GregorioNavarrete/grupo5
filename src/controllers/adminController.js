@@ -72,8 +72,8 @@ const adminController = {
 
   userSearch :async (req,res)=>{
     try {
-      const userResults = await userService.search(req)
-      res.render('users/userResults', {userResults} )
+      const Users = await userService.search(req)
+      res.render('users/userResults', {Users} )
       
     } catch (error) {
       

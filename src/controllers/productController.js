@@ -63,9 +63,15 @@ const productController = {
         }
       },
 
-      productSearch : (req,res) => {
+      productSearch : async (req,res) => {
+        try {
+          let busqueda = await productService.search(req);
+          let productos = await productService.getAll();
+          res.render("products/searchProducts", {productResult : busqueda , products :productos } )
+        } catch (error) {
+          
+        }
 
-        res.render("products/searchProducts", {productResult : productService.search(req), products : productService.getAll()} )
       },
 
       author: async  (req, res) => {

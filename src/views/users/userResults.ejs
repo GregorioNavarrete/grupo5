@@ -13,37 +13,52 @@
     <main><br>
 
         
-   <section class="cont-search">
-    <div class="Search-users">
-        <H2>lista de Usuarios</H2>
+<div class="userlist-conte">
+   <section class="userlist-cont-search">
+    <div class="userlist-Search-users">
+        <H2 class="userlist-titulo">Lista de Usuarios</H2>
 
-        <form class="barra-busqueda-header" action="/admin/searchUser" method="GET">
-                <input class="input-header" type="text" placeholder="Buscar" name="search">
-                <button class="button-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <form class="userlist-barra-busqueda-header" action="/admin/searchUser" method="GET">
+                <input class="userlist-input-header" type="text" placeholder="Buscar" name="search">
+                <button class="userlist-button-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 
         </form>
 
    </section>
    <br>
 
-   <ul>
-        <% for(let i=0;i<userResults.length; i++) { %>
-        <li>
-            <img src="/img/users/<%= userResults[i].image %>" alt="" width="200" height="150">
+   <ul class="userlist-conte-usuarios">
+        <% for(let i=0;i<Users.length;i++) { %>
+        <li class="userlist-caja-usuario">
+            
+            <div class="userlist-conte-img">
+            <img class="userlist-img" src="/img/users/<%= Users[i].image %>" alt="">
+            </div>
 
-            <section class="UserData">
-            <p>Nombre: <%= userResults[i].name%></p>
-            <p>Apellido: <%= userResults[i].last_name %></p>
-            <p>Correo : <%= userResults[i].email %></p>
-            <p>Categoria : <%= userResults[i].Rols.name %></p>
+            <section class="userlist-data">
+                    <div class="userlist-data-text-titulo-conte"><p class="userlist-data-text-titulo">Nombre:</p> <p class="userlist-data-text"><%= Users[i].name %></p></div>
+                    <div class="userlist-data-text-titulo-conte"><p class="userlist-data-text-titulo">Apellido:</p> <p class="userlist-data-text"><%= Users[i].last_name %></p></div>
+                    <div class="userlist-data-text-titulo-conte"><p class="userlist-data-text-titulo">Correo:</p> <p class="userlist-data-text"><%= Users[i].email %></p></div>
+                    <div class="userlist-data-text-titulo-conte"><p class="userlist-data-text-titulo">Categoria:</p> <p class="userlist-data-text"><%= Users[i].Rols.name %></p></div>
             </section>
-            <br>
 
+            <br>
+            <div class="userlist-btn-conte">
+                <a href="../../admin/edit/<%=Users[i].id_user %>" class="userlist-btn">
+					<button class="userlist-btn-editar">Editar</button>
+				</a>
+                <br>
+                <form action="/admin/list/<%=Users[i].id_user  %>?_method=DELETE" method="post" class="userlist-btn">
+                    <button class="userlist-btn-eliminar">Eliminar</button>
+                </form>
+            </div>
+            <br>
         </li>
         <% } %>
    </ul>
    
-
+</div>
+<br>
 </main>
 
 
