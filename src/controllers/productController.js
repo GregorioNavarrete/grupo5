@@ -83,19 +83,32 @@ const productController = {
           console.log(error);
         }
       },
-      filtro : (req,res) => {
-        //no se bien como se implementan
-        if(productService.filter(req).length==0){
-          res.render("products/noResult");
+
+      filtro : async (req,res) => {
+
+        try {
+          let filtro = await productService.filter(req)
+          if(productService.filter(req).length==0){
+            res.render("products/noResult");
+          }
+          else{
+            res.render('products/filtrados',{newObject: filtro });
+          }
+        } catch (error) {
+          
         }
-        else{
-          res.render('products/filtrados',{newObject:productService.filter(req) });
-        }
+
       },
 
-      productSearch : (req,res) => {
-        //no se bien como se implementan
-        res.render("products/searchProducts", {productResult : productService.search(req), products : productService.getAll()} )
+      productSearch : async (req,res) => {
+        try {
+          let busqueda = await productService.search(req);
+          let productos = await productService.getAll();
+          res.render("products/searchProducts", {productResult : busqueda , products :productos } )
+        } catch (error) {
+          
+        }
+
       },
 
       author: async  (req, res) => {

@@ -23,7 +23,7 @@
 				<a class="user-img-a" href="/user/profile"><img class="user-avatar" src="/img/users/<%= user.image %> "></a>
 					
 
-			<form action="/user/profile/<%=user.id_user%>/edit?_method=DELETE"  method="post" class="user-btn-edit-conte">
+			<form action="/user/admin/edit/<%=user.id_user%>?_method=DELETE"  method="post" class="user-btn-edit-conte">
 				
 				<button class="user-btn-edit">Borrar Perfil</button>
 			</form>
@@ -42,7 +42,7 @@
 
 
 		
-                <form class="user-form-edit" action="/user/profile/<%=user.id_user%>/edit" method="POST" enctype="multipart/form-data">
+                <form class="user-form-edit" action="/admin/edit/<%=user.id_user%>" method="POST" enctype="multipart/form-data">
 
 					<div class="user-input">
                         <div class="user-sub-input">Nombre</div>
@@ -67,14 +67,21 @@
                         <!-- <span class="error-message">Ingresa una dirección de correo electrónico válida.</span> -->
                     </div>
 					
-					
+					<% if (locals.isLogged && locals.userLogged.id_rol === 1) { %>
+						<div class="user-input">
+                        <div class="user-sub-input">Categoria</div>
+                        <select name="categoria" id="categoria"  class="user-input-txt">
+						<option value="" selected disabled hidden>Elige una opción</option>
+						<option value="1">Administrador</option>
+						<option value="2">Usuario</option>
+						</select>
+                    </div>
+					<% } %>
 					
 					
 					<br>
                     
-                    <div class="user-input">
-                        <input  class="user-input-text"  type="file" id="portada" name="imgUser" accept=".jpg, .png" >
-                    </div>
+                    
 
 				
 					

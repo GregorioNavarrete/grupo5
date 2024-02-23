@@ -32,23 +32,23 @@
         <li class="userlist-caja-usuario">
             
             <div class="userlist-conte-img">
-            <img class="userlist-img" src="/img/users/<%= Users[i].imagen %>" alt="">
+            <img class="userlist-img" src="/img/users/<%= Users[i].image %>" alt="">
             </div>
 
             <section class="userlist-data">
-                    <div class="userlist-data-text-titulo-conte"><p class="userlist-data-text-titulo">Nombre:</p> <p class="userlist-data-text"><%= Users[i].nombre %></p></div>
-                    <div class="userlist-data-text-titulo-conte"><p class="userlist-data-text-titulo">Apellido:</p> <p class="userlist-data-text"><%= Users[i].apellido %></p></div>
+                    <div class="userlist-data-text-titulo-conte"><p class="userlist-data-text-titulo">Nombre:</p> <p class="userlist-data-text"><%= Users[i].name %></p></div>
+                    <div class="userlist-data-text-titulo-conte"><p class="userlist-data-text-titulo">Apellido:</p> <p class="userlist-data-text"><%= Users[i].last_name %></p></div>
                     <div class="userlist-data-text-titulo-conte"><p class="userlist-data-text-titulo">Correo:</p> <p class="userlist-data-text"><%= Users[i].email %></p></div>
-                    <div class="userlist-data-text-titulo-conte"><p class="userlist-data-text-titulo">Categoria:</p> <p class="userlist-data-text"><%= Users[i].categoria %></p></div>
+                    <div class="userlist-data-text-titulo-conte"><p class="userlist-data-text-titulo">Categoria:</p> <p class="userlist-data-text"><%= Users[i].Rols.name %></p></div>
             </section>
 
             <br>
             <div class="userlist-btn-conte">
-                <a href="../../user/profile/<%=Users[i].id%>/edit" class="userlist-btn">
+                <a href="../../admin/edit/<%=Users[i].id_user %>" class="userlist-btn">
 					<button class="userlist-btn-editar">Editar</button>
 				</a>
                 <br>
-                <form action="/admin/list/<%=Users[i].id  %>?_method=DELETE" method="post" class="userlist-btn">
+                <form action="/admin/list/<%=Users[i].id_user  %>?_method=DELETE" method="post" class="userlist-btn">
                     <button class="userlist-btn-eliminar">Eliminar</button>
                 </form>
             </div>

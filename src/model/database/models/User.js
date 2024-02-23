@@ -49,10 +49,11 @@ module.exports = (sequelize, DataTypes) => {
 
    let User = sequelize.define(alias, columns, config);
    User.associate = function(models){
-        User.hasMany(models.Comment,{
-            as: 'Comments',
-            foreignKey: 'id_user'
-        }),
+   User.hasMany(models.Comment,{
+    as: 'Comments',
+    foreignKey: 'id_user',
+    onDelete:'CASCADE'
+   }),
 
         User.belongsTo(models.Rol,{
             as: 'Rols',

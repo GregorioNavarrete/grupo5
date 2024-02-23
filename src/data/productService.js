@@ -27,6 +27,7 @@ const productService = {
     }, */
     getAll: async function (){
         try {
+<<<<<<< HEAD
             let products = await db.Product.findAll({
                 include: [
                     { association: "Languages" },
@@ -39,6 +40,14 @@ const productService = {
             });
            //console.log(products);
             return products;
+=======
+            return await db.Product.findAll({association : 'Genres'},
+            {association : 'authors'},
+            {association : 'Formats'},
+            {association : 'Editorials'}
+            
+            )
+>>>>>>> 1model/CRUD
             
         } catch (error) {
             //para q al menos no se rompa la vista
@@ -342,16 +351,20 @@ let deletproduct_favorites = await db.product_favorites.destroy(
 
     },
 
-    search: function(req){
-        let allUsers = this.getAll()
-        let searchUsers = req.query.search.toLowerCase();
-        let results = [];
-        for ( let i=0; i < allUsers.length;i++){
-           if(allUsers[i].titulo.toLowerCase().includes(searchUsers) ){
-            results.push(allUsers[i])
-          }
+    search: async  function(req){
+        try {
+            let allUsers = await this.getAll()
+            let searchUsers = req.query.search.toLowerCase();
+            let results = [];
+            for ( let i=0; i < allUsers.length;i++){
+               if(allUsers[i].title.toLowerCase().includes(searchUsers) ){
+                results.push(allUsers[i])
+              }
+            }
+            return results
+        } catch (error) {
+            
         }
-        return results
         
       },
 

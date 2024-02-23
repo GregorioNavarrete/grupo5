@@ -24,7 +24,7 @@
             <div class="det-art-cont-estrellas "><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
             </div>
 
-            <% if (locals.isLogged && locals.userLogged.categoria === "admin") { %>
+            <% if (locals.isLogged && locals.userLogged.id_rol === 1) { %>
 		    <a href="../../admin/formCarga/<%=producto.id_product%>/edit" class="det-art-btn-edit-a">
                 <button class="det-art-btn-edit">Editar</button>
             </a>
@@ -56,6 +56,9 @@
                     <p class="det-art-info-item">Formato :<%= producto.Supports.name %></p>
                     <p class="det-art-info-item">Etiqueta : <%= producto.Collections.name %></p>
             </div>
+            <% for(let i=0; i<producto.Genres.length; i++){ %>
+                --<%=producto.Genres[i].name %> 
+            <% } %>
             
             <div class="det-art-precio-btn">
             <div class="det-art-precio-sig"><p class="det-art-signo-precio">$</p><p class="det-art-precio"><%=producto.price%></p></div>

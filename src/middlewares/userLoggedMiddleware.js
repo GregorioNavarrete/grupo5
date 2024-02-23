@@ -9,7 +9,7 @@ async function userLoggedMiddleware (req, res, next) {
     res.locals.isLogged = await false;
   
     const emailInCookie = await req.cookies.userEmail;
-    const userFromCookie = await User.findByField('email', emailInCookie);
+    const userFromCookie = await User.findByField('name_user','email', emailInCookie);
   
     //console.log(userFromCookie);
   
