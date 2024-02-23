@@ -13,11 +13,28 @@ const productController = {
     }
   },
 
-     cart:  (req, res) => {
+     cart: async (req, res) => {
+      try{
         // le tengo que poner funcionalidad xq ya esta la tabla apara esto 
         let htmlPath = path.resolve(__dirname,'../views/products/productCart.ejs') ;
         res.render(htmlPath);
+      }catch(e){
+        console.log(e);
+      }
+
       },
+      cartID: async (req, res) => {
+        try{
+          // le tengo que poner funcionalidad xq ya esta la tabla apara esto 
+          let carrito = await productService.getCarrito(req.params.id);
+
+          res.render('products/productCart',{producto : carrito});
+          // let htmlPath = path.resolve(__dirname,'../views/products/productCart.ejs') ;
+          // res.render(htmlPath);
+        }catch(e){
+          console.log(e);
+        }
+        },
 
       getOne : async (req, res) => {
         try {

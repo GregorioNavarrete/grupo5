@@ -209,7 +209,7 @@ const productService = {
                  );
 //tambien se relaciona con la tabla "comment" 
 
-    let deletproduct_carrito = await db.product_carrito.destroy(
+    let deletproduct_carrito = await db.user_product.destroy(
     {
              //indicamos a que registro aplicamos los cambios 
              // todos con el mismo "id_product" seran modificados
@@ -445,6 +445,23 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                 
                 return [];
             }    
+        },
+        getCarrito: async function(id){
+            try{
+                let products = await db.user_product.findAll({
+                    where: {
+                        ID_USER: id
+                    }
+                });
+        
+                // Puedes retornar directamente el array de productos encontrados
+                // console.log(products[0].dataValues);
+                // console.log(products[1].dataValues);
+                
+                return products;
+            }catch(e){
+                console.log(e);
+            }
         }
     
 

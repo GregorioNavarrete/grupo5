@@ -42,16 +42,16 @@ module.exports = (sequelize, DataTypes) =>{
             allowNull: false
         },
         description: { 
-            type : DataTypes.TEXT,
+            type : DataTypes.STRING,
             allowNull: false
         },
         
         pages:{
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false
         },
         edition:{
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false
         },
         stock:{
@@ -127,6 +127,19 @@ module.exports = (sequelize, DataTypes) =>{
        Product.hasMany(models.Comment,{
         as: 'Comments',
         foreignKey: 'id_comment'
+       }),
+
+       Product.belongsToMany(models.User,{
+        as: 'Users',
+        through:'user_product',
+        foreignKey: 'ID_PRODUCT',
+        otherkey: 'ID_USER',
+        timestamps: 'false'
+       })
+       ,
+       Product.hasMany(models.user_product,{
+        as: 'user_products',
+        foreignKey: 'ID_PRODUCT'
        })
    }
 
