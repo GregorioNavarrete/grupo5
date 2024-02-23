@@ -23,11 +23,12 @@
 <ul>
     
 
-    <% autor.Productos.forEach(producto => { %>
+
         <div class="sliders">
             <div class="lista">
+                <% autor.Productos.forEach(producto => { %>
         <article class="articulo">
-            <a href="../../product/libro/<%=producto.id%>"><img class="img-articulo" src="/img/portadas/<%=(producto.portada !== 0 && producto.portada !== undefined) ? producto.portada : 'default-image.png'%>" alf="<%=producto.titulo%>"> </a> 
+            <a href="../../product/libro/<%=producto.id%>"><img class="img-articulo" src="/img/portadas/<%=(producto.image !== 0 && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alf="<%=producto.title%>"> </a> 
             <div class="desc-articulo">
             <a href="../../product/libro/<%=producto.id%>"><p class="prodc-titulo"><%=producto.title%></p></a>
             <p class="prodc-autor"><%=producto.author%></p>
@@ -36,10 +37,11 @@
             <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo"><%=producto.price%></p></div></div>
             </div>
         </article>
+                <% }) %>
             </div>
         </div>
         
-    <% }) %>
+ 
 </ul>
 
 
@@ -49,3 +51,4 @@
     <footer><%- include ('../partials/footer') %></footer>
 </body>
 </html>
+
