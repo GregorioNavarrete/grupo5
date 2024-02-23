@@ -8,6 +8,8 @@ const productController = {
     try {
       let libros = await productService.getAll()
       res.render('products/index', {product: libros});
+      // res.send( libros);
+
     } catch (error) {
       console.log(error);
     }
@@ -113,7 +115,10 @@ const productController = {
 
       author: async  (req, res) => {
         try {
-          let autor = await productService.authors(req.params.id)
+          let autor = await productService.authors(req.params.id);
+          //console.log(autor);
+          //console.log(autor.Products);
+          //console.log(autor.Products[0].product_author);
           res.render('products/authors', {autor : autor})
         } catch (error) {    
         }

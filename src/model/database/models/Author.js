@@ -32,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
    let Author = sequelize.define(alias, columns, config);
 
    Author.associate = function(models){
+    
     Author.belongsToMany(models.Product,{
      as: 'Products',
      through:'product_author',

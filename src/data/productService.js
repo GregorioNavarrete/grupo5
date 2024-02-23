@@ -381,7 +381,7 @@ let deletproduct_favorites = await db.product_favorites.destroy(
             
                 for(let i=0; i < products.length;i++ ){
                     //Genres y authors son arreglos, hay que recorrerlos y luego ir a la condicion
-                    if(products[i].genero == generos   || products[i].autor == autores || products[i].formato == formato || products[i].editorial == editorial ){
+                    if(products[i].Genres[0].name == generos   || products[i].authors[0].name == autores || products[i].formato == formato || products[i].editorial == editorial ){
                             filtrados.push(products[i]);
                             
                     }
@@ -454,7 +454,7 @@ let deletproduct_favorites = await db.product_favorites.destroy(
         authors: async (id) => {
             try {
              return await db.Author.findByPk(id,{
-                include : [{association : 'Productos'}]
+                include : [{association : 'Products'}]
             })
             
             } catch (error) {

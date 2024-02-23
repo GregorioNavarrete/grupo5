@@ -3,7 +3,7 @@
     <a href="../../product/libro/<%=producto.id_product%>"><img class="img-articulo" src="/img/portadas/<%=(producto.image !== 0 && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alf="<%=producto.titulo%>"> </a> 
     <div class="desc-articulo">
     <a href="../../product/libro/<%=producto.id_product%>"><p class="prodc-titulo"><%=producto.title%></p></a>
-    <p class="prodc-autor"><%=producto.author%></p>
+    <p class="prodc-autor"><%=producto.authors[0].name%></p>
     <div class="iconPrecioArt">
 
         <!-- al boton le tendria que agregar para pasar los datos a la tabla de carrito de compras  -->
