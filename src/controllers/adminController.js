@@ -3,13 +3,23 @@ const productService = require('../data/productService');
 const userService = require('../data/userService');
 
 const adminController = {
-  formCarga : (req, res) => {
-    //para mostrar los elementos enlistados
+  // formCarga : (req, res) => {
+  //   //para mostrar los elementos enlistados
 
-    res.render('admin/FormularioDeCarga',{product : productService.getAll()});
-    //let htmlPath = path.resolve(__dirname,'../views/products/FormularioDeCarga.ejs') ;
-    //res.render(htmlPath);
-  },
+  //   res.render('admin/FormularioDeCarga',{product : productService.getAll()});
+  //   //let htmlPath = path.resolve(__dirname,'../views/products/FormularioDeCarga.ejs') ;
+  //   //res.render(htmlPath);
+  // }
+  formCarga : async (req, res) =>{
+    try{
+      let product = await productService.getAll();
+
+      res.render('admin/FormularioDeCarga',{product : product});
+    }catch(e){
+      console.log(e);
+    }
+  }
+  ,
   formCargaLibro : (req, res) => {
     //para mostrar los elementos enlistados
 
@@ -28,22 +38,35 @@ const adminController = {
     //res.send(req.body); //Para ver si lo modifico, que si
     res.redirect('/admin/FormCarga');
   },
-  destroy : (req, res) => {
-    // Do the magic
-    productService.delete(req.params.id);
-    res.redirect("/admin/formCarga");
+  destroy : async (req, res) => {
+    try{
+            // Do the magic
+      let aux = await productService.delete(req.params.id);
+      res.redirect("/admin/formCarga");
+    }catch(e){
+      console.log(e);
+    }
+
   },
-  edit: (req, res) => {
-    // Do the magic
-    res.render('admin/FormularioEditLibro', {productToEdit : productService.getOne(req.params.id)});
-    
+  edit: async (req, res) => {
+    try{
+        // Do the magic
+        let productToEdit = await productService.getOne(req.params.id)
+        res.render('admin/FormularioEditLibro', {productToEdit : productToEdit });
+    }catch(e){
+      console.log(e);
+    }
   },
-  update: (req, res) => {
-    // Do the magic
-    /*buscamos un prod por id y busco cambiarle los datos, por los que tengo en el req */
-    //productService.save(req);
-    productService.edit(req);
-    res.redirect('/admin/FormCarga');
+  update: async (req, res) => {
+    try {
+      // Do the magic
+      /*buscamos un prod por id y busco cambiarle los datos, por los que tengo en el req */
+      //productService.save(req);
+      productService.edit(req);
+      res.redirect('/admin/FormCarga');
+    }catch(e){
+      console.log(e);
+    }
   },
 
   list: (req,res)=>{

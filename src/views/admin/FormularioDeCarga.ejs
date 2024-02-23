@@ -68,31 +68,35 @@
                             <div class="editar-detalle-delete">
                             <div>
                                     <!--este tendria que cambia el metodo con el que se responde-->
-                                    <a class="editar-detalle" href="/admin/FormCarga/<%=producto.id%>/edit">Editar</a>
+                                    <a class="editar-detalle" href="/admin/FormCarga/<%=producto.id_product%>/edit">Editar</a>
                                    
                             </div>
                             <div >
                                 <!--anun este JSON no tiene id los elementos-->
-                                <a class="editar-detalle" href="../product/libro/<%=producto.id%>">Detalles</a>
+                                <a class="editar-detalle" href="../product/libro/<%=producto.id_product%>">Detalles</a>
                             </div>
                             <!--delte necesita el domulario, para decirle al router, con que metodo responder esta ruta-->
-                            <form action="/admin/FormCarga/<%=producto.id%>?_method=DELETE" method="POST" style="display: inline-flex">
+                            <form action="/admin/FormCarga/<%=producto.id_product%>?_method=DELETE" method="POST" style="display: inline-flex">
                                 <button type="submit" class="action-button"><i class="fa-solid fa-trash"></i></button>
                             </form>
                             </div>
 
                             <div class="titulo-autor-producto">
                             <div class="titulo-producto">
-                                <%= producto.titulo %>
+                                <%= producto.title %>
                             </div>
                             <div class="autor-producto">
-                                <%= producto.autor %>
+                                <!-- <%= producto.autor %> -->
+                                <% for(let i=0; i < producto.authors.length ; i++){ %>
+                                    <%=producto.authors[i].name %> 
+                                    <br>
+                                <% } %>
                             </div>
                            </div>
 
                             <figure class="product-box_image">
                                 <!--la imagen por defecto si funcion-->
-                                <img src="/img/portadas/<%=(producto.portada !== 0 && producto.portada !== undefined) ? producto.portada : 'default-image.png'%>" alt="imagen de producto">
+                                <img src="/img/portadas/<%=(producto.image !== 0 && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alt="imagen de producto">
                             </figure>
                         </div>
                         <% }); %>

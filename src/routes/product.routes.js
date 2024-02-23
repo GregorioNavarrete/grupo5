@@ -11,12 +11,14 @@ const productService = require ('../data/productService');
 const productController = require ('../controllers/productController');
 
 
-router.get('/cart', productController.cart);
+router.get('/cart/', productController.cart);// para ir a ver al carrito
+router.get('/cart/:id', productController.cartID);// para agregar un libro al carrito 
+
 router.get('/libro/:id', productController.getOne);
 router.get('/all', productController.all);
 //router.get('/catg', productService.catg);
-router.get('/filter',productController.filtro);
-router.get('/catg',productController.indexCatg);
+router.get('/filter',productController.filtro);// no se bien como hacerlo 
+router.get('/catg',productController.indexCatg); 
 
 router.get("/search", productController.productSearch)
 

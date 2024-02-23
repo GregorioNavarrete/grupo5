@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull:false
         },
-        image: {
+        image:{
             type: DataTypes.STRING,
             allowNull: false
         }
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     as: 'products',
     through:'product_genre',
     foreignKey: 'id_genre',
-    otherKey: 'id_product',
+    otherkey: 'id_product',
     timestamps: false
    })
    }

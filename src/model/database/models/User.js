@@ -49,15 +49,30 @@ module.exports = (sequelize, DataTypes) => {
 
    let User = sequelize.define(alias, columns, config);
    User.associate = function(models){
-   User.hasMany(models.Comment,{
-    as: 'Comments',
-    foreignKey: 'id_user'
-   }),
+        User.hasMany(models.Comment,{
+            as: 'Comments',
+            foreignKey: 'id_user'
+        }),
 
-   User.belongsTo(models.Rol,{
-    as: 'Rols',
-    foreignKey: 'id_rol'
-   })
+        User.belongsTo(models.Rol,{
+            as: 'Rols',
+            foreignKey: 'id_rol'
+        })
+           ,
+           User.hasMany(models.user_product,{
+               as: 'user_products',
+               foreignKey: 'ID_USER'
+              })  
+        ,
+        User.belongsToMany(models.Product,{
+            as: 'Products',
+            through:'user_product',
+            foreignKey: 'ID_USER',
+            otherkey: 'ID_PRODUCT',
+            timestamps: 'false'
+           })
+
+   //falta conectarse con el modelo favorito 
    }
 
    return User; 

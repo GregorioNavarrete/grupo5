@@ -4,8 +4,17 @@ module.exports = (sequelize, DataTypes) => {
         id_comment : {
             type: DataTypes.BIGINT,
             allowNull: false,
+            unique: true,
             primaryKey: true,
             autoIncrement: true
+        },
+        ID_PRODUCT: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        ID_USER: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
         },
         description: {
             type: DataTypes.TEXT,

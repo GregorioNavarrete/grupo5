@@ -21,10 +21,10 @@ module.exports = (sequelize, DataTypes) => {
    let Editorial = sequelize.define(alias, columns, config);
 
     Editorial.associate = function(models){
-    Editorial.hasMany(models.Product,{
-     as: 'Products',
-     foreignKey: 'id_editorial'
-    })
+        Editorial.hasMany(models.Product,{
+        as: 'Products',
+        foreignKey: 'id_editorial'
+        })
     }
 
    return Editorial; 
