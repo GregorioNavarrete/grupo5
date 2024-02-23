@@ -27,7 +27,6 @@ const productService = {
     }, */
     getAll: async function (){
         try {
-<<<<<<< HEAD
             let products = await db.Product.findAll({
                 include: [
                     { association: "Languages" },
@@ -40,14 +39,6 @@ const productService = {
             });
            //console.log(products);
             return products;
-=======
-            return await db.Product.findAll({association : 'Genres'},
-            {association : 'authors'},
-            {association : 'Formats'},
-            {association : 'Editorials'}
-            
-            )
->>>>>>> 1model/CRUD
             
         } catch (error) {
             //para q al menos no se rompa la vista
