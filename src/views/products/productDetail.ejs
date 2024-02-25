@@ -63,12 +63,20 @@
             <div class="det-art-precio-btn">
             <div class="det-art-precio-sig"><p class="det-art-signo-precio">$</p><p class="det-art-precio"><%=producto.price%></p></div>
 
-            <a class="det-art-agr-btn" href="../product/cart">
-           
-            <div class="det-art-agr-btn-text">Agregar</div>
-            <div class="det-art-btn-cart"><i class="fa-solid fa-cart-shopping"></i></i></div> 
-    
-            </a>
+
+            <% if (locals.isLogged) { %>
+                
+
+                <a class="det-art-agr-btn" href="../../product/cart/<%= locals.userLogged.id_user %>">
+                    <div class="det-art-agr-btn-text">Agregar</div>
+                    <div class="det-art-btn-cart"><i class="fa-solid fa-cart-shopping"></i></i></div> 
+                </a>
+            <% } else { %>
+                <a class="det-art-agr-btn" href="/admin/formCarga">
+                    <div class="det-art-agr-btn-text">Agregar</div>
+                    <div class="det-art-btn-cart"><i class="fa-solid fa-cart-shopping"></i></i></div> 
+                </a>
+            <% } %>
             </div>
     </article>
 
