@@ -31,7 +31,7 @@ const productController = {
           // le tengo que poner funcionalidad xq ya esta la tabla apara esto 
           let obj = await productService.getCarrito(req.params.id);
           let tres = await productService.GetLimit();
-          console.log(tres)
+          // console.log(obj.prod)
 
           res.render('products/productCart',{producto : obj.prod , precios:obj.prec , total:obj.Tot ,totalEnvio:obj.TotEnvio, art:tres});
           // let htmlPath = path.resolve(__dirname,'../views/products/productCart.ejs') ;
@@ -45,16 +45,16 @@ const productController = {
             // le tengo que poner funcionalidad xq ya esta la tabla apara esto 
             // let obj = await productService.getCarrito(req.params.id);
 
-            let busqueda = await productService.BuscarProductoCarrito(req.params.id_producto);
+            let busqueda = await productService.BuscarProductoCarrito(req);
             //bucar si el producto ya esta en el carrito 
-            console.log("la busqueda : " + busqueda);
+            // console.log("la busqueda : " + busqueda);
             if(busqueda == true ){
               //si esta, redirecciono al metodo "cartID"
               res.redirect(`/product/cart/home/${req.params.id}`);
             }else{
               // si no esta , lo agrego a la BDs y redirecciono a "cartID"
               let agregar = await productService.AddProductoCarrito(req);
-              console.log("el agregar " + agregar);
+              // console.log("el agregar " + agregar);
               res.redirect(`/product/cart/home/${req.params.id}`);
             }
             
