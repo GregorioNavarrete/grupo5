@@ -92,6 +92,7 @@ const userController = {
         
      let userToLogin = await userService.findByField('name_user','email' , req.body.email);//me da un usuario 
      
+     console.log(userToLogin);
      //si encontro alguien por email
      if(userToLogin) {
      
