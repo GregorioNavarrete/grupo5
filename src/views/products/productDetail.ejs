@@ -18,7 +18,7 @@
             <h2 class="det-art-cont-titulo"><%= producto.title %> <%=producto.subtitle %></h2>
             <h2 class="det-art-subtitulo"> 
                 <% for(let i=0; i<producto.authors.length; i++){ %>
-                    --<%=producto.authors[i].name %> 
+                  <a class="det-art-subtitulo-a" href="../../product/autor/<%=producto.authors[i].id_author %>">  <%=producto.authors[i].name %> </a>
                 <% } %>
             </h2>
             <div class="det-art-cont-estrellas "><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
@@ -46,19 +46,17 @@
             <div class="det-art-info">
                     <p class="det-art-info-item">Genero : 
                         <% for(let i=0; i<producto.Genres.length; i++){ %>
-                            --<%=producto.Genres[i].name %> 
+                            <%=producto.Genres[i].name %> 
                         <% } %>
                     </p>
                     <p class="det-art-info-item">Editorial : <%= producto.Editorials.name %></p>
                     <p class="det-art-info-item">Cantidad de Paginas : <%= producto.pages %></p>
                     <p class="det-art-info-item">Idioma : <%= producto.Languages.name %></p>
-                    <p class="det-art-info-item">Año de edicion : <%= producto.created %></p>
+                    <p class="det-art-info-item">Año de edicion : <%= producto.edition %></p>
                     <p class="det-art-info-item">Formato :<%= producto.Supports.name %></p>
-                    <p class="det-art-info-item">Etiqueta : <%= producto.Collections.name %></p>
+                    <p class="det-art-info-item">Colección : <%= producto.Collections.name %></p>
             </div>
-            <% for(let i=0; i<producto.Genres.length; i++){ %>
-                --<%=producto.Genres[i].name %> 
-            <% } %>
+        
             
             <div class="det-art-precio-btn">
             <div class="det-art-precio-sig"><p class="det-art-signo-precio">$</p><p class="det-art-precio"><%=producto.price%></p></div>
@@ -92,11 +90,11 @@
     <section class="section3">
         <div class="det-aut-autor">
             <article class="det-aut-descrip">
-                <h4 class="det-aut-nombre">"fata relacionar el con la tabla autor"</h4>
-                <p class="det-aut-desc-autor">Alice May Oseman (Chatham, Kent; 16 de octubre de 1994)1​ es una escritora, guionista e ilustradora británica de literatura juvenil. Es principalmente conocida por su novela gráfica Heartstopper. Ha sido elogiada por la crítica especializada y ha recibido diversos premios como los Inky Awards y United By Pop Awards.</p>
+                <h4 class="det-aut-nombre"><%=producto.authors[0].name%></h4>
+                <p class="det-aut-desc-autor"><%=producto.authors[0].biography%></p>
             </article>
             <div class="det-aut-conte-img">
-            <img class="det-aut-img" src="\img\alice-oseman.jpg" alt="">
+        <img class="det-aut-img" src="\img\authors\<%=producto.authors[0].image%>" alt="<%=producto.authors[0].name%>">
             </div>
         </div>
         
