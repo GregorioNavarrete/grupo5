@@ -30,9 +30,13 @@ const adminController = {
     //res.render(htmlPath);
   },
 
-  search: (req, res)=>{  
-    res.render('admin/FormularioDeCarga',{product : productService.search(req)})
-    
+  search: async (req, res)=>{
+    try{
+      let Encontrados = await productService.search(req);
+      res.render('admin/FormularioDeCarga',{product : Encontrados})
+    }catch(e){
+      console.log(e);
+    }  
   },
   store: (req, res)=>{
     // al metodo "save" le poso por parametro el OBJ "body" que obtengo del POST

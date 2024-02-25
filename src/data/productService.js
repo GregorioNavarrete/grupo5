@@ -363,9 +363,10 @@ let deletproduct_favorites = await db.product_favorites.destroy(
 
     search: async  function(req){
         try {
-            let allUsers = await this.getAll()
+            let allUsers = await this.getAll();
             let searchUsers = req.query.search.toLowerCase();
             let results = [];
+
             for ( let i=0; i < allUsers.length;i++){
                if(allUsers[i].title.toLowerCase().includes(searchUsers) ){
                 results.push(allUsers[i])
@@ -373,7 +374,7 @@ let deletproduct_favorites = await db.product_favorites.destroy(
             }
             return results
         } catch (error) {
-            
+            console.log(error);
         }
         
       },
