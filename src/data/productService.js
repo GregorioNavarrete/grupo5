@@ -434,9 +434,21 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                 console.log(error);
                 return [];
             }  
-        } 
-      
-        ,
+        },
+        fiandBest: async function (){
+            try {
+                let products = await db.Product.findAll({
+                    include: [{
+                        association: 'Genres',
+                        where: { name: "Best Seller" } 
+                    },{ association: "authors" }]
+                });
+                return products;
+            } catch (error) {
+                console.log(error);
+                return [];
+            }  
+        },
         findGenre: async function (id){
             //no lo llama nadie 
             try {

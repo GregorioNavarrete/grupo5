@@ -6,8 +6,9 @@ const productController = {
 
   index: async  (req, res) => {
     try {
-      let libros = await productService.getAll()
-      res.render('products/index', {product: libros});
+      let libros = await productService.getAll();
+      let librosBest = await productService.fiandBest()
+      res.render('products/index', {product: libros, best:librosBest});
       // res.send( libros);
 
     } catch (error) {
