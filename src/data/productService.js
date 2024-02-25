@@ -46,6 +46,25 @@ const productService = {
             return [];
         }    
     },
+    GetLimit: async function (){
+        try {
+            let products = await db.Product.findAll({
+               
+                limit : 3 
+            });
+
+
+
+            
+           //console.log(products);
+            return products;
+            
+        } catch (error) {
+            //para q al menos no se rompa la vista
+            //mandar un mensaje de error
+            return [];
+        }    
+    },
     
 
     save : async function(req){
@@ -570,7 +589,39 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                 }catch(e){
                     console.log(e);
                 }
-            }
+            },
+            BuscarProductoCarrito: async function(id){
+                try{
+
+                    let aux = await db.user_product.findAll({ 
+                        where : {ID_PRODUCT: id}
+                     });
+                    //  console.log(aux)
+                     if(aux.length === 0){
+                        return false;
+                     }else{
+                        return  true;
+                     }
+                    //  return aux;
+                    }catch(e){
+                        console.log(e);
+                    }
+                },
+
+            AddProductoCarrito: async function(req){
+                try{
+
+                    let aux = await db.user_product.create({
+                        ID_USER :req.params.id,
+                        ID_PRODUCT : req.params.id_producto,
+                        cant :1
+                        
+                    });
+                     return aux;
+                    }catch(e){
+                        console.log(e);
+                    }
+                },
                     
 
 }

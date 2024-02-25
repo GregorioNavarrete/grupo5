@@ -15,7 +15,9 @@ const productController = require ('../controllers/productController');
 
 
 //router.get('/cart/', productController.cart);// para ir a ver al carrito
-router.get('/cart/:id', authMiddleware,productController.cartID);// para agregar un libro al carrito 
+router.get('/cart/home/:id', authMiddleware,productController.cartID);// para agregar un libro al carrito 
+router.get('/cart/:id/:id_producto', authMiddleware,productController.AddCarrito);// para agregar un libro al carrito 
+
 router.get('/cart/cantidad/:tabla/:cant/:id', productController.Cantidad);//para modificar la cantidad de libros del carrito
 router.get('/cart/delete/:id/:user', productController.DeletCarrito);//para eliminar un elemento del carrito
 

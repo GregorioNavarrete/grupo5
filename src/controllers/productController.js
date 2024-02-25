@@ -29,14 +29,43 @@ const productController = {
         try{
           // le tengo que poner funcionalidad xq ya esta la tabla apara esto 
           let obj = await productService.getCarrito(req.params.id);
+          let tres = await productService.GetLimit();
+          console.log(tres)
 
-          res.render('products/productCart',{producto : obj.prod , precios:obj.prec , total:obj.Tot ,totalEnvio:obj.TotEnvio});
+          res.render('products/productCart',{producto : obj.prod , precios:obj.prec , total:obj.Tot ,totalEnvio:obj.TotEnvio, art:tres});
           // let htmlPath = path.resolve(__dirname,'../views/products/productCart.ejs') ;
           // res.render(htmlPath);
         }catch(e){
           console.log(e);
         }
         },
+        AddCarrito: async function (req, res)  {
+          try{
+            // le tengo que poner funcionalidad xq ya esta la tabla apara esto 
+            // let obj = await productService.getCarrito(req.params.id);
+
+            let busqueda = await productService.BuscarProductoCarrito(req.params.id_producto);
+            //bucar si el producto ya esta en el carrito 
+            console.log("la busqueda : " + busqueda);
+            if(busqueda == true ){
+              //si esta, redirecciono al metodo "cartID"
+              res.redirect(`/product/cart/home/${req.params.id}`);
+            }else{
+              // si no esta , lo agrego a la BDs y redirecciono a "cartID"
+              let agregar = await productService.AddProductoCarrito(req);
+              console.log("el agregar " + agregar);
+              res.redirect(`/product/cart/home/${req.params.id}`);
+            }
+            
+           
+  
+            // res.render('products/productCart',{producto : obj.prod , precios:obj.prec , total:obj.Tot ,totalEnvio:obj.TotEnvio});
+            // let htmlPath = path.resolve(__dirname,'../views/products/productCart.ejs') ;
+            // res.render(htmlPath);
+          }catch(e){
+            console.log(e);
+          }
+          },
         Cantidad : async (req, res) =>{
           try{
             let obj1 = await productService.editCantidad(req);
@@ -46,7 +75,7 @@ const productController = {
             // this.cartID(req);
             let aux = req.params.id;
             
-            res.redirect(`/product/cart/${req.params.id}`);
+            res.redirect(`/product/cart/home/${req.params.id}`);
             
 
           }catch(e){
@@ -57,7 +86,7 @@ const productController = {
           try{
             let obj1 = await productService.DeleteCarrito(req.params.id);
 
-            res.redirect(`/product/cart/${req.params.user}`);
+            res.redirect(`/product/cart/home/${req.params.user}`);
           }catch(e){
             console.log(e);
           }

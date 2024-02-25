@@ -28,7 +28,7 @@
             <div class="producto">
 
                 <div class="banner">
-                    <a href="../../product/libro/<%= producto[i].ID_PRODUCT %>">
+                    <a href="../../libro/<%= producto[i].ID_PRODUCT %>">
                         <img class="img-Banner" src="/img/portadas/<%=(producto[i].products.image !== 0 && producto[i].products.image !== undefined) ? producto[i].products.image : 'default-image.png'%>" alt="home banner"></div>
                                             
                     </a>
@@ -44,11 +44,11 @@
 
                     
                     <div class="botones">
-                        <a class="btn-" href="../../product/cart/cantidad/<%=producto[i].ID%>/0/<%=producto[i].ID_USER%>"><i class="fa-solid fa-circle-minus"></i></a>
+                        <a class="btn-" href="../../cart/cantidad/<%=producto[i].ID%>/0/<%=producto[i].ID_USER%>"><i class="fa-solid fa-circle-minus"></i></a>
                         <p class="cant"><%=producto[i].cant %></p>
-                        <a class="btn-" href="../../product/cart/cantidad/<%=producto[i].ID%>/1/<%=producto[i].ID_USER%>"><i class="fa-sharp fa-solid fa-circle-plus"></i></a>
+                        <a class="btn-" href="../../cart/cantidad/<%=producto[i].ID%>/1/<%=producto[i].ID_USER%>"><i class="fa-sharp fa-solid fa-circle-plus"></i></a>
                         
-                        <a class="btn-trash" href="../../product/cart/delete/<%=producto[i].ID%>/<%=producto[i].ID_USER%>"><i class="fa-solid fa-trash"></i></a>
+                        <a class="btn-trash" href="../../cart/delete/<%=producto[i].ID%>/<%=producto[i].ID_USER%>"><i class="fa-solid fa-trash"></i></a>
                         
                         <h5><%= precios[i] %></h5>                            
                     </div>
@@ -148,16 +148,20 @@
                 <h2 class="tlo-sug">Más Titulos </h2>
 
             <section class="list-articulos">
-                <article class="articulo">
-                    <img class="img-articulo" src="/img/portadas/harry-potter.jpg" alf="Harry Potter 1">  
-                    <div class="desc-articulo">
-                    <a class="icon-articulo" href="/productCart" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
-                    <p class="signo-precio-art">$</p><p class="precio-articulo">12.900,00</p>
-                    <a href="/productDetail"><button class="button-art">Descubrir</button></a>
-                    </div>
-                </article>
-    
-                <article class="articulo-oculto-1">
+                <% for(let i=0; i< art.length; i++){ %>
+                    <article class="articulo">
+                        <a href="../../libro/<%= art[i].id_product %>">
+                            <img class="img-articulo" src="/img/portadas/<%=art[i].image%>" alf="<%=art[i].title%>"> 
+                        </a>
+                         
+                        <div class="desc-articulo">
+                        <a class="icon-articulo" href="../../cart/<%= locals.userLogged.id_user %>/<%=art[i].id_product%>" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
+                        <p class="signo-precio-art">$</p><p class="precio-articulo"><%=art[i].price%></p>
+                        <!-- <a href="../../product/cart/<%= locals.userLogged.id_user %>/<%=art.id_product%>"><button class="button-art">Descubrir</button></a> -->
+                        </div>
+                    </article>
+                <% } %>
+                <!-- <article class="articulo-oculto-1">
                     <img class="img-articulo" src="/img/portadas/los-juegos-del-hambre.jpg" alf="Los Juegos del Hambre">  
                     <div class="desc-articulo">
                     <a class="icon-articulo" href="/productCart" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
@@ -182,7 +186,7 @@
                     <p class="signo-precio-art">$</p><p class="precio-articulo">20.220,00</p>
                     <a href="/productDetail"><button class="button-art">Descubrir</button></a>
                     </div>
-                </article>
+                </article> -->
     
             </section>
 

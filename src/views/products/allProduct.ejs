@@ -122,7 +122,7 @@
                     <% } %>
                 </p>
                 <% if (locals.isLogged) { %>
-                    <a class="icon-articulo" href="../../product/cart/<%= locals.userLogged.id_user %>" class="carrito" ><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a class="icon-articulo" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=product.id_product%>" class="carrito" ><i class="fa-solid fa-cart-shopping"></i></a>
                 <% } else { %>
                     <a class="icon-articulo" href="/admin/formCarga" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
                 <% } %>
