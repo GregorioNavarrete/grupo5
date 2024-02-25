@@ -597,12 +597,16 @@ let deletproduct_favorites = await db.product_favorites.destroy(
             BuscarProductoCarrito: async function(req){
                 try{
                     // y un where que 
+                    // console.log(req.params);
                     let aux = await db.user_product.findAll({ 
-                        where : {
-                            ID_PRODUCT: req.params.id_producto,
-                            ID_USER: req.params.id
-                        }
+                        where: {
+                            ID_PRODUCT:parseInt(req.params.id_producto),
+                            ID_USER: parseInt(req.params.id)
+                          }
+                     
                      });
+                    //  console.log(aux[0].dataValues);
+              
                     //  console.log(aux)
                      if(aux.length === 0){
                         return false;
