@@ -31,7 +31,7 @@ const productController = {
           // le tengo que poner funcionalidad xq ya esta la tabla apara esto 
           let obj = await productService.getCarrito(req.params.id);
           let tres = await productService.GetLimit();
-          console.log(tres)
+          console.log(obj.prod)
 
           res.render('products/productCart',{producto : obj.prod , precios:obj.prec , total:obj.Tot ,totalEnvio:obj.TotEnvio, art:tres});
           // let htmlPath = path.resolve(__dirname,'../views/products/productCart.ejs') ;
