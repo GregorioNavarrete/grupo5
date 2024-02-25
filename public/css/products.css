@@ -109,12 +109,23 @@
 }
 
 .prodc-autor{
+    margin: auto;
+    color: var(--gris-petroleo);
+    font-size: 0.8em;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 0px;
+   
+}
+
+.prodc-autor-a{
     width: 90%;
     margin: auto;
     color: var(--gris-petroleo);
     font-size: 0.8em;
     font-weight: bold;
-    display: none;
+    text-decoration: none;
+    margin-top: 0px;
    
 }
 
