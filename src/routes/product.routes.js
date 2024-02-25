@@ -13,6 +13,8 @@ const productController = require ('../controllers/productController');
 
 router.get('/cart/', productController.cart);// para ir a ver al carrito
 router.get('/cart/:id', productController.cartID);// para agregar un libro al carrito 
+router.get('/cart/cantidad/:tabla/:cant/:id', productController.Cantidad);//para modificar la cantidad de libros del carrito
+
 
 router.get('/libro/:id', productController.getOne);
 router.get('/all', productController.all);

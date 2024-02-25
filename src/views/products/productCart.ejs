@@ -20,16 +20,48 @@
 
             <h2>Tu carrito </h2>
 
-        <!--la lista de productos a presentar -->
+        <!--la lista de productos a presentar   producto -->
         <div class="listaProduct">
+            <% for(let i=0; i< producto.length; i++){ %>
+                
+            
             <div class="producto">
 
                 <div class="banner">
-                    <img class="img-Banner" src="/img/Defiant.jpg" alt="home banner"></div>
-                
+                    <a href="../../product/libro/<%= producto[i].ID_PRODUCT %>">
+                        <img class="img-Banner" src="/img/portadas/<%=(producto[i].products.image !== 0 && producto[i].products.image !== undefined) ? producto[i].products.image : 'default-image.png'%>" alt="home banner"></div>
+                                            
+                    </a>
+
                 <div class="CaracteristicasProduct">
                     <div class="DescripcionProduct">
 
+                        <p class="tlo-autor">Titulo :<%=producto[i].products.title %></p>
+                        <br>
+                        <!-- Se me complico meter, un include ,dentro de otro include  -->
+                            <p class="tlo-autor">Autor : <%=producto[i].products.authors[0].name %></p>
+                    </div>
+
+                    
+                    <div class="botones">
+                        <a class="btn-" href="../../product/cart/cantidad/<%=producto[i].ID%>/0/<%=producto[i].ID_USER%>"><i class="fa-solid fa-circle-minus"></i></a>
+                        <p class="cant"><%=producto[i].cant %></p>
+                        <a class="btn-" href="../../product/cart/cantidad/<%=producto[i].ID%>/1/<%=producto[i].ID_USER%>"><i class="fa-sharp fa-solid fa-circle-plus"></i></a>
+                        
+                        <a class="btn-trash" href="#"><i class="fa-solid fa-trash"></i></a>
+                        
+                        <h5><%= precios[i] %></h5>                            
+                    </div>
+                
+                </div>
+
+            </div>
+            <% } %>
+            <!-- <div class="producto">
+                <div class="banner">
+                    <img class="img-Banner" src="/img/Defiant.jpg" alt="home banner"></div>
+                <div class="CaracteristicasProduct">
+                    <div class="DescripcionProduct">
                         <p class="tlo-autor">titulo</p>
                         <p class="tlo-autor">-autor</p>
                     </div>
@@ -46,30 +78,7 @@
                     </div>
                 
                 </div>
-
-            </div>
-            <div class="producto">
-                <div class="banner">
-                    <img class="img-Banner" src="/img/Defiant.jpg" alt="home banner"></div>
-                <div class="CaracteristicasProduct">
-                    <div class="DescripcionProduct">
-                        <p class="tlo-autor">titulo</p>
-                        <p class="tlo-autor">-autor</p>
-                    </div>
-
-                    
-                    <div class="botones">
-                        <a class="btn-" href="#"><i class="fa-solid fa-circle-minus"></i></a>
-                        <p class="cant">1</p>
-                        <a class="btn-" href="#"><i class="fa-sharp fa-solid fa-circle-plus"></i></a>
-                        
-                        <a class="btn-trash" href="#"><i class="fa-solid fa-trash"></i></a>
-
-                        <h5>$999,999</h5>                            
-                    </div>
-                
-                </div>
-            </div>
+            </div> -->
         </div>
 
         <!--hago el resumen de compra y subgerencias -->
@@ -81,17 +90,17 @@
                 <h3>Resumen de compra</h3>
                 <div class="subtotal">
                     <p>SubTotal</p>
-                    <p>  $99999,999</p>
+                    <p> <%=  total %> </p>
                 </div>
                 
                 <div class="envio">
                     <p>Envio</p>
-                    <p>  $99,999</p>
+                    <p>  $10,000</p>
                 </div>
                 
                 <div class="Res-total">
                     <p>Total</p>
-                    <p>  $99999,999</p>
+                    <p>  <%=  totalEnvio %></p>
                 </div>
                 
                 

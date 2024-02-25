@@ -25,19 +25,34 @@ const productController = {
       }
 
       },
-      cartID: async (req, res) => {
+      cartID: async function (req, res)  {
         try{
           // le tengo que poner funcionalidad xq ya esta la tabla apara esto 
-          let carrito = await productService.getCarrito(req.params.id);
+          let obj = await productService.getCarrito(req.params.id);
 
-          res.render('products/productCart',{producto : carrito});
+          res.render('products/productCart',{producto : obj.prod , precios:obj.prec , total:obj.Tot ,totalEnvio:obj.TotEnvio});
           // let htmlPath = path.resolve(__dirname,'../views/products/productCart.ejs') ;
           // res.render(htmlPath);
         }catch(e){
           console.log(e);
         }
         },
+        Cantidad : async (req, res) =>{
+          try{
+            let obj1 = await productService.editCantidad(req);
+            console.log("previo al redirect")
+            //res.redirect('product/cart/');
+            //le mando el req xq el id = id_user
+            // this.cartID(req);
+            let aux = req.params.id;
+            
+            res.redirect(`/product/cart/${req.params.id}`);
+            
 
+          }catch(e){
+            console.log(e);
+          }
+        },
       getOne : async (req, res) => {
         try {
           let aux = await productService.getOne(req.params.id);

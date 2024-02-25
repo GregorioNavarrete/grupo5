@@ -415,8 +415,6 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                             newCatg.push(products[i]);
                         }                        
                     }
-
-                    
                 }
                
                 return newCatg;
@@ -466,21 +464,97 @@ let deletproduct_favorites = await db.product_favorites.destroy(
         getCarrito: async function(id){
             try{
                 let products = await db.user_product.findAll({
-                    where: {
-                        ID_USER: id
-                    }
-                });
+                    
+                        include : [{association : 'products'
+                    ,include : [{association : 'authors'}]}] 
+                    ,
+                        //hay que poner, o traera todo el array
+                        where : {ID_USER: id}
+                }
+
+                  );
         
                 // Puedes retornar directamente el array de productos encontrados
                 // console.log(products[0].dataValues);
                 // console.log(products[1].dataValues);
+                //console.log(products[2].dataValues);
+                let Total = 0;
+                let precios = []; 
+                for(let i=0; i < products.length; i++){
+                    //let suma = 0;
+                    precios[i] = products[i].dataValues.cant * products[i].dataValues.products.price; 
+                    Total = Total + products[i].dataValues.cant * products[i].dataValues.products.price;
+                }
+
+                //console.log(precios);
+                let envio = 10000;
+                let obj={
+                    prod: products,
+                    prec :precios,
+                    Tot : Total,
+                    TotEnvio: Total+10000
+                }
+                return obj;
+            }catch(e){
+                console.log(e);
+            }
+        },
+        getOneProducto : async (id) => {
+            try {
+             let aux = await db.user_product.findAll({ 
+                where : {ID: id}
+             });
+            //  console.log("estas en getOneProducto");
+            //  console.log(aux[0].dataValues.cant);
+             return aux;
+            } catch (error) {
+                console.log(error);
+            }      
+        },
+        editCantidad: async function(req){
+            try{
+                let producto = await this.getOneProducto(req.params.tabla);
+                // console.log("estas en editCantidad");
+                // console.log(producto);
+                // console.log(req.params);
+                // console.log(producto[0].dataValues.cant);
+                if(req.params.cant === '1'){
+                    //tengo q incrementar 1
+                    let aux = parseInt(producto[0].dataValues.cant) + 1 ;
+                    //console.log(aux);
+                    // el tope superiro no tendria que pasar el stock disponible
+                    let edicion = await db.user_product.update(
+                        {
+                            //los campos de la tabla que buscamos modificar
+                            cant : aux
+                        },{
+                            //indicamos a que registro aplicamos los cambios 
+                            where: {ID : req.params.tabla }
+                        }) 
+                }
+                if(req.params.cant === '0'){
+                    //tengo q decrementar 1
+                    if(producto[0].dataValues.cant > 1 ){
+                        
+                        let aux =  parseInt(producto[0].dataValues.cant) - 1 ;
+                       // console.log(aux);
+                        let edicion = await db.user_product.update(
+                            {
+                                //los campos de la tabla que buscamos modificar
+                                cant : aux
+                            },{
+                                //indicamos a que registro aplicamos los cambios 
+                                where: {ID : req.params.tabla }
+                            })
+                    }
+                }
                 
-                return products;
+
+                //let producto = await this.getOne(req.params.id);
             }catch(e){
                 console.log(e);
             }
         }
-    
 
 }
 
