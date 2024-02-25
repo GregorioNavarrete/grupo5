@@ -416,27 +416,16 @@ let deletproduct_favorites = await db.product_favorites.destroy(
         
         catg: async function (req){
             try {
+                let catg = Object.keys(req.query)[0];
                 let products = await db.Product.findAll({
-                    include: [
-                        { association: "Languages" },
-                        { association: "Editorials" },
-                        { association: "Collections" },
-                        { association: "authors" },
-                        { association: "Genres" },
-                        { association: "Supports" }
-                    ]
+                    include: [{
+                        association: 'Genres',
+                        where: { name: catg } // Filter by the specified category
+                    },{ association: "authors" }]
                 });
-                let catg = Object.keys(req.query)[0];  
-                let newCatg=[];
-                for(let i=0; i < products.length; i++){
-                    for(let j=0; j < products[i].Genres.length; j++){
-                        if(products[i].Genres[j].name === catg ){
-                            newCatg.push(products[i]);
-                        }                        
-                    }
-                }
+
                
-                return newCatg;
+                return products;
 
             
             } catch (error) {
@@ -445,7 +434,9 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                 console.log(error);
                 return [];
             }  
-        },
+        } 
+      
+        ,
         findGenre: async function (id){
             //no lo llama nadie 
             try {

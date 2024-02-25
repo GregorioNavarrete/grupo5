@@ -128,6 +128,11 @@ const productController = {
           let newCatg = await productService.catg(req);
           let products = await productService.getAll();
 
+          // console.log("new cartg ");
+          // console.log(newCatg);
+          // console.log("productos");
+         // console.log(products);
+
           if(newCatg[0]=== undefined){
             // si no hay librose esa categoria, redirecciono 
             res.redirect('/');
