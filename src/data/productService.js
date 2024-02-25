@@ -554,7 +554,24 @@ let deletproduct_favorites = await db.product_favorites.destroy(
             }catch(e){
                 console.log(e);
             }
-        }
+        },
+        DeleteCarrito : async function(id){
+            try{
+                // indice = this.products.findIndex((elem)=>elem.id == id);
+                // this.products.splice(indice,1);
+                // fs.writeFileSync(productsFilePath,JSON.stringify(this.products),'utf-8');
+                /////////
+                let delet = await db.user_product.destroy(
+                    {
+                          where: {ID : id }
+                      }
+                  );
+
+                }catch(e){
+                    console.log(e);
+                }
+            }
+                    
 
 }
 

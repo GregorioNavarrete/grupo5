@@ -53,6 +53,15 @@ const productController = {
             console.log(e);
           }
         },
+        DeletCarrito: async (req, res) =>{
+          try{
+            let obj1 = await productService.DeleteCarrito(req.params.id);
+
+            res.redirect(`/product/cart/${req.params.user}`);
+          }catch(e){
+            console.log(e);
+          }
+        },
       getOne : async (req, res) => {
         try {
           let aux = await productService.getOne(req.params.id);
