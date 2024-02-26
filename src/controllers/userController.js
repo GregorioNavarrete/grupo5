@@ -57,7 +57,7 @@ const userController = {
         req.session.userLogged = user;
         res.redirect('../../../');
         } catch (error) {
-     
+          res.status(500).send({error:'hubo un error al registrarse'});
         }
      },
     
@@ -83,7 +83,7 @@ const userController = {
         req.session.userLogged = user
         res.render('users/userEdit', {user : user });
       } catch (error) {
-        console.log(error)
+        res.render('admin/error')
       }
      },
 
@@ -134,7 +134,7 @@ const userController = {
        }
      });
       } catch (error) {
-        
+        res.tatus(500).send({error:'algo salio mal al intentar iniciar sesion'})
       }
 
     },
@@ -145,7 +145,7 @@ const userController = {
         req.session.destroy();//borra todo lo que este en secion
         return res.redirect('/');
       } catch (error) {
-        
+        res.render('admin/error')
       }
     },
     
@@ -157,7 +157,7 @@ const userController = {
        await userService.delete(id)
         await res.redirect('/');
       } catch (error) {
-        
+        res.tatus(500).send({error:'algo salio mal al intentar borrar el usuario'})
       }
     },
    
