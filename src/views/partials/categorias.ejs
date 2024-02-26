@@ -1,12 +1,12 @@
 <form action="product/catg" method="get"  name="categoria" value="categoria" class="list-categoria"> 
 
-   
-    <button class="categoria" name="misterio"><div class="categ">
+    <% Products.Genres.forEach( genero => { %>  
+    <button class="categoria" name="<%= genero.name %>"><div class="categ">
         <img class="img-categoria" src="/img/categorias/misterios.png" alf="Misterio"> 
         <h4 class="text-categoria">Misterio</h4>
     </div></button>
 
-    
+    <% }) %>
     
     <button class="categoria" name="romance" ><div class="categ">
         <img class="img-categoria" src="/img/categorias/Romance.png" alf="Romance"> 

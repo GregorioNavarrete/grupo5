@@ -458,7 +458,7 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                product = products.find((elem)=>elem.id_product == id);
     
                if(!product){
-                    // si el no se encuantra el "id" en el arreglo, lo entrgamos bacio al obj
+                    // si el no se encuantra el "id" en el arreglo, lo entrgamos vacio al obj
                     console.log("id invalido");
                     product = {};
                }
