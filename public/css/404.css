@@ -53,6 +53,14 @@
     font-weight: bold;
 }
 
+.error500-text-titulo{
+    font-family: 'Merriweather', serif;
+    color: #F94D01;
+    font-size: 1em;
+    margin: 5px;
+    font-weight: bold;
+}
+
 .error-text-subtitulo{
     color: var(--gris-petroleo);
     font-size: 0.8em;
@@ -90,6 +98,10 @@
         font-size: 5em;
     }
 
+    .error500-text-titulo{
+        font-size: 2em;
+    }
+
     .error-conte{
         padding: 20px;
     }
@@ -107,6 +119,10 @@
 
     .error-text-titulo{
         font-size: 6em;
+    }
+
+    .error500-text-titulo{
+        font-size: 2.5em;
     }
 
     .error-conte{
