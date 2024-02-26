@@ -5,20 +5,14 @@ const db = require('../model/database/models');
 const adminService = require('../data/adminService')
 
 const adminController = {
-  // formCarga : (req, res) => {
-  //   //para mostrar los elementos enlistados
-
-  //   res.render('admin/FormularioDeCarga',{product : productService.getAll()});
-  //   //let htmlPath = path.resolve(__dirname,'../views/products/FormularioDeCarga.ejs') ;
-  //   //res.render(htmlPath);
-  // }
+  
   formCarga : async (req, res) =>{
     try{
       let product = await productService.getAll();
 
       res.render('admin/FormularioDeCarga',{product : product});
     }catch(e){
-      console.log(e);
+      res.render('admin/error')
     }
   }
   ,
@@ -26,8 +20,7 @@ const adminController = {
     //para mostrar los elementos enlistados
 
     res.render('admin/FormularioCargaLibros');
-    //let htmlPath = path.resolve(__dirname,'../views/products/FormularioDeCarga.ejs') ;
-    //res.render(htmlPath);
+    
   },
 
   search: async (req, res)=>{
@@ -35,7 +28,7 @@ const adminController = {
       let Encontrados = await productService.search(req);
       res.render('admin/FormularioDeCarga',{product : Encontrados})
     }catch(e){
-      console.log(e);
+      res.render('admin/error')
     }  
   },
   store: (req, res)=>{
@@ -46,32 +39,32 @@ const adminController = {
   },
   destroy : async (req, res) => {
     try{
-            // Do the magic
+            
       let aux = await productService.delete(req.params.id);
       res.redirect("/admin/formCarga");
     }catch(e){
-      console.log(e);
+      res.tatus(500).send({e:'algo salio mal al eliminar, intentelo mas tarde'})
     }
 
   },
   edit: async (req, res) => {
     try{
-        // Do the magic
+        
         let productToEdit = await productService.getOne(req.params.id)
         res.render('admin/FormularioEditLibro', {productToEdit : productToEdit });
     }catch(e){
-      console.log(e);
+      res.render('admin/error')
     }
   },
   update: async (req, res) => {
     try {
-      // Do the magic
+      
       /*buscamos un prod por id y busco cambiarle los datos, por los que tengo en el req */
-      //productService.save(req);
+      
       productService.edit(req);
       res.redirect('/admin/FormCarga');
     }catch(e){
-      console.log(e);
+      res.status(500).send({e:'algo salio mal al actualizar, intentelo mas tarde'})
     }
   },
 
@@ -79,9 +72,9 @@ const adminController = {
     try {
       let users = await userService.getData()
       res.render('admin/userList', {Users : users})
-      console.log(users);
+      
     } catch (error) {
-      console.log(error);
+      res.render('admin/error')
     }
   },
 
@@ -93,7 +86,7 @@ const adminController = {
      await adminService.delete(id);
      res.redirect('/admin/list');
     } catch (error) {
-      
+      res.status(500).send({error:'ocurrio un error al elminar usuario'})
     }
   },
 
@@ -103,7 +96,7 @@ const adminController = {
       res.render('users/userResults', {Users} )
       
     } catch (error) {
-      
+      res.render('admin/error')
     }
   },
 
@@ -123,7 +116,7 @@ const adminController = {
       let user = await userService.getOne(id)
       res.render('admin/userEdit', {user : user });
     } catch (error) {
-      console.log(error)
+      res.render('admin/error')
     }
    },
 

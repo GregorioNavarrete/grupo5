@@ -9,7 +9,7 @@ const productController = {
       let libros = await productService.getAll();
       let librosBest = await productService.fiandBest()
       res.render('products/index', {product: libros, best:librosBest});
-      // res.send( libros);
+      
 
     } catch (error) {
       console.log(error);
@@ -31,11 +31,10 @@ const productController = {
           // le tengo que poner funcionalidad xq ya esta la tabla apara esto 
           let obj = await productService.getCarrito(req.params.id);
           let tres = await productService.GetLimit();
-          // console.log(obj.prod)
+          
 
           res.render('products/productCart',{producto : obj.prod , precios:obj.prec , total:obj.Tot ,totalEnvio:obj.TotEnvio, art:tres});
-          // let htmlPath = path.resolve(__dirname,'../views/products/productCart.ejs') ;
-          // res.render(htmlPath);
+         
         }catch(e){
           console.log(e);
         }
@@ -47,7 +46,7 @@ const productController = {
 
             let busqueda = await productService.BuscarProductoCarrito(req);
             //bucar si el producto ya esta en el carrito 
-            // console.log("la busqueda : " + busqueda);
+            
             if(busqueda == true ){
               //si esta, redirecciono al metodo "cartID"
               res.redirect(`/product/cart/home/${req.params.id}`);
@@ -60,9 +59,7 @@ const productController = {
             
            
   
-            // res.render('products/productCart',{producto : obj.prod , precios:obj.prec , total:obj.Tot ,totalEnvio:obj.TotEnvio});
-            // let htmlPath = path.resolve(__dirname,'../views/products/productCart.ejs') ;
-            // res.render(htmlPath);
+            
           }catch(e){
             console.log(e);
           }
@@ -71,16 +68,16 @@ const productController = {
           try{
             let obj1 = await productService.editCantidad(req);
             console.log("previo al redirect")
-            //res.redirect('product/cart/');
+            
             //le mando el req xq el id = id_user
-            // this.cartID(req);
+            
             let aux = req.params.id;
             
             res.redirect(`/product/cart/home/${req.params.id}`);
             
 
           }catch(e){
-            console.log(e);
+            res.status(500).send({e:'ocurrio un error, vuelva a intentar mas tarde'})
           }
         },
         DeletCarrito: async (req, res) =>{
@@ -89,7 +86,7 @@ const productController = {
 
             res.redirect(`/product/cart/home/${req.params.user}`);
           }catch(e){
-            console.log(e);
+            res.status(500).render({e:'algo salio mal al eliminar los productos del carrito'});
           }
         },
       getOne : async (req, res) => {
@@ -98,10 +95,9 @@ const productController = {
           let aux1= await productService.getAll();
 
           res.render('products/productDetail',{producto :aux ,product: aux1});
-          //let htmlPath = path.resolve(__dirname,'../views/products/productDetail.ejs') ;
-          //res.render(htmlPath);
+          
         }catch (error){
-          console.log(error);
+          res.render('admin/error');;
         }
 
       },
@@ -111,10 +107,9 @@ const productController = {
           let libros = await productService.getAll()
           
           res.render('products/allProduct', {products : libros});
-          // console.log(libros[1]);
-          // console.log(libros[2]);
+          
         } catch (error) {
-          console.log(error);
+          res.render('admin/error');
         }
       },
 
@@ -129,10 +124,7 @@ const productController = {
           let newCatg = await productService.catg(req);
           let products = await productService.getAll();
 
-          // console.log("new cartg ");
-          // console.log(newCatg);
-          // console.log("productos");
-         // console.log(products);
+          
 
           if(newCatg[0]=== undefined){
             // si no hay librose esa categoria, redirecciono 
@@ -141,7 +133,7 @@ const productController = {
           res.render('products/categoria',{newCatg:newCatg, products : products})
 
         } catch (error) {
-          console.log(error);
+          res.render('admin/error');
         }
       },
 
@@ -156,7 +148,7 @@ const productController = {
             res.render('products/filtrados',{newObject: filtro });
           }
         } catch (error) {
-          
+          res.render('admin/error');
         }
 
       },
@@ -167,7 +159,7 @@ const productController = {
           let productos = await productService.getAll();
           res.render("products/searchProducts", {productResult : busqueda , products :productos } )
         } catch (error) {
-          
+          res.render('admin/error');
         }
 
       },
@@ -175,11 +167,10 @@ const productController = {
       author: async  (req, res) => {
         try {
           let autor = await productService.authors(req.params.id);
-          //console.log(autor);
-          //console.log(autor.Products);
-          //console.log(autor.Products[0].product_author);
+          
           res.render('products/authors', {autor : autor})
-        } catch (error) {    
+        } catch (error) { 
+          res.render('admin/error');
         }
       }
 
