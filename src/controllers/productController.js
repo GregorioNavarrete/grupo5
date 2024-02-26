@@ -8,7 +8,8 @@ const productController = {
     try {
       let libros = await productService.getAll();
       let librosBest = await productService.fiandBest()
-      res.render('products/index', {product: libros, best:librosBest});
+      let generos = await productService.fiandGenres()
+      res.render('products/index', {product: libros, best:librosBest, genres: generos});
       
 
     } catch (error) {

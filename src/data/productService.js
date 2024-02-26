@@ -450,6 +450,22 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                 return [];
             }  
         },
+
+
+        fiandGenres: async function (){
+            try {
+                let generos = await db.Genre.findAll({
+                });
+                return generos;
+            } catch (error) {
+                console.log(error);
+                return [];
+            }  
+        },
+
+
+
+
         findGenre: async function (id){
             //no lo llama nadie 
             try {
