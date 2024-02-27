@@ -6,141 +6,160 @@ const bcryptjs = require('bcryptjs');
 const {validationResult} = require('express-validator')
 
 
-
 const userController = {
-
-    
-
+  
     login : (req, res) => {
         res.render('users/login');
       },
 
-    registro: (req, res) => {
+    registro:  (req, res) => {
         res.render('users/register');
       },
 
-    processRegister:(req,res)=>{
+      processRegister: async (req,res)=>{
+        try {
+          let resultValidation = await validationResult(req);
+          console.log(resultValidation.mapped())
+          if(resultValidation.errors.length > 0){
+            return res.render('users/register',{
+              errors : resultValidation.mapped(),
+              oldData : req.body
+            })
+           } 
 
-      let resultValidation = validationResult(req);
-      console.log(resultValidation.mapped())
-      if(resultValidation.errors.length > 0){
-        return res.render('users/register',{
-          errors : resultValidation.mapped(),
-          oldData : req.body
-        })
-       } 
-
-    let userInDB = userService.findByField('email', req.body.email);
-
-		if (userInDB) {
-			return res.render('users/register', {
-				errors: {
-					email: {
-						msg: 'Este email ya está registrado'
-					}
-				},
-				oldData: req.body
-			});
-		}
-		userService.create(req);
-    res.redirect('../../user/login')
-    },             
-
-    update: (req, res) => {
-      userService.edit(req);
-      res.redirect('../');
+          let confirmPass = await req.body.confirmPassword
+          if(confirmPass != req.body.password){
+            return res.render('users/register', {
+              errors: {
+                password: {
+                  msg: 'Las Contraseñas no coinciden '
+                }
+              },
+              oldData: req.body
+            });
+          } 
+     
+         let userInDB = await userService.findByField('email', 'name_user', req.body.email);
+     
+        if (userInDB) {
+          return res.render('users/register', {
+            errors: {
+              email: {
+                msg: 'Este email ya está registrado'
+              }
+            },
+            oldData: req.body
+          });
+        } 
+        let user = await userService.create(req);
+        
+        // Iniciar la sesión del usuario después de registrarse
+        req.session.userLogged = user;
+        res.redirect('../../../');
+        } catch (error) {
+          res.status(500).send({error:'hubo un error al registrarse'});
+        }
+     },
+    
+     profile: (req, res) => {
+      let user = req.session.userLogged;
+      return res.render('users/userProfile', {user: user});
     },
 
+    update: async (req, res) => {
+      try {
+          let userEdit = await userService.edit(req);
+          await res.redirect('../../../user/profile');
+      } catch (error) {
+          console.error(error); // Esto imprimirá el error en tu consola
+          res.status(500).send({error: 'Hubo un error al actualizar el usuario'}); // Esto enviará una respuesta con un mensaje de error
+      }
+  },
 
-    edit: (req, res) => {
-      let id= req.params.id;
-      res.render('users/userEdit', {user : userService.getOne(id)});
-      console.log(userService.getOne(id))
+    edit: async (req, res) => {
+      try {
+        let id =  req.params.id;
+        let user = await userService.getOne(id)
+        req.session.userLogged = user
+        res.render('users/userEdit', {user : user });
+      } catch (error) {
+        res.render('admin/error')
+      }
      },
 
+    loginProcess: async (req, res) => {
+      try {
+        
+     let userToLogin = await userService.findByField('name_user','email' , req.body.email);//me da un usuario 
+     
+    
+     //si encontro alguien por email
+     if(userToLogin) {
+     
+       let isOkThePassword = await bcryptjs.compareSync(req.body.password, userToLogin.password);
 
-    loginProcess: (req, res) => {
-
-         /*
-      supongoque ya tengo una clave sifrada con sal de 10 
-
-      gmail es = gregonavarrete30@gmail.com
-      123 = $2a$10$obMzpsGjB0ylI2WL726oReep1IuZ4iU4TZjp58rQPH2t6YQy3AyM.
-
-      */
-      //Cuando el usuario quiere ingresar a su cuenta
-      //queremos verificar si tenemos "req.body" registrada
-
-      let userToLogin = userService.findByField('email', req.body.email);//me da un usuario 
-      
-      //si encontro alguien por email
-      if(userToLogin) {
-      
-        let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
-
-  
-        //si la contraseña iniciada es igual a la contraseña en la BD
-        if (isOkThePassword) {
-          delete userToLogin.password;//para q no se conserve en la secion
-  
-          req.session.userLogged = userToLogin;//son todos los datos que se vana a guardar en la secion
-  
-          //si el checkbox esta activado para "recordar usuario"
-          if(req.body.remember_user) {
-            //en la cooki crea el campo "userEmail" y guarada los datos ahi
-           res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
-           
-          }
-          //para verificar
-          //console.log("verificamos lo que tiene la cooki");
-          //console.log(req.cookies.userEmail);
-          //console.log("verificamos lo que tiene la session");
-          //console.log(req.session.userLogged);
-
-          return res.redirect('/user/profile');
-        } 
-  
-        //si la contraseña iniciada es distinta a la contraseña en la BD
-        return res.render('users/login', {
-          errors: {
-            email: {
-              msg: 'La contraseña es inválida, debe tener 3 caracteres minimo'
-            }
-          }
-        });
-      }
-  
-  
-      //si no encontro alguien por email
+ 
+       //si la contraseña iniciada es igual a la contraseña en la BD
+       if (isOkThePassword) {
+         delete userToLogin.password;//para q no se conserve en la secion
+ 
+         req.session.userLogged = userToLogin;//son todos los datos que se vana a guardar en la secion
+ 
+         //si el checkbox esta activado para "recordar usuario"
+         if(req.body.remember_user) {
+           //en la cooki crea el campo "userEmail" y guarada los datos ahi
+          res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+          
+         }
+         return res.redirect('/user/profile');
+       } 
+ 
        return res.render('users/login', {
-        //lo cargo al "errors" para 
-        errors: {
-          email: {
-            msg: 'No se encuentra este email en nuestra base de datos'
-          }
-        }
-      });
+         errors: {
+           email: {
+             msg: 'La contraseña es inválida, debe tener 3 caracteres minimo'
+           }
+         }
+       });
+     }
+ 
+ 
+     //si no encontro alguien por email
+      return res.render('users/login', {
+       //lo cargo al "errors" para 
+       errors: {
+         email: {
+           msg: 'No se encuentra este email en nuestra base de datos'
+         }
+       }
+     });
+      } catch (error) {
+        res.tatus(500).send({error:'algo salio mal al intentar iniciar sesion'})
+      }
 
-    },
-    profile: (req, res) => {
-      //vemos que mostramos una vista con los valores que hay en las "secion " (coki)
-      //console.log(req.session.userLogged);
-      return res.render('users/userProfile', {
-        user: req.session.userLogged
-      });
-    },
-    logout: (req, res) => {
-      res.clearCookie('userEmail');//para destruir la cookie
-      req.session.destroy();//borra todo lo que este en secion
-      return res.redirect('/');
     },
     
-     destroyuser : (req,res) => {
-      let id = req.params.id
-      userService.delete(id);
-      console.log(userService.delete(id));
-      res.redirect('/');
-    }
+    logout: async (req, res) => {
+      try {
+        res.clearCookie('userEmail');//para destruir la cookie
+        req.session.destroy();//borra todo lo que este en secion
+        return res.redirect('/');
+      } catch (error) {
+        res.render('admin/error')
+      }
+    },
+    
+    destroyuser : async (req,res) => {
+      try {
+        let id = await req.params.id
+        res.clearCookie('userEmail');//para destruir la cookie
+        req.session.destroy();
+       await userService.delete(id)
+        await res.redirect('/');
+      } catch (error) {
+        res.tatus(500).send({error:'algo salio mal al intentar borrar el usuario'})
+      }
+    },
    
 }
     

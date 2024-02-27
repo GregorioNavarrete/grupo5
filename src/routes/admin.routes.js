@@ -1,6 +1,8 @@
 const express = require ('express');
 const router = express.Router();
 
+const uploadUser = require('../middlewares/multerUser');
+
 //CREAR CUANDO TENGA EL CREAR ARCHIVO
 const upload = require('../middlewares/multer');
 //este mid, es para q los no-usuario no entren en rutas de "admins y usuarios"
@@ -46,6 +48,7 @@ router.get('/list',authMiddleware,atenticaadmin, adminController.list );
 router.delete('/list/:id', adminController.destroyuser);
 router.get('/searchUser',adminController.userSearch);
 
-
+router.get('/edit/:id',authMiddleware,atenticaadmin, adminController.editUser );
+router.post('/edit/:id',uploadUser.single('imgUser'),adminController.updateUser);
 
 module.exports = router;

@@ -90,34 +90,46 @@
                         </div>
                     <% } %>
 
-                    <div class="input-contenedor">
-                        <i class="fa-solid fa-key icon"></i>
-                        <input class="input-txt" type="password" name="password" placeholder="Ingrese una contraseña" value="<%= locals.oldData ? oldData.nombre : null %>">
-                        
-                    </div>
-
-                   <!--  <div class="input-contenedor"> -->
-                   <!--      <i class="fa-solid fa-key icon"></i> -->
-                   <!--      <input class="input-txt" type="password" name="confirmar-password" placeholder="Confirmar contraseña" > -->
-                   <!--  </div> -->
-                    
-                    
                     <div class="
-                    <% if (locals.errors && errors.imgUser) { %>
+                    <% if (locals.errors && errors.password) { %>
                          error
                          <% } else { %>
                          
                             input-contenedor
-                         <% } %> ">
-                        <input  class="input-text"  
-                        type="file"  name="imgUser" accept=".jpg, .png" >
+                         <% } %> "> 
+                        <i class="fa-solid fa-key icon"></i>
+                        <input class="input-txt" type="password" name="password" placeholder="Ingrese una contraseña" >
+                        
                     </div>
-
-                    <% if (locals.errors && errors.imgUser) { %>
+                    <% if (locals.errors && errors.password) { %>
                         <div class="error-message">
-                             <%= errors.imgUser.msg %>
+                             <%= errors.password.msg %>
                         </div>
                     <% } %>
+
+
+                    <div class="
+                    <% if (locals.errors && errors.password) { %>
+                         error
+                         <% } else { %>
+                         
+                            input-contenedor
+                         <% } %> "> 
+                        <i class="fa-solid fa-key icon"></i> 
+                         <input class="input-txt" type="password" name="confirmPassword" placeholder="Confirmar contraseña" > 
+                     </div>
+
+                     <% if (locals.errors && errors.password) { %>
+                        <div class="error-message">
+                             <%= errors.password.msg %>
+                        </div>
+                    <% } %>
+                    
+                    <div class="input-contenedor">
+                        <input  class="input-text" type="file"  name="imgUser" accept=".jpg, .png" >
+                    </div>
+
+                    
 
                     
                     

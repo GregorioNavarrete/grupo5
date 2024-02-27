@@ -15,49 +15,66 @@
     <section class="section1">
         <article class="ocultar_2">
             <div>
-            <h2 class="det-art-cont-titulo"><%= producto.titulo %> <%=producto.subtitulo %></h2>
-            <h2 class="det-art-subtitulo"><%= producto.autor%></h2>
+            <h2 class="det-art-cont-titulo"><%= producto.title %> <%=producto.subtitle %></h2>
+            <h2 class="det-art-subtitulo"> 
+                <% for(let i=0; i<producto.authors.length; i++){ %>
+                  <a class="det-art-subtitulo-a" href="../../product/autor/<%=producto.authors[i].id_author %>">  <%=producto.authors[i].name %> </a>
+                <% } %>
+            </h2>
             <div class="det-art-cont-estrellas "><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
             </div>
 
-            <% if (locals.isLogged && locals.userLogged.categoria === "admin") { %>
-		    <a href="../../admin/formCarga/<%=producto.id%>/edit" class="det-art-btn-edit-a">
+            <% if (locals.isLogged && locals.userLogged.id_rol === 1) { %>
+		    <a href="../../admin/formCarga/<%=producto.id_product%>/edit" class="det-art-btn-edit-a">
                 <button class="det-art-btn-edit">Editar</button>
             </a>
                 <% } %>
             
         </article>
         <div class="cont_img1">
-            <img class="det-art-img_1" src="/img/portadas/<%=(producto.portada !== 0 && producto.portada !== undefined) ? producto.portada : 'default-image.png'%>" alt="lugar de la imagen del producto">
+            <img class="det-art-img_1" src="/img/portadas/<%=(producto.image !== 0 && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alt="lugar de la imagen del producto">
         </div>
 
 
         <article class="det-art-conte-desc">
-            <p class="det-art-texto"><%= producto.descripcion %></p>
+            <p class="det-art-texto"><%= producto.description %></p>
         </article>
 
         
 
         <article class="det-art-detalles-precio">
             <div class="det-art-info">
-                    <p class="det-art-info-item">Genero : <%= producto.genero %></p>
-                    <p class="det-art-info-item">Editorial : <%= producto.editorial %></p>
-                    <p class="det-art-info-item">Cantidad de Paginas : <%= producto.paginas %></p>
-                    <p class="det-art-info-item">Idioma : <%= producto.idioma %></p>
-                    <p class="det-art-info-item">Año de edicion : <%= producto.año_edicion %></p>
-                    <p class="det-art-info-item">Formato : <%= producto.formato %></p>
-                    <p class="det-art-info-item">Etiqueta : <%= producto.etiqueta %></p>
+                    <p class="det-art-info-item">Genero : 
+                        <% for(let i=0; i<producto.Genres.length; i++){ %>
+                            <%=producto.Genres[i].name %> 
+                        <% } %>
+                    </p>
+                    <p class="det-art-info-item">Editorial : <%= producto.Editorials.name %></p>
+                    <p class="det-art-info-item">Cantidad de Paginas : <%= producto.pages %></p>
+                    <p class="det-art-info-item">Idioma : <%= producto.Languages.name %></p>
+                    <p class="det-art-info-item">Año de edicion : <%= producto.edition %></p>
+                    <p class="det-art-info-item">Formato :<%= producto.Supports.name %></p>
+                    <p class="det-art-info-item">Colección : <%= producto.Collections.name %></p>
             </div>
+        
             
             <div class="det-art-precio-btn">
-            <div class="det-art-precio-sig"><p class="det-art-signo-precio">$</p><p class="det-art-precio"><%=producto.precio%></p></div>
+            <div class="det-art-precio-sig"><p class="det-art-signo-precio">$</p><p class="det-art-precio"><%=producto.price%></p></div>
 
-            <a class="det-art-agr-btn" href="../product/cart">
-           
-            <div class="det-art-agr-btn-text">Agregar</div>
-            <div class="det-art-btn-cart"><i class="fa-solid fa-cart-shopping"></i></i></div> 
-    
-            </a>
+
+            <% if (locals.isLogged) { %>
+                
+                
+                <a class="det-art-agr-btn" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=producto.id_product%>">
+                    <div class="det-art-agr-btn-text">Agregar</div>
+                    <div class="det-art-btn-cart"><i class="fa-solid fa-cart-shopping"></i></i></div> 
+                </a>
+            <% } else { %>
+                <a class="det-art-agr-btn" href="/admin/formCarga">
+                    <div class="det-art-agr-btn-text">Agregar</div>
+                    <div class="det-art-btn-cart"><i class="fa-solid fa-cart-shopping"></i></i></div> 
+                </a>
+            <% } %>
             </div>
     </article>
 
@@ -73,11 +90,11 @@
     <section class="section3">
         <div class="det-aut-autor">
             <article class="det-aut-descrip">
-                <h4 class="det-aut-nombre"><%= producto.autor %></h4>
-                <p class="det-aut-desc-autor">Alice May Oseman (Chatham, Kent; 16 de octubre de 1994)1​ es una escritora, guionista e ilustradora británica de literatura juvenil. Es principalmente conocida por su novela gráfica Heartstopper. Ha sido elogiada por la crítica especializada y ha recibido diversos premios como los Inky Awards y United By Pop Awards.</p>
+                <h4 class="det-aut-nombre"><%=producto.authors[0].name%></h4>
+                <p class="det-aut-desc-autor"><%=producto.authors[0].biography%></p>
             </article>
             <div class="det-aut-conte-img">
-            <img class="det-aut-img" src="\img\alice-oseman.jpg" alt="">
+        <img class="det-aut-img" src="\img\authors\<%=producto.authors[0].image%>" alt="<%=producto.authors[0].name%>">
             </div>
         </div>
         

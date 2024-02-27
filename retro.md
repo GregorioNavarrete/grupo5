@@ -260,3 +260,68 @@ Si bien nos faltaron detalles que pulir dejamos bien plantada la base para que e
 
 
 
+
+# Retro Sprint 5
+
+Comenzamos el Sprint 5 con muchas cosas que corregir y con pequeñas cuestiones que nos quedaron pendiente del Sprint anterior, que si bien creemos que nos habiamos organizado correctamente, la baja de uno de nuestros compañeros hizo que tuvieramos que improvisar sobre la marcha en algunas cuestiones.
+
+Con respecto al trabajo logramos sobrellevar todos con contratiempos y creemos que mejoramos mucho el prototipo con respecto al Sprint anterior, entregando un producto mucho mas complejo.
+
+Sin embargo sabemos que quedan cosas que seguir mejorando y poco a poco iremos implementando nuevas funciones.
+
+
+## Dinamica Estrella de Mar
+
+1. Comenzar a hacer.
+
+-> Consultar el material.
+
+-> Una biblia con metodos para consulta.
+
+-> Tener armonia en el codigo.
+
+-> Limpiar los log por favor.
+
+2. Hacer más.
+
+-> Comentarios necesarios en el codigo.
+
+-> Implementar rapido lo visto en clase.
+
+-> No esperar para agregar cosas nuevas.
+
+-> Llevar al dia las clases.
+
+3. Continuar haciendo.
+
+-> Reuniones periodicas.
+
+-> Conectarse para resolver dudas apenas se pueda.
+
+-> Comunicar ideas o metodos que se nos ocurran para mejorar la logica de negocio.
+
+-> Miro como tablero de ideas que ayuda luego al trello.
+
+4. Hacer menos.
+
+-> Hacer push con cosas incompletas.
+
+-> Trabajar en ramas separadas sin hacer merge cada tanto.
+
+-> Crear metodos que hacen lo mismo.
+
+-> Esperar el feedback para comenzar a corrgir errores.
+
+5. Dejar de hacer.
+
+-> No avisar si estaremos ausentes.
+
+-> Merge sin al menos dos personas para vigilar el codigo.
+
+-> Dejar el merge final para el ultimo dia.
+
+-> Nombrar variables sin sentido.
+
+
+
+

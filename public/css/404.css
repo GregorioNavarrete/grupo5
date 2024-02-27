@@ -1,0 +1,139 @@
+:root{
+    --celeste: #7BCCC0;
+    --blanco: #FAFCFE;
+    --azul-oscuro: #152636;
+    --cian: #00C7AA;
+    --anaranjado: #F94D01;
+    --gris-claro: #E5E3DF;
+    --gris-petroleo: #3E6C6A;
+    }
+
+*{
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+.error-img{
+    width: 40%;
+}
+
+.error-conte{
+    width: 90%;
+    margin: auto;
+    background-color: var(--gris-claro);
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.error-conte-text{
+    width: 60%;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    margin: auto;
+    
+}
+
+.error-text-titulo{
+    font-family: 'Merriweather', serif;
+    color: #F94D01;
+    font-size: 3em;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.error500-text-titulo{
+    font-family: 'Merriweather', serif;
+    color: #F94D01;
+    font-size: 1em;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.error-text-subtitulo{
+    color: var(--gris-petroleo);
+    font-size: 0.8em;
+    margin: 5px;
+}
+
+.error-text-a{
+    color: var(--blanco);
+    font-weight: bold;
+    background-color: var(--cian);
+    border-radius: 5px;
+    width: 80%;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 1s;
+    text-align: center;
+}
+
+.error-text-a:hover{
+    background-color: #F94D01;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+@media (min-width: 769px) {
+    .error-text-a{
+        padding: 10px;
+    } 
+
+    .error-text-subtitulo{
+        font-size: 1.8em;
+    }
+
+    .error-text-titulo{
+        font-size: 5em;
+    }
+
+    .error500-text-titulo{
+        font-size: 2em;
+    }
+
+    .error-conte{
+        padding: 20px;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .error-text-a{
+        padding: 14px;
+    } 
+    
+    .error-text-subtitulo{
+        font-size: 2em;
+    }
+
+    .error-text-titulo{
+        font-size: 6em;
+    }
+
+    .error500-text-titulo{
+        font-size: 2.5em;
+    }
+
+    .error-conte{
+        width: 80%;
+    }
+
+    .error-img{
+        width: 30%;
+    }
+
+    .error-conte-text{
+        width: 60%;
+    }
+}

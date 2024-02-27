@@ -1,14 +1,19 @@
-function atenticaadmin(req, res, next) {
+async function atenticaadmin(req, res, next) {
     //si usuario o no-usuario, no podran entra a paginas de admin 
-
-	if (req.session.userLogged != undefined){
-		if (req.session.userLogged.categoria === "usuario") {
-			return res.redirect('/user/profile');
+    try {
+		if (req.session.userLogged != undefined){
+			if (req.session.userLogged.id_rol === 2) {
+				
+				return res.redirect('/user/profile');
+			}
 		}
+		next();
+		
+	} catch (error) {
+		
 	}
 
 	
-	next();
 }
 
 module.exports = atenticaadmin; 

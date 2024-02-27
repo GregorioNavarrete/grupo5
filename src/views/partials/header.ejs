@@ -12,24 +12,25 @@
    
 
     <div class="conte-logo-prisma">
-        <a href="/"><img class="logo-prisma" src="/img/Logo-Blanco-P.svg" alf="logo-prisma"></a> 
+        <a class="logo-prisma" href="/"><img src="/img/Logo-Blanco-P.svg" alf="logo-prisma"></a> 
     </div>
     
 
     <div class="nav_list">
 
-        <div>
-            <a class="nav_icon" href="../../product/cart" class="nav_link" ><i class="fa-solid fa-bag-shopping"></i></a>
-         </div>
-
-        <div>
+      
+        
             <!--locals.isLogged  si es distinto a "indefinido " -->
             <% if (locals.isLogged) { %>
-              <a class="nav_icon" href="../../user/login" class="nav_link">
-                <img class="img-nav-icon" src="/img/users/<%= locals.userLogged.imagen %>">
-              </a>
-            </div>
-              <% if (locals.userLogged.categoria === "admin") { %>
+             <div>
+              <a class="nav_icon" href="../../../user/login" class="nav_link">
+                <img class="img-nav-icon" src="/img/users/<%= locals.userLogged.image %>">
+              </a> 
+        </div>
+            <div>
+                <a class="nav_icon" href="../../product/cart/home/<%= locals.userLogged.id_user %>" class="nav_link" ><i class="fa-solid fa-bag-shopping"></i></a>
+             </div>
+              <% if (locals.userLogged.id_rol === 1) { %>
                 <!--locals.userLogged  es el campo que nos da el session -->
                 <div>
               <a class="nav_icon" href="/admin/formCarga" class="nav_link">
@@ -39,41 +40,44 @@
             </div>
               <% } %>
             <% } else { %>
+              <div>
+                <a class="nav_icon" href="/admin/formCarga" class="nav_link" ><i class="fa-solid fa-bag-shopping"></i></a>
+             </div>
+             
               <a class="nav_icon" href="../../user/login" class="nav_link">
                 <i class="fa-solid fa-circle-user"></i>
               </a>
-            </div>
+     
             <% } %>
 
-       
-
-        <div>
-            <a class="nav_icon" href="#" class="nav_link" id="HabuIcon"><i class="fa-solid fa-bars"></i></a>
-            </div>
+        
+            <div>
+              <a class="nav_icon" href="#" class="nav_link" id="HabuIcon"><i class="fa-solid fa-bars"></i></a>
+          </div>
+         
     </div>
-    <div class="mobile-menu inactive">
-      <form action="../../product/catg" method="get"  name="categoria" > 
-        <ul>
-          <li>
-            <a class="bc" href="../../product/all">Todas</a>
-          </li>
-          <li>
-            <button name="misterio" class="bc">Misterio</button>
-          </li>
-          <li>
-            <button name="romance" class="bc">Romance</button>
-          </li>
-          <li>
-            <button name="aventura" class="bc">Aventura</button>
-          </li>
-          <li>
-            <button name="terror" class="bc" >Terror</button>
-          </li>
-          <li>
-            <button name="fantasia" class="bc">Fantasia</button>
-          </li>
-        </ul>
-      </form>
-    </div>
-    
+     <div class="mobile-menu inactive">
+                <form action="../../product/catg" method="get"  name="categoria" > 
+                  <ul>
+                    <li>
+                      <!-- <a class="bc" href="../../product/all">Todas</a> -->
+                    </li>
+                    <li>
+                      <button name="misterio" class="bc">Misterio</button>
+                    </li>
+                    <li>
+                      <button name="romance" class="bc">Romance</button>
+                    </li>
+                    <li>
+                      <button name="aventura" class="bc">Aventura</button>
+                    </li>
+                    <li>
+                      <button name="terror" class="bc" >Terror</button>
+                    </li>
+                    <li>
+                      <button name="fantasia" class="bc">Fantasia</button>
+                    </li>
+                  </ul>
+                </form>
+          </div>
 </div>

@@ -1,5 +1,3 @@
-
-
 const  express = require('express');
 const session = require('express-session');
 const cookies = require('cookie-parser');
@@ -16,18 +14,20 @@ const path=require('path');
 
 const app=express();//instancia de la aplicación express
 
-//************Seccion de middlewares
+//**Seccion de middlewares
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 //configuramos la secion
 app.use(session({
-	secret: "Shhh, It's a secret",
-	resave: false, 
-	saveUninitialized: false,
+    secret: "Shhh, It's a secret",
+    resave: false, 
+    saveUninitialized: false,
 }));
 
 app.use(cookies());
 app.use(userLoggedMiddleware);
+
+
 
 
 //************
@@ -43,7 +43,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
-  
+
 
 //**********funciones que se ejecutan durante el ciclo de vida de la solicitud
 
@@ -57,6 +57,12 @@ app.use(methodOverride('_method'));
  // para cualquier solicitud que llegue a la raíz del sitio web ('/').
 app.use('/', indexRouter);
 
+app.use((req,res,next)=>{
+	res.status(404).render('admin/error404');
+})
 
+app.use((req,res,next)=>{
+	res.status(500).render('admin/error');
+})
 //se exportaba ???
 //module.exports = app; 

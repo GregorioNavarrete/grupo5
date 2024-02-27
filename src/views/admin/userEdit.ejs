@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="es">
+	<head>
+		<%- include ('../partials/head') %>
+		<link rel="stylesheet" href="/css/profile.css">
+		<title>Profile</title>
+		
+	</head>
+
+	<header>
+		<%- include ('../partials/header') %>
+	</header>
+
+<body>
+	
+	
+	<!-- Container -->
+	<div class="container" style="margin-top: 40px;">
+		<div class="user-profile">
+			<section class="user-img">
+				
+				<a class="user-img-a" href="/user/profile"><img class="user-avatar" src="/img/users/<%= user.image %> "></a>
+					
+
+			<form action="/user/admin/edit/<%=user.id_user%>?_method=DELETE"  method="post" class="user-btn-edit-conte">
+				
+				<button class="user-btn-edit">Borrar Perfil</button>
+			</form>
+
+
+			<!-- <div class="col-md-3">
+				<a class="dropdown-item" href="/user/profile">My profile</a>
+				<li><hr class="dropdown-divider"></li>
+				<a class="dropdown-item" href="/user/logout">Logout</a>
+				<li class="nav-item"><a class="nav-link" href="/user/register">Register</a></li>
+				<li class="nav-item"><a class="nav-link" href="/user/login">Login</a></li> -->
+			</section>
+
+			<section class="user-text">
+				<h2 class="user-titulo">EDITAR</h2>
+
+
+		
+                <form class="user-form-edit" action="/admin/edit/<%=user.id_user%>" method="POST" enctype="multipart/form-data">
+
+					<div class="user-input">
+                        <div class="user-sub-input">Nombre</div>
+                        <input class="user-input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= user.name %>">
+                    </div>
+
+                    <div class="user-input"> 
+                        <div class="user-sub-input">Apellido</div>
+                        <input class="user-input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" value="<%= user.last_name %>" >
+                        <!-- <span class="error-message">Ingresa un apellido valido.</span> -->
+                    </div>
+
+                    <div class="user-input">
+                        <div class="user-sub-input">Usuario</div>
+                        <input class="user-input-txt" type="text" name="usuario" placeholder="Ingrese un Usuario" value="<%= user.name_user %>" >
+                        <!-- <span class="error-message">Ingresa un usuario valido.</span> -->
+                    </div>
+
+                    <div class="user-input">
+                        <div class="user-sub-input">Email</div>
+                        <input class="user-input-txt" type="email" name="email" placeholder="Ingrese un e-mail" value="<%= user.email %>"  >
+                        <!-- <span class="error-message">Ingresa una dirección de correo electrónico válida.</span> -->
+                    </div>
+					
+					<% if (locals.isLogged && locals.userLogged.id_rol === 1) { %>
+						<div class="user-input">
+                        <div class="user-sub-input">Categoria</div>
+                        <select name="categoria" id="categoria"  class="user-input-txt">
+						<option value="" selected disabled hidden>Elige una opción</option>
+						<option value="1">Administrador</option>
+						<option value="2">Usuario</option>
+						</select>
+                    </div>
+					<% } %>
+					
+					
+					<br>
+                    
+                    
+
+				
+					
+					<br>
+						<button class="user-btn-edit">Confirmar Cambios</button>
+					
+
+
+						
+				</form>
+			
+				<br>
+				<br>
+				
+				
+			</div>
+			</section>
+		</div>
+	</div>
+
+	<br>
+				<br>
+	<!-- //Container -->
+	
+	
+</body>
+
+<footer>
+    <%- include ('../partials/footer') %>
+
+</footer>
+
+</html>
+

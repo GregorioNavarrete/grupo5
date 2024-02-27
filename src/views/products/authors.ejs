@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<%- include ('../partials/head') %>
+<link rel="stylesheet" href="\css\authors.css">
+    <title>Document</title>
+</head>
+<body>
+    <header><%- include ('../partials/header') %></header>
+
+    <main>
+
+
+        <h2 class="author-titulo">Sobre el Autor</h2>
+
+<section class="author-princ"> 
+<img class="author-img" src="/img/authors/<%= autor.image %>" alt="">
+    <div class="author-desc">
+        <h3 class="author-name"><%= autor.name %></h3>
+        <p class="author-bio"><%= autor.biography %></p>
+    </div>
+</section>
+
+<h2 class="author-titulo">Más Títulos de <%= autor.name %></h2>
+<ul>
+    
+
+   
+        <div class="sliders">
+            <div class="lista">
+        <% autor.Products.forEach(producto => { %>
+            <article class="articulo">
+                <a href="../../product/libro/<%=producto.id_product%>"><img class="img-articulo" src="/img/portadas/<%=(producto.image !== 0 && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alf="<%=producto.titulo%>"> </a> 
+                <div class="desc-articulo">
+                <a href="../../product/libro/<%=producto.id_product%>"><p class="prodc-titulo"><%=producto.title%></p></a>
+                <div class="iconPrecioArt">
+            
+                    <!-- al boton le tendria que agregar para pasar los datos a la tabla de carrito de compras  -->
+            
+                    <% if (locals.isLogged) { %> 
+                        <a class="icon-articulo" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=producto.id_product%>" class="carrito" ><i class="fa-solid fa-cart-shopping"></i></a>
+                    <% } else { %>
+                        <a class="icon-articulo" href="/admin/formCarga" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
+                    <% } %>
+                
+                <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo"><%=producto.price%></p></div></div>
+                </div>
+            </article>
+        <% }) %>
+            </div>
+        </div>
+        
+    
+</ul>
+
+
+
+    <br></main>
+
+    <footer><%- include ('../partials/footer') %></footer>
+</body>
+</html>

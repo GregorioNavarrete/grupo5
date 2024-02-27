@@ -32,65 +32,119 @@
 
                     <div class="celda">
                     <div class="datos-text-form">Título</div>
-                    <input class="input-text" type="text" id="titulo" name="titulo" required>
+                    <input class="input-text" type="text" id="titulo" name="title" required>
                     </div><br><br>
 
                     <div  class="celda">
                     <div class="datos-text-form">Subtítulo</div>
-                    <input class="input-text" type="text" id="subtitulo" name="subtitulo">
+                    <input class="input-text" type="text" id="subtitulo" name="subtitle">
                     </div><br><br>
 
                     <div  class="celda">
-                    <div class="datos-text-form">Autor</div>
-                    <input class="input-text" type="text" id="autor" name="autor" required>
+                        <!-- <div class="datos-text-form">Autor</div>
+                        <input class="input-text" type="text" id="autor" name="autor" required> -->
+
+                        <div  class="datos-text-form">Autor</div>
+                        <select class="input-text" id="Autor" name="Autor" required>
+                            <option value="">Seleccione un Autor</option>
+                            <option value="1">Antoine de Saint-Exupéry</option>
+                            <option value="2"> Collen Hoover</option>
+                            <option value="3">Rick Riordan</option>
+                            <option value="4">Suzanne Collins</option>
+                            <option value="5">Cassandra Clare</option>
+                            <option value="6">Stephenie Meyer</option>
+                        </select>
                     </div><br><br>
 
-                    <div  class="celda">
+                    <!-- <div  class="celda">
                         <div class="datos-text-form">Editorial</div>
-                        <input class="input-text" type="text" id="editorial" name="editorial" required>
-                        </div><br><br>
-
+                        <input class="input-text" type="text" id="editorial" name="edition" required>
+                    </div><br><br> -->
                     <div  class="celda">
+                        <div  class="datos-text-form">Editorial</div>
+                        <select class="input-text" id="edition" name="edition" required>
+                        <option value="">Seleccione una editorial</option>
+                        <option value="1">Salamandra</option>
+                        <option value="2">Planeta</option>
+                        <option value="3">Molino</option>
+                        <option value="4">Destino</option>
+                        <option value="5">Minotauro</option>
+                        <option value="6">V&R</option>
+                        <option value="7">Debolsillo</option>
+                        <option value="8">Booket</option>
+                        </select>
+                    </div><br><br>
+
+
+<!-- Creo que es redundante, xq en "Saga/Serie" puede seleccionar "no pertece" -->
+                    <!-- <div  class="celda">
                     <div class="datos-text-form">Etiqueta</div>
                     <select class="input-text" name="etiqueta" id="etiqueta" required>
                         <option value="">Selecciona una Etiqueta</option>
                         <option value="saga">Saga</option>
                         <option value="unico">Unico</option>
                     </select>
-                    </div><br><br>
+                    </div><br><br> -->
 
-                    <div  class="celda">
+                    <!-- <div  class="celda">
                     <div class="datos-text-form">Saga/Serie</div>
                     <input class="input-text" type="text" id="sagaSerie" name="sagaSerie">
+                    </div><br><br> -->
+                    <div  class="celda">
+                        <div  class="datos-text-form">Saga/Serie</div>
+                        <select class="input-text" id="sagaSerie" name="sagaSerie" required>
+                        <option value="">Seleccione un saga/Serie</option>
+                        <option value="1">no pertece a una saga</option>
+                        <option value="2"> Percy Jackson y los Dioses de Olimpo</option>
+                        <option value="3">Los Juegos del Hambre</option>
+                        <option value="4">Cazadores de sombras</option>
+                        <option value="5">Crepúsculo</option>
+                        <option value="6">El Señor de los Anillos</option>
+                        <option value="7">Heartstopper</option>
+                        <option value="8">Las Crónicas de Narnia</option>
+                        <option value="9">Dollanganger</option>
+                        <option value="10">El Coleccionista</option>
+                        </select>
                     </div><br><br>
 
                     <div  class="celda">
-                    <div  class="datos-text-form">Género</div>
-                    <select class="input-text" id="genero" name="genero" required>
-                      <option value="">Seleccione un género</option>
-                      <option value="misterio">Misterio</option>
-                      <option value="romance"> Romance</option>
-                      <option value="aventura">Aventura</option>
-                      <option value="clasicos">Clasicos</option>
-                      <option value="terror">Terror</option>
-                      <option value="fantasia">Fantasia</option>
-                    </select>
+                        <div  class="datos-text-form">Género</div>
+                        <select class="input-text" id="genero" name="genero" required>
+                        <option value="">Seleccione un género</option>
+                        <option value="1">clasicos</option>
+                        <option value="2"> terror</option>
+                        <option value="3">aventura</option>
+                        <option value="4">fantasia</option>
+                        <option value="5">romance</option>
+                        <option value="6">misterio</option>
+                        <option value="7">best seller</option>
+                        </select>
                     </div><br><br>
 
                     <div  class="celda">
                     <div  class="datos-text-form">Formato</div>
                     <select class="input-text" name="formato" id="formato" required>
                         <option value="">Selecciona un Formato</option>
-                        <option value="fisico">Fisico</option>
-                        <option value="audiolibro">AudioLibro</option>
-                        <option value="ebook">Ebook</option>
+                        <option value="1">Fisico</option>
+                        <option value="2">Ebook</option>
+                        <option value="3">AudioLibro</option>
                     </select>
                     </div><br><br>
 
                     <div  class="celda">
                     <div class="datos-text-form">Precio</div>
-                    <input class="input-text" type="text" id="precio" name="precio" step="0.01" required>
+                    <input class="input-text" type="number" id="precio" name="precio" step="0.01" required>
                     </div><br><br>
+                    <div  class="celda">
+                        <div class="datos-text-form">Descuento</div>
+                        <input class="input-text" type="number" id="Descuento" name="Descuento" step="0.01" required>
+                    </div><br><br>
+
+                    <div  class="celda">
+                        <div class="datos-text-form">Stock</div>
+                        <input class="input-text" type="number" id="Stock" name="Stock" step="0.01" required>
+                    </div><br><br>
+
 
                     <div  class="celda">
                    <div class="datos-text-form">Portada</div>
@@ -107,9 +161,9 @@
                     <div class="datos-text-form">Idioma</div>
                     <select class="input-text" name="idioma" id="idioma"required>
                         <option value="">Selecciona un Idioma</option>
-                        <option value="español">Español</option>
-                        <option value="frances">Frances</option>
-                        <option value="ingles">Ingles</option>
+                        <option value="1">Español</option>
+                        <option value="2">Frances</option>
+                        <!-- <option value="ingles">Ingles</option> -->
                     </select>
                     </div><br><br>
     

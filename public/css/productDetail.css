@@ -56,6 +56,13 @@ font-size: 20px;
     margin: 0px;
 }
 
+.det-art-subtitulo-a{
+    text-align: left;
+    font-family: 'Merriweather', serif;
+    color :#3E6C6A;
+    text-decoration: none;
+}
+
 
 
 .cont_img1{
@@ -209,23 +216,22 @@ margin: 3px;
     display: flex;
     width: 95%;
     align-items: center;
+
 }
 
 .det-aut-descrip{
+    margin: auto;
     display: flex;
     flex-direction: column;
     width: 80%;
     background-color: white;
-    height: 70%;
     border-radius: 15px;
     justify-content: space-around;
-    padding: 5px;
+    padding: 15px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 10px;
 }
 .det-aut-nombre{
-    color: black;
-    margin: 0px;
+    margin: 5px;
     text-align: left;
     color: #F94D01;
 }
@@ -237,10 +243,10 @@ margin: 3px;
     z-index: 2;
 }
 .det-aut-img{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+
     position: relative;
-    right: 10px;
+    right: 20px;
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -257,7 +263,7 @@ margin: 3px;
     justify-content:space-around;
     border-radius: 5px;
     background-color:  #7BCCC0;
-    height: 200px;
+    padding: 20px;
 }
 
 /*--------------------------------------------------*/
