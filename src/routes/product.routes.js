@@ -23,8 +23,8 @@ router.get('/cart/delete/:id/:user', productController.DeletCarrito);//para elim
 
 
 router.get('/libro/:id', productController.getOne);
-router.get('/all', productController.all);
-//router.get('/catg', productService.catg);
+// router.get('/all', productController.all);
+
 router.get('/filter',productController.filtro);// no se bien como hacerlo 
 router.get('/catg',productController.indexCatg); 
 
