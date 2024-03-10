@@ -19,7 +19,7 @@ const userController = {
       processRegister: async (req,res)=>{
         try {
           let resultValidation = await validationResult(req);
-          console.log(resultValidation.mapped())
+          console.log(resultValidation.mapped());
           if(resultValidation.errors.length > 0){
             return res.render('users/register',{
               errors : resultValidation.mapped(),
@@ -117,7 +117,7 @@ const userController = {
        return res.render('users/login', {
          errors: {
            email: {
-             msg: 'La contraseña es inválida, debe tener 3 caracteres minimo'
+             msg: 'La contraseña es inválida, recuerde tener 3 caracteres minimo'
            }
          }
        });

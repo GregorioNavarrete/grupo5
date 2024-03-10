@@ -31,13 +31,19 @@
                 <form class="form-carga-ediccion" action="/admin/formCarga" method="POST" enctype="multipart/form-data">
 
                     <div class="celda">
-                    <div class="datos-text-form">Título</div>
-                    <input class="input-text" type="text" id="titulo" name="title" required>
+                        <div class="datos-text-form">Título</div>
+                        <input class="input-text" type="text" id="titulo" name="title" >
+                        <br>
+                        <% if (locals.errors && errors.title) { %>
+                            <div class="error-message">
+                                <%= errors.title.msg %>
+                            </div>
+                        <% } %>
                     </div><br><br>
 
                     <div  class="celda">
-                    <div class="datos-text-form">Subtítulo</div>
-                    <input class="input-text" type="text" id="subtitulo" name="subtitle">
+                        <div class="datos-text-form">Subtítulo</div>
+                        <input class="input-text" type="text" id="subtitulo" name="subtitle">
                     </div><br><br>
 
                     <div  class="celda">
@@ -153,8 +159,13 @@
 
 
                     <div  class="celda">
-                    <div class="datos-text-form">Descripción</div>
-                    <textarea class="input-text" id="detalle" name="descripcion" required></textarea>
+                        <div class="datos-text-form">Descripción</div>
+                        <textarea class="input-text" id="detalle" name="descripcion" ></textarea>
+                        <% if (locals.errors && errors.descripcion) { %>
+                            <div class="error-message">
+                                <%= errors.descripcion.msg %>
+                            </div>
+                        <% } %>
                     </div><br><br>
 
                     <div  class="celda">

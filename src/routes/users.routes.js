@@ -3,7 +3,7 @@ const router = express.Router();
 const userController = require ('../controllers/userController');
 const uploadUser = require('../middlewares/multerUser');
 const path = require('path');
-const validations = require('../middlewares/validationsMiddleware')
+const validations = require('../middlewares/validationsMiddleware');
 
 //es un mid, para restringir "si ya esta loguedo no entra" en "registro y login"
 const guestMiddleware = require('../middlewares/guestMiddleware');

@@ -2,6 +2,9 @@ const express = require ('express');
 const router = express.Router();
 
 const uploadUser = require('../middlewares/multerUser');
+//para validar el formulario de creacion
+const validationsCreate = require('../middlewares/validationsCreateProductMiddleware');
+const validationsEdit = require('../middlewares/validationsEditProductMiddleware');
 
 //CREAR CUANDO TENGA EL CREAR ARCHIVO
 const upload = require('../middlewares/multer');
@@ -27,7 +30,7 @@ router.get('/formCarga', authMiddleware,atenticaadmin,adminController.formCarga)
 
 // /*** CREATE ONE PRODUCT ***/ 
 //router.get('/formCarga', res.render('product-create-form'));    en mi caso no es necesario
-router.post('/formCarga',upload.single('portada'), adminController.store); 
+router.post('/formCarga',upload.single('portada'),validationsCreate,adminController.store); 
 
 
 // /*** DELETE ONE PRODUCT***/ 
@@ -37,11 +40,11 @@ router.delete('/formCarga/:id', adminController.destroy);
 
 // /*** EDIT ONE PRODUCT ***/ 
 /*
-El edit me esta trayendo problemas con el EJS
-quizas tengan que ser 2 paginas diferentes, hay que consultar este problema 
+    El edit me esta trayendo problemas con el EJS
+    quizas tengan que ser 2 paginas diferentes, hay que consultar este problema 
 */
 router.get('/formCarga/:id/edit',authMiddleware,atenticaadmin, adminController.edit); 
-router.put('/:id', upload.single('portada'), adminController.update); 
+router.put('/:id', upload.single('portada'),validationsEdit, adminController.update); 
 
 //lista de usuarios de admin /eliminar usuario / editar usuario / buscar usuario 
 router.get('/list',authMiddleware,atenticaadmin, adminController.list );

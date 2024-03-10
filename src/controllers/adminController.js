@@ -2,7 +2,8 @@ const path = require('path');
 const productService = require('../data/productService');
 const userService = require('../data/userService');
 const db = require('../model/database/models');
-const adminService = require('../data/adminService')
+const adminService = require('../data/adminService');
+const {validationResult} = require('express-validator');
 
 const adminController = {
   
@@ -32,7 +33,17 @@ const adminController = {
     }  
   },
   store: (req, res)=>{
-    // al metodo "save" le poso por parametro el OBJ "body" que obtengo del POST
+    
+    let resultValidation = validationResult(req);
+    console.log(resultValidation.mapped());
+    if(resultValidation.errors.length > 0){
+      return res.render('admin/FormularioCargaLibros',{
+        errors : resultValidation.mapped()
+      })
+     };
+
+     /////////////////////////////////////////Tengo que hacer q esta vista muestre el error si salta 
+
     productService.save(req);
     //res.send(req.body); //Para ver si lo modifico, que si
     res.redirect('/admin/FormCarga');
@@ -58,7 +69,12 @@ const adminController = {
   },
   update: async (req, res) => {
     try {
-      
+      let resultValidation = validationResult(req);
+      console.log(resultValidation.mapped());
+      if(resultValidation.errors.length > 0){
+        let productToEdit = await productService.getOne(req.params.id);
+        return res.render('admin/FormularioEditLibro',{errors : resultValidation.mapped(),productToEdit : productToEdit})
+      };
       /*buscamos un prod por id y busco cambiarle los datos, por los que tengo en el req */
       
       productService.edit(req);

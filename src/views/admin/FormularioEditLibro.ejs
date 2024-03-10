@@ -34,7 +34,12 @@
 
                     <div class="celda">
                         <div class="datos-text-form">Título</div>
-                        <input class="input-text" type="text" id="titulo" name="titulo" value="<%= productToEdit.title %>" required>
+                        <input class="input-text" type="text" id="titulo" name="titulo" value="<%= productToEdit.title %>">
+                        <% if (locals.errors && errors.titulo) { %>
+                            <div class="error-message">
+                                <%= errors.titulo.msg %>
+                            </div>
+                        <% } %>
                     </div><br><br>
 
                     <div  class="celda">
@@ -175,8 +180,13 @@
     
     
                         <div  class="celda">
-                        <div class="datos-text-form">Descripción</div>
-                        <textarea class="input-text" id="detalle" name="descripcion" required><%= productToEdit.description %></textarea>
+                            <div class="datos-text-form">Descripción</div>
+                            <textarea class="input-text" id="detalle" name="descripcion" ><%= productToEdit.description %></textarea>
+                            <% if (locals.errors && errors.descripcion) { %>
+                                <div class="error-message">
+                                    <%= errors.descripcion.msg %>
+                                </div>
+                            <% } %>
                         </div><br><br>
     
                         <div  class="celda">
