@@ -25,8 +25,8 @@ const userController = {
               errors : resultValidation.mapped(),
               oldData : req.body
             })
-           } 
-
+           }
+ 
           let confirmPass = await req.body.confirmPassword
           if(confirmPass != req.body.password){
             return res.render('users/register', {
