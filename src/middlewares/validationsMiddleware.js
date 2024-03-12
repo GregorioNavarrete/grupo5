@@ -18,9 +18,8 @@ const validations = [
     .isLength({min:8}).withMessage('debe contener al menos 8 caracteres').bail()
     .matches(/[A-Z]/).withMessage('Debe contener al menos una mayúscula')
     .matches(/[!@#$%^&*(),.?":{}|<>]/).withMessage('Debe contener al menos un carácter especial'),
-
     body('imgUser').custom((value,{req})=>{
-        if(!req.file){
+        
         const filetypes = /jpeg|jpg|png|gif/;
         let extname =  req.file.originalname.toLowerCase().split('.').pop();  
         if(filetypes.test(extname)){
@@ -28,10 +27,7 @@ const validations = [
         }else{
          throw new Error('debe subir un archivo jpeg,jpg,png,gif')
         }
-        }
-        else{
-            return true;
-        }
+        
     })
 ];
 
