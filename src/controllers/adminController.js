@@ -61,7 +61,8 @@ const adminController = {
   edit: async (req, res) => {
     try{
         
-        let productToEdit = await productService.getOne(req.params.id)
+        let productToEdit = await productService.getOne(req.params.id);
+        console.log(productToEdit);
         res.render('admin/FormularioEditLibro', {productToEdit : productToEdit });
     }catch(e){
       res.render('admin/error')
