@@ -325,3 +325,65 @@ Sin embargo sabemos que quedan cosas que seguir mejorando y poco a poco iremos i
 
 
 
+# Retro Sprint 6
+
+LLegamos a base de datos, creo que todos estabamos un poco asustados en este Sprint ya que decian que era el mas largo y el mas dificil, pero creemos que haber empezado temprano y tenemer claro el modelo de negocio nos ayudo a estructurar las tablas con bastante rapidez. Si bien en la organizacion nos fue bastante bien tuvimos algunos problemas ya que tenamos demaciadas relaciones.
+
+Tomamos esto como un reto y a pesar de complicar un poco las cosas logramos completar el sprint.
+
+
+## Dinamica Estrella de Mar
+
+1. Comenzar a hacer.
+
+-> Consultar documentacion sobre trello para ser mas productivos con el.
+
+-> Armar un canal en discord para poner codigo que creemos que se repita asi este a disposicion de nuestros compañeros.
+
+-> Dividir tareas para que todos podamos practicar un poco de todos los remas abarcados en el sprint.
+
+-> Comenzar a borrar comentarios.
+
+2. Hacer más.
+
+-> Reuniones para codear juntos.
+
+-> Consultar la biblografica.
+
+-> Armar un canal para ir dejando avisos cada vez que hay push.
+
+-> Llevar las clases al dia.
+
+3. Continuar haciendo.
+
+-> Reunion pre sprint.
+
+-> Tablero en miro con pendientes que no estan en el spint pero que son necesarias.
+
+-> Pensar en como ir agregando nuevas funcionalidades.
+
+-> Usar el miro para ponernos de acuerdo en la divicion del trabajo y que quede como un campo para poner ideas.
+
+4. Hacer menos.
+
+-> No codear temprano.
+
+-> Dividir las tareas en sectores que no dejen a todo el grupo practicar los nuevos conceptos.
+
+-> No borrar cosas inecesarias y dejarlas comentadas.
+
+-> No reparar errores.
+
+5. Dejar de hacer.
+
+-> Empezar tarde el trello.
+
+-> No contestar los bloqueantes.
+
+-> No hacer un test antes de mergear.
+
+-> Hacer tarear repetitiavas separados.
+
+
+
+

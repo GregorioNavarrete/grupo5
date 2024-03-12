@@ -463,6 +463,41 @@ let deletproduct_favorites = await db.product_favorites.destroy(
             }  
         },
 
+        fiandEditorials: async function (){
+            try {
+                let editoriales = await db.Editorial.findAll({
+                });
+                return editoriales;
+            } catch (error) {
+                console.log(error);
+                return [];
+            }  
+        },
+
+        fiandAuthors: async function (){
+            try {
+                let autores = await db.Author.findAll({
+                });
+                return autores;
+            } catch (error) {
+                console.log(error);
+                return [];
+            }  
+        },
+        
+        fiandCollections: async function (){
+            try {
+                let colecciones = await db.Collection.findAll({
+                });
+                return colecciones;
+            } catch (error) {
+                console.log(error);
+                return [];
+            }  
+        },
+
+
+
 
 
 
