@@ -109,7 +109,7 @@
 
 
                     <div class="
-                    <% if (locals.errors && errors.password) { %>
+                    <% if (locals.errors && errors.confirmPassword) { %>
                          error
                          <% } else { %>
                          
@@ -119,18 +119,24 @@
                          <input class="input-txt confirmPassword" type="password" name="confirmPassword" placeholder="Confirmar contraseña" > 
                      </div>
 
-                     <% if (locals.errors && errors.password) { %>
-                        <div class="error-message errorConfirmPassword">
-                             <%= errors.password.msg %>
+                     <% if (locals.errors && errors.confirmPassword) { %>
+                        <div class="error-message">
+                             <%= errors.confirmPassword.msg %>
                         </div>
                     <% } %>
+
+                   
                     
                     <div class="input-contenedor">
-                        <input  class="input-text" type="file"  name="imgUser" accept=".JPG, .PNG, .JPEG, .GIF" >
+                        <input  class="input-text" type="file"  name="imgUser"  >
                     </div>
-
                     
-
+                    
+                    <% if (locals.errors && errors.imgUser) { %>
+                        <div class="error-message">
+                             <%= errors.imgUser.msg %>
+                        </div>
+                    <% } %>
                     
                     
                     <p><a type="link" href="login" class="link">Ya tengo una cuenta</a></p>

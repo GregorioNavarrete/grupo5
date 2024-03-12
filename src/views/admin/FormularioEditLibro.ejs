@@ -35,15 +35,6 @@
 
                     <div class="celda">
                         <div class="datos-text-form">Título</div>
-<<<<<<< HEAD
-                        <input class="input-text" type="text" id="titulo" name="titulo" value="<%= productToEdit.title %>">
-                        <% if (locals.errors && errors.titulo) { %>
-                            <div class="error-message">
-                                <%= errors.titulo.msg %>
-                            </div>
-                        <% } %>
-                    </div><br><br>
-=======
                         <input class="input-text" type="text" id="titulo" name="titulo" value="<%= productToEdit.title %>" required>
                     </div>
                     <% if (locals.errors && errors.titulo) { %>
@@ -52,7 +43,6 @@
                             </span>
                         <% } %>
                     <br><br>
->>>>>>> dev-feature-validaciones-front
 
                     <div  class="celda">
                         <div class="datos-text-form">Subtítulo</div>
