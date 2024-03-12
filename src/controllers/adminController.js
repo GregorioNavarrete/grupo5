@@ -14,12 +14,15 @@ const adminController = {
     }catch(e){
       res.render('admin/error')
     }
-  }
-  ,
-  formCargaLibro : (req, res) => {
-    //para mostrar los elementos enlistados
+  },
 
-    res.render('admin/FormularioCargaLibros');
+  formCargaLibro : async(req, res) => {
+    let generos = await productService.fiandGenres()
+    let autores = await productService.fiandAuthors()
+    let editoriales = await productService.fiandEditorials()
+    let colecciones = await productService.fiandCollections()
+
+    res.render('admin/FormularioCargaLibros',{genres: generos, authors: autores, editorials: editoriales, collections: colecciones});
     
   },
 
@@ -49,9 +52,12 @@ const adminController = {
   },
   edit: async (req, res) => {
     try{
-        
-        let productToEdit = await productService.getOne(req.params.id)
-        res.render('admin/FormularioEditLibro', {productToEdit : productToEdit });
+      let generos = await productService.fiandGenres()
+      let autores = await productService.fiandAuthors()
+      let editoriales = await productService.fiandEditorials()
+      let colecciones = await productService.fiandCollections()
+      let productToEdit = await productService.getOne(req.params.id)
+        res.render('admin/FormularioEditLibro', {productToEdit : productToEdit, genres: generos, authors: autores, editorials: editoriales, collections: colecciones });
     }catch(e){
       res.render('admin/error')
     }

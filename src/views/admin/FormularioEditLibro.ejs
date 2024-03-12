@@ -3,6 +3,7 @@
 <head>
     <%- include ('../partials/head') %>
     <link  href="/css/FormularioDeCarga.css" rel="stylesheet">  
+    <script src="/js/cargaEditValidation.js"></script>  
     <title>FormularioDeCarga</title>
 
 </head>
@@ -35,7 +36,13 @@
                     <div class="celda">
                         <div class="datos-text-form">Título</div>
                         <input class="input-text" type="text" id="titulo" name="titulo" value="<%= productToEdit.title %>" required>
-                    </div><br><br>
+                    </div>
+                    <% if (locals.errors && errors.titulo) { %>
+                        <span class="error-message">
+                                <%= errors.titulo.msg %>
+                            </span>
+                        <% } %>
+                    <br><br>
 
                     <div  class="celda">
                         <div class="datos-text-form">Subtítulo</div>

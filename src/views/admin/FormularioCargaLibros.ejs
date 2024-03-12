@@ -3,6 +3,7 @@
 <head>
     <%- include ('../partials/head') %>
     <link  href="/css/FormularioDeCarga.css" rel="stylesheet">  
+    <script src="/js/cargaEditValidation.js"></script>  
     <title>FormularioDeCarga</title>
 
 </head>
@@ -33,7 +34,14 @@
                     <div class="celda">
                     <div class="datos-text-form">Título</div>
                     <input class="input-text" type="text" id="titulo" name="title" required>
-                    </div><br><br>
+                    </div>
+            
+                    <% if (locals.errors && errors.titulo) { %>
+                        <span class="error-message">
+                                <%= errors.titulo.msg %>
+                            </span>
+                        <% } %>
+                    <br><br>
 
                     <div  class="celda">
                     <div class="datos-text-form">Subtítulo</div>
@@ -46,13 +54,10 @@
 
                         <div  class="datos-text-form">Autor</div>
                         <select class="input-text" id="Autor" name="Autor" required>
-                            <option value="">Seleccione un Autor</option>
-                            <option value="1">Antoine de Saint-Exupéry</option>
-                            <option value="2"> Collen Hoover</option>
-                            <option value="3">Rick Riordan</option>
-                            <option value="4">Suzanne Collins</option>
-                            <option value="5">Cassandra Clare</option>
-                            <option value="6">Stephenie Meyer</option>
+                        <option value="">Seleccione un Autor</option>
+                            <% authors.forEach(autor => { %>
+                                <option value="<%= autor.id_author%>"><%= autor.name%></option>              
+                            <% }) %>
                         </select>
                     </div><br><br>
 
@@ -64,14 +69,9 @@
                         <div  class="datos-text-form">Editorial</div>
                         <select class="input-text" id="edition" name="edition" required>
                         <option value="">Seleccione una editorial</option>
-                        <option value="1">Salamandra</option>
-                        <option value="2">Planeta</option>
-                        <option value="3">Molino</option>
-                        <option value="4">Destino</option>
-                        <option value="5">Minotauro</option>
-                        <option value="6">V&R</option>
-                        <option value="7">Debolsillo</option>
-                        <option value="8">Booket</option>
+                        <% editorials.forEach(editorial => { %>
+                            <option value="<%= editorial.id_editorial%>"><%= editorial.name%></option>              
+                        <% }) %>
                         </select>
                     </div><br><br>
 
@@ -94,16 +94,9 @@
                         <div  class="datos-text-form">Saga/Serie</div>
                         <select class="input-text" id="sagaSerie" name="sagaSerie" required>
                         <option value="">Seleccione un saga/Serie</option>
-                        <option value="1">no pertece a una saga</option>
-                        <option value="2"> Percy Jackson y los Dioses de Olimpo</option>
-                        <option value="3">Los Juegos del Hambre</option>
-                        <option value="4">Cazadores de sombras</option>
-                        <option value="5">Crepúsculo</option>
-                        <option value="6">El Señor de los Anillos</option>
-                        <option value="7">Heartstopper</option>
-                        <option value="8">Las Crónicas de Narnia</option>
-                        <option value="9">Dollanganger</option>
-                        <option value="10">El Coleccionista</option>
+                        <% collections.forEach(coleccion => { %>
+                            <option value="<%= coleccion.id_collection%>"><%= coleccion.name%></option>              
+                        <% }) %>
                         </select>
                     </div><br><br>
 
@@ -111,13 +104,9 @@
                         <div  class="datos-text-form">Género</div>
                         <select class="input-text" id="genero" name="genero" required>
                         <option value="">Seleccione un género</option>
-                        <option value="1">clasicos</option>
-                        <option value="2"> terror</option>
-                        <option value="3">aventura</option>
-                        <option value="4">fantasia</option>
-                        <option value="5">romance</option>
-                        <option value="6">misterio</option>
-                        <option value="7">best seller</option>
+                        <% genres.forEach(genero => { %>
+                            <option value="<%= genero.id_genre%>"><%= genero.name%></option>              
+                        <% }) %>
                         </select>
                     </div><br><br>
 
@@ -148,7 +137,7 @@
 
                     <div  class="celda">
                    <div class="datos-text-form">Portada</div>
-                    <input  class="input-text"  type="file" id="portada" name="portada" accept=".jpg, .png" required>
+                    <input  class="input-text"  type="file" id="portada" name="portada" accept=".jpg, .jpng, .gif, .png" required>
                     </div><br><br>
 
 
@@ -156,6 +145,11 @@
                     <div class="datos-text-form">Descripción</div>
                     <textarea class="input-text" id="detalle" name="descripcion" required></textarea>
                     </div><br><br>
+                    <% if (locals.errors && errors.detalle) { %>
+                        <span class="error-message">
+                                <%= errors.detalle.msg %>
+                            </span>
+                        <% } %>
 
                     <div  class="celda">
                     <div class="datos-text-form">Idioma</div>
