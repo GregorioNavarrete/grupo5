@@ -28,11 +28,11 @@
                            input-contenedor
                         <% } %> ">
                         <i class="fa-solid fa-user icon" style="color: #838486;"></i>
-                        <input class="input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
+                        <input class="input-txt name" type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
                     </div>
 
                     <% if (locals.errors && errors.nombre) { %>
-                        <div class="error-message">
+                        <div class="error-message errorNombre">
                              <%= errors.nombre.msg %>
                         </div>
                     <% } %>
@@ -45,11 +45,11 @@
                             input-contenedor
                          <% } %> ">
                         <i class="fa-solid fa-user icon" style="color: #838486;"></i>
-                        <input class="input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" value="<%= locals.oldData ? oldData.apellido : null %>" >
+                        <input class="input-txt apellido" type="text" name="apellido" placeholder="Ingrese su Apellido" value="<%= locals.oldData ? oldData.apellido : null %>" >
                     </div>
 
                     <% if (locals.errors && errors.apellido) { %>
-                        <div class="error-message">
+                        <div class="error-message errorApellido">
                              <%= errors.apellido.msg %>
                         </div>
                     <% } %>
@@ -64,11 +64,11 @@
                             input-contenedor
                          <% } %> ">
                         <i class="fa-solid fa-user icon" style="color: #838486;"></i>
-                        <input class="input-txt" type="text" name="usuario" placeholder="Ingrese un Usuario" value="<%= locals.oldData ? oldData.usuario : null %>" >
+                        <input class="input-txt usuario" type="text" name="usuario" placeholder="Ingrese un Usuario" value="<%= locals.oldData ? oldData.usuario : null %>" >
                     </div>
 
                     <% if (locals.errors && errors.usuario) { %>
-                        <div class="error-message">
+                        <div class="error-message  ">
                              <%= errors.usuario.msg %>
                         </div>
                     <% } %>
@@ -81,11 +81,11 @@
                             input-contenedor
                          <% } %> ">
                         <i class="fa-regular fa-envelope icon"></i>
-                        <input class="input-txt" type="email" name="email" placeholder="Ingrese un e-mail" value="<%= locals.oldData ? oldData.email : null %>" >
+                        <input class="input-txt email" type="email" name="email" placeholder="Ingrese un e-mail" value="<%= locals.oldData ? oldData.email : null %>" >
                     </div>
 
                     <% if (locals.errors && errors.email) { %>
-                        <div class="error-message">
+                        <div class="error-message ">
                              <%= errors.email.msg %>
                         </div>
                     <% } %>
@@ -98,11 +98,11 @@
                             input-contenedor
                          <% } %> "> 
                         <i class="fa-solid fa-key icon"></i>
-                        <input class="input-txt" type="password" name="password" placeholder="Ingrese una contraseña" >
+                        <input class="input-txt password" type="password" name="password" placeholder="Ingrese una contraseña" >
                         
                     </div>
                     <% if (locals.errors && errors.password) { %>
-                        <div class="error-message">
+                        <div class="error-message errorPassword">
                              <%= errors.password.msg %>
                         </div>
                     <% } %>
@@ -116,17 +116,17 @@
                             input-contenedor
                          <% } %> "> 
                         <i class="fa-solid fa-key icon"></i> 
-                         <input class="input-txt" type="password" name="confirmPassword" placeholder="Confirmar contraseña" > 
+                         <input class="input-txt confirmPassword" type="password" name="confirmPassword" placeholder="Confirmar contraseña" > 
                      </div>
 
                      <% if (locals.errors && errors.password) { %>
-                        <div class="error-message">
+                        <div class="error-message errorConfirmPassword">
                              <%= errors.password.msg %>
                         </div>
                     <% } %>
                     
                     <div class="input-contenedor">
-                        <input  class="input-text" type="file"  name="imgUser" accept=".jpg, .png" >
+                        <input  class="input-text" type="file"  name="imgUser" accept=".JPG, .PNG, .JPEG, .GIF" >
                     </div>
 
                     
@@ -146,6 +146,7 @@
     <footer>
         <%- include ('../partials/footer') %>
     </footer>
+    <script src="/js/register.js" ></script>
 </body>
 
 </html>
