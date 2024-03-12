@@ -35,14 +35,15 @@ const adminController = {
       res.render('admin/error')
     }  
   },
-  store: (req, res)=>{
-    
+  store: async(req, res)=>{
+    let generos = await productService.fiandGenres()
+    let autores = await productService.fiandAuthors()
+    let editoriales = await productService.fiandEditorials()
+    let colecciones = await productService.fiandCollections()
     let resultValidation = validationResult(req);
     console.log(resultValidation.mapped());
     if(resultValidation.errors.length > 0){
-      return res.render('admin/FormularioCargaLibros',{
-        errors : resultValidation.mapped()
-      })
+      return res.render('admin/FormularioCargaLibros',{errors : resultValidation.mapped(),genres: generos, authors: autores, editorials: editoriales, collections: colecciones})
      };
 
      /////////////////////////////////////////Tengo que hacer q esta vista muestre el error si salta 
