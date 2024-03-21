@@ -182,7 +182,7 @@ const productController = {
       sendComment: async (req,res) => {
         try {
           let id = req.params.id
-          let newComment = await productService.createComment(req,id);
+          let newComment = await productService.createComment(req);
           res.redirect('../../../product/libro/'+req.params.id)
           
         } catch (error) {

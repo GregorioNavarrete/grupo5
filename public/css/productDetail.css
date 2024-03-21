@@ -299,7 +299,6 @@ margin: 3px;
     width: 88%;
     padding-top: 10px;
     padding-bottom: 10px;
-    color: white;
    }
     .coment{
         font-size: 12px;
@@ -364,6 +363,24 @@ margin: 3px;
 }
 
 
+.estrella{
+    color: white;
+    transition: color 0.3s;
+    cursor: pointer;
+
+}
+.estrella:hover,
+.estrella.checked{
+    color: #F94D01;
+}
+
+.estrellaFija{
+    color:rgb(0, 0, 0);
+}
+
+.estrellaPintada {
+    color: #F94D01; 
+}
 
 
 

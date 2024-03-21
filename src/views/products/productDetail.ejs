@@ -21,7 +21,7 @@
                   <a class="det-art-subtitulo-a" href="../../product/autor/<%=producto.authors[i].id_author %>">  <%=producto.authors[i].name %> </a>
                 <% } %>
             </h2>
-            <div class="det-art-cont-estrellas "><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <div class="det-art-cont-estrellas "><i class="fa-solid fa-star "></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
             </div>
 
             <% if (locals.isLogged && locals.userLogged.id_rol === 1) { %>
@@ -116,44 +116,27 @@
         <div class="det-dejacomen">
         <article class="det-dejacomen-conte">
             <div class="det-dejacomen-conte-star">
-                <i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star estrella" name="1234"></i><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star estrella"></i>
                 Califica el Libro
             </div>
         </article>
            
           <div class="cont_deja_comentario">
             <form action="/product/libro/<%=producto.id_product%>" method="post">
-                <textarea  name="message" rows="4"  class="coment">
-                
-                </textarea>
+                <textarea  name="message" rows="4"  class="coment"></textarea>
+                <input type="hidden" id="starCount" name="starCount" value="0"> <!-- Este es el campo oculto -->
                 <button >enviar</button>
-              </form>
+            </form>
             </div>
         </div>
 
         <% } %>
 
     </section><br>
-    <h2>Vista Previa</h2>
-
-    <section class="section6">
-        <div class="det-vist-conte">
-        <article class="det-vist-img">
-            <div class="det-vist-conte-img">
-            <p>Heartstopper Volumen 5</p>
-            </div>
-        </article>
-
-        <article class="det-vist-flechas">
-            <i class="fa-solid fa-chevron-up"></i>
-            <i class="fa-solid fa-chevron-down"></i>
-        </article>
-        </div>
-    </section><br>
 
     <footer>
         <%- include ('../partials/footer') %>
     </footer>
-    
+    <script src="/js/productDetail.js"></script>
 </body>
 </html>

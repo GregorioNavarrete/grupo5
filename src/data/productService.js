@@ -709,10 +709,10 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                 createComment: async function(req,id){
                     try {
                         let newComment = await db.Comment.create({
-                            id_product : id,
+                            id_product : req.params.id,
                             id_user: req.session.userLogged.id_user,
                             description: req.body.message,
-                            star:3,
+                            star: req.body.starCount  ,
                             publication_date : new Date()
                         })
                         return newComment

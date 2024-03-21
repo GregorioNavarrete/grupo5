@@ -1,12 +1,14 @@
 <% comentarios.forEach(comentario => { %>
-        <article class="coment-conte">
-            <h3 class="coment-nombre"><%= comentario.Users.name %> <%= comentario.Users.last_name %></h3>
-            <p class="coment-text"><%=comentario.description %></p>
-            <div class="coment-icons">
-                <div class="coment-conte-star"><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <i class="fa-solid fa-angle-down coment-icono-abajo"></i>
-            </div>        
-        </article>
-            
+    <article class="coment-conte">
+        <h3 class="coment-nombre"><%= comentario.Users.name %> <%= comentario.Users.last_name %></h3>
+        <p class="coment-text"><%=comentario.description %></p>
+        <div class="coment-icons">
+            <div class="coment-conte-star">
+                <% for(let i = 0; i < 5; i++) { %>
+                    <i class="fa-solid fa-star <%= i < comentario.star ? 'estrellaPintada' : 'estrellaFija' %>"></i>
+                <% } %>
+            </div>
+            <i class="fa-solid fa-angle-down coment-icono-abajo"></i>
+        </div>        
+    </article>
 <% }) %>
-
