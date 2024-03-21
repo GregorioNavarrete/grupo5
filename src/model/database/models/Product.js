@@ -126,20 +126,20 @@ module.exports = (sequelize, DataTypes) => {
 
        Product.hasMany(models.Comment,{
         as: 'Comments',
-        foreignKey: 'id_comment'
-       }),
+        foreignKey: 'id_product'
+    }),
 
        Product.belongsToMany(models.User,{
         as: 'Users',
         through:'user_product',
-        foreignKey: 'ID_PRODUCT',
-        otherkey: 'ID_USER',
+        foreignKey: 'id_product',
+        otherkey: 'id_user',
         timestamps: 'false'
        })
        ,
        Product.hasMany(models.user_product,{
         as: 'user_products',
-        foreignKey: 'ID_PRODUCT'
+        foreignKey: 'id_product'
        })
    }
 
