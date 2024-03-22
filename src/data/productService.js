@@ -177,7 +177,9 @@ const productService = {
                     { association: "Collections" },
                     { association: "authors" },
                     { association: "Genres" },
-                    { association: "Supports" }
+                    { association: "Supports" },
+                    { association: "Comments" },
+                    
                 ]
             });
            //console.log(products.Supports);
@@ -684,6 +686,46 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                         console.log(e);
                     }
                 },
+
+                allcoments: async function (id){
+                    try {
+                        let comentarios = await db.Comment.findAll({
+                            where: {
+                                id_product: id 
+                            },
+                            include: [
+                                { association: "Products" },
+                                { association: "Users" },
+                            ]
+                        });
+                        return comentarios;
+                        
+                    } catch (error) {
+                        
+                        return [];
+                    }    
+                },
+
+                createComment: async function(req,id){
+                    try {
+                        let newComment = await db.Comment.create({
+                            id_product : req.params.id,
+                            id_user: req.session.userLogged.id_user,
+                            description: req.body.message,
+                            star: req.body.starCount  ,
+                            publication_date : new Date()
+                        })
+                        return newComment
+                    } catch (error) {
+                
+                    }
+                },
+                
+                
+
+
+
+                
                     
 
 }

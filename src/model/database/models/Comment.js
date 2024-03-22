@@ -8,12 +8,13 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        ID_PRODUCT: {
-            type: DataTypes.INTEGER,
+        id_product: {
+            type: DataTypes.BIGINT,
             allowNull: false,
         },
-        ID_USER: {
-            type: DataTypes.INTEGER,
+        
+        id_user: {
+            type: DataTypes.BIGINT,
             allowNull: false,
         },
         description: {
@@ -39,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
    Comment.associate = function(models){
    Comment.belongsTo(models.Product,{
     as: 'Products',
-    foreignKey: 'id_comment'
+    foreignKey: 'id_product'
    }),
 
    Comment.belongsTo(models.User,{

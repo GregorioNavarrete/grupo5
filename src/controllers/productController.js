@@ -1,6 +1,7 @@
 const path = require('path');
 const productService = require('../data/productService');
 const fs = require('fs');
+const { log } = require('console');
 
 const productController = {
 
@@ -90,19 +91,22 @@ const productController = {
             res.status(500).render({e:'algo salio mal al eliminar los productos del carrito'});
           }
         },
-      getOne : async (req, res) => {
-        try {
-          let aux = await productService.getOne(req.params.id);
-          let aux1= await productService.getAll();
 
-          res.render('products/productDetail',{producto :aux ,product: aux1});
-          
+      getOne : async (req, res) => {
+
+        try {
+          let id = req.params.id;
+          let aux = await productService.getOne(id);
+          let aux1= await productService.getAll();
+          let comentarios = await productService.allcoments(id);
+          res.render('products/productDetail',{producto :aux ,product: aux1,comentarios:comentarios});
+          //res.send(comentarios)
         }catch (error){
-          res.render('admin/error');;
+           res.render('admin/error');
         }
 
       },
-      //esto hay que repetirlo donde requiera todos los libros osea el objto product(utilizamos try catch para todo)
+
       all: async function (req, res)  {
         try {
           let libros = await productService.getAll()
@@ -172,6 +176,17 @@ const productController = {
           res.render('products/authors', {autor : autor})
         } catch (error) { 
           res.render('admin/error');
+        }
+      },
+
+      sendComment: async (req,res) => {
+        try {
+          let id = req.params.id
+          let newComment = await productService.createComment(req);
+          res.redirect('../../../product/libro/'+req.params.id)
+          
+        } catch (error) {
+          
         }
       }
 
