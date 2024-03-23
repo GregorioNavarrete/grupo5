@@ -181,11 +181,11 @@ input:invalid+.error-message {
 
 
 .valido{
-    background-color: rgba(144, 238, 144, 0.267);
+    border: 1px solid #9dd39d;
 }
 
 .invalido{
-    background-color: rgba(240, 128, 128, 0.541);
+    border: 1px solid #f85757;
 }
 
 
