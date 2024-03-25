@@ -457,6 +457,9 @@ let deletproduct_favorites = await db.product_favorites.destroy(
         fiandGenres: async function (){
             try {
                 let generos = await db.Genre.findAll({
+                    include: [
+                        { association: "products" },        
+                    ]
                 });
                 return generos;
             } catch (error) {
