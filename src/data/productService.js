@@ -580,8 +580,10 @@ let deletproduct_favorites = await db.product_favorites.destroy(
         editCantidad: async function(req){
             try{
                 let producto = await this.getOneProducto(req.params.tabla);
+                let libro = await this.getOne(req.params.id);
+                let stock = libro.dataValues.stock; /////////Tengo el stock , solo hay que hacer la logica de actualisacions !  
                 // console.log("estas en editCantidad");
-                // console.log(producto);
+                //  console.log(stock);
                 // console.log(req.params);
                 // console.log(producto[0].dataValues.cant);
                 if(req.params.cant === '1'){
