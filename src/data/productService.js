@@ -49,19 +49,11 @@ const productService = {
     GetLimit: async function (){
         try {
             let products = await db.Product.findAll({
-               
                 limit : 3 
             });
-
-
-
-            
-           //console.log(products);
             return products;
             
         } catch (error) {
-            //para q al menos no se rompa la vista
-            //mandar un mensaje de error
             return [];
         }    
     },
@@ -656,8 +648,7 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                           }
                      
                      });
-                    //  console.log(aux[0].dataValues);
-              
+                    //  console.log(aux[0].dataValues); es un ARRAY?
                     //  console.log(aux)
                      if(aux.length === 0){
                         return false;
@@ -677,7 +668,6 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                         ID_USER :req.params.id,
                         ID_PRODUCT : req.params.id_producto,
                         cant :1
-                        
                     });
                      return aux;
                     }catch(e){

@@ -9,7 +9,16 @@
             <!-- al boton le tendria que agregar para pasar los datos a la tabla de carrito de compras  -->
     
             <% if (locals.isLogged) { %> 
-                <a class="icon-articulo" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=producto.id_product%>" class="carrito" ><i class="fa-solid fa-cart-shopping"></i></a>
+                <form class="" action="../../product/cart/<%= locals.userLogged.id_user %>/<%=producto.id_product%>" method="POST" enctype="multipart/form-data">
+                    <button  type="submit">
+                        <a class="icon-articulo" class="carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </button>
+                </form>
+                <!-- <a class="icon-articulo" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=producto.id_product%>" class="carrito" >
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a> -->
             <% } else { %>
                 <a class="icon-articulo" href="/admin/formCarga" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
             <% } %>

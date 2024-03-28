@@ -34,7 +34,16 @@
                 <i class="fa-solid fa-cart-shopping"></i>
             </a> -->
             <% if (locals.isLogged) { %> 
-                <a class="icon-articulo" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=product.id_product%>" class="carrito" ><i class="fa-solid fa-cart-shopping"></i></a>
+                <!-- <a class="icon-articulo" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=product.id_product%>" class="carrito" >
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a> -->
+                <form class="" action="../../product/cart/<%= locals.userLogged.id_user %>/<%=product.id_product%>" method="POST" enctype="multipart/form-data">
+                    <button  type="submit">
+                        <a class="icon-articulo" class="carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </button>
+                </form>
             <% } else { %>
                 <a class="icon-articulo" href="/admin/formCarga" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
             <% } %>
@@ -69,7 +78,16 @@
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a> -->
                 <% if (locals.isLogged) { %> 
-                    <a class="icon-articulo" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=product.id_product%>" class="carrito" ><i class="fa-solid fa-cart-shopping"></i></a>
+                    <!-- <a class="icon-articulo" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=product.id_product%>" class="carrito" >
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a> -->
+                    <form class="" action="../../product/cart/<%= locals.userLogged.id_user %>/<%=product.id_product%>" method="POST" enctype="multipart/form-data">
+                        <button  type="submit">
+                            <a class="icon-articulo" class="carrito">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                        </button>
+                    </form>
                 <% } else { %>
                     <a class="icon-articulo" href="/admin/formCarga" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
                 <% } %>

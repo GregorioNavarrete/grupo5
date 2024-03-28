@@ -26,7 +26,7 @@ const productController = {
   },
   cartID: async function (req, res)  {
     try{
-      // le tengo que poner funcionalidad xq ya esta la tabla apara esto 
+      // le tengo que poner funcionalidad xq ya esta la tabla para esto 
       let obj = await productService.getCarrito(req.params.id);
       let tres = await productService.GetLimit();
       res.render('products/productCart',{producto : obj.prod , precios:obj.prec , total:obj.Tot ,totalEnvio:obj.TotEnvio, art:tres});
@@ -36,7 +36,7 @@ const productController = {
   },
   AddCarrito: async function (req, res)  {
     try{
-      // le tengo que poner funcionalidad xq ya esta la tabla apara esto 
+      // le tengo que poner funcionalidad xq ya esta la tabla para esto 
       // let obj = await productService.getCarrito(req.params.id);
 
       let busqueda = await productService.BuscarProductoCarrito(req);
@@ -58,9 +58,9 @@ const productController = {
   Cantidad : async (req, res) =>{
     try{
       let obj1 = await productService.editCantidad(req);
-      console.log("previo al redirect");
+      //console.log("previo al redirect");
       //le mando el req xq el id = id_user
-      let aux = req.params.id;
+      //let aux = req.params.id;
       res.redirect(`/product/cart/home/${req.params.id}`);
     }catch(e){
       res.status(500).send({e:'ocurrio un error, vuelva a intentar mas tarde'})
@@ -124,7 +124,6 @@ const productController = {
   },
 
   filtro : async (req,res) => {
-
     try {
       let filtro = await productService.filter(req)
       if(productService.filter(req).length==0){
