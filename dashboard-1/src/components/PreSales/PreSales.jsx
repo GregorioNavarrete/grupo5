@@ -4,9 +4,11 @@ import patito from '../../assets/img/patito.jpg'
 function PreSales(){
     return (
         <header className="preventa">
-            <h2>Preventa</h2>
-            <div className='img-pre'>
-                <img src={patito} alt="patito"/>
+         <br /><br />
+            <h2 className='home'>Bienvenido Administrador</h2>
+          <br />  <br />
+            <div className='div-pre'>
+                <img className='img-pre' src={patito} alt="patito"/>
             </div>
         </header>
     )

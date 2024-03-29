@@ -20,40 +20,35 @@ export default function MenuWrap() {
                 <ul>
                 <li>
                     <Link to="/">
-                            <i className="bi bi-house" style={{fontSize: "1.2rem", color: "cornflowerblue"}}></i>
+                            <i className="bi bi-house" style={{fontSize: "1.2rem", color: "#FAFCFE"}}></i>
                             - Home
                         </Link>
                     </li>
                     <li>
                         <Link to="/movies">
-                            <i className="bi bi-film" style={{fontSize: "1.2rem", color: "cornflowerblue"}}></i>
-                            - Películas
+                        <i class="fa-solid fa-book"style={{fontSize: "1.2rem", color: "#FAFCFE"}}></i>
+                            - Libros
                         </Link>
                     </li>
                     <li>
                         <a href="#">
-                            <i className="bi bi-play-circle" style={{fontSize: "1.2rem", color: "cornflowerblue"}}></i>
-                            - Cines
+                        <i class="fa-solid fa-feather-pointed" style={{fontSize: "1.2rem", color: "#FAFCFE"}}></i>
+                            - Autores
                         </a>
                     </li>
                     <li>
                         <Link to="/genres">
-                            <i className="bi bi-person" style={{fontSize: "1.2rem", color: "cornflowerblue"}}></i>
-                            - Géneros
+                        <i class="fa-solid fa-tag" style={{fontSize: "1.2rem", color: "#FAFCFE"}}></i>
+                            - Generos
                         </Link>
                     </li>
                     <li>
                         <Link to="/maspopulares">
-                            <i className="bi bi-bar-chart"></i>
+                        <i class="fa-solid fa-heart"></i>
                             - Más populares
                         </Link>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i className="bi bi-tags"></i>
-                            - Promociones
-                        </a>
-                    </li>
+                
                     <li>
                         <Link to="/statistics">
                             <i className="bi bi-graph-up"></i>

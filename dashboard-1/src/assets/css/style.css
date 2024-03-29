@@ -12,14 +12,13 @@
   box-sizing: border-box;
   font-family: 'Quicksand', sans-serif;
 }
-img{
-  width: 30%;
-}
+
 
 .img-pre{
-  width: 100%;
+  width: 40%;
   height: 100%;
-  
+  position: relative;
+  left: 60%;
 }
 html,
 body {
@@ -29,7 +28,6 @@ body {
   background-position: rigth bottom;
   font-size: 16px;
   line-height: 120%;
-  font-family: Open Sans, Helvetica, sans-serif;
 }
 .dashboard {
   display: grid;
@@ -143,7 +141,8 @@ body {
   padding: 0 3em;
 }
 .menu-wrap .user .user-avatar {
-  width: 160px;
+  padding: 10px;
+  width: 190px;
   margin:auto
 }
 .menu-wrap .user .user-avatar img {
@@ -172,7 +171,7 @@ body {
   margin: 0;
   font-size: 0.875em;
   text-transform: uppercase;
-  color: #4b84fe;
+  color: var(--blanco);
   font-weight: 600;
 }
 .menu-wrap nav ul {
@@ -189,7 +188,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  color: #99a0b0;
+  color: var(--blanco);
   text-decoration: none;
   font-weight: 600;
   font-size: 0.875em;
@@ -220,7 +219,6 @@ body {
 }
 .content-wrap {
   grid-area: content;
-  padding: 3em;
   overflow: auto;
 }
 .content-wrap .content-head {
@@ -387,3 +385,28 @@ body {
 .content-wrap .person-boxes .person-box .box-actions button:hover svg circle {
   fill: #2b3a60;
 }
+
+.home{
+  margin: auto;
+  font-size: 3.3em;
+  text-align: center;
+  color: #00C7AA;
+  font-family: 'Merriweather', serif;
+  animation-name: ani-home;
+  animation-duration: 9s;
+  animation-iteration-count: 1;
+}
+
+@keyframes ani-home {
+  0% {
+      visibility: hidden;
+      opacity: 0%;
+  }
+
+  100% {
+      opacity: 100%;
+      visibility: visible;
+  }
+}
+
+
