@@ -7,9 +7,12 @@ export default function MenuWrap() {
         <header className="menu-wrap">
         <figure className="user">
             <div className="user-avatar">
-            <Link to="/movies"> 
-                <img src={logoPrisma} alt="Logo Prisma	"/>
-            </Link>            
+            
+                {/* <img src={logoPrisma} alt="Logo Prisma	"/> */}
+                <a href="http://localhost:3000/"><img src={logoPrisma} alt="Logo Prisma	"/></a>
+                {/*
+                tube que levanta otro servidor como API*/}
+                   
             </div>
           
             
@@ -58,6 +61,12 @@ export default function MenuWrap() {
                         <Link to="/statistics">
                             <i className="bi bi-graph-up"></i>
                             - Estadísticas
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/Libros">
+                            <i className="bi bi-graph-up"></i>
+                            - Libros
                         </Link>
                     </li>
                 </ul>
