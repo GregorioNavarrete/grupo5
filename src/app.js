@@ -13,6 +13,8 @@ const methodOverride =  require('method-override'); // Pasar poder usar los mét
 const path=require('path');
 
 const app=express();//instancia de la aplicación express
+var cors = require('cors');
+app.use(cors());
 
 //**Seccion de middlewares
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');

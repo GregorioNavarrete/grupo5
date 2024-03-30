@@ -7,6 +7,7 @@ import Movies from "./Movies/Movies";
 import MasPopulares from "./MasPopulares/MasPopulares";
 import Statistics from "./Statistics/Statistics";
 import PreSales from "./PreSales/PreSales";
+import Libros from "./Libros/Libros";
 
 export default function ContentWrap() {
   return (
@@ -45,6 +46,7 @@ export default function ContentWrap() {
               />
             }
           />
+          <Route path="/Libros" element={<Libros />} />
           <Route component={Error404} />
         </Routes>
 

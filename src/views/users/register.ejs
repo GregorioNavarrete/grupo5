@@ -19,6 +19,9 @@
             <form action="/user/register" method="post" class="formulario" enctype="multipart/form-data">
                 <h1>REGISTRO</h1>
                 <div class="contenedor">
+
+
+
                    
                     <div class="
                    <% if (locals.errors && errors.nombre) { %>
@@ -26,16 +29,23 @@
                         <% } else { %>
                         
                            input-contenedor
-                        <% } %> ">
+                        <% } %> " id="contNombre">
                         <i class="fa-solid fa-user icon" style="color: #838486;"></i>
                         <input class="input-txt name" type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
                     </div>
 
+                    <div class="error-message oculto" id="1"></div>
+
                     <% if (locals.errors && errors.nombre) { %>
-                        <div class="error-message errorNombre">
+                        <div class="error-message errorNombre" id="nombreErrorBase">
                              <%= errors.nombre.msg %>
                         </div>
                     <% } %>
+
+
+
+
+
 
                     <div class="
                     <% if (locals.errors && errors.apellido) { %>
@@ -43,16 +53,21 @@
                          <% } else { %>
                          
                             input-contenedor
-                         <% } %> ">
+                         <% } %> " id="contApeliido">
                         <i class="fa-solid fa-user icon" style="color: #838486;"></i>
                         <input class="input-txt apellido" type="text" name="apellido" placeholder="Ingrese su Apellido" value="<%= locals.oldData ? oldData.apellido : null %>" >
                     </div>
 
+                    <div class="error-message oculto" id="2"></div>
+
                     <% if (locals.errors && errors.apellido) { %>
-                        <div class="error-message errorApellido">
+                        <div class="error-message errorApellido" id="apellidoErrorBase">
                              <%= errors.apellido.msg %>
                         </div>
                     <% } %>
+
+
+
 
                     
 
@@ -62,50 +77,66 @@
                          <% } else { %>
                          
                             input-contenedor
-                         <% } %> ">
+                         <% } %> " id="contUsuario">
                         <i class="fa-solid fa-user icon" style="color: #838486;"></i>
                         <input class="input-txt usuario" type="text" name="usuario" placeholder="Ingrese un Usuario" value="<%= locals.oldData ? oldData.usuario : null %>" >
                     </div>
 
+                    <div class="error-message oculto" id="3"></div>
+
                     <% if (locals.errors && errors.usuario) { %>
-                        <div class="error-message  ">
+                        <div class="error-message  " id="usuarioErrorBase">
                              <%= errors.usuario.msg %>
                         </div>
                     <% } %>
 
+
+
+
+
                     <div class="
                     <% if (locals.errors && errors.email) { %>
                          error
                          <% } else { %>
                          
                             input-contenedor
-                         <% } %> ">
+                         <% } %> " id="contEmail">
                         <i class="fa-regular fa-envelope icon"></i>
                         <input class="input-txt email" type="email" name="email" placeholder="Ingrese un e-mail" value="<%= locals.oldData ? oldData.email : null %>" >
                     </div>
 
+                    <div class="error-message oculto" id="4"></div>
+
                     <% if (locals.errors && errors.email) { %>
-                        <div class="error-message ">
+                        <div class="error-message " id="emailErrorBase">
                              <%= errors.email.msg %>
                         </div>
                     <% } %>
 
+
+
+
+
                     <div class="
-                    <% if (locals.errors && errors.password) { %>
-                         error
-                         <% } else { %>
-                         
+                        <% if (locals.errors && errors.password) { %>
+                            error
+                        <% } else { %>
                             input-contenedor
-                         <% } %> "> 
+                        <% } %> " id="contPassword">
                         <i class="fa-solid fa-key icon"></i>
-                        <input class="input-txt password" type="password" name="password" placeholder="Ingrese una contraseña" >
-                        
+                        <input class="input-txt password" type="password" name="password" placeholder="Ingrese una contraseña" value="<%= locals.oldData ? oldData.password : null %>" >
                     </div>
+
+                    <div class="error-message oculto" id="5"></div>
+
                     <% if (locals.errors && errors.password) { %>
-                        <div class="error-message errorPassword">
-                             <%= errors.password.msg %>
+                        <div class="error-message errorPassword" id="passwordErrorBase">
+                            <%= errors.password.msg %>
                         </div>
                     <% } %>
+
+
+
 
 
                     <div class="

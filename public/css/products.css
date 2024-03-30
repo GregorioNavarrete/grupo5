@@ -177,13 +177,8 @@ a{
     }
     .coment-conte-star{
     font-size: 15px;
-    cursor: pointer;
-    transition: all 1s;
     }
     
-    .coment-conte-star:hover{
-    color:#F94D01
-    }
     
     .coment-icons{
     display: flex;

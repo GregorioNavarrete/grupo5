@@ -4,6 +4,7 @@ const userController = require ('../controllers/userController');
 const uploadUser = require('../middlewares/multerUser');
 const path = require('path');
 const validations = require('../middlewares/validationsMiddleware');
+const validationsEdit = require('../middlewares/validationEdit');
 
 //es un mid, para restringir "si ya esta loguedo no entra" en "registro y login"
 const guestMiddleware = require('../middlewares/guestMiddleware');
@@ -25,9 +26,8 @@ router.get('/logout/', userController.logout);
 
 
 // EDIT ONE USER
-//router.get('/search',userController.search);// que hace ? 
 router.get('/profile/:id/edit',authMiddleware,userController.edit);
-router.post('/profile/:id/edit',uploadUser.single('imgUser'),userController.update);
+router.post('/profile/:id/edit',uploadUser.single('imgUser'),validationsEdit,userController.update);
 
 
 

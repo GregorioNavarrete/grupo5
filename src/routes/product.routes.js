@@ -35,4 +35,6 @@ router.get("/search", productController.productSearch)
 
 router.get('/autor/:id', productController.author);
 
+router.post('/libro/:id',productController.sendComment)
+
 module.exports = router;
