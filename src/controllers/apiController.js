@@ -58,22 +58,20 @@ const apiController = {
 
     list: async function (req, res) {
         try {
-         
           let allUsers = await userService.getData();
-          let newUsers = allUsers.map(usuario=> new users(usuario.name, usuario.last_name, usuario.email,usuario.id_user))
+          let newUsers = allUsers.map(usuario=> new users(usuario.name, usuario.last_name, usuario.email,usuario.id_user));
           res.status(200).json({
             count: allUsers.length,
             users: newUsers,
-            
-            
           });
           
         } catch (error) { 
           console.log(error.message);
-          res.set('Content-Type', 'text/plain')
-          res.send("Error inesperado").status(500)
+          res.set('Content-Type', 'text/plain');
+          res.send("Error inesperado").status(500);
         }
       },
+
       getOne: async function (req, res) {
         try {
           let oneUser = await userService.getOne(req.params.id);
@@ -97,9 +95,9 @@ const apiController = {
       countByGenres: async function(req, res) {
        try {
         let generos = await productService.fiandGenres();
-        let countGenres = generos.map(genero=> new genres(genero.id_genre, genero.name, genero.image, genero.products, genero.count))
+        let countGenres = generos.map(genero=> new genres(genero.id_genre, genero.name, genero.image, genero.products, genero.count));
         let allProducts = await productService.getAll();
-        let mapProducts = allProducts.map(producto=> new products (producto.id_product, producto.title, producto.price, producto.image, producto.description, producto.Supports, producto.Collections, producto.Languages, producto.Editorials, producto.authors[0].name))
+        let mapProducts = allProducts.map(producto=> new products (producto.id_product, producto.title, producto.price, producto.image, producto.description, producto.Supports, producto.Collections, producto.Languages, producto.Editorials, producto.authors[0].name));
         res.status(200).json({
           count: allProducts.length,
           countByCategory: countGenres,
@@ -112,4 +110,4 @@ const apiController = {
 
     }
 
-    module.exports=apiController
+    module.exports=apiController;
