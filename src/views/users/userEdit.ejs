@@ -29,12 +29,7 @@
 			</form>
 
 
-			<!-- <div class="col-md-3">
-				<a class="dropdown-item" href="/user/profile">My profile</a>
-				<li><hr class="dropdown-divider"></li>
-				<a class="dropdown-item" href="/user/logout">Logout</a>
-				<li class="nav-item"><a class="nav-link" href="/user/register">Register</a></li>
-				<li class="nav-item"><a class="nav-link" href="/user/login">Login</a></li> -->
+			
 			</section>
 
 			<section class="user-text">
@@ -46,25 +41,51 @@
 
 					<div class="user-input">
                         <div class="user-sub-input">Nombre</div>
-                        <input class="user-input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= user.name %>">
-                    </div>
+							<div class="cont-input">
+								<input class="user-input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= locals.oldData ? oldData.nombre : user.name %>">
+									<% if (locals.errors && errors.nombre) { %>
+										<div class="error-message errorNombre">
+											<%= errors.nombre.msg %>
+										</div>
+									<% } %>
+							</div>
+                    </div> 
+
 
                     <div class="user-input"> 
                         <div class="user-sub-input">Apellido</div>
-                        <input class="user-input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" value="<%= user.last_name %>" >
-                        <!-- <span class="error-message">Ingresa un apellido valido.</span> -->
+						<div class="cont-input">
+						<input class="user-input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" value="<%= locals.oldData ? oldData.apellido : user.last_name %>" >
+								<% if (locals.errors && errors.apellido) { %>
+									<div class="error-message errorNombre">
+										<%= errors.apellido.msg %>
+									</div>
+								<% } %>
+						</div>
                     </div>
 
                     <div class="user-input">
                         <div class="user-sub-input">Usuario</div>
-                        <input class="user-input-txt" type="text" name="usuario" placeholder="Ingrese un Usuario" value="<%= user.name_user %>" >
-                        <!-- <span class="error-message">Ingresa un usuario valido.</span> -->
+						<div class="cont-input">
+                        <input class="user-input-txt" type="text" name="usuario" placeholder="Ingrese un Usuario" value="<%= locals.oldData ? oldData.usuario : user.name_user %>" >
+							<% if (locals.errors && errors.usuario) { %>
+								<div class="error-message errorNombre">
+									<%= errors.usuario.msg %>
+								</div>
+							<% } %>
+					</div>
                     </div>
 
                     <div class="user-input">
                         <div class="user-sub-input">Email</div>
-                        <input class="user-input-txt" type="email" name="email" placeholder="Ingrese un e-mail" value="<%= user.email %>"  >
-                        <!-- <span class="error-message">Ingresa una dirección de correo electrónico válida.</span> -->
+                        <div class="cont-input">
+                        <input class="user-input-txt" type="email" name="email" placeholder="Ingrese un e-mail" value="<%= locals.oldData ? oldData.email : user.email %>" >
+							<% if (locals.errors && errors.email) { %>
+								<div class="error-message errorNombre">
+									<%= errors.email.msg %>
+								</div>
+							<% } %>
+					</div>
                     </div>
 					
 					
@@ -73,9 +94,15 @@
 					<br>
                     
                     <div class="user-input">
-                        <input  class="user-input-text"  type="file" id="portada" name="imgUser" accept=".jpg, .png" >
+                        <input  class="user-input-text"  type="file" id="portada" name="imgUser"  >
                     </div>
-
+					<% if (locals.errors && errors.imgUser) { %>
+					<div class="user-input">
+						<div class="error-message">
+							 <%= errors.imgUser.msg %>
+						</div>
+				    </div>
+					<% } %>
 				
 					
 					<br>
