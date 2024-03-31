@@ -18,7 +18,7 @@
             <% newCatg.forEach(product => { %>
         <article class="articulo">
             <a href="../product/libro/<%=product.id_product %>">
-                 <img class="img-articulo" src="/img/portadas/<%=(product.image !== 0 && product.image !== undefined) ? product.image : 'default-image.png'%>" alt="imagen de producto" alf="Defiant" >
+                 <img class="img-articulo" src="/img/portadas/<%=(product.image !== '0' && product.image !== undefined) ? product.image : 'default-image.png'%>" alt="imagen de producto" alf="Defiant" >
             </a>
             <div class="desc-articulo">
             <a href="../product/libro/<%=product.id_product %>">
@@ -64,7 +64,7 @@
                 <% products.forEach(product => { %>
             <article class="articulo">
                 <a href="../product/libro/<%=product.id_product %>">
-                    <img class="img-articulo" src="/img/portadas/<%=(product.image !== 0 && product.image !== undefined) ? product.image : 'default-image.png'%>" alt="imagen de producto" alf="Defiant" href="../product/libro/<%=product.id %>">
+                    <img class="img-articulo" src="/img/portadas/<%=(product.image !== '0' && product.image !== undefined) ? product.image : 'default-image.png'%>" alt="imagen de producto" alf="Defiant" href="../product/libro/<%=product.id %>">
                 </a>
                 <div class="desc-articulo">
                 <a href="../product/libro/<%=product.id_product %>"><p class="prodc-titulo"><%= product.title %></p></a>

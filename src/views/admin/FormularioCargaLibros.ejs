@@ -33,7 +33,7 @@
 
                     <div class="celda">
                         <div class="datos-text-form">Título</div>
-                        <input class="input-text" type="text" id="titulo" name="title" >
+                        <input class="input-text" type="text" id="titulo" name="title"  value="<%= locals.oldData ? oldData.title : null %>" >
                         <br>
                         <% if (locals.errors && errors.title) { %>
                             <div class="error-message">
@@ -44,7 +44,7 @@
 
                     <div  class="celda">
                         <div class="datos-text-form">Subtítulo</div>
-                        <input class="input-text" type="text" id="subtitulo" name="subtitle">
+                        <input class="input-text" type="text" id="subtitulo" name="subtitle" value="<%= locals.oldData ? oldData.subtitle : null %>">
                     </div><br><br>
 
                     <div  class="celda">
@@ -52,7 +52,7 @@
                         <input class="input-text" type="text" id="autor" name="autor" required> -->
 
                         <div  class="datos-text-form">Autor</div>
-                        <select class="input-text" id="Autor" name="Autor" required>
+                        <select class="input-text" id="Autor" name="Autor" >
                         <option value="">Seleccione un Autor</option>
                             <% authors.forEach(autor => { %>
                                 <option value="<%= autor.id_author%>"><%= autor.name%></option>              
@@ -66,7 +66,7 @@
                     </div><br><br> -->
                     <div  class="celda">
                         <div  class="datos-text-form">Editorial</div>
-                        <select class="input-text" id="edition" name="edition" required>
+                        <select class="input-text" id="edition" name="edition" >
                         <option value="">Seleccione una editorial</option>
                         <% editorials.forEach(editorial => { %>
                             <option value="<%= editorial.id_editorial%>"><%= editorial.name%></option>              
@@ -75,23 +75,10 @@
                     </div><br><br>
 
 
-<!-- Creo que es redundante, xq en "Saga/Serie" puede seleccionar "no pertece" -->
-                    <!-- <div  class="celda">
-                    <div class="datos-text-form">Etiqueta</div>
-                    <select class="input-text" name="etiqueta" id="etiqueta" required>
-                        <option value="">Selecciona una Etiqueta</option>
-                        <option value="saga">Saga</option>
-                        <option value="unico">Unico</option>
-                    </select>
-                    </div><br><br> -->
 
-                    <!-- <div  class="celda">
-                    <div class="datos-text-form">Saga/Serie</div>
-                    <input class="input-text" type="text" id="sagaSerie" name="sagaSerie">
-                    </div><br><br> -->
                     <div  class="celda">
                         <div  class="datos-text-form">Saga/Serie</div>
-                        <select class="input-text" id="sagaSerie" name="sagaSerie" required>
+                        <select class="input-text" id="sagaSerie" name="sagaSerie" >
                         <option value="">Seleccione un saga/Serie</option>
                         <% collections.forEach(coleccion => { %>
                             <option value="<%= coleccion.id_collection%>"><%= coleccion.name%></option>              
@@ -101,7 +88,7 @@
 
                     <div  class="celda">
                         <div  class="datos-text-form">Género</div>
-                        <select class="input-text" id="genero" name="genero" required>
+                        <select class="input-text" id="genero" name="genero" >
                         <option value="">Seleccione un género</option>
                         <% genres.forEach(genero => { %>
                             <option value="<%= genero.id_genre%>"><%= genero.name%></option>              
@@ -111,7 +98,7 @@
 
                     <div  class="celda">
                     <div  class="datos-text-form">Formato</div>
-                    <select class="input-text" name="formato" id="formato" required>
+                    <select class="input-text" name="formato" id="formato" >
                         <option value="">Selecciona un Formato</option>
                         <option value="1">Fisico</option>
                         <option value="2">Ebook</option>
@@ -121,28 +108,29 @@
 
                     <div  class="celda">
                     <div class="datos-text-form">Precio</div>
-                    <input class="input-text" type="number" id="precio" name="precio" step="0.01" required>
+                    <input class="input-text" type="number" id="precio" name="precio" step="0.01" value="<%= locals.oldData ? oldData.precio : null %>">
                     </div><br><br>
                     <div  class="celda">
                         <div class="datos-text-form">Descuento</div>
-                        <input class="input-text" type="number" id="Descuento" name="Descuento" step="0.01" required>
+                        <input class="input-text" type="number" id="Descuento" name="Descuento" step="0.01" value="<%= locals.oldData ? oldData.Descuento : null %>">
                     </div><br><br>
 
                     <div  class="celda">
                         <div class="datos-text-form">Stock</div>
-                        <input class="input-text" type="number" id="Stock" name="Stock" step="0.01" required>
+                        <input class="input-text" type="number" id="Stock" name="Stock" step="0.01" value="<%= locals.oldData ? oldData.Stock : null %>">
                     </div><br><br>
 
 
                     <div  class="celda">
                    <div class="datos-text-form">Portada</div>
-                    <input  class="input-text"  type="file" id="portada" name="portada" accept=".jpg, .jpng, .gif, .png" required>
+                    <input  class="input-text"  type="file" id="portada" name="portada" accept=".jpg, .jpng, .gif, .png" >
                     </div><br><br>
 
 
                     <div  class="celda">
                         <div class="datos-text-form">Descripción</div>
-                        <textarea class="input-text" id="detalle" name="descripcion" ></textarea>
+                        <textarea class="input-text" id="descripcion" name="descripcion"><%= locals.oldData ? locals.oldData.descripcion : "" %></textarea>
+
                         <% if (locals.errors && errors.descripcion) { %>
                             <div class="error-message">
                                 <%= errors.descripcion.msg %>
@@ -157,7 +145,7 @@
 
                     <div  class="celda">
                     <div class="datos-text-form">Idioma</div>
-                    <select class="input-text" name="idioma" id="idioma"required>
+                    <select class="input-text" name="idioma" id="idioma">
                         <option value="">Selecciona un Idioma</option>
                         <option value="1">Español</option>
                         <option value="2">Frances</option>
@@ -167,43 +155,17 @@
     
                     <div  class="celda">
                     <div class="datos-text-form">Paginas</div>
-                    <input class="input-text" type="number" name="paginas" id="paginas" required>
+                    <input class="input-text" type="number" name="paginas" id="paginas" value="<%= locals.oldData ? oldData.paginas: null %>">
                     </div><br><br>
 
                     <div  class="celda">
                     <div class="datos-text-form">Año de Edición</div>
-                    <input class="input-text" type="number" name="año_edicion" id="añoEdicion" required>
+                    <input class="input-text" type="number" name="año_edicion" id="añoEdicion" >
                     </div><br><br>
 
                     
     
-                    <!-- <div>Estrellas</div>
-                    <select id="Estrellas" name="Estrellas" required>
-                      <option value="">Seleccione Estrellas</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                    </select><br><br> -->
-
-
-                    
-          
-                     
-                        
-              
-       
-                    
-                    
-                    
-                    <!--como necesito usar el SUBMIT para e,biar el formulario completo no uso el boton lindo 
-                    <div class="form-actions">
-                        <a class="btn-art" href="/product/crate" >
-                            <div>Agregar</div>
-                        </a>
-                    </div>
-                    -->
+                   
                     <div  class="celda-btn">
                         <button class="btn-form" type="submit">Agregar</button>
                     </div>

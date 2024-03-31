@@ -44,12 +44,15 @@ const adminController = {
       let editoriales = await productService.fiandEditorials();
       let colecciones = await productService.fiandCollections();
       let resultValidation = validationResult(req);
-      console.log(resultValidation.mapped());
+     // console.log(resultValidation.mapped());
       if (resultValidation.errors.length > 0) {
-        return res.render('admin/FormularioCargaLibros', { errors: resultValidation.mapped(), genres: generos, authors: autores, editorials: editoriales, collections: colecciones });
-      };
-      productService.save(req);
-      res.redirect('/admin/FormCarga');
+        console.log(req.body)
+        return res.render('admin/FormularioCargaLibros', { errors: resultValidation.mapped(), genres: generos, authors: autores, editorials: editoriales, collections: colecciones,oldData:req.body });
+      }else{
+        productService.save(req);
+        res.redirect('/admin/FormCarga');
+      }
+      
     } catch (error) {
       res.render('admin/error');
     }

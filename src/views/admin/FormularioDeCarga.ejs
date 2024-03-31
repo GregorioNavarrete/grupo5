@@ -96,7 +96,7 @@
 
                             <figure class="product-box_image">
                                 <!--la imagen por defecto si funcion-->
-                                <img src="/img/portadas/<%=(producto.image !== 0 && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alt="imagen de producto">
+                                <img src="/img/portadas/<%=(producto.image !== '0' && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alt="imagen de producto">
                             </figure>
                         </div>
                         <% }); %>

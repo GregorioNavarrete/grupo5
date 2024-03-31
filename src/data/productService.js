@@ -63,9 +63,7 @@ const productService = {
         try {
             if (req.file !== undefined) {
                 //le paso todo el req al back
-                let product = req.body;
                 let imagen = req.file;
-                product.portada = imagen.filename;//no me reconose el filename
     
                 console.log(req.body);
                 /*****/
@@ -111,48 +109,61 @@ const productService = {
                     console.error('Error al crear la relación Productos_Generos:', error);
                   }
                
-                // //como los autores ya estan predefinidos, solo creo el registro en "la tabla intermedia product-author"
-                // let nuevaRelacion = await db.ProductoAutor.create({
-                //     id_author: parseInt(req.body.Autor),
-                //     id_product: parseInt(nuevaLibro.id_product)  
-                    
-                // });
+                
                 
 
                 return nuevaLibro;
-                /*****/
-                // //ME BUSCA EL OBJ, CON EL id MAS GRANDE
-                // let mayorID = this.products.reduce((maxID, Obj) => {
-                //     if (Obj.id > maxID.id) {
-                //         return Obj;
-                //     } else {
-                //         return maxID;
-                //     }
-                //     });
-                // product.id = mayorID.id+1;
-                // //Lo agrego al nuevo producto al arreglo de OBJ de productos
-                // this.products.push(product);
-                // //re escribimos el JSON anterio por el nuevo con mi nuevo producto
-                // fs.writeFileSync(productsFilePath,JSON.stringify(this.products),'utf-8');
+                
             } else {          
                 //***************************igual el fomulario no deja ingresa sin imagen 
                 
-                // let product = req.body;
-                // //como no se puede poner null, los deja sin campo image
-                // //let imagen = "null";  con string traba el html 
-                // product.portada = 0;
     
-                // //ME BUSCA EL OBJ, CON EL id MAS GRANDE
-                // let mayorID = this.products.reduce((maxID, Obj) => {
-                //     if (Obj.id > maxID.id) {
-                //         return Obj;
-                //     } else {
-                //         return maxID;
-                //     }
-                //     });
-                // product.id = mayorID.id+1;
-                // this.products.push(product);
-                // fs.writeFileSync(productsFilePath,JSON.stringify(this.products),'utf-8');
+                console.log(req.body);
+                /*****/
+                let nuevaLibro = await db.Product.create({
+                    ID_SUPPORT: req.body.formato,
+                    ID_EDITORIAL: req.body.edition,
+                    ID_LANGUAGE: req.body.idioma,
+                    ID_COLLECTION: req.body.sagaSerie,
+                    title: req.body.title  ,
+                    subtitle: req.body.subtitle,
+                    price:  req.body.precio,
+                    image:  "0",
+                    description:  req.body.descripcion,
+                    pages:  req.body.paginas,
+                    edition:  req.body.edition,
+                    stock: req.body.Stock,
+                    created:1,
+                    updated:1 ,
+                    discount: req.body.Descuento
+                    //created:
+                    //updated:
+                })
+                try {
+                    //Productos_Autores es el alias !!!!
+                    let nuevaRelacion = await db.Productos_Autores.create({
+                        id_author: parseInt(req.body.Autor),
+                        id_product: nuevaLibro.id_product  
+                    });
+                    
+                  } catch (error) {
+                    console.error('Error al crear la relación ProductoAutor:', error);
+                  }
+                  try {
+                    //Productos_Autores es el alias !!!!
+                    let tabla = await db.Productos_Generos.create({
+                        ID_GENRE: parseInt(req.body.genero),
+                        ID_PRODUCT: nuevaLibro.id_product  
+                    });
+                    
+                  } catch (error) {
+                    console.error('Error al crear la relación Productos_Generos:', error);
+                  }
+               
+                
+                
+
+                return nuevaLibro;
             }
         }catch(e){
             console.log(e)

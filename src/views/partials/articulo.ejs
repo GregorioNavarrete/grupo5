@@ -1,7 +1,7 @@
 <% product.forEach(producto => { %>
 <article class="articulo">
     <a href="../../product/libro/<%=producto.id_product%>">
-        <img class="img-articulo" src="/img/portadas/<%=(producto.image !== 0 && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alf="<%=producto.titulo%>"> 
+        <img class="img-articulo" src="/img/portadas/<%=(producto.image !== '0' && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alf="<%=producto.titulo%>"> 
     </a> 
     <div class="desc-articulo">
         <a href="../../product/libro/<%=producto.id_product%>">

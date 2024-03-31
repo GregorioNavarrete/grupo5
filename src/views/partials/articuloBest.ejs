@@ -1,6 +1,6 @@
 <% best.forEach(producto => { %>
     <article class="articulo">
-        <a href="../../product/libro/<%=producto.id_product%>"><img class="img-articulo" src="/img/portadas/<%=(producto.image !== 0 && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alf="<%=producto.titulo%>"> </a> 
+        <a href="../../product/libro/<%=producto.id_product%>"><img class="img-articulo" src="/img/portadas/<%=(producto.image !== '0' && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alf="<%=producto.titulo%>"> </a> 
         <div class="desc-articulo">
         <a href="../../product/libro/<%=producto.id_product%>"><p class="prodc-titulo"><%=producto.title%></p></a>
         <a class="prodc-autor-a" href="../../product/autor/<%=producto.authors[0].id_author %>"> <p class="prodc-autor"><%=producto.authors[0].name%></p></a>

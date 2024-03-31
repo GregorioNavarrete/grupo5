@@ -17,7 +17,7 @@
     <section class="caja-resultados">
             <% productResult.forEach(product => { %>
         <article class="articulo">
-            <a href="../product/libro/<%=product.id_product %>"><img class="img-articulo" src="/img/portadas/<%=(product.image !== 0 && product.image !== undefined) ? product.image : 'default-image.png'%>" alt="imagen de producto" alf="Defiant"> </a>
+            <a href="../product/libro/<%=product.id_product %>"><img class="img-articulo" src="/img/portadas/<%=(product.image !== '0' && product.image !== undefined) ? product.image : 'default-image.png'%>" alt="imagen de producto" alf="Defiant"> </a>
             <div class="desc-articulo">
             <a href="../product/libro/<%=product.id_product %>"><p class="prodc-titulo"><%= product.title %></p></a>
             <p class="prodc-autor"><%= product.author %></p>
