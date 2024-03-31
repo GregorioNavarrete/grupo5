@@ -44,7 +44,7 @@ const adminController = {
       let editoriales = await productService.fiandEditorials();
       let colecciones = await productService.fiandCollections();
       let resultValidation = validationResult(req);
-     // console.log(resultValidation.mapped());
+     
       if (resultValidation.errors.length > 0) {
         console.log(req.body)
         return res.render('admin/FormularioCargaLibros', { errors: resultValidation.mapped(), genres: generos, authors: autores, editorials: editoriales, collections: colecciones,oldData:req.body });
@@ -85,11 +85,17 @@ const adminController = {
       let resultValidation = validationResult(req);
       console.log(resultValidation.mapped());
       if (resultValidation.errors.length > 0) {
+        let generos = await productService.fiandGenres();
+        let autores = await productService.fiandAuthors();
+        let editoriales = await productService.fiandEditorials();
+        let colecciones = await productService.fiandCollections();
         let productToEdit = await productService.getOne(req.params.id);
-        return res.render('admin/FormularioEditLibro', { errors: resultValidation.mapped(), productToEdit: productToEdit });
-      };
-      productService.edit(req);
-      res.redirect('/admin/FormCarga');
+        return res.render('admin/FormularioEditLibro', { errors: resultValidation.mapped(), productToEdit: productToEdit, genres: generos, authors: autores, editorials: editoriales, collections: colecciones  });
+      }else{
+        productService.edit(req);
+        res.redirect('/admin/FormCarga');
+      }
+
     } catch (e) {
       res.status(500).send({ e: 'algo salio mal al actualizar, intentelo mas tarde' });
     }

@@ -22,6 +22,19 @@ const validations = [
         .notEmpty().withMessage('no puede estar vacio'),
         body('anoEdicion')
         .notEmpty().withMessage('no puede estar vacio'),
+        
+        body('Autor')
+        .notEmpty().withMessage('selecciona uno'),
+        body('edition')
+        .notEmpty().withMessage('selecciona uno'),
+        body('sagaSerie')
+        .notEmpty().withMessage('selecciona uno'),
+        body('genero')
+        .notEmpty().withMessage('selecciona uno'),
+        body('formato')
+        .notEmpty().withMessage('selecciona uno'),
+        body('idioma')
+        .notEmpty().withMessage('selecciona uno'),
 
         body('portada').custom((value, {req}) => {
             return new Promise((resolve, reject) => {

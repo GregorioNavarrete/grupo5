@@ -186,7 +186,7 @@ const productService = {
 
            if(!product){
                 // si el no se encuantra el "id" en el arreglo, lo entrgamos bacio al obj
-                console.log("id invalido");
+                
                 product = {};
            }
             return product;
@@ -266,6 +266,7 @@ let deletproduct_favorites = await db.product_favorites.destroy(
     edit: async function(req){
         try{
             console.log(req.body);
+            console.log(req.params.id);
 
 
             let producto = await this.getOne(req.params.id);
@@ -281,73 +282,105 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                 }
                 console.log("\n  medio : " + producto.image);
             });
-    
-            // producto.titulo = nuevoProducto.titulo;
-            // producto.precio = nuevoProducto.precio;
-            // producto.genero = nuevoProducto.genero ;
-            // producto.autor = nuevoProducto.autor;
-            // producto.Estrellas = nuevoProducto.Estrellas;
-            // producto.descripcion = nuevoProducto.descripcion;
+            if (req.file !== undefined) {
+                    let edicion = await db.Product.update(
+                    {
+                        //los campos de la tabla que buscamos modificar
+                        title : req.body.titulo,
 
-            /********************/
-            let edicion = await db.Product.update(
-                {
-                    //los campos de la tabla que buscamos modificar
-                    title : req.body.titulo,
-
-                    ID_SUPPORT: req.body.formato,
-                    ID_EDITORIAL: req.body.edition,
-                    ID_LANGUAGE: req.body.idioma,
-                    ID_COLLECTION: req.body.sagaSerie,
-                    subtitle: req.body.subtitulo,
-                    price:  req.body.precio,
-                    image:  req.file.filename,
-                    description:  req.body.descripcion,
-                    pages:  req.body.paginas,
-                    edition:  req.body.edition,
-                    stock: req.body.Stock,
-                    created:1,
-                    updated:1 ,
-                    discount: req.body.Descuento
-                    //created:
-                    //updated:
-                },{
-                    //indicamos a que registro aplicamos los cambios 
-                    where: {id_product : req.params.id }
-                }
-            );
-            let edicionProductos_Autores = await db.Productos_Autores.update(
-                {
-                    //los campos de la tabla que buscamos modificar
-                    id_author: parseInt(req.body.Autor)
-                },{
-                    //indicamos a que registro aplicamos los cambios 
-                    // todos con el mismo "id_product" seran modificados
-                    where: {id_product : req.params.id }
-                }
-            );
-            let edicionProductos_Generos = await db.Productos_Generos.update(
-                {
-                    //los campos de la tabla que buscamos modificar
-                    ID_GENRE: parseInt(req.body.genero)
-                    
-                },{
-                    //indicamos a que registro aplicamos los cambios 
-                    // todos con el mismo "id_product" seran modificados
-                    where: {id_product : req.params.id }
-                }
-            )
-            /********************/
-
-
-
-            if (req.file != undefined) {
-                //no puedo esditar imagenes, xq el filename sale indefinido siempre !!!!
-                producto.image = imagen.filename;
+                        ID_SUPPORT: req.body.formato,
+                        ID_EDITORIAL: req.body.edition,
+                        ID_LANGUAGE: req.body.idioma,
+                        ID_COLLECTION: req.body.sagaSerie,
+                        subtitle: req.body.subtitulo,
+                        price:  req.body.precio,
+                        image:  req.file.filename,
+                        description:  req.body.descripcion,
+                        pages:  req.body.paginas,
+                        edition:  req.body.edition,
+                        stock: req.body.Stock,
+                        created:1,
+                        updated:1 ,
+                        discount: req.body.Descuento
+                        //created:
+                        //updated:
+                    },{
+                        //indicamos a que registro aplicamos los cambios 
+                        where: {id_product : req.params.id }
+                    }
+                );
+                let edicionProductos_Autores = await db.Productos_Autores.update(
+                    {
+                        //los campos de la tabla que buscamos modificar
+                        id_author: parseInt(req.body.Autor)
+                    },{
+                        //indicamos a que registro aplicamos los cambios 
+                        // todos con el mismo "id_product" seran modificados
+                        where: {id_product : req.params.id }
+                    }
+                );
+                let edicionProductos_Generos = await db.Productos_Generos.update(
+                    {
+                        //los campos de la tabla que buscamos modificar
+                        ID_GENRE: parseInt(req.body.genero)
+                        
+                    },{
+                        //indicamos a que registro aplicamos los cambios 
+                        // todos con el mismo "id_product" seran modificados
+                        where: {id_product : req.params.id }
+                    }
+                )
             }else{
-                producto.image = 0;
+
+                let edicion = await db.Product.update(
+                    {
+                        //los campos de la tabla que buscamos modificar
+                        title : req.body.titulo,
+
+                        ID_SUPPORT: req.body.formato,
+                        ID_EDITORIAL: req.body.edition,
+                        ID_LANGUAGE: req.body.idioma,
+                        ID_COLLECTION: req.body.sagaSerie,
+                        subtitle: req.body.subtitulo,
+                        price:  req.body.precio,
+                        image:  "0",
+                        description:  req.body.descripcion,
+                        pages:  req.body.paginas,
+                        edition:  req.body.edition,
+                        stock: req.body.Stock,
+                        created:1,
+                        updated:1 ,
+                        discount: req.body.Descuento
+                        //created:
+                        //updated:
+                    },{
+                        //indicamos a que registro aplicamos los cambios 
+                        where: {id_product : req.params.id }
+                    }
+                );
+                let edicionProductos_Autores = await db.Productos_Autores.update(
+                    {
+                        //los campos de la tabla que buscamos modificar
+                        id_author: parseInt(req.body.Autor)
+                    },{
+                        //indicamos a que registro aplicamos los cambios 
+                        // todos con el mismo "id_product" seran modificados
+                        where: {id_product : req.params.id }
+                    }
+                );
+                let edicionProductos_Generos = await db.Productos_Generos.update(
+                    {
+                        //los campos de la tabla que buscamos modificar
+                        ID_GENRE: parseInt(req.body.genero)
+                        
+                    },{
+                        //indicamos a que registro aplicamos los cambios 
+                        // todos con el mismo "id_product" seran modificados
+                        where: {id_product : req.params.id }
+                    }
+                )
             }
-    
+
             console.log("\n  despues : " + imagen.filename);
             
     

@@ -50,20 +50,30 @@
                     <div  class="celda">
                         <div  class="datos-text-form">Autor</div>
                         <select class="input-text" id="Autor" name="Autor" >
-                        <option value="">Seleccione un Autor</option>
-                            <% authors.forEach(autor => { %>
-                                <option value="<%= autor.id_author%>"><%= autor.name%></option>              
-                            <% }) %>
+                            <option value="">Seleccione un Autor</option>
+                                <% authors.forEach(autor => { %>
+                                    <option value="<%= autor.id_author%>"><%= autor.name%></option>              
+                                <% }) %>
                         </select>
+                        <% if (locals.errors && errors.Autor) { %>
+                            <div class="error-message">
+                                <%= errors.Autor.msg %>
+                            </div>
+                        <% } %>
                     </div><br><br>
                     <div  class="celda">
                         <div  class="datos-text-form">Editorial</div>
                         <select class="input-text" id="edition" name="edition" >
-                        <option value="">Seleccione una editorial</option>
-                        <% editorials.forEach(editorial => { %>
-                            <option value="<%= editorial.id_editorial%>"><%= editorial.name%></option>              
-                        <% }) %>
+                            <option value="">Seleccione una editorial</option>
+                            <% editorials.forEach(editorial => { %>
+                                <option value="<%= editorial.id_editorial%>"><%= editorial.name%></option>              
+                            <% }) %>
                         </select>
+                        <% if (locals.errors && errors.edition) { %>
+                            <div class="error-message">
+                                <%= errors.edition.msg %>
+                            </div>
+                        <% } %>
                     </div><br><br>
 
 
@@ -71,31 +81,45 @@
                     <div  class="celda">
                         <div  class="datos-text-form">Saga/Serie</div>
                         <select class="input-text" id="sagaSerie" name="sagaSerie" >
-                        <option value="">Seleccione un saga/Serie</option>
-                        <% collections.forEach(coleccion => { %>
-                            <option value="<%= coleccion.id_collection%>"><%= coleccion.name%></option>              
-                        <% }) %>
+                            <option value="">Seleccione un saga/Serie</option>
+                            <% collections.forEach(coleccion => { %>
+                                <option value="<%= coleccion.id_collection%>"><%= coleccion.name%></option>              
+                            <% }) %>
                         </select>
+                        <% if (locals.errors && errors.sagaSerie) { %>
+                            <div class="error-message">
+                                <%= errors.sagaSerie.msg %>
+                            </div>
+                        <% } %>
                     </div><br><br>
 
                     <div  class="celda">
                         <div  class="datos-text-form">Género</div>
                         <select class="input-text" id="genero" name="genero" >
-                        <option value="">Seleccione un género</option>
-                        <% genres.forEach(genero => { %>
-                            <option value="<%= genero.id_genre%>"><%= genero.name%></option>              
-                        <% }) %>
+                            <option value="">Seleccione un género</option>
+                            <% genres.forEach(genero => { %>
+                                <option value="<%= genero.id_genre%>"><%= genero.name%></option>              
+                            <% }) %>
                         </select>
+                        <% if (locals.errors && errors.genero) { %>
+                            <div class="error-message">
+                                <%= errors.genero.msg %>
+                            </div>
+                        <% } %>
                     </div><br><br>
 
                     <div  class="celda">
-                    <div  class="datos-text-form">Formato</div>
-                    <select class="input-text" name="formato" id="formato" >
-                        <option value="">Selecciona un Formato</option>
-                        <option value="1">Fisico</option>
-                        <option value="2">Ebook</option>
-                        <option value="3">AudioLibro</option>
-                    </select>
+                        <div  class="datos-text-form">Formato</div>
+                        <select class="input-text" name="formato" id="formato" >
+                            <option value="">Selecciona un Formato</option>
+                            <option value="1">Fisico</option>
+                            <option value="2">Electronico</option>
+                        </select>
+                        <% if (locals.errors && errors.formato) { %>
+                            <div class="error-message">
+                                <%= errors.formato.msg %>
+                            </div>
+                        <% } %>
                     </div><br><br>
 
                     <div  class="celda">
@@ -129,13 +153,13 @@
 
 
                     <div  class="celda">
-                   <div class="datos-text-form">Portada</div>
-                    <input  class="input-text"  type="file" id="portada" name="portada" accept=".jpg, .jpeg, .png, .gif" >
-                    <% if (locals.errors && errors.portada) { %>
-                        <div class="error-message">
-                            <%= errors.portada.msg %>
-                        </div>
-                    <% } %>
+                        <div class="datos-text-form">Portada</div>
+                        <input  class="input-text"  type="file" id="portada" name="portada" accept=".jpg, .jpeg, .png, .gif" >
+                        <% if (locals.errors && errors.portada) { %>
+                            <div class="error-message">
+                                <%= errors.portada.msg %>
+                            </div>
+                        <% } %>
                     </div><br><br>
 
 
@@ -151,13 +175,17 @@
                     </div><br><br>
                     
                     <div  class="celda">
-                    <div class="datos-text-form">Idioma</div>
-                    <select class="input-text" name="idioma" id="idioma">
-                        <option value="">Selecciona un Idioma</option>
-                        <option value="1">Español</option>
-                        <option value="2">Frances</option>
-                        <!-- <option value="ingles">Ingles</option> -->
-                    </select>
+                        <div class="datos-text-form">Idioma</div>
+                        <select class="input-text" name="idioma" id="idioma">
+                            <option value="">Selecciona un Idioma</option>
+                            <option value="1">Español</option>
+                            <option value="2">Ingles</option>
+                        </select>
+                        <% if (locals.errors && errors.idioma) { %>
+                            <div class="error-message">
+                                <%= errors.idioma.msg %>
+                            </div>
+                        <% } %>
                     </div><br><br>
     
                     <div  class="celda">

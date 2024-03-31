@@ -35,144 +35,69 @@
 
                     <div class="celda">
                         <div class="datos-text-form">Título</div>
-                        <input class="input-text" type="text" id="titulo" name="titulo" value="<%= productToEdit.title %>" required>
-                    </div>
-                    <% if (locals.errors && errors.titulo) { %>
+                        <input class="input-text" type="text" id="titulo" name="titulo" value="<%= productToEdit.title %>" >
+                           <% if (locals.errors && errors.titulo) { %>
                         <span class="error-message">
                                 <%= errors.titulo.msg %>
                             </span>
                         <% } %>
                     <br><br>
+                    </div>
+                 
 
                     <div  class="celda">
                         <div class="datos-text-form">Subtítulo</div>
                         <input class="input-text" type="text" id="subtitulo" name="subtitulo" value="<%= productToEdit.subtitle %>">
                         </div><br><br>
     
-                    <!-- <div  class="celda">
-                        <div class="datos-text-form">Autor</div>
-                        vamos a considerar q solo mostrara el primero,por ahora  -
-                        <input class="input-text" type="text" id="autor" name="autor" required value="<%= productToEdit.authors[0].name %>">
-                    </div><br><br> -->
-
-<!-- ////////// -->
-
                     <div  class="celda">
-                        <!-- vamos a considerar q solo mostrara el primero,por ahora  -->
-
                         <div  class="datos-text-form">Autor</div>
-                        <select class="input-text" id="Autor" name="Autor" required>
-                            <option value="">Seleccione un Autor</option>
-                            <option value="1" <%= productToEdit.authors[0].name === 'Antoine de saint-exupéry' ? "selected" : "" %> >Antoine de Saint-Exupéry</option>
-                            <option value="2" <%= productToEdit.authors[0].name === 'Collen Hoover' ? "selected" : "" %> > Collen Hoover</option>
-                            <option value="3" <%= productToEdit.authors[0].name === 'Rick Riordan' ? "selected" : "" %> >Rick Riordan</option>
-                            <option value="4" <%= productToEdit.authors[0].name === 'Suzanne Collins' ? "selected" : "" %> >Suzanne Collins</option>
-                            <option value="5" <%= productToEdit.authors[0].name === 'Cassandra Clare' ? "selected" : "" %> >Cassandra Clare</option>
-                            <option value="6" <%= productToEdit.authors[0].name === 'Stephenie Meyer' ? "selected" : "" %> >Stephenie Meyer</option>
-                            <option value="7" <%= productToEdit.authors[0].name === 'Dan Brown' ? "selected" : "" %> >Dan Brown</option>
-                            <option value="8" <%= productToEdit.authors[0].name === 'Jane Austen' ? "selected" : "" %> >Jane Austen</option>
-                            <option value="9" <%= productToEdit.authors[0].name === 'J.R.R. Tolkien' ? "selected" : "" %> >J.R.R. Tolkien</option>
-                            <option value="10" <%= productToEdit.authors[0].name === 'Alice Oseman' ? "selected" : "" %> >Alice Oseman</option>
-                            <option value="11" <%= productToEdit.authors[0].name === 'C.S. Lewis' ? "selected" : "" %> >C.S. Lewis</option>
-                            <option value="12" <%= productToEdit.authors[0].name === 'V.C. Andrews' ? "selected" : "" %> >V.C. Andrews</option>
-                            <option value="13" <%= productToEdit.authors[0].name === 'Dot Hutchison' ? "selected" : "" %> >Dot Hutchison</option>
-                            <option value="14" <%= productToEdit.authors[0].name === 'Adam Nevill' ? "selected" : "" %> >Adam Nevill</option>
-                            <option value="15" <%= productToEdit.authors[0].name === 'Herbert George Wells' ? "selected" : "" %> >Herbert George Wells</option>
-                            <option value="16" <%= productToEdit.authors[0].name === 'Inma Rubiales' ? "selected" : "" %> >Inma Rubiales</option>
-
+                        <select class="input-text" id="Autor" name="Autor" >
+                            <option value="<%= productToEdit.authors[0].id_author %>"><%= productToEdit.authors[0].name %></option>
+                                <% authors.forEach(autor => { %>
+                                    <option value="<%= autor.id_author%>"><%= autor.name%></option>              
+                                <% }) %>
                         </select>
                     </div><br><br>
 
-
-
-<!-- //////// -->
-
-                    
-
-                    <!-- <div  class="celda">
-                        <div class="datos-text-form">Editorial</div>
-                        <input class="input-text" type="text" id="editorial" name="editorial" required value="<%= productToEdit.Editorials.name %>">
-                    </div><br><br> -->
 
                     <div  class="celda">
                         <div  class="datos-text-form">Editorial</div>
-                        <select class="input-text" id="edition" name="edition" required>
-                        <option value="">Seleccione una editorial</option>
-                        <option value="1"  <%= productToEdit.Editorials.name === 'Salamandra' ? "selected" : "" %> >Salamandra</option>
-                        <option value="2" <%= productToEdit.Editorials.name === 'Planeta' ? "selected" : "" %> >Planeta</option>
-                        <option value="3" <%= productToEdit.Editorials.name === 'Molino' ? "selected" : "" %> >Molino</option>
-                        <option value="4" <%= productToEdit.Editorials.name === 'Destino' ? "selected" : "" %> >Destino</option>
-                        <option value="5" <%= productToEdit.Editorials.name === 'Minotauro' ? "selected" : "" %> >Minotauro</option>
-                        <option value="6" <%= productToEdit.Editorials.name === 'V&R' ? "selected" : "" %> >V&R</option>
-                        <option value="7" <%= productToEdit.Editorials.name === 'Debolsillo' ? "selected" : "" %> >Debolsillo</option>
-                        <option value="8" <%= productToEdit.Editorials.name === 'Booket' ? "selected" : "" %> >Booket</option>
+                        <select class="input-text" id="edition" name="edition" >
+                            <option value="<%= productToEdit.Editorials.id_editorial %>"><%= productToEdit.Editorials.name %></option>
+                            <% editorials.forEach(editorial => { %>
+                                <option value="<%= editorial.id_editorial%>"><%= editorial.name%></option>              
+                            <% }) %>
                         </select>
                     </div><br><br>
-    <!-- Creo que es redundante, xq en "Saga/Serie" puede seleccionar "no pertece" -->
-                    <!-- <div  class="celda">
-                        <div class="datos-text-form">Etiqueta</div>
-                        <select class="input-text" name="etiqueta" id="etiqueta" required>
-                            <option value="">Selecciona una Etiqueta</option>
-                            <option value="saga"  <%= productToEdit.Collections.name  !== 'no pertece a una saga' ? "selected" : ""  %> >Saga</option>
-                            <option value="unico" <%= productToEdit.Collections.name  === 'no pertece a una saga' ? "selected" : ""  %>  >Unico</option>
-                        </select>
-                    </div><br><br> -->
-    
-                        <!-- <div  class="celda">
-                        <div class="datos-text-form">Saga/Serie</div>
-                        <input class="input-text" type="text" id="sagaSerie" name="sagaSerie" value="<%= productToEdit.Collections.name  %>">
-                        </div><br><br> -->
+
 
                         <div  class="celda">
                             <div  class="datos-text-form">Saga/Serie</div>
-                            <select class="input-text" id="sagaSerie" name="sagaSerie" required>
-                            <option value="">Seleccione un saga/Serie</option>
-                            <option value="1" <%= productToEdit.Collections.name === null ? "selected" : "" %> >no pertece a una saga</option>
-                            <option value="2" <%= productToEdit.Collections.name === 'Percy jackson y los dioses de olimpo' ? "selected" : "" %> > Percy Jackson y los Dioses de Olimpo</option>
-                            <option value="3" <%= productToEdit.Collections.name === 'Los juegos del hambre' ? "selected" : "" %> >Los Juegos del Hambre</option>
-                            <option value="4" <%= productToEdit.Collections.name === 'Cazadores de sombras' ? "selected" : "" %> >Cazadores de sombras</option>
-                            <option value="5" <%= productToEdit.Collections.name === 'Crepúsculo' ? "selected" : "" %> >Crepúsculo</option>
-                            <option value="6" <%= productToEdit.Collections.name === 'El señor de los anillos' ? "selected" : "" %> >El Señor de los Anillos</option>
-                            <option value="7" <%= productToEdit.Collections.name === 'Heartstopper' ? "selected" : "" %> >Heartstopper</option>
-                            <option value="8" <%= productToEdit.Collections.name === 'Las crónicas de narnia' ? "selected" : "" %> >Las Crónicas de Narnia</option>
-                            <option value="9" <%= productToEdit.Collections.name === 'Dollanganger' ? "selected" : "" %> >Dollanganger</option>
-                            <option value="10" <%= productToEdit.Collections.name === 'El coleccionista' ? "selected" : "" %> >El Coleccionista</option>
-                            <option value="11" <%= productToEdit.Collections.name === 'It Starts With us' ? "selected" : "" %> >It Starts With us</option>
-                            <option value="12" <%= productToEdit.Collections.name === 'Los héroes del Olimpo' ? "selected" : "" %> >Los héroes del Olimpo</option>
-                            <option value="13" <%= productToEdit.Collections.name === 'Los Origenes' ? "selected" : "" %> >Los Origenes</option>
-                            <option value="14" <%= productToEdit.Collections.name === 'El Señor de los Anillos' ? "selected" : "" %> >El Señor de los Anillos</option>
+                            <select class="input-text" id="sagaSerie" name="sagaSerie" >
+                                <option value="<%= productToEdit.Collections.id_collection %>"><%= productToEdit.Collections.name %></option>
+                                <% collections.forEach(coleccion => { %>
+                                    <option value="<%= coleccion.id_collection%>"><%= coleccion.name%></option>              
+                                <% }) %>
                             </select>
                         </div><br><br>
     
                         <div  class="celda">
-                        <div  class="datos-text-form">Género</div>
-                        <select class="input-text" id="genero" name="genero" required>
-                            <!-- vamos a considerar q solo mostrara el primero,por ahora  -->
-                          <option value="">Seleccione un género</option>
-                          <option value="1"  <%= productToEdit.Genres[0].name === 'Ficcion' ? "selected" : "" %> >Ficcion</option>
-                          <option value="2"  <%= productToEdit.Genres[0].name === 'No Ficcion' ? "selected" : "" %> >No Ficcion</option>
-                          <option value="3"  <%= productToEdit.Genres[0].name === 'Clasicos' ? "selected" : "" %> >Clasicos</option>
-                          <option value="4"  <%= productToEdit.Genres[0].name === 'Terror' ? "selected" : "" %> >Terror</option>
-                          <option value="5"  <%= productToEdit.Genres[0].name === 'Aventura' ? "selected" : "" %> >Aventura</option>
-                          <option value="6"  <%= productToEdit.Genres[0].name === 'Fantasia' ? "selected" : "" %> >Fantasia</option>
-                          <option value="7"  <%= productToEdit.Genres[0].name === 'Romance' ? "selected" : "" %> >Romance</option>
-                          <option value="8"  <%= productToEdit.Genres[0].name === 'Misterio' ? "selected" : "" %> >Misterio</option>
-                          <option value="9"  <%= productToEdit.Genres[0].name === 'Best Seller' ? "selected" : "" %> >Best Seller</option>
-                          <option value="10"  <%= productToEdit.Genres[0].name === 'Poesía' ? "selected" : "" %> >Poesía</option>
-                          <option value="11"  <%= productToEdit.Genres[0].name === 'Suspenso' ? "selected" : "" %> >Suspenso</option>
-                          <option value="12"  <%= productToEdit.Genres[0].name === 'Ciencia Ficcion' ? "selected" : "" %> >Ciencia Ficcion</option>
-                          <option value="13"  <%= productToEdit.Genres[0].name === 'Infantil' ? "selected" : "" %> >Infantil</option>
-                          <option value="14"  <%= productToEdit.Genres[0].name === 'Juvenil' ? "selected" : "" %> >Juvenil</option>
+                            <div  class="datos-text-form">Género</div>
+                            <select class="input-text" id="genero" name="genero" >
+                                <option value="<%= productToEdit.Genres[0].id_genre %>"><%= productToEdit.Genres[0].name %></option>
+                                <% genres.forEach(genero => { %>
+                                    <option value="<%= genero.id_genre%>"><%= genero.name%></option>              
+                                <% }) %>
+                            </select>
 
- <!-- DE ACA EN ADELANTE SURGUIO EL ERROR DEL "[" -->
-                        </select>
                         </div><br><br>
     
                        
                        
                         <div class="celda">
                             <div class="datos-text-form">Formato</div>
-                            <select class="input-text" name="formato" id="formato" required>
+                            <select class="input-text" name="formato" id="formato" >
                                 <option value="">Selecciona un Formato</option>
                                 <option value="1" <%= productToEdit.Supports.name === 'Físico' ? "selected" : "" %> >Físico</option>
                                 <option value="2" <%= productToEdit.Supports.name === 'Electronico' ? "selected" : "" %> >Electronico</option>
@@ -187,20 +112,35 @@
     
                         <div  class="celda">
                         <div class="datos-text-form">Precio</div>
-                        <input class="input-text" type="text" id="precio" name="precio" step="0.01" required value="<%= productToEdit.price %>">
+                        <input class="input-text" type="text" id="precio" name="precio" step="0.01"  value="<%= productToEdit.price %>">
                         </div><br><br>
                         <div  class="celda">
                             <div class="datos-text-form">Descuento</div>
-                            <input class="input-text" type="text" id="Descuento" name="Descuento" step="0.01" required  value="<%= productToEdit.discount %>">
+                            <input class="input-text" type="text" id="Descuento" name="Descuento" step="0.01"   value="<%= productToEdit.discount %>">
+                            <% if (locals.errors && errors.Descuento) { %>
+                                <div class="error-message">
+                                    <%= errors.Descuento.msg %>
+                                </div>
+                            <% } %>
                         </div><br><br>
                         <div  class="celda">
                             <div class="datos-text-form">Stock</div>
-                            <input class="input-text" type="text" id="Stock" name="Stock" step="0.01" required  value="<%= productToEdit.stock %>">
+                            <input class="input-text" type="text" id="Stock" name="Stock" step="0.01"   value="<%= productToEdit.stock %>">
+                            <% if (locals.errors && errors.Stock) { %>
+                                <div class="error-message">
+                                    <%= errors.Stock.msg %>
+                                </div>
+                            <% } %>
                         </div><br><br>
     
                         <div  class="celda">
-                       <div class="datos-text-form">Portada</div>
-                        <input  class="input-text"  type="file" id="portada" name="portada" accept=".jpg, .pnj" required>
+                            <div class="datos-text-form">Portada</div>
+                            <input  class="input-text"  type="file" id="portada" name="portada" accept=".jpg, .jpeg, .png, .gif" >
+                            <% if (locals.errors && errors.portada) { %>
+                                <div class="error-message">
+                                    <%= errors.portada.msg %>
+                                </div>
+                            <% } %>
                         </div><br><br>
     
     
@@ -216,22 +156,31 @@
     
                         <div  class="celda">
                         <div class="datos-text-form">Idioma</div>
-                        <select class="input-text" name="idioma" id="idioma"required>
+                        <select class="input-text" name="idioma" id="idioma">
                             <option value="">Selecciona un Idioma</option>
                             <option value="1"  <%= productToEdit.Languages.name === 'Español' ? "selected" : ""  %> >Español</option>
                             <option value="2" <%= productToEdit.Languages.name === 'Ingles' ? "selected" : ""  %>  >Ingles</option>
-                            <!-- <option value="ingles"  <%= productToEdit.idioma === 'Frances' ? "selected" : "" ; %> >Ingles</option> -->
                         </select>
                         </div><br><br>
         
                         <div  class="celda">
-                        <div class="datos-text-form">Paginas</div>
-                        <input class="input-text" type="number" name="paginas" id="paginas" required value="<%= productToEdit.pages%>">
+                            <div class="datos-text-form">Paginas</div>
+                            <input class="input-text" type="number" name="paginas" id="paginas"  value="<%= productToEdit.pages%>">
+                            <% if (locals.errors && errors.paginas) { %>
+                                <div class="error-message">
+                                    <%= errors.paginas.msg %>
+                                </div>
+                            <% } %>
                         </div><br><br>
     
                         <div  class="celda">
-                        <div class="datos-text-form">Año de Edición</div>
-                        <input class="input-text" type="text" name="año_edicion" id="añoEdicion" required value="<%= productToEdit.created %>">
+                            <div class="datos-text-form">Año de Edición</div>
+                            <input class="input-text" type="text" name="anoEdicion" id="añoEdicion"  value="<%= productToEdit.edition %>">
+                            <% if (locals.errors && errors.anoEdicion) { %>
+                                <div class="error-message">
+                                    <%= errors.anoEdicion.msg %>
+                                </div>
+                            <% } %>
                         </div><br><br>
     
                         <div  class="celda-btn">
