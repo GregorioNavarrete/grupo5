@@ -65,7 +65,7 @@ const productService = {
                 //le paso todo el req al back
                 let imagen = req.file;
     
-                console.log(req.body);
+                //console.log(req.body);
                 /*****/
                 let nuevaLibro = await db.Product.create({
                     ID_SUPPORT: req.body.formato,
@@ -78,7 +78,7 @@ const productService = {
                     image:  imagen.filename,
                     description:  req.body.descripcion,
                     pages:  req.body.paginas,
-                    edition:  req.body.edition,
+                    edition:  req.body.anoEdicion,
                     stock: req.body.Stock,
                     created:1,
                     updated:1 ,
@@ -118,7 +118,7 @@ const productService = {
                 //***************************igual el fomulario no deja ingresa sin imagen 
                 
     
-                console.log(req.body);
+                //console.log(req.body);
                 /*****/
                 let nuevaLibro = await db.Product.create({
                     ID_SUPPORT: req.body.formato,
@@ -159,10 +159,6 @@ const productService = {
                   } catch (error) {
                     console.error('Error al crear la relación Productos_Generos:', error);
                   }
-               
-                
-                
-
                 return nuevaLibro;
             }
         }catch(e){

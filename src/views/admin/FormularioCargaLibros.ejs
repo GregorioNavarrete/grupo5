@@ -48,9 +48,6 @@
                     </div><br><br>
 
                     <div  class="celda">
-                        <!-- <div class="datos-text-form">Autor</div>
-                        <input class="input-text" type="text" id="autor" name="autor" required> -->
-
                         <div  class="datos-text-form">Autor</div>
                         <select class="input-text" id="Autor" name="Autor" >
                         <option value="">Seleccione un Autor</option>
@@ -59,11 +56,6 @@
                             <% }) %>
                         </select>
                     </div><br><br>
-
-                    <!-- <div  class="celda">
-                        <div class="datos-text-form">Editorial</div>
-                        <input class="input-text" type="text" id="editorial" name="edition" required>
-                    </div><br><br> -->
                     <div  class="celda">
                         <div  class="datos-text-form">Editorial</div>
                         <select class="input-text" id="edition" name="edition" >
@@ -107,23 +99,43 @@
                     </div><br><br>
 
                     <div  class="celda">
-                    <div class="datos-text-form">Precio</div>
-                    <input class="input-text" type="number" id="precio" name="precio" step="0.01" value="<%= locals.oldData ? oldData.precio : null %>">
+                        <div class="datos-text-form">Precio</div>
+                        <input class="input-text" type="number" id="precio" name="precio" step="0.01" value="<%= locals.oldData ? oldData.precio : null %>">
+                        <% if (locals.errors && errors.precio) { %>
+                            <div class="error-message">
+                                <%= errors.precio.msg %>
+                            </div>
+                        <% } %>
                     </div><br><br>
                     <div  class="celda">
                         <div class="datos-text-form">Descuento</div>
                         <input class="input-text" type="number" id="Descuento" name="Descuento" step="0.01" value="<%= locals.oldData ? oldData.Descuento : null %>">
+                        <% if (locals.errors && errors.Descuento) { %>
+                            <div class="error-message">
+                                <%= errors.Descuento.msg %>
+                            </div>
+                        <% } %>
                     </div><br><br>
 
                     <div  class="celda">
                         <div class="datos-text-form">Stock</div>
                         <input class="input-text" type="number" id="Stock" name="Stock" step="0.01" value="<%= locals.oldData ? oldData.Stock : null %>">
+                        <% if (locals.errors && errors.Stock) { %>
+                            <div class="error-message">
+                                <%= errors.Stock.msg %>
+                            </div>
+                        <% } %>
                     </div><br><br>
 
 
                     <div  class="celda">
                    <div class="datos-text-form">Portada</div>
-                    <input  class="input-text"  type="file" id="portada" name="portada" accept=".jpg, .jpng, .gif, .png" >
+                    <input  class="input-text"  type="file" id="portada" name="portada" accept=".jpg, .jpeg, .png, .gif" >
+                    <% if (locals.errors && errors.portada) { %>
+                        <div class="error-message">
+                            <%= errors.portada.msg %>
+                        </div>
+                    <% } %>
                     </div><br><br>
 
 
@@ -137,12 +149,7 @@
                             </div>
                         <% } %>
                     </div><br><br>
-                    <% if (locals.errors && errors.detalle) { %>
-                        <span class="error-message">
-                                <%= errors.detalle.msg %>
-                            </span>
-                        <% } %>
-
+                    
                     <div  class="celda">
                     <div class="datos-text-form">Idioma</div>
                     <select class="input-text" name="idioma" id="idioma">
@@ -154,13 +161,23 @@
                     </div><br><br>
     
                     <div  class="celda">
-                    <div class="datos-text-form">Paginas</div>
-                    <input class="input-text" type="number" name="paginas" id="paginas" value="<%= locals.oldData ? oldData.paginas: null %>">
+                        <div class="datos-text-form">Paginas</div>
+                        <input class="input-text" type="number" name="paginas" id="paginas" value="<%= locals.oldData ? oldData.paginas: null %>">
+                        <% if (locals.errors && errors.paginas) { %>
+                            <div class="error-message">
+                                <%= errors.paginas.msg %>
+                            </div>
+                        <% } %>
                     </div><br><br>
 
                     <div  class="celda">
-                    <div class="datos-text-form">Año de Edición</div>
-                    <input class="input-text" type="number" name="año_edicion" id="añoEdicion" >
+                        <div class="datos-text-form">Año de Edición</div>
+                        <input class="input-text" type="number" name="anoEdicion" id="añoEdicion"  value="<%= locals.oldData ? oldData.anoEdicion: null %>">
+                        <% if (locals.errors && errors.anoEdicion) { %>
+                            <div class="error-message">
+                                <%= errors.anoEdicion.msg %>
+                            </div>
+                        <% } %>
                     </div><br><br>
 
                     
