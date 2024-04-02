@@ -15,11 +15,14 @@ const productController = require ('../controllers/productController');
 
 
 //router.get('/cart/', productController.cart);// para ir a ver al carrito
-router.get('/cart/home/:id', authMiddleware,productController.cartID);// para agregar un libro al carrito 
-router.get('/cart/:id/:id_producto', authMiddleware,productController.AddCarrito);// para agregar un libro al carrito 
-
-router.get('/cart/cantidad/:tabla/:cant/:id', productController.Cantidad);//para modificar la cantidad de libros del carrito
-router.get('/cart/delete/:id/:user', productController.DeletCarrito);//para eliminar un elemento del carrito
+//visualisar lista del carrito 
+router.get('/cart/home/:id', authMiddleware,productController.cartID);
+//agregar al carrito
+router.post('/cart/:id/:id_producto', authMiddleware,productController.AddCarrito);
+//Edit cant carrito y stok
+router.put('/cart/cantidad/:tabla/:cant/:id', productController.Cantidad);
+// eliminar del carrito
+router.delete('/cart/delete/:id/:user', productController.DeletCarrito);
 
 
 router.get('/libro/:id', productController.getOne);
@@ -31,5 +34,7 @@ router.get('/catg',productController.indexCatg);
 router.get("/search", productController.productSearch)
 
 router.get('/autor/:id', productController.author);
+
+router.post('/libro/:id',productController.sendComment)
 
 module.exports = router;

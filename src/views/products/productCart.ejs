@@ -29,7 +29,7 @@
 
                 <div class="banner">
                     <a href="../../libro/<%= producto[i].ID_PRODUCT %>">
-                        <img class="img-Banner" src="/img/portadas/<%=(producto[i].products.image !== 0 && producto[i].products.image !== undefined) ? producto[i].products.image : 'default-image.png'%>" alt="home banner"></div>
+                        <img class="img-Banner" src="/img/portadas/<%=(producto[i].products.image !== '0' && producto[i].products.image !== undefined) ? producto[i].products.image : 'default-image.png'%>" alt="home banner"></div>
                                             
                     </a>
 
@@ -44,11 +44,31 @@
 
                     
                     <div class="botones">
-                        <a class="btn-" href="../../cart/cantidad/<%=producto[i].ID%>/0/<%=producto[i].ID_USER%>"><i class="fa-solid fa-circle-minus"></i></a>
+                        <form class="" action="../../cart/cantidad/<%=producto[i].ID%>/0/<%=producto[i].ID_USER%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                            <button  type="submit" class="btn-">                                
+                                <i class="fa-solid fa-circle-minus"></i>
+                            </button>
+                        </form>
+                        <!-- <a class="btn-" href="../../cart/cantidad/<%=producto[i].ID%>/0/<%=producto[i].ID_USER%>">
+                            <i class="fa-solid fa-circle-minus"></i>
+                        </a> -->
                         <p class="cant"><%=producto[i].cant %></p>
-                        <a class="btn-" href="../../cart/cantidad/<%=producto[i].ID%>/1/<%=producto[i].ID_USER%>"><i class="fa-sharp fa-solid fa-circle-plus"></i></a>
+                        <form class="" action="../../cart/cantidad/<%=producto[i].ID%>/1/<%=producto[i].ID_USER%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                            <button  type="submit" class="btn-">                                
+                                <i class="fa-sharp fa-solid fa-circle-plus"></i>
+                            </button>
+                        </form>
+                        <!-- <a class="btn-" href="../../cart/cantidad/<%=producto[i].ID%>/1/<%=producto[i].ID_USER%>">
+                            <i class="fa-sharp fa-solid fa-circle-plus"></i>
+                        </a> -->
                         
-                        <a class="btn-trash" href="../../cart/delete/<%=producto[i].ID%>/<%=producto[i].ID_USER%>"><i class="fa-solid fa-trash"></i></a>
+
+                        <form action="../../cart/delete/<%=producto[i].ID%>/<%=producto[i].ID_USER%>?_method=DELETE" method="POST" style="display: inline-flex">
+                            <button  type="submit" class="btn-trash">                                
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
+                        <!-- <a class="btn-trash" href="../../cart/delete/<%=producto[i].ID%>/<%=producto[i].ID_USER%>"><i class="fa-solid fa-trash"></i></a> -->
                         
                         <h5><%= precios[i] %></h5>                            
                     </div>
@@ -57,28 +77,7 @@
 
             </div>
             <% } %>
-            <!-- <div class="producto">
-                <div class="banner">
-                    <img class="img-Banner" src="/img/Defiant.jpg" alt="home banner"></div>
-                <div class="CaracteristicasProduct">
-                    <div class="DescripcionProduct">
-                        <p class="tlo-autor">titulo</p>
-                        <p class="tlo-autor">-autor</p>
-                    </div>
-
-                    
-                    <div class="botones">
-                        <a class="btn-" href="#"><i class="fa-solid fa-circle-minus"></i></a>
-                        <p class="cant">1</p>
-                        <a class="btn-" href="#"><i class="fa-sharp fa-solid fa-circle-plus"></i></a>
-                        
-                        <a class="btn-trash" href="#"><i class="fa-solid fa-trash"></i></a>
-
-                        <h5>$999,999</h5>                            
-                    </div>
-                
-                </div>
-            </div> -->
+           
         </div>
 
         <!--hago el resumen de compra y subgerencias -->
@@ -111,38 +110,7 @@
             </div>
         </div>
 
-          <!------  <div class="Content-subgerencias">
-                <div class="titulo">
-                    <p>Mas Titulos</p>
-                </div>
-                <div class="SubGerencias">
-                    <div class="flechas">
-                        <i class="fa fa-caret-left"></i>
-                    </div>
-                    
-                    <article class="articulo">
-                        <img class="img-articulo" src="/img/Defiant.jpg" alf="Defiant">  
-                        <div class="desc-articulo">
-                        <a class="icon-articulo" href="/productCart" class="carrito"><i class="fa-solid fa-bag-shopping"></i></a>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><style>svg{fill:#000000}</style><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
-                        <a href="/productDetail"><input type="button" value="Descubrir" class="btn"></a>
-                        </div>
-                    </article>
-            
-                    <article class="articulo">
-                        <img class="img-articulo" src="/img/Defiant.jpg" alf="Defiant">  
-                        <div class="desc-articulo">
-                        <a class="icon-articulo" href="/productCart" class="carrito"><i class="fa-solid fa-bag-shopping"></i></a>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
-                        <a href="/productDetail"><input type="button" value="Descubrir" class="btn"></a>
-                        </div>
-                    </article>
-                    <div  class="flechas">
-                        <i class="fa fa-caret-right"></i>
-                    </div>
-                    
-                </div>
-            </div> -->
+          
 
             <div class="mas-art">
                 <h2 class="tlo-sug">Más Titulos </h2>
@@ -155,39 +123,20 @@
                         </a>
                          
                         <div class="desc-articulo">
-                        <a class="icon-articulo" href="../../cart/<%= locals.userLogged.id_user %>/<%=art[i].id_product%>" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
+                        <form class="" action="../../cart/<%= locals.userLogged.id_user %>/<%=art[i].id_product%>" method="POST" enctype="multipart/form-data">
+                            <button  type="submit">
+                                <a class="icon-articulo" class="carrito">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
+                            </button>
+                        </form>
+                       
                         <p class="signo-precio-art">$</p><p class="precio-articulo"><%=art[i].price%></p>
                         <!-- <a href="../../product/cart/<%= locals.userLogged.id_user %>/<%=art.id_product%>"><button class="button-art">Descubrir</button></a> -->
                         </div>
                     </article>
                 <% } %>
-                <!-- <article class="articulo-oculto-1">
-                    <img class="img-articulo" src="/img/portadas/los-juegos-del-hambre.jpg" alf="Los Juegos del Hambre">  
-                    <div class="desc-articulo">
-                    <a class="icon-articulo" href="/productCart" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
-                    <p class="signo-precio-art">$</p><p class="precio-articulo">15.769,00</p>
-                    <a href="/productDetail"><button class="button-art">Descubrir</button></a>
-                    </div>
-                </article>
-        
-                <article class="articulo-oculto-2">
-                    <img class="img-articulo" src="/img/portadas/romper-el-circulo.jpg" alf="Romper el circulo">  
-                    <div class="desc-articulo">
-                    <a class="icon-articulo" href="/productCart" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
-                    <p class="signo-precio-art">$</p><p class="precio-articulo">13.650,00</p>
-                    <a href="/productDetail"><button class="button-art">Descubrir</button></a>
-                    </div>
-                </article>
-    
-                <article class="articulo">
-                    <img class="img-articulo" src="/img/portadas/fuego-y-sangre.jpg" alf="Fuego y Sangre">  
-                    <div class="desc-articulo">
-                    <a class="icon-articulo" href="/productCart" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
-                    <p class="signo-precio-art">$</p><p class="precio-articulo">20.220,00</p>
-                    <a href="/productDetail"><button class="button-art">Descubrir</button></a>
-                    </div>
-                </article> -->
-    
+             
             </section>
 
         </div>

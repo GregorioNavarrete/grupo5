@@ -17,9 +17,9 @@
     <section class="caja-resultados">
             <% productResult.forEach(product => { %>
         <article class="articulo">
-            <a href="../product/libro/<%=product.id %>"><img class="img-articulo" src="/img/portadas/<%=(product.image !== 0 && product.image !== undefined) ? product.image : 'default-image.png'%>" alt="imagen de producto" alf="Defiant"> </a>
+            <a href="../product/libro/<%=product.id_product %>"><img class="img-articulo" src="/img/portadas/<%=(product.image !== '0' && product.image !== undefined) ? product.image : 'default-image.png'%>" alt="imagen de producto" alf="Defiant"> </a>
             <div class="desc-articulo">
-            <a href="../product/libro/<%=product.id %>"><p class="prodc-titulo"><%= product.title %></p></a>
+            <a href="../product/libro/<%=product.id_product %>"><p class="prodc-titulo"><%= product.title %></p></a>
             <p class="prodc-autor"><%= product.author %></p>
 
 
@@ -27,7 +27,16 @@
                 <i class="fa-solid fa-cart-shopping"></i>
             </a> -->
             <% if (locals.isLogged) { %> 
-                <a class="icon-articulo" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=product.id_product%>" class="carrito" ><i class="fa-solid fa-cart-shopping"></i></a>
+                <!-- <a class="icon-articulo" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=product.id_product%>" class="carrito" >
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a> -->
+                <form class="" action="../../product/cart/<%= locals.userLogged.id_user %>/<%=product.id_product%>" method="POST" enctype="multipart/form-data">
+                    <button  type="submit">
+                        <a class="icon-articulo" class="carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </button>
+                </form>
             <% } else { %>
                 <a class="icon-articulo" href="/admin/formCarga" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
             <% } %>
@@ -45,17 +54,24 @@
         <section class="caja-resultados">
                 <% products.forEach(product => { %>
             <article class="articulo">
-                <a href="../product/libro/<%=product.id %>"><img class="img-articulo" src="/img/portadas/<%=(product.image !== 0 && product.image !== undefined) ? product.image : 'default-image.png'%>" alt="imagen de producto" alf="Defiant"> </a>
+                <a href="../product/libro/<%=product.id_product %>"><img class="img-articulo" src="/img/portadas/<%=(product.image !== 0 && product.image !== undefined) ? product.image : 'default-image.png'%>" alt="imagen de producto" alf="Defiant"> </a>
                 <div class="desc-articulo">
-                <a href="../product/libro/<%=product.id %>"><p class="prodc-titulo"><%= product.title %></p></a>
-                <p class="prodc-autor"><%= product.authors%></p>
+                <a href="../product/libro/<%=product.id_product %>"><p class="prodc-titulo"><%= product.title %></p></a>
+                <p class="prodc-autor"><%= product.author%></p>
 
 
                 <!-- <a class="icon-articulo" href="../product/cart" class="carrito">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a> -->
                 <% if (locals.isLogged) { %> 
-                    <a class="icon-articulo" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=product.id_product%>" class="carrito" ><i class="fa-solid fa-cart-shopping"></i></a>
+                    <!-- <a class="icon-articulo" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=product.id_product%>" class="carrito" ><i class="fa-solid fa-cart-shopping"></i></a> -->
+                    <form class="" action="../../product/cart/<%= locals.userLogged.id_user %>/<%=product.id_product%>" method="POST" enctype="multipart/form-data">
+                        <button  type="submit">
+                            <a class="icon-articulo" class="carrito">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                        </button>
+                    </form>
                 <% } else { %>
                     <a class="icon-articulo" href="/admin/formCarga" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
                 <% } %>

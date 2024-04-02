@@ -49,19 +49,11 @@ const productService = {
     GetLimit: async function (){
         try {
             let products = await db.Product.findAll({
-               
                 limit : 3 
             });
-
-
-
-            
-           //console.log(products);
             return products;
             
         } catch (error) {
-            //para q al menos no se rompa la vista
-            //mandar un mensaje de error
             return [];
         }    
     },
@@ -71,11 +63,9 @@ const productService = {
         try {
             if (req.file !== undefined) {
                 //le paso todo el req al back
-                let product = req.body;
                 let imagen = req.file;
-                product.portada = imagen.filename;//no me reconose el filename
     
-                console.log(req.body);
+                //console.log(req.body);
                 /*****/
                 let nuevaLibro = await db.Product.create({
                     ID_SUPPORT: req.body.formato,
@@ -88,7 +78,7 @@ const productService = {
                     image:  imagen.filename,
                     description:  req.body.descripcion,
                     pages:  req.body.paginas,
-                    edition:  req.body.edition,
+                    edition:  req.body.anoEdicion,
                     stock: req.body.Stock,
                     created:1,
                     updated:1 ,
@@ -119,48 +109,57 @@ const productService = {
                     console.error('Error al crear la relación Productos_Generos:', error);
                   }
                
-                // //como los autores ya estan predefinidos, solo creo el registro en "la tabla intermedia product-author"
-                // let nuevaRelacion = await db.ProductoAutor.create({
-                //     id_author: parseInt(req.body.Autor),
-                //     id_product: parseInt(nuevaLibro.id_product)  
-                    
-                // });
+                
                 
 
                 return nuevaLibro;
-                /*****/
-                // //ME BUSCA EL OBJ, CON EL id MAS GRANDE
-                // let mayorID = this.products.reduce((maxID, Obj) => {
-                //     if (Obj.id > maxID.id) {
-                //         return Obj;
-                //     } else {
-                //         return maxID;
-                //     }
-                //     });
-                // product.id = mayorID.id+1;
-                // //Lo agrego al nuevo producto al arreglo de OBJ de productos
-                // this.products.push(product);
-                // //re escribimos el JSON anterio por el nuevo con mi nuevo producto
-                // fs.writeFileSync(productsFilePath,JSON.stringify(this.products),'utf-8');
+                
             } else {          
                 //***************************igual el fomulario no deja ingresa sin imagen 
                 
-                // let product = req.body;
-                // //como no se puede poner null, los deja sin campo image
-                // //let imagen = "null";  con string traba el html 
-                // product.portada = 0;
     
-                // //ME BUSCA EL OBJ, CON EL id MAS GRANDE
-                // let mayorID = this.products.reduce((maxID, Obj) => {
-                //     if (Obj.id > maxID.id) {
-                //         return Obj;
-                //     } else {
-                //         return maxID;
-                //     }
-                //     });
-                // product.id = mayorID.id+1;
-                // this.products.push(product);
-                // fs.writeFileSync(productsFilePath,JSON.stringify(this.products),'utf-8');
+                //console.log(req.body);
+                /*****/
+                let nuevaLibro = await db.Product.create({
+                    ID_SUPPORT: req.body.formato,
+                    ID_EDITORIAL: req.body.edition,
+                    ID_LANGUAGE: req.body.idioma,
+                    ID_COLLECTION: req.body.sagaSerie,
+                    title: req.body.title  ,
+                    subtitle: req.body.subtitle,
+                    price:  req.body.precio,
+                    image:  "0",
+                    description:  req.body.descripcion,
+                    pages:  req.body.paginas,
+                    edition:  req.body.edition,
+                    stock: req.body.Stock,
+                    created:1,
+                    updated:1 ,
+                    discount: req.body.Descuento
+                    //created:
+                    //updated:
+                })
+                try {
+                    //Productos_Autores es el alias !!!!
+                    let nuevaRelacion = await db.Productos_Autores.create({
+                        id_author: parseInt(req.body.Autor),
+                        id_product: nuevaLibro.id_product  
+                    });
+                    
+                  } catch (error) {
+                    console.error('Error al crear la relación ProductoAutor:', error);
+                  }
+                  try {
+                    //Productos_Autores es el alias !!!!
+                    let tabla = await db.Productos_Generos.create({
+                        ID_GENRE: parseInt(req.body.genero),
+                        ID_PRODUCT: nuevaLibro.id_product  
+                    });
+                    
+                  } catch (error) {
+                    console.error('Error al crear la relación Productos_Generos:', error);
+                  }
+                return nuevaLibro;
             }
         }catch(e){
             console.log(e)
@@ -177,7 +176,9 @@ const productService = {
                     { association: "Collections" },
                     { association: "authors" },
                     { association: "Genres" },
-                    { association: "Supports" }
+                    { association: "Supports" },
+                    { association: "Comments" },
+                    
                 ]
             });
            //console.log(products.Supports);
@@ -185,7 +186,7 @@ const productService = {
 
            if(!product){
                 // si el no se encuantra el "id" en el arreglo, lo entrgamos bacio al obj
-                console.log("id invalido");
+                
                 product = {};
            }
             return product;
@@ -265,6 +266,7 @@ let deletproduct_favorites = await db.product_favorites.destroy(
     edit: async function(req){
         try{
             console.log(req.body);
+            console.log(req.params.id);
 
 
             let producto = await this.getOne(req.params.id);
@@ -280,73 +282,105 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                 }
                 console.log("\n  medio : " + producto.image);
             });
-    
-            // producto.titulo = nuevoProducto.titulo;
-            // producto.precio = nuevoProducto.precio;
-            // producto.genero = nuevoProducto.genero ;
-            // producto.autor = nuevoProducto.autor;
-            // producto.Estrellas = nuevoProducto.Estrellas;
-            // producto.descripcion = nuevoProducto.descripcion;
+            if (req.file !== undefined) {
+                    let edicion = await db.Product.update(
+                    {
+                        //los campos de la tabla que buscamos modificar
+                        title : req.body.titulo,
 
-            /********************/
-            let edicion = await db.Product.update(
-                {
-                    //los campos de la tabla que buscamos modificar
-                    title : req.body.titulo,
-
-                    ID_SUPPORT: req.body.formato,
-                    ID_EDITORIAL: req.body.edition,
-                    ID_LANGUAGE: req.body.idioma,
-                    ID_COLLECTION: req.body.sagaSerie,
-                    subtitle: req.body.subtitulo,
-                    price:  req.body.precio,
-                    image:  req.file.filename,
-                    description:  req.body.descripcion,
-                    pages:  req.body.paginas,
-                    edition:  req.body.edition,
-                    stock: req.body.Stock,
-                    created:1,
-                    updated:1 ,
-                    discount: req.body.Descuento
-                    //created:
-                    //updated:
-                },{
-                    //indicamos a que registro aplicamos los cambios 
-                    where: {id_product : req.params.id }
-                }
-            );
-            let edicionProductos_Autores = await db.Productos_Autores.update(
-                {
-                    //los campos de la tabla que buscamos modificar
-                    id_author: parseInt(req.body.Autor)
-                },{
-                    //indicamos a que registro aplicamos los cambios 
-                    // todos con el mismo "id_product" seran modificados
-                    where: {id_product : req.params.id }
-                }
-            );
-            let edicionProductos_Generos = await db.Productos_Generos.update(
-                {
-                    //los campos de la tabla que buscamos modificar
-                    ID_GENRE: parseInt(req.body.genero)
-                    
-                },{
-                    //indicamos a que registro aplicamos los cambios 
-                    // todos con el mismo "id_product" seran modificados
-                    where: {id_product : req.params.id }
-                }
-            )
-            /********************/
-
-
-
-            if (req.file != undefined) {
-                //no puedo esditar imagenes, xq el filename sale indefinido siempre !!!!
-                producto.image = imagen.filename;
+                        ID_SUPPORT: req.body.formato,
+                        ID_EDITORIAL: req.body.edition,
+                        ID_LANGUAGE: req.body.idioma,
+                        ID_COLLECTION: req.body.sagaSerie,
+                        subtitle: req.body.subtitulo,
+                        price:  req.body.precio,
+                        image:  req.file.filename,
+                        description:  req.body.descripcion,
+                        pages:  req.body.paginas,
+                        edition:  req.body.edition,
+                        stock: req.body.Stock,
+                        created:1,
+                        updated:1 ,
+                        discount: req.body.Descuento
+                        //created:
+                        //updated:
+                    },{
+                        //indicamos a que registro aplicamos los cambios 
+                        where: {id_product : req.params.id }
+                    }
+                );
+                let edicionProductos_Autores = await db.Productos_Autores.update(
+                    {
+                        //los campos de la tabla que buscamos modificar
+                        id_author: parseInt(req.body.Autor)
+                    },{
+                        //indicamos a que registro aplicamos los cambios 
+                        // todos con el mismo "id_product" seran modificados
+                        where: {id_product : req.params.id }
+                    }
+                );
+                let edicionProductos_Generos = await db.Productos_Generos.update(
+                    {
+                        //los campos de la tabla que buscamos modificar
+                        ID_GENRE: parseInt(req.body.genero)
+                        
+                    },{
+                        //indicamos a que registro aplicamos los cambios 
+                        // todos con el mismo "id_product" seran modificados
+                        where: {id_product : req.params.id }
+                    }
+                )
             }else{
-                producto.image = 0;
+
+                let edicion = await db.Product.update(
+                    {
+                        //los campos de la tabla que buscamos modificar
+                        title : req.body.titulo,
+
+                        ID_SUPPORT: req.body.formato,
+                        ID_EDITORIAL: req.body.edition,
+                        ID_LANGUAGE: req.body.idioma,
+                        ID_COLLECTION: req.body.sagaSerie,
+                        subtitle: req.body.subtitulo,
+                        price:  req.body.precio,
+                        image:  "0",
+                        description:  req.body.descripcion,
+                        pages:  req.body.paginas,
+                        edition:  req.body.edition,
+                        stock: req.body.Stock,
+                        created:1,
+                        updated:1 ,
+                        discount: req.body.Descuento
+                        //created:
+                        //updated:
+                    },{
+                        //indicamos a que registro aplicamos los cambios 
+                        where: {id_product : req.params.id }
+                    }
+                );
+                let edicionProductos_Autores = await db.Productos_Autores.update(
+                    {
+                        //los campos de la tabla que buscamos modificar
+                        id_author: parseInt(req.body.Autor)
+                    },{
+                        //indicamos a que registro aplicamos los cambios 
+                        // todos con el mismo "id_product" seran modificados
+                        where: {id_product : req.params.id }
+                    }
+                );
+                let edicionProductos_Generos = await db.Productos_Generos.update(
+                    {
+                        //los campos de la tabla que buscamos modificar
+                        ID_GENRE: parseInt(req.body.genero)
+                        
+                    },{
+                        //indicamos a que registro aplicamos los cambios 
+                        // todos con el mismo "id_product" seran modificados
+                        where: {id_product : req.params.id }
+                    }
+                )
             }
-    
+
             console.log("\n  despues : " + imagen.filename);
             
     
@@ -455,6 +489,9 @@ let deletproduct_favorites = await db.product_favorites.destroy(
         fiandGenres: async function (){
             try {
                 let generos = await db.Genre.findAll({
+                    include: [
+                        { association: "products" },        
+                    ]
                 });
                 return generos;
             } catch (error) {
@@ -588,8 +625,10 @@ let deletproduct_favorites = await db.product_favorites.destroy(
         editCantidad: async function(req){
             try{
                 let producto = await this.getOneProducto(req.params.tabla);
+                let libro = await this.getOne(req.params.id);
+                let stock = libro.dataValues.stock; /////////Tengo el stock , solo hay que hacer la logica de actualisacions !  
                 // console.log("estas en editCantidad");
-                // console.log(producto);
+                //  console.log(stock);
                 // console.log(req.params);
                 // console.log(producto[0].dataValues.cant);
                 if(req.params.cant === '1'){
@@ -656,8 +695,7 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                           }
                      
                      });
-                    //  console.log(aux[0].dataValues);
-              
+                    //  console.log(aux[0].dataValues); es un ARRAY?
                     //  console.log(aux)
                      if(aux.length === 0){
                         return false;
@@ -677,13 +715,52 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                         ID_USER :req.params.id,
                         ID_PRODUCT : req.params.id_producto,
                         cant :1
-                        
                     });
                      return aux;
                     }catch(e){
                         console.log(e);
                     }
                 },
+
+                allcoments: async function (id){
+                    try {
+                        let comentarios = await db.Comment.findAll({
+                            where: {
+                                id_product: id 
+                            },
+                            include: [
+                                { association: "Products" },
+                                { association: "Users" },
+                            ]
+                        });
+                        return comentarios;
+                        
+                    } catch (error) {
+                        
+                        return [];
+                    }    
+                },
+
+                createComment: async function(req,id){
+                    try {
+                        let newComment = await db.Comment.create({
+                            id_product : req.params.id,
+                            id_user: req.session.userLogged.id_user,
+                            description: req.body.message,
+                            star: req.body.starCount  ,
+                            publication_date : new Date()
+                        })
+                        return newComment
+                    } catch (error) {
+                
+                    }
+                },
+                
+                
+
+
+
+                
                     
 
 }
