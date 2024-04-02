@@ -23,6 +23,7 @@
         <!--la lista de productos a presentar   producto -->
         <div class="listaProduct">
             <% for(let i=0; i< producto.length; i++){ %>
+
                 
             
             <div class="producto">
@@ -36,10 +37,10 @@
                 <div class="CaracteristicasProduct">
                     <div class="DescripcionProduct">
 
-                        <p class="tlo-autor">Titulo :<%=producto[i].products.title %></p>
-                        <br>
+                        <p class="cart-titulo"><%=producto[i].products.title %></p>
+                    
                         <!-- Se me complico meter, un include ,dentro de otro include  -->
-                            <p class="tlo-autor">Autor : <%=producto[i].products.authors[0].name %></p>
+                            <p class="cart-autor"><%=producto[i].products.authors[0].name %></p>
                     </div>
 
                     
@@ -70,7 +71,7 @@
                         </form>
                         <!-- <a class="btn-trash" href="../../cart/delete/<%=producto[i].ID%>/<%=producto[i].ID_USER%>"><i class="fa-solid fa-trash"></i></a> -->
                         
-                        <h5><%= precios[i] %></h5>                            
+                        <h5 class="cart-precio">$ <%= precios[i] %></h5>                            
                     </div>
                 
                 </div>
@@ -88,18 +89,18 @@
             <div class="ResumenCompra">
                 <h3>Resumen de compra</h3>
                 <div class="subtotal">
-                    <p>SubTotal</p>
-                    <p> <%=  total %> </p>
+                    <p class="cart-p">SubTotal</p>
+                    <p class="cart-p">$ <%=  total %> </p>
                 </div>
                 
                 <div class="envio">
-                    <p>Envio</p>
-                    <p>  $10,000</p>
+                    <p class="cart-p">Envio</p>
+                    <p class="cart-p">$ 10,000</p>
                 </div>
                 
                 <div class="Res-total">
                     <p>Total</p>
-                    <p>  <%=  totalEnvio %></p>
+                    <p>$ <%=  totalEnvio %></p>
                 </div>
                 
                 

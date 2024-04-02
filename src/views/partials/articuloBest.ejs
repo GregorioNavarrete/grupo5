@@ -10,7 +10,7 @@
     
             <% if (locals.isLogged) { %> 
                 <form class="" action="../../product/cart/<%= locals.userLogged.id_user %>/<%=producto.id_product%>" method="POST" enctype="multipart/form-data">
-                    <button  type="submit">
+                    <button class="icon-articulo-btn"  type="submit">
                         <a class="icon-articulo" class="carrito">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
@@ -19,8 +19,8 @@
                 <!-- <a class="icon-articulo" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=producto.id_product%>" class="carrito" >
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a> -->
-            <% } else { %>
-                <a class="icon-articulo" href="/admin/formCarga" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>
+            <% } else { %>          
+                    <a class="icon-articulo-a" href="/admin/formCarga" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>    
             <% } %>
         
         <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo"><%=producto.price%></p></div></div>

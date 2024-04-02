@@ -14,25 +14,13 @@
 /*
     Estilos de todo lo que esta en "main"
 */
-main{
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 100%;
-    background-color: white;
-}
-.producto button{
-    background-color: var(--anaranjado);
-    color: aliceblue;
-    border-radius: 100%;
-    border: none;
-    text-align: center;
 
-}
 
 h2{
     color: #F94D01;
     text-align: center;
     font-family: 'Merriweather', serif;
+    font-size: 1.2em;
 }
 
 
@@ -77,9 +65,22 @@ h2{
 .producto .DescripcionProduct {
     display: flex;
     margin-left: 15px;
-    color: var(--gris-petroleo);
-    font-size: 15px;
+    flex-direction: column;
 
+}
+
+.cart-titulo{
+    color: var(--cian);
+    font-size: 1em;
+    font-weight: bold;
+    margin: 5px 5px 0 5px;
+}
+
+.cart-autor{
+    color:var(--azul-oscuro);
+    font-size: 0.8em;
+    font-weight: bold;
+    margin: 5px;
 }
 
 
@@ -91,26 +92,36 @@ h2{
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: 100%;
-
+    align-items: center;
+    border: none;
 }
 
+
+
 .btn-{
- color: var(--anaranjado);
- margin: auto;
- margin-left: 10px;
- margin-right: 10px;
+color: #F94D01;
+border: none;
+background-color: var(--gris-claro);
 }
 
 .btn-trash{
 color: #3E6C6A;
-margin: auto;
 margin-left: 5px;
 margin-right: 10px;
 opacity: 0.7;
+border: none;
+background-color: var(--gris-claro);
+}
+
+.cart-precio{
+    font-size: 0.8em;
+    color: var(--azul-oscuro);
 }
 
 .cant{
-    margin:auto;
+    color: var(--cian);
+    font-size: 0.8em;
+    font-weight: bold;
     margin-left: 5px;
     margin-right: 5px;
 }
@@ -123,7 +134,7 @@ opacity: 0.7;
 
 .content-resumen{
     background-color: var(--celeste);
-    width: 90%;
+    width: 70%;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
@@ -144,7 +155,7 @@ opacity: 0.7;
 }
 .ResumenCompra h3{
     text-align: center;
-    font-size: 15px;
+    font-size: 0.9em;
     color: var(--gris-petroleo);
     margin-top: 0px;
 }
@@ -157,7 +168,11 @@ opacity: 0.7;
     margin: auto;
     margin-bottom: 0px;
     padding-bottom: 0px;
-    font-size: 14px;
+    font-size: 0.8em;
+}
+
+.cart-p{
+    margin: 10px;
 }
 
 .ResumenCompra .envio{
@@ -165,10 +180,10 @@ opacity: 0.7;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: auto;
     margin-top: 0px;
     padding-top: 0px;
-    font-size: 14px;
+    font-size: 0.8em;
+    margin: auto;
 }
 
 .ResumenCompra .Res-total{
@@ -176,12 +191,11 @@ opacity: 0.7;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: auto;
-    margin-top: 0px;
     padding-top: 0px;
-    font-size: 15px;
+    font-size: 0.8em;
     font-weight: bold;
     border-top: solid 1px var(--gris-petroleo);
+    margin: auto;
 
 }
 
@@ -248,12 +262,11 @@ opacity: 0.7;
 }
 
 .Botton-compra button{
-    
     border-radius: 50px;
-    font-size: 19px;
+    font-size: 0.8em;
     text-align: center;
-    padding-right: 50px;
-    padding-left: 50px;
+    padding-right: 30px;
+    padding-left: 30px;
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: var(--anaranjado);
@@ -431,7 +444,11 @@ button{
     background-color: var(--cian);
 }
 
-
+.desc-articulo button{
+    border: none;
+    background-color: var(--gris-claro);
+    font-size: 1.2em;
+}
 
 
 
@@ -453,6 +470,14 @@ button{
 */
 
 @media (min-width: 769px) {
+    h2{
+        font-size: 1.9em;
+    }
+
+    .listaProduct{
+        width: 80%;
+        margin: auto;
+    }
     .img-articulo{
         width: 70%;
     }
@@ -460,6 +485,14 @@ button{
     .producto{
         width: 90%;
         margin: auto;
+    }
+
+    .cart-titulo{
+        font-size: 1.5em;
+    }
+
+    .cart-autor{
+        font-size: 1.2em;
     }
 
     .content-resumen{
@@ -470,19 +503,9 @@ button{
         width: 100%;
     }
 
-    .tlo-autor{
-        font-size: 23px;
-        font-weight: bold;
-    }
-
     .botones{
-        font-size: 25px;
+        font-size: 1.7em;
     }
-
-    .tlo-sug{
-        width: 100%;
-    }
-    
     .producto .img-Banner{
         width: 80%;
         margin: auto;
@@ -492,16 +515,12 @@ button{
         font-size: 50px;
     }
 
-
-
-
-
     .articulo{
-        width: 30%;
+        width: 25%;
     }
 
     .articulo-oculto-1{
-        width: 30%;
+        width: 25%;
         display: block;
     }
     .precio-articulo{
@@ -512,11 +531,39 @@ button{
         display: block;
     }
 
-    main{
-        font-size: 22px;
-        padding-bottom: 20px;
+    .btn-{
+        font-size: 0.8em;
     }
 
+    .btn-trash{
+        font-size: 0.8em;
+    }
+   
+    .Botton-compra button{
+        font-size: 1em;
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+
+    .ResumenCompra h3{
+        font-size: 0.5em;
+    }
+    
+    .ResumenCompra .subtotal{
+        font-size: 0.4em;
+    }
+    
+    .cart-p{
+        margin: 10px;
+    }
+    
+    .ResumenCompra .envio{
+        font-size: 0.4em;
+    }
+    
+    .ResumenCompra .Res-total{
+        font-size: 0.5em;
+    }
    
 
 }
@@ -524,7 +571,7 @@ button{
 @media (min-width: 1024px) {
     .content-resumen{
         width: 35%;
-        margin-right: 20px;
+        margin-right: 50px;
     }
 
     .listaProduct{
@@ -542,7 +589,7 @@ button{
     
     .content-resumen{
         position: relative;
-        bottom: 20px;
+        bottom: 80px;
     }
 
     .ResumenCompra h3{
@@ -558,13 +605,6 @@ button{
      
     }
 
-    .precio-articulo{
-        display: none;
-    }
-
-    .signo-precio-art{
-        display: none;
-    }
 
     .mas-art h2{
         font-size: 24px;
