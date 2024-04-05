@@ -624,41 +624,62 @@ let deletproduct_favorites = await db.product_favorites.destroy(
         },
         editCantidad: async function(req){
             try{
-                let producto = await this.getOneProducto(req.params.tabla);
-                let libro = await this.getOne(req.params.id);
-                let stock = libro.dataValues.stock; /////////Tengo el stock , solo hay que hacer la logica de actualisacions !  
-                // console.log("estas en editCantidad");
-                //  console.log(stock);
-                // console.log(req.params);
-                // console.log(producto[0].dataValues.cant);
+                let productoCarrito = await this.getOneProducto(req.params.tabla);
+                let id_producto=productoCarrito[0].dataValues.ID_PRODUCT;
+                let libro = await this.getOne(id_producto);
+                
+                let stock = libro.dataValues.stock; 
+
                 if(req.params.cant === '1'){
                     //tengo q incrementar 1
-                    let aux = parseInt(producto[0].dataValues.cant) + 1 ;
-                    //console.log(aux);
-                    // el tope superiro no tendria que pasar el stock disponible
-                    let edicion = await db.user_product.update(
-                        {
-                            //los campos de la tabla que buscamos modificar
-                            cant : aux
-                        },{
-                            //indicamos a que registro aplicamos los cambios 
-                            where: {ID : req.params.tabla }
-                        }) 
+                    let NuevaCantidad = parseInt(productoCarrito[0].dataValues.cant) + 1 ;
+                    if(1 < stock){
+                        let NuevoStock = parseInt(libro.dataValues.stock) - 1 ;
+                        // console.log("el id del libro es : "+id_producto);
+                        // console.log("el id del producto en el carrito es :"+req.params.tabla);
+                        // console.log("se incrementa y queda :"+NuevaCantidad);
+                        // console.log("se reduce el stock:"+NuevoStock);
+                        await db.user_product.update(
+                            {
+                                cant : NuevaCantidad
+                            },{
+                                where: {ID : req.params.tabla }
+                            });
+                        await db.Product.update(
+                                {
+                                    //los campos de la tabla que buscamos modificar
+                                    stock : NuevoStock
+                                },{
+                                    //indicamos a que registro aplicamos los cambios 
+                                    where: {id_product : id_producto}
+                                });
+                    } 
                 }
                 if(req.params.cant === '0'){
                     //tengo q decrementar 1
-                    if(producto[0].dataValues.cant > 1 ){
+                    if(productoCarrito[0].dataValues.cant > 1 ){
                         
-                        let aux =  parseInt(producto[0].dataValues.cant) - 1 ;
+                        let aux =  parseInt(productoCarrito[0].dataValues.cant) - 1 ;
+                        let NuevoStock = parseInt(libro.dataValues.stock) + 1 ;
+                        // console.log(aux);
+                        // console.log(NuevoStock);
                        // console.log(aux);
-                        let edicion = await db.user_product.update(
+                        await db.user_product.update(
                             {
                                 //los campos de la tabla que buscamos modificar
                                 cant : aux
                             },{
                                 //indicamos a que registro aplicamos los cambios 
                                 where: {ID : req.params.tabla }
-                            })
+                            });
+                       await db.Product.update(
+                            {
+                                //los campos de la tabla que buscamos modificar
+                                stock : NuevoStock
+                            },{
+                                //indicamos a que registro aplicamos los cambios 
+                                where: {id_product : id_producto }
+                            });
                     }
                 }
                 
@@ -668,18 +689,47 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                 console.log(e);
             }
         },
-        DeleteCarrito : async function(id){
+        DeleteCarrito : async function(ID){
             try{
-                // indice = this.products.findIndex((elem)=>elem.id == id);
-                // this.products.splice(indice,1);
-                // fs.writeFileSync(productsFilePath,JSON.stringify(this.products),'utf-8');
-                /////////
-                let delet = await db.user_product.destroy(
-                    {
-                          where: {ID : id }
-                      }
-                  );
+                // console.log("id user : "+ID );
+                // console.log("el id del registro en carrito:"+id)
+                let libro = await db.user_product.findAll({
+                    where: {ID : ID}
+                })
+                // console.log(libro);
+                let  id_prodoctoCarrito=libro[0].dataValues.ID_PRODUCT;
+                
+                let cant=libro[0].dataValues.cant;
+                // let id_user=libro[0].dataValues.ID_USER;
+                
+                
+                if(cant >0){
+                    let DatosProduct = await this.getOne(id_prodoctoCarrito);
+                    let stock = DatosProduct.dataValues.stock;
+                    let NuevoStock=stock+cant;
+                    await db.Product.update(
+                        {
+                            stock : NuevoStock
+                        },{
+                            
+                            where: {id_product : id_prodoctoCarrito}
+                        });
+                    await db.user_product.destroy(
+                            {
+                                  where: {ID : ID }
+                              }
+                        );
+                }
 
+                /*
+                buscar el libro
+                ver si el libro del carrito tiene una cantidad mayor a cero (convencional)
+                    busco los datos del libro en "products"
+                    esa cantidad sumarle al stock
+                    eliminar el registro de la tabla carrito "user_product"
+                */
+          
+             
                 }catch(e){
                     console.log(e);
                 }
@@ -710,13 +760,22 @@ let deletproduct_favorites = await db.product_favorites.destroy(
 
             AddProductoCarrito: async function(req){
                 try{
+                    await db.user_product.create({
+                            ID_USER :req.params.id,
+                            ID_PRODUCT : req.params.id_producto,
+                            cant :1
+                        });
 
-                    let aux = await db.user_product.create({
-                        ID_USER :req.params.id,
-                        ID_PRODUCT : req.params.id_producto,
-                        cant :1
-                    });
-                     return aux;
+                    let libro = await this.getOne(req.params.id_producto);
+                    //si hay un stock. de 1, lo dejaria en cero
+                    let NuevoStock = parseInt(libro.dataValues.stock) - 1 ;
+                    await db.Product.update(
+                        {
+                            stock : NuevoStock
+                        },{
+                            where: {id_product : req.params.id_producto }
+                        });
+                    
                     }catch(e){
                         console.log(e);
                     }

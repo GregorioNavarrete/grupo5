@@ -31,6 +31,7 @@ const productController = {
       // le tengo que poner funcionalidad xq ya esta la tabla apara esto 
       let obj = await productService.getCarrito(req.params.id);
       let tres = await productService.GetLimit();
+      
       res.render('products/productCart', { producto: obj.prod, precios: obj.prec, total: obj.Tot, totalEnvio: obj.TotEnvio, art: tres });
     } catch (e) {
       console.log(e);
@@ -50,7 +51,7 @@ const productController = {
         res.redirect(`/product/cart/home/${req.params.id}`);
       }else{
         // si no esta , lo agrego a la BDs y redirecciono a "cartID"
-        let agregar = await productService.AddProductoCarrito(req);
+        await productService.AddProductoCarrito(req);
         // console.log("el agregar " + agregar);
         res.redirect(`/product/cart/home/${req.params.id}`);
       }
@@ -60,19 +61,20 @@ const productController = {
   },
   Cantidad : async (req, res) =>{
     try{
-      let obj1 = await productService.editCantidad(req);
-      //console.log("previo al redirect");
-      //le mando el req xq el id = id_user
-      //let aux = req.params.id;
+      await productService.editCantidad(req);
       res.redirect(`/product/cart/home/${req.params.id}`);
     }catch(e){
       res.status(500).send({e:'ocurrio un error, vuelva a intentar mas tarde'})
     }
   },
-  DeletCarrito: async (req, res) =>{
+
+  BorrarCarrito: async(req, res) =>{
     try{
-      let obj1 = await productService.DeleteCarrito(req.params.id);
-    } catch (e) {
+        let id_carrito = req.params.id;
+        let id_user = req.params.ID;
+        await productService.DeleteCarrito(id_carrito);
+        res.redirect(`/product/cart/home/${id_user}`);
+    }catch(e){
       console.log(e);
     }
   },

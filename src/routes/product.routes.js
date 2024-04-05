@@ -21,8 +21,8 @@ router.get('/cart/home/:id', authMiddleware,productController.cartID);
 router.post('/cart/:id/:id_producto', authMiddleware,productController.AddCarrito);
 //Edit cant carrito y stok
 router.put('/cart/cantidad/:tabla/:cant/:id', productController.Cantidad);
-// eliminar del carrito
-router.delete('/cart/delete/:id/:user', productController.DeletCarrito);
+// eliminar del carrito nos xq no reconose a "id"
+router.delete('/cart/delete/:id/:ID', productController.BorrarCarrito);
 
 
 router.get('/libro/:id', productController.getOne);
