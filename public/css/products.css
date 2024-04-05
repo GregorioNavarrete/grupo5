@@ -117,10 +117,10 @@
 }
 
 .prodc-titulo{
-    width: 90%;
+    width: 100%;
     margin: auto;
     color: var(--anaranjado);
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
     margin-bottom: 7px; 
     outline: none;
@@ -159,6 +159,9 @@
 
 a{
     text-decoration: none;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .boton-categ{

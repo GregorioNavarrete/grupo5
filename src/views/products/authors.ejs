@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <%- include ('../partials/head') %>
 <link rel="stylesheet" href="\css\authors.css">
-    <title>Document</title>
+    <title>Autores</title>
 </head>
 <body>
     <header><%- include ('../partials/header') %></header>
@@ -20,7 +20,7 @@
 </section>
 
 <h2 class="author-titulo">Más Títulos de <%= autor.name %></h2>
-<ul>
+
     
 
    
@@ -28,10 +28,9 @@
             <div class="lista">
         <% autor.Products.forEach(producto => { %>
             <article class="articulo">
-                <a href="../../product/libro/<%=producto.id_product%>"><img class="img-articulo" src="/img/portadas/<%=(producto.image !== '0' && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alf="<%=producto.titulo%>"> </a> 
+                <a href="../../product/libro/<%=producto.id_product%>"><img class="img-articulo" src="/img/portadas/<%=(producto.image !== 0 && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alf="<%=producto.titulo%>"> </a> 
                 <div class="desc-articulo">
                 <a href="../../product/libro/<%=producto.id_product%>"><p class="prodc-titulo"><%=producto.title%></p></a>
-                <a class="prodc-autor-a" href="../../product/autor/<%=producto.authors[0].id_author %>"> <p class="prodc-autor"><%=producto.authors[0].name%></p></a>
                 <div class="iconPrecioArt">
             
                     <!-- al boton le tendria que agregar para pasar los datos a la tabla de carrito de compras  -->
@@ -44,11 +43,8 @@
                                 </a>
                             </button>
                         </form>
-                        <!-- <a class="icon-articulo" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=producto.id_product%>" class="carrito" >
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </a> -->
-                    <% } else { %>          
-                            <a class="icon-articulo-a" href="/admin/formCarga" class="carrito"><i class="fa-solid fa-cart-shopping"></i></i></a>    
+                    <% } else { %>
+                        <a class="icon-articulo-a" href="/admin/formCarga" class="carrito"><i class="fa-solid fa-cart-shopping"></i></a>    
                     <% } %>
                 
                 <div class="precio-sig"><p class="signo-precio-art">$</p><p class="precio-articulo"><%=producto.price%></p></div></div>
@@ -59,7 +55,7 @@
         </div>
         
     
-</ul>
+
 
 
 
