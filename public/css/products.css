@@ -154,16 +154,41 @@ a{
   padding: 0px 20px 0px 20px;
 }
 
-.lista{
-    display: flex;
-    flex-wrap: nowrap;
-    overflow: auto;
-}
-
-.lista .articulo{
+.sidebar-art .articulo{
     flex: 0 0 45%;
 }
 
+.sidebar-art {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+    overflow-y: auto; 
+    transition: width 0.3s;
+  }
+  
+.sidebar-art::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+.sidebar-art::-webkit-scrollbar-thumb {
+    background: var(--gris-claro); 
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 2s;
+  }
+  
+  .sidebar-art::-webkit-scrollbar-thumb:hover {
+    background: var(--celeste) ;
+
+  }
+  
+  .sidebar-art::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px grey; 
+    border-radius: 10px;
+  }
+  
+  
+  
 
 
 /* comentarios articulos */
@@ -229,7 +254,7 @@ a{
     .precio-sig{
         font-size: 18px;
     }
-    .lista .articulo{
+    .sidebar-art .articulo{
         flex: 0 0 25%;
     }
     /*--------------------------------------------------*/
@@ -254,11 +279,11 @@ a{
         -webkit-transform:scale(1.1);transform:scale(1.1);
     }
 
-    .lista .articulo{
+    .sidebar-art .articulo{
         flex: 0 0 20%;
     }
 
-    .lista{
+    .sideba-art{
         padding: 16px;
     }
 

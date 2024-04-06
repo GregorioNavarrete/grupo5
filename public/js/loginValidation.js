@@ -1,63 +1,65 @@
-window.addEventListener("load",function(){
+window.addEventListener("load", function () {
+  let login = document.querySelector("form.formulario");
+  let email = document.getElementById("email");
+  let password = document.getElementById("password");
+  let spanEmail = document.getElementById("er-email");
+  let spanPassword = document.getElementById("er-password");
+  let errorSpanEmail = document.getElementById("er-span-email");
+  let errorSpanPassword = document.getElementById("er-span-password");
+  let btnLogin = document.getElementById("btn-login");
 
- let login = document.querySelector("form.formulario");
+  let errores = {}; // Declarar errores aquí para que estén disponibles en todo el ámbito de la función
 
-    login.email.focus();
-
-    login.email.addEventListener('blur', () => {
-       if (login.email.value.trim() == ""){
-            login.email.classList.add("invalido");
-             login.email.classList.remove("valido");
-             displayErrorMessage(login.email, 'El email no puede estar vacío');
-       } else{
-     login.email.classList.add("valido");
-     login.email.classList.remove("invalido");
-     clearErrorMessages(login.email);
-
+  email.addEventListener("blur", function () {
+      if (email.value.trim().length < 3) {
+          email.classList.add("invalido");
+          email.classList.remove("valido");
+          errorSpanEmail.innerText = 'El email debe tener al menos 3 caracteres';
+      } else {
+          email.classList.add("valido");
+          email.classList.remove("invalido");
+          errorSpanEmail.innerText = ""; // Limpiar mensaje de error si el campo es válido
       }
-    })
+  });
 
-    login.password.addEventListener('blur', () => {
-     if (login.password.value.trim() == ""){
-          login.password.classList.add("invalido");
-           login.password.classList.remove("valido");
-           displayErrorMessage(login.password, 'La contraseña no puede estar vacia');
-     } else{
-   login.password.classList.add("valido");
-   login.password.classList.remove("invalido");
-   clearErrorMessages(login.email);
-    }
-  })
+  password.addEventListener("blur", function () {
+      if (password.value.trim().length < 8) {
+          password.classList.add("invalido");
+          password.classList.remove("valido");
+          errorSpanPassword.innerText = 'La Contraseña debe tener al menos 8 caracteres';
+      } else {
+          password.classList.add("valido");
+          password.classList.remove("invalido");
+          errorSpanPassword.innerText = ""; // Limpiar mensaje de error si el campo es válido
+      }
+  });
 
+  btnLogin.addEventListener("click", function (e) {
+      e.preventDefault();
 
+      // Limpiar mensajes de error antes de la validación
+      spanEmail.innerText = "";
+      spanPassword.innerText = "";
 
+      // Limpiar errores previos
+      errores = {};
 
-  function displayErrorMessage(inputElement, message) {
-    // Mostrar mensaje de error debajo del elemento de entrada
-    let errorElement = document.createElement('span');
-    errorElement.className = 'error-message';
-    errorElement.textContent = message;
-    inputElement.parentNode.appendChild(errorElement);
-}
+      // Validar campos
+      if (email.value.trim().length < 3) {
+          errores.email = 'El email debe tener al menos 3 caracteres';
+      }
 
-function clearErrorMessages() {
-    let errorMessages = document.querySelectorAll('span');
-    errorMessages.forEach(function (errorMessage) {
-        errorMessage.parentNode.removeChild(errorMessage);
-    });
-}
-  
+      if (password.value.trim().length < 8) {
+          errores.password = 'La Contraseña debe tener al menos 8 caracteres';
+      }
 
-    login.onsubmit = (event) => {
-             let errores = [];
-     
-              if (login.email.value.trim() == ""){
-                  errores.push("Campo vacio")
-                  login.email.classList.add("invalido");
-                  login.email.classList.remove("valido");
-             }
- 
-          }   
-          
-})
+      // Mostrar mensajes de error si existen
+      if (Object.keys(errores).length >= 1) {
+          spanEmail.innerText = errores.email || "";
+          spanPassword.innerText = errores.password || "";
+      } else {
+          login.submit();
+      }
+  });
+});
 
