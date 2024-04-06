@@ -23,7 +23,7 @@
     justify-content: center;
     text-align: center;
     cursor: pointer;
-    transition: all 2s;
+    transition: all 0.5s;
     margin: 5px;
 }
 
