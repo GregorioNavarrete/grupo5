@@ -57,6 +57,10 @@
                     <p class="det-art-info-item">Año de edicion : <%= producto.edition %></p>
                     <p class="det-art-info-item">Formato :<%= producto.Supports.name %></p>
                     <p class="det-art-info-item">Colección : <%= producto.Collections.name %></p>
+                    <% if (locals.isLogged && locals.userLogged.id_rol === 1) { %>
+                        <p class="det-art-info-item">Stock : <%= producto.stock %></p>
+                    <% } %>
+                    
             </div>
         
             
