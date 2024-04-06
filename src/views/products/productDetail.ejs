@@ -18,7 +18,9 @@
             <h2 class="det-art-cont-titulo"><%= producto.title %> <%=producto.subtitle %></h2>
             <h2 class="det-art-subtitulo"> 
                 <% for(let i=0; i<producto.authors.length; i++){ %>
-                  <a class="det-art-subtitulo-a" href="../../product/autor/<%=producto.authors[i].id_author %>">  <%=producto.authors[i].name %> </a>
+                    <a class="det-art-subtitulo-a" href="../../product/autor/<%=producto.authors[i].id_author %>">
+                      <%=producto.authors[i].name %>
+                    </a>
                 <% } %>
             </h2>
             <div class="det-art-cont-estrellas "><i class="fa-solid fa-star "></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
@@ -32,7 +34,7 @@
             
         </article>
         <div class="cont_img1">
-            <img class="det-art-img_1" src="/img/portadas/<%=(producto.image !== 0 && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alt="lugar de la imagen del producto">
+            <img class="det-art-img_1" src="/img/portadas/<%=(producto.image !== '0' && producto.image !== undefined) ? producto.image : 'default-image.png'%>" alt="lugar de la imagen del producto">
         </div>
 
 
@@ -63,12 +65,17 @@
 
 
             <% if (locals.isLogged) { %>
-                
-                
-                <a class="det-art-agr-btn" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=producto.id_product%>">
+                <!-- <a class="det-art-agr-btn" href="../../product/cart/<%= locals.userLogged.id_user %>/<%=producto.id_product%>">
                     <div class="det-art-agr-btn-text">Agregar</div>
                     <div class="det-art-btn-cart"><i class="fa-solid fa-cart-shopping"></i></i></div> 
-                </a>
+                </a> -->
+                <form class="" action="../../product/cart/<%= locals.userLogged.id_user %>/<%=producto.id_product%>" method="POST" enctype="multipart/form-data">
+                    <button  type="submit">
+                        <a class="icon-articulo" class="carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </button>
+                </form>
             <% } else { %>
                 <a class="det-art-agr-btn" href="/admin/formCarga">
                     <div class="det-art-agr-btn-text">Agregar</div>
