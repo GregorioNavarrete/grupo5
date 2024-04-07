@@ -61,6 +61,7 @@ font-size: 20px;
     font-family: 'Merriweather', serif;
     color :#3E6C6A;
     text-decoration: none;
+    display: inline;
 }
 
 
@@ -133,9 +134,23 @@ font-size: 20px;
     cursor: pointer;
     transition: all 1s;
     
+
 }
 .det-art-btn-cart:hover{
     color: var(--blanco);
+}
+
+.det-btn-cart{
+    border: none;
+    background: none;
+    color: var(--cian);
+    font-size: 2em;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.det-btn-cart:hover{
+    color: var(--anaranjado);
 }
 
 

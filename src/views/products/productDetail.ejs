@@ -74,8 +74,8 @@
                     <div class="det-art-btn-cart"><i class="fa-solid fa-cart-shopping"></i></i></div> 
                 </a> -->
                 <form class="" action="../../product/cart/<%= locals.userLogged.id_user %>/<%=producto.id_product%>" method="POST" enctype="multipart/form-data">
-                    <button  type="submit">
-                        <a class="icon-articulo" class="carrito">
+                    <button class="det-btn-cart" type="submit">
+                        <a class="carrito">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
                     </button>
@@ -99,7 +99,7 @@
     <h2> Sobre el Autor</h2>
 
     <section class="section3">
-        <div class="det-aut-autor">
+        <a href="../../product/autor/<%=producto.authors[0].id_author %>"><div class="det-aut-autor">
             <article class="det-aut-descrip">
                 <h4 class="det-aut-nombre"><%=producto.authors[0].name%></h4>
                 <p class="det-aut-desc-autor"><%=producto.authors[0].biography%></p>
@@ -107,7 +107,7 @@
             <div class="det-aut-conte-img">
         <img class="det-aut-img" src="\img\authors\<%=producto.authors[0].image%>" alt="<%=producto.authors[0].name%>">
             </div>
-        </div>
+        </div></a>
         
     </section>
 
