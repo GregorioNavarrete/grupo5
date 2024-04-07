@@ -1,65 +1,70 @@
 window.addEventListener("load", function () {
-  let login = document.querySelector("form.formulario");
-  let email = document.getElementById("email");
-  let password = document.getElementById("password");
-  let spanEmail = document.getElementById("er-email");
-  let spanPassword = document.getElementById("er-password");
-  let errorSpanEmail = document.getElementById("er-span-email");
-  let errorSpanPassword = document.getElementById("er-span-password");
-  let btnLogin = document.getElementById("btn-login");
+    let form = document.querySelector("form.formulario");
 
-  let errores = {}; // Declarar errores aquí para que estén disponibles en todo el ámbito de la función
+    const miDiv4 = document.getElementById("4");
+    const emailInput = document.querySelector('input[name="email"]');
+    const emailDiv = document.getElementById("contEmail");
+    const emailErrorBase = document.getElementById("emailErrorBase");
 
-  email.addEventListener("blur", function () {
-      if (email.value.trim().length < 3) {
-          email.classList.add("invalido");
-          email.classList.remove("valido");
-          errorSpanEmail.innerText = 'El email debe tener al menos 3 caracteres';
-      } else {
-          email.classList.add("valido");
-          email.classList.remove("invalido");
-          errorSpanEmail.innerText = ""; // Limpiar mensaje de error si el campo es válido
-      }
-  });
+    function validateEmailInput() {
+        if (emailInput.value.trim() === "") {
+            miDiv4.classList.remove("oculto");
+            if (emailInput.value.trim() === "") {
+                miDiv4.textContent = "El email no puede estar vacío";
+            }
+            emailDiv.classList.add("error");
+            emailDiv.classList.remove("input-contenedor");
+            emailInput.classList.remove("bien");
+            emailInput.classList.add("mal");
+        } else {
+            emailDiv.classList.remove("input-contenedor");
+            emailInput.classList.remove("mal");
+            emailInput.classList.add("bien");
+            miDiv4.classList.add("oculto");
+            miDiv4.textContent = "";
+            emailDiv.classList.remove("error");
+            emailDiv.classList.add("input-contenedor");
+            emailErrorBase.classList.add("oculto")
+            emailErrorBase.textContent = "";
+        }
+    }
+    
+    emailInput.addEventListener('input', validateEmailInput);
+    emailInput.addEventListener('blur', validateEmailInput);
 
-  password.addEventListener("blur", function () {
-      if (password.value.trim().length < 8) {
-          password.classList.add("invalido");
-          password.classList.remove("valido");
-          errorSpanPassword.innerText = 'La Contraseña debe tener al menos 8 caracteres';
-      } else {
-          password.classList.add("valido");
-          password.classList.remove("invalido");
-          errorSpanPassword.innerText = ""; // Limpiar mensaje de error si el campo es válido
-      }
-  });
 
-  btnLogin.addEventListener("click", function (e) {
-      e.preventDefault();
+    const miDiv5 = document.getElementById("5");
+    const passwordInput = document.querySelector('input[name="password"]');
+    const passwordDiv = document.getElementById("contPassword");
+    const passwordErrorBase = this.document.getElementById("passwordErrorBase");
+    
+    function validatePasswordInput() {
+        if (passwordInput.value.trim().length < 8 || passwordInput.value.trim() === "") {
+            miDiv5.classList.remove("oculto");
+            if (passwordInput.value.trim() === "") {
+                miDiv5.textContent = "La contraseña no puede estar vacía";
+            }else{
+                miDiv5.textContent = "La contraseña debe tener al menos 8 caracteres";
+            }
+            passwordDiv.classList.add("error");
+            passwordDiv.classList.remove("input-contenedor");
+            passwordInput.classList.remove("bien");
+            passwordInput.classList.add("mal");
+        } else {
+            passwordDiv.classList.remove("input-contenedor");
+            passwordInput.classList.remove("mal");
+            passwordInput.classList.add("bien");
+            miDiv5.classList.add("oculto");
+            miDiv5.textContent = "";
+            passwordDiv.classList.remove("error");
+            passwordDiv.classList.add("input-contenedor");
+            passwordErrorBase.classList.add("oculto")
+            passwordErrorBase.textContent = "";
+        }
+    }
+    
+    passwordInput.addEventListener('input', validatePasswordInput);
+    passwordInput.addEventListener('blur', validatePasswordInput);
 
-      // Limpiar mensajes de error antes de la validación
-      spanEmail.innerText = "";
-      spanPassword.innerText = "";
-
-      // Limpiar errores previos
-      errores = {};
-
-      // Validar campos
-      if (email.value.trim().length < 3) {
-          errores.email = 'El email debe tener al menos 3 caracteres';
-      }
-
-      if (password.value.trim().length < 8) {
-          errores.password = 'La Contraseña debe tener al menos 8 caracteres';
-      }
-
-      // Mostrar mensajes de error si existen
-      if (Object.keys(errores).length >= 1) {
-          spanEmail.innerText = errores.email || "";
-          spanPassword.innerText = errores.password || "";
-      } else {
-          login.submit();
-      }
-  });
 });
 

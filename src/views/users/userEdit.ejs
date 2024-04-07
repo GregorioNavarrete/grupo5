@@ -33,8 +33,9 @@
                         <div class="user-sub-input">Nombre</div>
 							<div class="cont-input">
 								<input class="user-input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= locals.oldData ? oldData.nombre : user.name %>">
-									<% if (locals.errors && errors.nombre) { %>
-										<div class="error-message errorNombre">
+								<div class="error-message oculto" id="1"></div>
+								<% if (locals.errors && errors.nombre) { %>
+										<div class="error-message errorNombre" id="nombreErrorBase">
 											<%= errors.nombre.msg %>
 										</div>
 									<% } %>
@@ -46,8 +47,9 @@
                         <div class="user-sub-input">Apellido</div>
 						<div class="cont-input">
 						<input class="user-input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" value="<%= locals.oldData ? oldData.apellido : user.last_name %>" >
-								<% if (locals.errors && errors.apellido) { %>
-									<div class="error-message errorNombre">
+						<div class="error-message oculto" id="2"></div>
+						        <% if (locals.errors && errors.apellido) { %>
+									<div class="error-message errorNombre" id="apellidoErrorBase">
 										<%= errors.apellido.msg %>
 									</div>
 								<% } %>
@@ -58,8 +60,9 @@
                         <div class="user-sub-input">Usuario</div>
 						<div class="cont-input">
                         <input class="user-input-txt" type="text" name="usuario" placeholder="Ingrese un Usuario" value="<%= locals.oldData ? oldData.usuario : user.name_user %>" >
-							<% if (locals.errors && errors.usuario) { %>
-								<div class="error-message errorNombre">
+						<div class="error-message oculto" id="3"></div>
+						    <% if (locals.errors && errors.usuario) { %>
+								<div class="error-message errorNombre" id="usuarioErrorBase">
 									<%= errors.usuario.msg %>
 								</div>
 							<% } %>
@@ -70,14 +73,59 @@
                         <div class="user-sub-input">Email</div>
                         <div class="cont-input">
                         <input class="user-input-txt" type="email" name="email" placeholder="Ingrese un e-mail" value="<%= locals.oldData ? oldData.email : user.email %>" >
-							<% if (locals.errors && errors.email) { %>
-								<div class="error-message errorNombre">
+						<div class="error-message oculto" id="4"></div>
+						    <% if (locals.errors && errors.email) { %>
+								<div class="error-message errorNombre" id="emailErrorBase">
 									<%= errors.email.msg %>
 								</div>
 							<% } %>
 					</div>
                     </div>					
-					<br>                
+					<br> 
+
+                    <h4 class="editPassword">Editar contraseña</h4>
+
+
+					<div class="user-input invisible contraseñaActual">
+                        <div class="user-sub-input">Contraseña actual</div>
+							<div class="cont-input">
+								<input class="user-input-txt" type="text" name="password" placeholder="Ingrese su Contraseña actual">
+								<div class="error-message oculto" id="5"></div>
+								<% if (locals.errors && errors.nombre) { %>
+										<div class="error-message errorNombre" id="passwordErrorBase">
+											<%= errors.nombre.msg %>
+										</div>
+									<% } %>
+							</div>
+                    </div> 
+
+					<div class="user-input invisible contraseñaActual">
+                        <div class="user-sub-input">contraseña</div>
+							<div class="cont-input">
+								<input class="user-input-txt" type="text" name="password" placeholder="Ingrese su contraseña nueva" >
+								<div class="error-message oculto" id="5"></div>
+								<% if (locals.errors && errors.nombre) { %>
+										<div class="error-message errorNombre" id="passwordErrorBase">
+											<%= errors.nombre.msg %>
+										</div>
+									<% } %>
+							</div>
+                    </div> 
+
+
+                    <div class="user-input invisible contraseñaActual" > 
+                        <div class="user-sub-input">Confirmar Contraseña</div>
+						<div class="cont-input">
+						<input class="user-input-txt" type="text" name="confirmPassword" placeholder="repita la contraseña" >
+						<div class="error-message oculto" id="6"></div>
+						        <% if (locals.errors && errors.apellido) { %>
+									<div class="error-message errorNombre" id="confirmPasswordErrorBase">
+										<%= errors.apellido.msg %>
+									</div>
+								<% } %>
+						</div>
+                    </div>
+
                     <div class="user-input">
                         <input  class="user-input-text"  type="file" id="portada" name="imgUser"  >
                     </div>
@@ -117,8 +165,9 @@
                         <div class="user-sub-input">Nombre</div>
 							<div class="cont-input">
 								<input class="user-input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= locals.oldData ? oldData.nombre : user.name %>">
-									<% if (locals.errors && errors.nombre) { %>
-										<div class="error-message errorNombre">
+								<div class="error-message oculto" id="1"></div>
+								    <% if (locals.errors && errors.nombre) { %>
+										<div class="error-message errorNombre" id="nombreErrorBase">
 											<%= errors.nombre.msg %>
 										</div>
 									<% } %>
@@ -130,8 +179,9 @@
                         <div class="user-sub-input">Apellido</div>
 						<div class="cont-input">
 						<input class="user-input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" value="<%= locals.oldData ? oldData.apellido : user.last_name %>" >
+						<div class="error-message oculto" id="2"></div>
 								<% if (locals.errors && errors.apellido) { %>
-									<div class="error-message errorNombre">
+									<div class="error-message errorNombre"id="apellidoErrorBase">
 										<%= errors.apellido.msg %>
 									</div>
 								<% } %>
@@ -142,8 +192,9 @@
                         <div class="user-sub-input">Usuario</div>
 						<div class="cont-input">
                         <input class="user-input-txt" type="text" name="usuario" placeholder="Ingrese un Usuario" value="<%= locals.oldData ? oldData.usuario : user.name_user %>" >
-							<% if (locals.errors && errors.usuario) { %>
-								<div class="error-message errorNombre">
+						<div class="error-message oculto" id="3"></div>
+						    <% if (locals.errors && errors.usuario) { %>
+								<div class="error-message errorNombre" id="usuarioErrorBase">
 									<%= errors.usuario.msg %>
 								</div>
 							<% } %>
@@ -154,13 +205,60 @@
                         <div class="user-sub-input">Email</div>
                         <div class="cont-input">
                         <input class="user-input-txt" type="email" name="email" placeholder="Ingrese un e-mail" value="<%= locals.oldData ? oldData.email : user.email %>" >
-							<% if (locals.errors && errors.email) { %>
-								<div class="error-message errorNombre">
+						<div class="error-message oculto" id="4"></div>
+						    <% if (locals.errors && errors.email) { %>
+								<div class="error-message errorNombre" id="emailErrorBase">
 									<%= errors.email.msg %>
 								</div>
 							<% } %>
 					</div>
-                    </div>					
+                    </div>
+					
+					<h4 class="editPassword">Editar contraseña</h4>
+
+
+					<div class="user-input invisible contraseñaActual">
+                        <div class="user-sub-input">Contraseña actual</div>
+							<div class="cont-input">
+								<input class="user-input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= locals.oldData ? oldData.nombre : user.name %>">
+								<div class="error-message oculto" id="1"></div>
+								<% if (locals.errors && errors.nombre) { %>
+										<div class="error-message errorNombre" id="nombreErrorBase">
+											<%= errors.nombre.msg %>
+										</div>
+									<% } %>
+							</div>
+                    </div> 
+
+					<div class="user-input invisible contraseñaActual">
+                        <div class="user-sub-input">contraseña</div>
+							<div class="cont-input">
+								<input class="user-input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= locals.oldData ? oldData.nombre : user.name %>">
+								<div class="error-message oculto" id="1"></div>
+								<% if (locals.errors && errors.nombre) { %>
+										<div class="error-message errorNombre" id="nombreErrorBase">
+											<%= errors.nombre.msg %>
+										</div>
+									<% } %>
+							</div>
+                    </div> 
+
+
+                    <div class="user-input invisible contraseñaActual" > 
+                        <div class="user-sub-input">Confirmar Contraseña</div>
+						<div class="cont-input">
+						<input class="user-input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" value="<%= locals.oldData ? oldData.apellido : user.last_name %>" >
+						<div class="error-message oculto" id="2"></div>
+						        <% if (locals.errors && errors.apellido) { %>
+									<div class="error-message errorNombre" id="apellidoErrorBase">
+										<%= errors.apellido.msg %>
+									</div>
+								<% } %>
+						</div>
+                    </div>
+
+
+
 					<br>                
                     <div class="user-input">
                         <input  class="user-input-text"  type="file" id="portada" name="imgUser"  >
@@ -188,6 +286,7 @@
 	</div>
 	<br>
 	<br>
+	<script src="/js/userEdit.js"></script>
 </body>
 
 <footer>

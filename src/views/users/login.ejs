@@ -3,7 +3,7 @@
 <head>
     <%- include ('../partials/head') %>
     <link rel="stylesheet" href="/css/login.css">
-    <script src="/js/loginValidation.js"></script>  
+    
     <title>Iniciar sesión en Libros Prisma</title>
 
 </head>
@@ -16,28 +16,34 @@
     <form action="login" id="form" method="post" class="formulario">
         <h1>INICIAR SESION</h1>
         <div class="contenedor">
-            <div class="input-contenedor" >
-            
-                <i class="fa-regular fa-envelope icon"></i>
-                <input class="input-txt email" type="text" id="email" name="email" placeholder="Ingrese su e-mail o Usuario">
-                
+
+            <div class="input-contenedor" id="contEmail">
+                        <i class="fa-regular fa-envelope icon"></i>
+                        <input class="input-txt email" type="text" name="email" placeholder="Ingrese un e-mail o Usuario" value="<%= locals.oldData ? oldData.email : null %>" >
             </div>
-            <span class="error-message" id='er-email'></span>
-             <% if (locals.errors && errors.email) { %>
-                    <span class="error-message" id='er-span-email'><%= errors.email.msg %></span>
-             <% } %>     
+
+            
+                    <div class="error-message oculto" id="4"></div>
+
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="error-message " id="emailErrorBase">
+                             <%= errors.email.msg %>
+                        </div>
+                    <% } %>    
              
             
-            <div class="input-contenedor">
-                <i class="fa-solid fa-key icon"></i>
-                <input class="input-txt" id="password" type="password" name="password" placeholder="Ingrese su contraseña">
-                <!-- <span class="error-message">Debe tener 3 carácteres como mínimo.</span> -->
-                
-            </div>
-            <span class="error-message" id='er-password'></span> 
-             <% if (locals.errors && errors.password) { %>
-                    <span class="error-message" id='er-span-password'><%= errors.password.msg %></span>
-             <% } %>   
+                    <div class="input-contenedor" id="contPassword">
+                    <i class="fa-solid fa-key icon"></i>
+                    <input class="input-txt password" type="password" name="password" placeholder="Ingrese una contraseña" value="<%= locals.oldData ? oldData.password : null %>" >
+                </div>
+
+                <div class="error-message oculto" id="5"></div>
+
+                <% if (locals.errors && errors.password) { %>
+                    <div class="error-message errorPassword" id="passwordErrorBase">
+                        <%= errors.password.msg %>
+                    </div>
+                <% } %> 
                 <br>
             <label>
                 
@@ -57,5 +63,6 @@
     <%- include ('../partials/footer') %>
 
 </footer>
+<script src="/js/loginValidation.js"></script>  
  
 </body>
