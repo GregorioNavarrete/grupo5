@@ -22,7 +22,7 @@
 
 
 
-                   
+                   <label for="">Nombre</label>
                     <div class="
                    <% if (locals.errors && errors.nombre) { %>
                         error
@@ -46,7 +46,7 @@
 
 
 
-
+                    <label for="">Apellido</label>
                     <div class="
                     <% if (locals.errors && errors.apellido) { %>
                          error
@@ -70,7 +70,7 @@
 
 
                     
-
+                    <label for="">Usuario</label>
                     <div class="
                     <% if (locals.errors && errors.usuario) { %>
                          error
@@ -93,7 +93,7 @@
 
 
 
-
+                    <Label>Email</Label>
                     <div class="
                     <% if (locals.errors && errors.email) { %>
                          error
@@ -102,7 +102,7 @@
                             input-contenedor
                          <% } %> " id="contEmail">
                         <i class="fa-regular fa-envelope icon"></i>
-                        <input class="input-txt email" type="email" name="email" placeholder="Ingrese un e-mail" value="<%= locals.oldData ? oldData.email : null %>" >
+                        <input class="input-txt email" type="text" name="email" placeholder="Ingrese un e-mail" value="<%= locals.oldData ? oldData.email : null %>" >
                     </div>
 
                     <div class="error-message oculto" id="4"></div>
@@ -116,7 +116,7 @@
 
 
 
-
+                    <label for="">Contraseña</label>
                     <div class="
                         <% if (locals.errors && errors.password) { %>
                             error
@@ -138,26 +138,27 @@
 
 
 
-
+                    <label for="">Confirmar Contraseña</label>
                     <div class="
-                    <% if (locals.errors && errors.confirmPassword) { %>
-                         error
-                         <% } else { %>
-                         
-                            input-contenedor
-                         <% } %> "> 
-                        <i class="fa-solid fa-key icon"></i> 
-                         <input class="input-txt confirmPassword" type="password" name="confirmPassword" placeholder="Confirmar contraseña" > 
-                     </div>
+    <% if (locals.errors && errors.confirmPassword) { %>
+        error
+    <% } else { %>
+        input-contenedor
+    <% } %> " id="contConfirmPassword">
+    <i class="fa-solid fa-key icon"></i>
+    <input class="input-txt confirmPassword" type="password" name="confirmPassword" placeholder="Confirmar contraseña" >
+</div>
 
-                     <% if (locals.errors && errors.confirmPassword) { %>
-                        <div class="error-message">
-                             <%= errors.confirmPassword.msg %>
-                        </div>
-                    <% } %>
+<div class="error-message oculto" id="6"></div>
+
+<% if (locals.errors && errors.confirmPassword) { %>
+    <div class="error-message errorConfirmPassword" id="confirmPasswordErrorBase">
+        <%= errors.confirmPassword.msg %>
+    </div>
+<% } %>
 
                    
-                    
+                   <label for="">Foto Perfil</label> 
                     <div class="input-contenedor">
                         <input  class="input-text" type="file"  name="imgUser"  >
                     </div>
@@ -172,7 +173,9 @@
                     
                     <p><a type="link" href="login" class="link">Ya tengo una cuenta</a></p>
             
-                    <input type="submit" value="Registrarme" class="button">
+                    <button type="submit"  class="button">Registrarme</button>
+
+                    <div class="error-message oculto" id="register"></div>
                     <br>
                     
                 </div>
