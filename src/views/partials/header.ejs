@@ -27,7 +27,7 @@
                 <a href="../../product/cart/home/<%= locals.userLogged.id_user %>"><i class="fa-solid fa-bag-shopping"></i> Mi Carrito</a>
                 <a href="#"><i class="fa-solid fa-heart"></i> Favoritos</a>
                 <% if (locals.isLogged && locals.userLogged.id_rol === 1) { %>
-                <a href="#"><i class="fa-solid fa-toolbox"></i> Admin</a>
+                <a href="http://localhost:5173/"><i class="fa-solid fa-toolbox"></i> Admin</a>
                 <% } %>
                 <a href="../../user/logout"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a>
             </div>
@@ -57,7 +57,7 @@
           <div class="menu-hamb-conte">
               <a href="../../../user/login"><i class="fa-solid fa-circle-user"></i> Mi Perfil</a>
               <% if (locals.isLogged && locals.userLogged.id_rol === 1) { %>
-              <a href="#"><i class="fa-solid fa-toolbox"></i> Admin</a>
+              <a href="http://localhost:5173/"><i class="fa-solid fa-toolbox"></i> Admin</a>
               <% } %>
               <a href="../../user/logout"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a>
           </div>
