@@ -205,6 +205,26 @@
     display: flex;
     flex-direction: column;
 }
+.bien{
+    background-color: #91f3e47e;
+    border: 1px solid #91f3e47e;
+}
+
+.mal{
+    background-color: rgba(224, 80, 80, 0.116);
+    border: 1px solid rgba(224, 80, 80, 0.116) ;
+}
+
+.invisible{
+    display: none;
+}
+.visible{
+    display: flex;
+}
+
+.editPassword{
+    text-align: center;
+}
 
 @media(min-width:992px) {
     .user-profile{
