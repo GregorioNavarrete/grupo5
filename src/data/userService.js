@@ -109,6 +109,8 @@ const userService = {
         try {
             let user = await this.getOne(req.params.id)
             let imageFilename = req.file ? req.file.filename : req.session.userLogged.image;
+            /* let contraVieja = user.password
+            let contraNueva = req.body. */
 
             if (req.file && user.image != "default.png") {
                 let borrar = path.join(__dirname, `../../public/img/users/${user.image}`);
@@ -126,6 +128,7 @@ const userService = {
                 name_user: req.body.usuario,
                 email: req.body.email,
                 image: imageFilename
+                
             }, { where: { id_user: req.params.id } })
 
             let userToEdit = await db.User.findOne({ where: { id_user: req.params.id } });
