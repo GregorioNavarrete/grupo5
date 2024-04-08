@@ -5,10 +5,12 @@
     <div class="sidebar-categ">
         
     <% genres.forEach(genero => { %>
-    <button class="categoria" name="<%= genero.name %>"><div class="categ">
-        <img class="img-categoria" src="/img/categorias/<%= genero.image %>" alf="Misterio"> 
-        <h4 class="text-categoria"><%= genero.name %></h4>
-    </div></button>
+        <a class="categoria" href="/product/catg?Categoria=<%= genero.name %>" name="<%= genero.name %>">
+            <div class="categ">
+                <img class="img-categoria" src="/img/categorias/<%= genero.image %>" alf="Misterio"> 
+                <h4 class="text-categoria"><%= genero.name %></h4>
+            </div>
+        </a>
     <% }) %>
     
     </div>

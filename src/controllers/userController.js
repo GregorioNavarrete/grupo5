@@ -88,6 +88,24 @@ const userController = {
           oldData: req.body
         });
       }
+      let contra = req.body.password;
+      let confirmContra = req.body.confirmPassword
+      if (contra && confirmContra) {
+        let user = await userService.getOne(req.params.id);
+        let contraBody = bcryptjs.compareSync(req.body.password,user.password);
+        if (!contraBody) {
+          return res.render('users/userEdit', {
+            user:req.session.userLogged,
+            errors: {
+              password: {
+                msg: 'la contraseña es incorrecta'
+              }
+            },
+            oldData: req.body
+          });
+        }
+      }
+
 
 
       let userEdit = await userService.edit(req);

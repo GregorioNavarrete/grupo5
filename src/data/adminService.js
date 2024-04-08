@@ -39,9 +39,10 @@ const adminService = {
 
     delete: async function (id) {
         try {
-            let comment = await db.Comment.destroy({ where: { id_user: id } })
+            let user = await this.getOne(id);
+            let carrito = await db.user_product.destroy({ where: { ID_USER: id } });
+            let comment = await db.Comment.destroy({ where: { id_user: id } });
 
-            let user = await this.getOne(id)
             if (user.image != "default.png") {
                 let borrar = path.join(__dirname, `../../public/img/users/${user.image}`);
                 fs.unlink(borrar, (err) => {
