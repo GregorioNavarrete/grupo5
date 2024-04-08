@@ -47,7 +47,7 @@
     <div class="nav_list">
   <% if (locals.isLogged) { %>
     <div>
-      <a class="nav_icon" href="../../product/cart/home/<%= locals.userLogged.id_user %>" class="nav_link" ><i class="fa-solid fa-bag-shopping"></i></a>
+      <a class="nav_icon" href="../../../product/cart/home/<%= locals.userLogged.id_user %>" class="nav_link" ><i class="fa-solid fa-bag-shopping"></i></a>
     </div>
     <div>
       <a class="nav_icon" href="#" class="nav_link" ><i class="fa-solid fa-heart"></i></a>
@@ -59,7 +59,7 @@
               <% if (locals.isLogged && locals.userLogged.id_rol === 1) { %>
               <a href="http://localhost:5173/"><i class="fa-solid fa-toolbox"></i> Admin</a>
               <% } %>
-              <a href="../../user/logout"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a>
+              <a href="../../../user/logout"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a>
           </div>
       </div>
       <% } else { %>        
