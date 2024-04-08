@@ -575,20 +575,10 @@ let deletproduct_favorites = await db.product_favorites.destroy(
         getCarrito: async function(id){
             try{
                 let products = await db.user_product.findAll({
-                    
-                        include : [{association : 'products'
+                    include : [{association : 'products'
                     ,include : [{association : 'authors'}]}] 
-                    ,
-                        //hay que poner, o traera todo el array
-                        where : {ID_USER: id}
-                }
-
-                  );
-        
-                // Puedes retornar directamente el array de productos encontrados
-                // console.log(products[0].dataValues);
-                // console.log(products[1].dataValues);
-                //console.log(products[2].dataValues);
+                    ,where : {ID_USER: id}
+                });
                 let Total = 0;
                 let precios = []; 
                 for(let i=0; i < products.length; i++){
@@ -596,9 +586,6 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                     precios[i] = products[i].dataValues.cant * products[i].dataValues.products.price; 
                     Total = Total + products[i].dataValues.cant * products[i].dataValues.products.price;
                 }
-
-                //console.log(precios);
-                let envio = 10000;
                 let obj={
                     prod: products,
                     prec :precios,
@@ -615,8 +602,6 @@ let deletproduct_favorites = await db.product_favorites.destroy(
              let aux = await db.user_product.findAll({ 
                 where : {ID: id}
              });
-            //  console.log("estas en getOneProducto");
-            //  console.log(aux[0].dataValues.cant);
              return aux;
             } catch (error) {
                 console.log(error);
@@ -631,14 +616,9 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                 let stock = libro.dataValues.stock; 
 
                 if(req.params.cant === '1'){
-                    //tengo q incrementar 1
                     let NuevaCantidad = parseInt(productoCarrito[0].dataValues.cant) + 1 ;
                     if(1 < stock){
                         let NuevoStock = parseInt(libro.dataValues.stock) - 1 ;
-                        // console.log("el id del libro es : "+id_producto);
-                        // console.log("el id del producto en el carrito es :"+req.params.tabla);
-                        // console.log("se incrementa y queda :"+NuevaCantidad);
-                        // console.log("se reduce el stock:"+NuevoStock);
                         await db.user_product.update(
                             {
                                 cant : NuevaCantidad
@@ -647,10 +627,8 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                             });
                         await db.Product.update(
                                 {
-                                    //los campos de la tabla que buscamos modificar
                                     stock : NuevoStock
                                 },{
-                                    //indicamos a que registro aplicamos los cambios 
                                     where: {id_product : id_producto}
                                 });
                     } 
@@ -661,48 +639,31 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                         
                         let aux =  parseInt(productoCarrito[0].dataValues.cant) - 1 ;
                         let NuevoStock = parseInt(libro.dataValues.stock) + 1 ;
-                        // console.log(aux);
-                        // console.log(NuevoStock);
-                       // console.log(aux);
                         await db.user_product.update(
                             {
-                                //los campos de la tabla que buscamos modificar
                                 cant : aux
                             },{
-                                //indicamos a que registro aplicamos los cambios 
                                 where: {ID : req.params.tabla }
                             });
                        await db.Product.update(
                             {
-                                //los campos de la tabla que buscamos modificar
                                 stock : NuevoStock
                             },{
-                                //indicamos a que registro aplicamos los cambios 
                                 where: {id_product : id_producto }
                             });
                     }
                 }
-                
-
-                //let producto = await this.getOne(req.params.id);
             }catch(e){
                 console.log(e);
             }
         },
         DeleteCarrito : async function(ID){
             try{
-                // console.log("id user : "+ID );
-                // console.log("el id del registro en carrito:"+id)
                 let libro = await db.user_product.findAll({
                     where: {ID : ID}
                 })
-                // console.log(libro);
                 let  id_prodoctoCarrito=libro[0].dataValues.ID_PRODUCT;
-                
                 let cant=libro[0].dataValues.cant;
-                // let id_user=libro[0].dataValues.ID_USER;
-                
-                
                 if(cant >0){
                     let DatosProduct = await this.getOne(id_prodoctoCarrito);
                     let stock = DatosProduct.dataValues.stock;
@@ -711,13 +672,12 @@ let deletproduct_favorites = await db.product_favorites.destroy(
                         {
                             stock : NuevoStock
                         },{
-                            
                             where: {id_product : id_prodoctoCarrito}
                         });
                     await db.user_product.destroy(
-                            {
-                                  where: {ID : ID }
-                              }
+                        {
+                            where: {ID : ID }
+                        }
                         );
                 }
 
@@ -736,23 +696,17 @@ let deletproduct_favorites = await db.product_favorites.destroy(
             },
             BuscarProductoCarrito: async function(req){
                 try{
-                    // y un where que 
-                    // console.log(req.params);
                     let aux = await db.user_product.findAll({ 
                         where: {
                             ID_PRODUCT:parseInt(req.params.id_producto),
                             ID_USER: parseInt(req.params.id)
                           }
-                     
                      });
-                    //  console.log(aux[0].dataValues); es un ARRAY?
-                    //  console.log(aux)
                      if(aux.length === 0){
                         return false;
                      }else{
                         return  true;
                      }
-                    //  return aux;
                     }catch(e){
                         console.log(e);
                     }
