@@ -128,15 +128,15 @@
         <article class="det-dejacomen-conte">
             <div class="det-dejacomen-conte-star">
                 <i class="fa-solid fa-star estrella" name="1234"></i><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star estrella"></i><i class="fa-solid fa-star estrella"></i>
-                Califica el Libro
-            </div>
+               
+            </div> <p>Califica el Libro</p>
         </article>
            
           <div class="cont_deja_comentario">
-            <form action="/product/libro/<%=producto.id_product%>" method="post">
+            <form  action="/product/libro/<%=producto.id_product%>" method="post">
                 <textarea  name="message" rows="4"  class="coment"></textarea>
                 <input type="hidden" id="starCount" name="starCount" value="0"> <!-- Este es el campo oculto -->
-                <button >enviar</button>
+                <button >Enviar</button>
             </form>
             </div>
         </div>

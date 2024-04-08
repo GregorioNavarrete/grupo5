@@ -451,11 +451,11 @@ let deletproduct_favorites = await db.product_favorites.destroy(
         
         catg: async function (req){
             try {
-                let catg = Object.keys(req.query)[0];
+                let catg = req.query.Categoria;
                 let products = await db.Product.findAll({
                     include: [{
                         association: 'Genres',
-                        where: { name: catg } // Filter by the specified category
+                        where: { name: catg } 
                     },{ association: "authors" }]
                 });
 

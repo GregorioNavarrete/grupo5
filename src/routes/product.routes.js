@@ -28,7 +28,7 @@ router.delete('/cart/delete/:id/:ID', productController.DeleteCar);
 router.get('/libro/:id', productController.getOne);
 // router.get('/all', productController.all);
 
-router.get('/filter',productController.filtro);// no se bien como hacerlo 
+/* router.get('/filter',productController.filtro);  */
 router.get('/catg',productController.indexCatg); 
 
 router.get("/search", productController.productSearch)

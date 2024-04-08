@@ -109,6 +109,14 @@ const userService = {
         try {
             let user = await this.getOne(req.params.id)
             let imageFilename = req.file ? req.file.filename : req.session.userLogged.image;
+            let contraVieja = user.password
+            let contraNueva = req.body.confirmPassword;
+            let newContra;
+            if (contraNueva) {
+                newContra=bcryptjs.hashSync(contraNueva,10)
+            }else{
+                newContra=contraVieja
+            }
 
             if (req.file && user.image != "default.png") {
                 let borrar = path.join(__dirname, `../../public/img/users/${user.image}`);
@@ -125,7 +133,9 @@ const userService = {
                 last_name: req.body.apellido,
                 name_user: req.body.usuario,
                 email: req.body.email,
-                image: imageFilename
+                image: imageFilename,
+                password: newContra
+                
             }, { where: { id_user: req.params.id } })
 
             let userToEdit = await db.User.findOne({ where: { id_user: req.params.id } });
@@ -139,8 +149,8 @@ const userService = {
     delete: async function (id) {
 
         try {
-
-
+            let user = this.getOne(id);
+            let carrito = await db.user_product.destroy({ where: { ID_USER: id } })
             let comment = await db.Comment.destroy({ where: { id_user: id } })
 
 

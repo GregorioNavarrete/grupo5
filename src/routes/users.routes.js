@@ -33,7 +33,7 @@ router.post('/profile/:id/edit',uploadUser.single('imgUser'),validationsEdit,use
 
 //CREATE ONE USER
 
-router.get('/register', userController.registro);
+router.get('/register',guestMiddleware, userController.registro);
 router.post('/register',uploadUser.single('imgUser'),validations, userController.processRegister);
 
 //DELETE ONE USER
