@@ -55,10 +55,7 @@
 
 
                 <div class="IndexList">
-                    <div class="SubTitulo">
-                        <p>Titulo</p>
-
-                    </div>
+                  <br>
 
                     <!--Le tengo que poner un for con la logica EJS -->
                     <div class="Productos">
@@ -91,6 +88,9 @@
                                     <%=producto.authors[i].name %> 
                                     <br>
                                 <% } %>
+                            </div>
+                            <div class="stock-producto">
+                                stock: <%= producto.stock %>
                             </div>
                            </div>
 
