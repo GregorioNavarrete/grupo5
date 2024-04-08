@@ -82,8 +82,9 @@
 					</div>
                     </div>					
 					<br> 
-
-                    <h4 class="editPassword">Editar contraseña</h4>
+                    
+                    <h4 class="editPassword user-btn-edit">Editar contraseña</h4>
+					
 
 
 					<div class="user-input invisible contraseñaActual">
@@ -91,22 +92,9 @@
 							<div class="cont-input">
 								<input class="user-input-txt" type="text" name="password" placeholder="Ingrese su Contraseña actual">
 								<div class="error-message oculto" id="5"></div>
-								<% if (locals.errors && errors.nombre) { %>
+								<% if (locals.errors && errors.password) { %>
 										<div class="error-message errorNombre" id="passwordErrorBase">
-											<%= errors.nombre.msg %>
-										</div>
-									<% } %>
-							</div>
-                    </div> 
-
-					<div class="user-input invisible contraseñaActual">
-                        <div class="user-sub-input">contraseña</div>
-							<div class="cont-input">
-								<input class="user-input-txt" type="text" name="password" placeholder="Ingrese su contraseña nueva" >
-								<div class="error-message oculto" id="5"></div>
-								<% if (locals.errors && errors.nombre) { %>
-										<div class="error-message errorNombre" id="passwordErrorBase">
-											<%= errors.nombre.msg %>
+											<%= errors.password.msg %>
 										</div>
 									<% } %>
 							</div>
@@ -114,7 +102,7 @@
 
 
                     <div class="user-input invisible contraseñaActual" > 
-                        <div class="user-sub-input">Confirmar Contraseña</div>
+                        <div class="user-sub-input">Contraseña Nueva</div>
 						<div class="cont-input">
 						<input class="user-input-txt" type="text" name="confirmPassword" placeholder="repita la contraseña" >
 						<div class="error-message oculto" id="6"></div>
@@ -213,31 +201,18 @@
 							<% } %>
 					</div>
                     </div>
+					<h4 class="editPassword user-btn-edit">Editar contraseña</h4>
 					
-					<h4 class="editPassword">Editar contraseña</h4>
 
 
 					<div class="user-input invisible contraseñaActual">
                         <div class="user-sub-input">Contraseña actual</div>
 							<div class="cont-input">
-								<input class="user-input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= locals.oldData ? oldData.nombre : user.name %>">
-								<div class="error-message oculto" id="1"></div>
-								<% if (locals.errors && errors.nombre) { %>
-										<div class="error-message errorNombre" id="nombreErrorBase">
-											<%= errors.nombre.msg %>
-										</div>
-									<% } %>
-							</div>
-                    </div> 
-
-					<div class="user-input invisible contraseñaActual">
-                        <div class="user-sub-input">contraseña</div>
-							<div class="cont-input">
-								<input class="user-input-txt" type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%= locals.oldData ? oldData.nombre : user.name %>">
-								<div class="error-message oculto" id="1"></div>
-								<% if (locals.errors && errors.nombre) { %>
-										<div class="error-message errorNombre" id="nombreErrorBase">
-											<%= errors.nombre.msg %>
+								<input class="user-input-txt" type="text" name="password" placeholder="Ingrese su Contraseña actual">
+								<div class="error-message oculto" id="5"></div>
+								<% if (locals.errors && errors.password) { %>
+										<div class="error-message errorNombre" id="passwordErrorBase">
+											<%= errors.password.msg %>
 										</div>
 									<% } %>
 							</div>
@@ -245,12 +220,12 @@
 
 
                     <div class="user-input invisible contraseñaActual" > 
-                        <div class="user-sub-input">Confirmar Contraseña</div>
+                        <div class="user-sub-input">Contraseña Nueva</div>
 						<div class="cont-input">
-						<input class="user-input-txt" type="text" name="apellido" placeholder="Ingrese su Apellido" value="<%= locals.oldData ? oldData.apellido : user.last_name %>" >
-						<div class="error-message oculto" id="2"></div>
+						<input class="user-input-txt" type="text" name="confirmPassword" placeholder="repita la contraseña" >
+						<div class="error-message oculto" id="6"></div>
 						        <% if (locals.errors && errors.apellido) { %>
-									<div class="error-message errorNombre" id="apellidoErrorBase">
+									<div class="error-message errorNombre" id="confirmPasswordErrorBase">
 										<%= errors.apellido.msg %>
 									</div>
 								<% } %>
