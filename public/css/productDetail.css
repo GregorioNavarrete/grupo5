@@ -293,6 +293,9 @@ margin: 3px;
   }
   .coment-lista .coment-conte{
       flex: 0 0 50%;
+      display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .cont_deja_comentario textarea{

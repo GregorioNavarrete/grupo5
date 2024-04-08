@@ -26,9 +26,9 @@ const productController = {
     }
   },
 
-  cartID: async function (req, res) {
+  ShowCarrito: async function (req, res) {
     try {
-      // le tengo que poner funcionalidad xq ya esta la tabla apara esto 
+     
       let obj = await productService.getCarrito(req.params.id);
       let tres = await productService.GetLimit();
       
@@ -40,26 +40,18 @@ const productController = {
 
   AddCarrito: async function (req, res) {
     try {
-      // le tengo que poner funcionalidad xq ya esta la tabla apara esto 
-      // let obj = await productService.getCarrito(req.params.id);
-
       let busqueda = await productService.BuscarProductoCarrito(req);
-      //bucar si el producto ya esta en el carrito 
-      
       if(busqueda == true ){
-        //si esta, redirecciono al metodo "cartID"
         res.redirect(`/product/cart/home/${req.params.id}`);
       }else{
-        // si no esta , lo agrego a la BDs y redirecciono a "cartID"
         await productService.AddProductoCarrito(req);
-        // console.log("el agregar " + agregar);
         res.redirect(`/product/cart/home/${req.params.id}`);
       }
     }catch(e){
       console.log(e);
     }
   },
-  Cantidad : async (req, res) =>{
+  UpdateCantidad : async (req, res) =>{
     try{
       await productService.editCantidad(req);
       res.redirect(`/product/cart/home/${req.params.id}`);
@@ -68,7 +60,7 @@ const productController = {
     }
   },
 
-  BorrarCarrito: async(req, res) =>{
+  DeleteCar: async(req, res) =>{
     try{
         let id_carrito = req.params.id;
         let id_user = req.params.ID;

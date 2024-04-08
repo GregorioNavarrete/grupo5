@@ -1,8 +1,10 @@
-{
+require('dotenv').config();
+
+const base  ={
   "development": {
-    "username": "root",
-    "password": "",
-    "database": "prisma",
+    "username": process.env.DB_USER,
+    "password": process.env.DB_PASS,
+    "database": 'prisma',
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
@@ -21,3 +23,5 @@
     "dialect": "mysql"
   }
 }
+
+module.exports = base

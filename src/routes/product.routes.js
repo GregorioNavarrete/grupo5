@@ -16,13 +16,13 @@ const productController = require ('../controllers/productController');
 
 //router.get('/cart/', productController.cart);// para ir a ver al carrito
 //visualisar lista del carrito 
-router.get('/cart/home/:id', authMiddleware,productController.cartID);
+router.get('/cart/home/:id', authMiddleware,productController.ShowCarrito);
 //agregar al carrito
 router.post('/cart/:id/:id_producto', authMiddleware,productController.AddCarrito);
 //Edit cant carrito y stok
-router.put('/cart/cantidad/:tabla/:cant/:id', productController.Cantidad);
+router.put('/cart/cantidad/:tabla/:cant/:id', productController.UpdateCantidad);
 // eliminar del carrito nos xq no reconose a "id"
-router.delete('/cart/delete/:id/:ID', productController.BorrarCarrito);
+router.delete('/cart/delete/:id/:ID', productController.DeleteCar);
 
 
 router.get('/libro/:id', productController.getOne);
