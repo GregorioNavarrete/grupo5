@@ -12,14 +12,14 @@ const path = require('path');
 
 
 /*****Es para pasar el JASON a un arreglo de objetos y poder manipularlo ******/
-const productsFilePath = path.join(__dirname, '../data/products.json');
+// const productsFilePath = path.join(__dirname, '../data/products.json');
 
 
 
 const productService = {
 
     //es un atributo que tiene todos los productos en un Arrglo de objetos
-    products:JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')), //simplemente puedo usar el GetAll()para consultar a la BDs
+    // products:JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')), //simplemente puedo usar el GetAll()para consultar a la BDs
     
 
     /* getAll: function(){

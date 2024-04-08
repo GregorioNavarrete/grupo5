@@ -1,7 +1,8 @@
 <% comentarios.forEach(comentario => { %>
     <article class="coment-conte">
+        <div>
         <h3 class="coment-nombre"><%= comentario.Users.name %> <%= comentario.Users.last_name %></h3>
-        <p class="coment-text"><%=comentario.description %></p>
+        <p class="coment-text"><%=comentario.description %></p></div>
         <div class="coment-icons">
             <div class="coment-conte-star">
                 <% for(let i = 0; i < 5; i++) { %>
