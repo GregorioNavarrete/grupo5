@@ -2,8 +2,8 @@ require('dotenv').config();
 
 const base  ={
   "development": {
-    "username": process.env.DB_USER,
-    "password": process.env.DB_PASS,
+    "username": "",
+    "password": "",
     "database": 'prisma',
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -16,10 +16,10 @@ const base  ={
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "u9tjsaju9nydrkik",
+    "password": "ZAPgZKvDmXLqwQbCbw4M",
+    "database": "bh7td7m91cnuv9osxwbd",
+    "host": "bh7td7m91cnuv9osxwbd-mysql.services.clever-cloud.com",
     "dialect": "mysql"
   }
 }
